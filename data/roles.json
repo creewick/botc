@@ -1,0 +1,3896 @@
+[
+  {
+    "id": "steward",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Steward",
+      "ru": "Стюард"
+    },
+    "jinxes": [],
+    "firstNight": 57,
+    "flavor": {
+      "en": "\"How DARE you accuse Her Ladyship of wrongdoing? I’ve known her my entire life! All nine years!\"",
+      "ru": "\"Как вы смеете обвинять ее светлость в проступках? Я знаю ее всю свою жизнь! Все девять лет!\""
+    },
+    "summary": {
+      "en": "\"You start knowing 1 good player.\"",
+      "ru": "\"Вы начинаете знать 1 хорошего игрока\"."
+    }
+  },
+  {
+    "id": "knight",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Knight",
+      "ru": "Рыцарь"
+    },
+    "jinxes": [],
+    "firstNight": 58,
+    "flavor": {
+      "en": "\"When a man lies, he murders some part of the world.\"",
+      "ru": "\"Когда человек лжет, он убивает какую-то часть мира\"."
+    },
+    "summary": {
+      "en": "\"You start knowing 2 players that are not the Demon.\"",
+      "ru": "\"Вы начинаете знать двух игроков, которые не являются Демонами\"."
+    }
+  },
+  {
+    "id": "chef",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Chef",
+      "ru": "Шеф-повар"
+    },
+    "jinxes": [],
+    "firstNight": 49,
+    "flavor": {
+      "en": "\"This evening's reservations seem odd. Never before has Mrs Mayweather kept company with that scamp from Hudson Lane. Yet, tonight, they have a table for two. Strange.\"",
+      "ru": "\"Заказы на этот вечер кажутся странными. Никогда прежде миссис Мэйуэзер не составляла компанию этому мерзавцу с Хадсон-Лейн. И все же сегодня у них заказан столик на двоих. Странно\"."
+    },
+    "summary": {
+      "en": "\"You start knowing how many pairs of evil players there are.\"",
+      "ru": "\"Вы начинаете понимать, сколько пар злых игроков существует\"."
+    }
+  },
+  {
+    "id": "noble",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Noble",
+      "ru": "Noble"
+    },
+    "jinxes": [],
+    "firstNight": 59,
+    "flavor": {
+      "en": "\"Sarcasm is indeed the lowest form of wit. But speaking in response to your criticism, Sir, it is, nevertheless, a form of wit.\"",
+      "ru": "\"Сарказм - это действительно низшая форма остроумия. Но, отвечая на вашу критику, сэр, это, тем не менее, форма остроумия\"."
+    },
+    "summary": {
+      "en": "\"You start knowing 3 players, 1 and only 1 of which is evil.\"",
+      "ru": "\"Вы начинаете знать 3 игроков, 1 и только 1 из которых - зло\"."
+    }
+  },
+  {
+    "id": "investigator",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Investigator",
+      "ru": "Следователь"
+    },
+    "jinxes": [],
+    "firstNight": 48,
+    "flavor": {
+      "en": "\"It is a fine night for a stroll, wouldn't you say, Mister Morozov? Or should I say... BARON Morozov?\"",
+      "ru": "\"Прекрасный вечер для прогулки, не так ли, господин Морозов? Или лучше сказать... Барон Морозов?\""
+    },
+    "summary": {
+      "en": "\"You start knowing that 1 of 2 players is a particular Minion.\"",
+      "ru": "\"Вы начинаете знать, что 1 из 2 игроков является определенным миньоном\"."
+    }
+  },
+  {
+    "id": "washerwoman",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Washerwoman",
+      "ru": "Мойщица"
+    },
+    "jinxes": [],
+    "firstNight": 46,
+    "flavor": {
+      "en": "\"Bloodstains on a dinner jacket? No, this is cooking sherry. How careless.\"",
+      "ru": "\"Пятна крови на пиджаке? Нет, это кулинарный херес. Как небрежно\"."
+    },
+    "summary": {
+      "en": "\"You start knowing that 1 of 2 players is a particular Townsfolk.\"",
+      "ru": "\"Вы начинаете знать, что один из двух игроков - это определенный таунсфолк\"."
+    }
+  },
+  {
+    "id": "clockmaker",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Clockmaker",
+      "ru": "Часовщик"
+    },
+    "jinxes": [],
+    "firstNight": 54,
+    "flavor": {
+      "en": "\"Do not disturb me. The tick must continue, for the circle is a symbol of life and contains all things - all answers - in its divine machinery. I must work.\"",
+      "ru": "\"Не мешайте мне. Тиканье должно продолжаться, ибо круг - символ жизни и содержит все вещи - все ответы - в своем божественном механизме. Я должен работать\"."
+    },
+    "summary": {
+      "en": "\"You start knowing how many steps from the Demon to its nearest Minion.\"",
+      "ru": "\"Вы начинаете знать, сколько шагов от демона до его ближайшего миньона\"."
+    }
+  },
+  {
+    "id": "grandmother",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Grandmother",
+      "ru": "Бабушка"
+    },
+    "jinxes": [],
+    "firstNight": 53,
+    "otherNight": 67,
+    "flavor": {
+      "en": "\"Take a jacket if you go outside, dearie. And your thermos. And your scarf. I have a weak heart, you know. Whatever would I do if you caught cold...or worse?\"",
+      "ru": "\"Возьми куртку, если выйдешь на улицу, дорогуша. И термос. И шарф. У меня слабое сердце, ты же знаешь. Что бы я делала, если бы ты простудилась... или еще что похуже?\""
+    },
+    "summary": {
+      "en": "\"You start knowing a good player & their character. If the Demon kills them, you die too.\"",
+      "ru": "\"Вы начинаете узнавать хорошего игрока и его персонажа. Если Демон убьет их, ты тоже умрешь\"."
+    }
+  },
+  {
+    "id": "librarian",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Librarian",
+      "ru": "Библиотекарь"
+    },
+    "jinxes": [],
+    "firstNight": 47,
+    "flavor": {
+      "en": "\"Certainly madam, under normal circumstances, you may borrow the Codex Malificarium from the library vaults. However, you do not seem to be a member.\"",
+      "ru": "\"Конечно, мадам, при обычных обстоятельствах вы можете взять Кодекс Малификариума из хранилища библиотеки. Однако, похоже, вы не являетесь членом библиотеки\"."
+    },
+    "summary": {
+      "en": "\"You start knowing that 1 of 2 players is a particular Outsider. (Or that zero are in play.)\"",
+      "ru": "\"Вы начинаете знать, что 1 из 2 игроков - конкретный Аутсайдер. (Или что в игре ноль)\"."
+    }
+  },
+  {
+    "id": "shugenja",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Shugenja",
+      "ru": "Шугенджа"
+    },
+    "jinxes": [],
+    "firstNight": 61,
+    "flavor": {
+      "en": "これは夢。それも夢。すべて夢です。",
+      "ru": "これは夢。それも夢。すべて夢です。"
+    },
+    "summary": {
+      "en": "\"You start knowing if your closest evil player is clockwise or anti-clockwise. If equidistant, this info is arbitrary.\"",
+      "ru": "\"Вы начинаете знать, находится ли ближайший к вам злой игрок по часовой стрелке или против нее. Если равноудален, эта информация произвольна\"."
+    }
+  },
+  {
+    "id": "bountyhunter",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Bounty Hunter",
+      "ru": "Охотник за головами"
+    },
+    "jinxes": [
+      {
+        "roleId": "philosopher",
+        "reason": {
+          "en": "If the Philosopher gains the Bounty Hunter ability, a Townsfolk might turn evil.",
+          "ru": "Если Философ получает способность \"Охотник за головами\", один из жителей города может стать злым."
+        }
+      },
+      {
+        "roleId": "kazali",
+        "reason": {
+          "en": "An evil Townsfolk is only created if the Bounty Hunter is still in play after the Kazali acts.",
+          "ru": "Злой горожанин создается только в том случае, если Охотник за головами все еще находится в игре после действий Казали."
+        }
+      }
+    ],
+    "firstNight": 63,
+    "otherNight": 81,
+    "flavor": {
+      "en": "\"Alone, I walk these streets, paved with the sick stench of corruption. Its thickness worms its way into my nostrils, unbidden, burning with revulsion. And anticipation. The illness of this wretched place grows each night. And I... I am the cure.\"",
+      "ru": "\"В одиночестве я иду по этим улицам, пропитанным тошнотворным запахом коррупции. Его густой запах проникает в мои ноздри без предупреждения, обжигая отвращением. И предвкушением. Болезнь этого убогого места растет с каждой ночью. А я... Я - лекарство\"."
+    },
+    "summary": {
+      "en": "\"You start knowing 1 evil player. If the player you know dies, you learn another evil player tonight. [1 Townsfolk is evil]\"",
+      "ru": "\"Вы начинаете знать 1 злого игрока. Если игрок, которого вы знаете, умирает, вы узнаете еще одного злого игрока сегодня вечером. [1 горожанин - злой]\"."
+    }
+  },
+  {
+    "id": "pixie",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Pixie",
+      "ru": "Пикси"
+    },
+    "jinxes": [],
+    "firstNight": 42,
+    "flavor": {
+      "en": "\"Round and round the garden, go.\n\t\t\t\tLittle girls run to and fro.\n\t\t\t\tLittle boys climb up the tree.\n\t\t\t\tWhich of these should Pixie be?\n\t\t\t\tLadies smile and go to town. \n\t\t\t\tLords with axe chop forest down.\n\t\t\t\tWhat’s yours is mine. What’s mine, divine.\n\t\t\t\tSilly little Pixie, me.\"",
+      "ru": "\"По саду, по саду, по саду.\n\t\t\t\tМаленькие девочки бегают туда-сюда.\n\t\t\t\tМаленькие мальчики забираются на дерево\".\n\t\t\t\tКем из них должна быть Пикси?\n\t\t\t\tДамы улыбаются и едут в город.\n\t\t\t\tЛорды с топором рубят лес.\n\t\t\t\tЧто твое, то мое. Что мое, то божественное.\n\t\t\t\tГлупая маленькая Пикси - я\"."
+    },
+    "summary": {
+      "en": "\"You start knowing 1 in-play Townsfolk. If you were mad that you were this character, you gain their ability when they die.\"",
+      "ru": "\"Вы начинаете, зная 1 горожанина в игре. Если вы злились, что являетесь этим персонажем, вы получаете его способность, когда он умирает\"."
+    }
+  },
+  {
+    "id": "empath",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Empath",
+      "ru": "Эмпат"
+    },
+    "jinxes": [],
+    "firstNight": 50,
+    "otherNight": 69,
+    "flavor": {
+      "en": "\"My skin prickles. Something is not right here. I can feel it.\"",
+      "ru": "\"Моя кожа покрывается колючками. Что-то здесь не так. Я чувствую это\"."
+    },
+    "summary": {
+      "en": "\"Each night, you learn how many of your 2 alive neighbors are evil.\"",
+      "ru": "\"Каждую ночь вы узнаете, сколько из двух ваших живых соседей являются злыми\"."
+    }
+  },
+  {
+    "id": "highpriestess",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "High Priestess",
+      "ru": "Верховная жрица"
+    },
+    "jinxes": [],
+    "firstNight": 68,
+    "otherNight": 86,
+    "flavor": {
+      "en": "“There is life behind the personality that uses personalities as masks. There are times when life puts off the mask and deep answers to deep.”",
+      "ru": "\"За личностью скрывается жизнь, которая использует личность как маску. Бывают моменты, когда жизнь сбрасывает маску и отвечает на глубокие вопросы\"."
+    },
+    "summary": {
+      "en": "\"Each night, learn which player the Storyteller believes you should talk to most.\"",
+      "ru": "\"Каждый вечер узнавайте, с кем из игроков, по мнению Сказочника, вам стоит поговорить больше всего\"."
+    }
+  },
+  {
+    "id": "sailor",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Sailor",
+      "ru": "Матрос"
+    },
+    "jinxes": [],
+    "firstNight": 20,
+    "otherNight": 9,
+    "flavor": {
+      "en": "\"I'll drink any one of yer under the table! You! The chatterbox! Reckon you can take me? No? Howza 'bout you, Grandma? You ever tried Old McKillys Extra Spiced Rum before? Guaranteed to put hairs on yer chest! Step aboard, aye!\"",
+      "ru": "\"Я выпью любого из вас под столом! Ты! Болтун! Думаешь, сможешь меня взять? Нет? А как насчет тебя, бабушка? Ты когда-нибудь пробовала Old McKillys Extra Spiced Rum? От него волосы на груди дыбом встают! Поднимайтесь на борт, да!\""
+    },
+    "summary": {
+      "en": "\"Each night, choose an alive player: either you or they are drunk until dusk. You can't die.\"",
+      "ru": "\"Каждую ночь выбирайте живого игрока: либо вы, либо он напиваются до сумерек. Вы не можете умереть\"."
+    }
+  },
+  {
+    "id": "balloonist",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Balloonist",
+      "ru": "Воздухоплаватель"
+    },
+    "jinxes": [],
+    "firstNight": 60,
+    "otherNight": 78,
+    "flavor": {
+      "en": "\"More heat! Higher! Higher! Più alto! Ahhh... it is so beautiful from up here, don't you agree? Can you see the children fishing by the river, under the willow? Can you see the  glint of the sun on the circus tent-poles? What's this? An old man, alone, passed out in the vineyard? Less heat! Lower! Lower! Vai più in basso!\"",
+      "ru": "\"Больше тепла! Выше! Выше! Più alto! Аххх... отсюда так красиво, согласитесь? Вы видите детей, которые ловят рыбу у реки, под ивами? Видите ли вы отблески солнца на столбах циркового шатра? А это что? Старик, одинокий, потерявший сознание в винограднике? Меньше жары! Поменьше! Ниже! Vai più in basso!\""
+    },
+    "summary": {
+      "en": "\"Each night, you learn a player of a different character type than last night. [+0 or +1 Outsider]\"",
+      "ru": "\"Каждую ночь вы изучаете игрока с другим типом персонажа, чем прошлой ночью. [+0 или +1 Аутсайдер]\"."
+    }
+  },
+  {
+    "id": "general",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "General",
+      "ru": "Общие сведения"
+    },
+    "jinxes": [],
+    "firstNight": 69,
+    "otherNight": 87,
+    "flavor": {
+      "en": "\"I don’t have time for quotes.\"",
+      "ru": "\"У меня нет времени на цитаты\"."
+    },
+    "summary": {
+      "en": "\"Each night, you learn which alignment the Storyteller believes is winning: good, evil, or neither.\"",
+      "ru": "\"Каждую ночь вы узнаете, какая из сторон, по мнению Сказочника, победит: добрая, злая или ничья\"."
+    }
+  },
+  {
+    "id": "preacher",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Preacher",
+      "ru": "Проповедник"
+    },
+    "jinxes": [],
+    "firstNight": 23,
+    "otherNight": 11,
+    "flavor": {
+      "en": "\"It is better to be rich and healthy than poor and sick.\"",
+      "ru": "\"Лучше быть богатым и здоровым, чем бедным и больным\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.\"",
+      "ru": "\"Каждую ночь выбирайте игрока: миньон, если он выбран, изучает это. Все выбранные миньоны не имеют способностей\"."
+    }
+  },
+  {
+    "id": "chambermaid",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Chambermaid",
+      "ru": "Камеристка"
+    },
+    "jinxes": [],
+    "firstNight": 70,
+    "otherNight": 88,
+    "flavor": {
+      "en": "\"I aint seen nothin' untoward, Milady. Begging your pardon, but if I did see somethin', it certainly weren't the master o' the house sneaking into the professor's laboratory 'round eleven o'clock and mixing up fancy potions, just like you said, Miss.\"",
+      "ru": "\"Я не видел ничего плохого, миледи. Прошу прощения, но если я и видел что-то, то это точно не был хозяин дома, пробирающийся в лабораторию профессора около одиннадцати часов и смешивающий причудливые зелья, как вы и сказали, мисс\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose 2 alive players (not yourself): you learn how many woke tonight due to their ability.\"",
+      "ru": "\"Каждую ночь выбирайте 2 живых игрока (не себя): вы узнаете, сколько игроков проснулось сегодня благодаря их способностям\"."
+    }
+  },
+  {
+    "id": "villageidiot",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Village Idiot",
+      "ru": "Деревенский идиот"
+    },
+    "jinxes": [],
+    "firstNight": 62,
+    "otherNight": 79,
+    "flavor": {
+      "en": "”Roses are blue, and violets are red, Please reverse what I just said.”",
+      "ru": "\"Розы - синие, а фиалки - красные, пожалуйста, переверните то, что я только что сказал\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose a player: you learn their alignment. [+0 to +2 Village Idiots. 1 of the extras is drunk]\"",
+      "ru": "\"Каждую ночь выбирайте игрока: вы узнаете его выравнивание. [от +0 до +2 Деревенские идиоты. 1 из статистов пьян]\"."
+    }
+  },
+  {
+    "id": "snakecharmer",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Snake Charmer",
+      "ru": "Заклинатель змей"
+    },
+    "jinxes": [],
+    "firstNight": 31,
+    "otherNight": 19,
+    "flavor": {
+      "en": "\"Effendi... I am but a humble man, but my pipe is golden and a single tune will tame the wildest djinn, Inshallah. They say that greed hangs more men than rope. But not I, Effendi... not I.\"",
+      "ru": "\"Эффенди... Я всего лишь скромный человек, но моя трубка золотая, и одна ее мелодия укротит самого дикого джинна, иншаллах. Говорят, что жадность вешает больше людей, чем веревка. Но не я, Эффенди... не я\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose an alive player: a chosen Demon swaps characters & alignments with you & is then poisoned.\"",
+      "ru": "\"Каждую ночь выбирайте живого игрока: выбранный Демон обменивается с вами персонажами и раскладами, а затем отравляется\"."
+    }
+  },
+  {
+    "id": "mathematician",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Mathematician",
+      "ru": "Математик"
+    },
+    "jinxes": [
+      {
+        "roleId": "chambermaid",
+        "reason": {
+          "en": "The Chambermaid learns if the Mathematician wakes tonight or not, even though the Chambermaid wakes first.",
+          "ru": "Камеристка узнает, проснется ли Математик сегодня ночью или нет, даже если Камеристка проснется первой."
+        }
+      },
+      {
+        "roleId": "lunatic",
+        "reason": {
+          "en": "The Mathematician learns if the Lunatic attacks a different player(s) than the real Demon attacked.",
+          "ru": "Математик узнает, если Лунатик атакует не того игрока (игроков), которого атаковал настоящий Демон."
+        }
+      }
+    ],
+    "firstNight": 71,
+    "otherNight": 89,
+    "flavor": {
+      "en": "\"Any consistent formal system x, within which a certain amount of elementary arithmetic can be carried out is incomplete; that is, there are statements of the language of x which can neither be proved nor disproved in x. Ergo, you are drunk.\"",
+      "ru": "\"Любая непротиворечивая формальная система x, в рамках которой можно выполнить определенный объем элементарной арифметики, неполна; то есть существуют утверждения языка x, которые нельзя ни доказать, ни опровергнуть в x. Следовательно, вы пьяны\"."
+    },
+    "summary": {
+      "en": "\"Each night, you learn how many players' abilities worked abnormally (since dawn) due to another character's ability.\"",
+      "ru": "\"Каждую ночь вы узнаете, сколько способностей игроков сработало аномально (с рассвета) из-за способности другого персонажа\"."
+    }
+  },
+  {
+    "id": "king",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "King",
+      "ru": "Король"
+    },
+    "jinxes": [],
+    "firstNight": 19,
+    "otherNight": 80,
+    "flavor": {
+      "en": "\"↑Betwixt the unknown strains of mortal strife→\n                And morbid night, sweet↓ with mystery and woe\n                ←Lies unfettered joys of fate’s long and colored life\n                Who’s garden blooms with each painted Face to Show.\"",
+      "ru": "\"Между неизвестными звуками смертельной борьбы...\n                И мрачной ночью, сладкой↓ с тайной и горем\n                ← Лежит беззаботная радость судьбы, длинной и цветной.\n                Который сад расцветает с каждым нарисованным лицом\"."
+    },
+    "summary": {
+      "en": "\"Each night, if the dead equal or outnumber the living, you learn 1 alive character. The Demon knows you are the King.\"",
+      "ru": "\"Каждую ночь, если мертвые равны или превосходят живых, вы узнаете 1 живого персонажа. Демон знает, что ты - король\"."
+    }
+  },
+  {
+    "id": "fortuneteller",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Fortune Teller",
+      "ru": "Гадалка"
+    },
+    "jinxes": [],
+    "firstNight": 51,
+    "otherNight": 70,
+    "flavor": {
+      "en": "\"I sense great evil in your soul! But... that could just be your perfume. I am allergic to Elderberry.\"",
+      "ru": "\"Я чувствую большое зло в вашей душе! Но... это может быть просто ваши духи. У меня аллергия на бузину\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose 2 players: you learn if either is a Demon. There is a good player that registers as a Demon to you.\"",
+      "ru": "\"Каждый вечер выбирайте двух игроков: вы узнаете, является ли один из них демоном. Один хороший игрок записывается для вас как Демон\"."
+    }
+  },
+  {
+    "id": "dreamer",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Dreamer",
+      "ru": "Мечтатель"
+    },
+    "jinxes": [],
+    "firstNight": 55,
+    "otherNight": 72,
+    "flavor": {
+      "en": "\"I remember the Clockmaker. The sky was red and it was raining fractal triangles. There was a smell of violets and a bubbling sound. A woman with glowing eyes and a scraggly beard was hissing at the sky. Then, I awoke.\"",
+      "ru": "\"Я помню Часовщика. Небо было красным, и шел дождь из фрактальных треугольников. Пахло фиалками и слышалось бульканье. Женщина со светящимися глазами и клочковатой бородой шипела на небо. Затем я проснулся\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose a player (not yourself or Travellers): you learn 1 good & 1 evil character, 1 of which is correct.\"",
+      "ru": "\"Каждую ночь выбирайте игрока (не себя и не Путешественников): вы узнаете 1 доброго и 1 злого персонажа, 1 из которых верный\"."
+    }
+  },
+  {
+    "id": "cultleader",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Cult Leader",
+      "ru": "Лидер культа"
+    },
+    "jinxes": [],
+    "firstNight": 65,
+    "otherNight": 83,
+    "flavor": {
+      "en": "\"Thinking themselves wise, they became fools.\"",
+      "ru": "\"Считая себя мудрыми, они стали глупцами\"."
+    },
+    "summary": {
+      "en": "\"Each night, you become the alignment of an alive neighbor. If all good players choose to join your cult, your team wins.\"",
+      "ru": "\"Каждую ночь вы становитесь союзником живого соседа. Если все хорошие игроки решат присоединиться к вашему культу, ваша команда победит\"."
+    }
+  },
+  {
+    "id": "flowergirl",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Flowergirl",
+      "ru": "Девушка с цветами"
+    },
+    "jinxes": [],
+    "otherNight": 73,
+    "flavor": {
+      "en": "\"Yesterday's violets have withered and died, but today my poppies bloom.\"",
+      "ru": "\"Вчерашние фиалки завяли и умерли, а сегодня расцвели мои маки\"."
+    },
+    "summary": {
+      "en": "\"Each night*, you learn if a Demon voted today.\"",
+      "ru": "\"Каждую ночь* вы узнаете, голосовал ли сегодня Демон\"."
+    }
+  },
+  {
+    "id": "towncrier",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Town Crier",
+      "ru": "Городской курьер"
+    },
+    "jinxes": [],
+    "otherNight": 74,
+    "flavor": {
+      "en": "\"Hear ye! Hear ye! Witchcraft in the labyrinth! Genius savant reveals all! Town in danger! Hear Ye!\"",
+      "ru": "\"Слушайте! Слушайте! Колдовство в лабиринте! Гениальный савант раскрывает все! Город в опасности! Слушайте!\""
+    },
+    "summary": {
+      "en": "\"Each night*, you learn if a Minion nominated today.\"",
+      "ru": "\"Каждую ночь* вы узнаете, номинирован ли сегодня миньон\"."
+    }
+  },
+  {
+    "id": "oracle",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Oracle",
+      "ru": "Oracle"
+    },
+    "jinxes": [],
+    "otherNight": 75,
+    "flavor": {
+      "en": "\"Only the chosen may gaze beyond the veil. The dead are restless, and they point in silence toward the icy north.\"",
+      "ru": "\"Только избранные могут заглянуть за завесу. Мертвые неспокойны, и они молча указывают на ледяной север\"."
+    },
+    "summary": {
+      "en": "\"Each night*, you learn how many dead players are evil.\"",
+      "ru": "\"Каждую ночь* вы узнаете, сколько мертвых игроков являются злыми\"."
+    }
+  },
+  {
+    "id": "undertaker",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Undertaker",
+      "ru": "Undertaker"
+    },
+    "jinxes": [],
+    "otherNight": 71,
+    "flavor": {
+      "en": "\"Hmmm....what have we here? The left boot is worn down to the heel, with flint shavings under the tongue. This is the garb of a Military man.\"",
+      "ru": "\"Хммм.... что у нас тут? Левый сапог изношен до каблука, под языком - кремневая стружка. Это одежда военного\"."
+    },
+    "summary": {
+      "en": "\"Each night*, you learn which character died by execution today.\"",
+      "ru": "\"Каждую ночь* вы узнаете, кто из персонажей умер сегодня от казни\"."
+    }
+  },
+  {
+    "id": "innkeeper",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Innkeeper",
+      "ru": "Трактирщик"
+    },
+    "jinxes": [],
+    "otherNight": 15,
+    "flavor": {
+      "en": "\"Come inside, fair traveller, and rest your weary bones. Drink and be merry, for the legions of the Dark One shall not harass thee tonight.\"",
+      "ru": "\"Заходи в дом, прекрасный путник, и отдохни от усталости. Пей и веселись, ибо легионы Темного не будут досаждать тебе этой ночью\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose 2 players: they can't die tonight, but 1 is drunk until dusk.\"",
+      "ru": "\"Каждую ночь* выбирайте 2 игроков: они не могут умереть этой ночью, но 1 из них пьян до заката\"."
+    }
+  },
+  {
+    "id": "monk",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Monk",
+      "ru": "Монах"
+    },
+    "jinxes": [],
+    "otherNight": 20,
+    "flavor": {
+      "en": "\"'Tis an ill and deathly wind that blows tonight. Come, my brother, take shelter in the abbey while the storm rages. By my word, or by my life, you will be safe.\"",
+      "ru": "\"Сегодня дует злой и смертоносный ветер. Пойдем, брат мой, укроемся в аббатстве, пока бушует буря. Клянусь моим словом или жизнью, ты будешь в безопасности\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player (not yourself): they are safe from the Demon tonight.\"",
+      "ru": "\"Каждую ночь* выбирайте игрока (не себя): сегодня он в безопасности от Демона\"."
+    }
+  },
+  {
+    "id": "gambler",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Gambler",
+      "ru": "Азартный игрок"
+    },
+    "jinxes": [],
+    "otherNight": 17,
+    "flavor": {
+      "en": "\"Heads, I win. Tails, you lose.\"",
+      "ru": "\"Орел - я выиграл. Решка - вы проиграли\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player & guess their character: if you guess wrong, you die.\"",
+      "ru": "\"Каждую ночь* выбирайте игрока и угадывайте его характер: если вы угадаете неправильно, вы умрете\"."
+    }
+  },
+  {
+    "id": "acrobat",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Acrobat",
+      "ru": "Acrobat"
+    },
+    "jinxes": [],
+    "otherNight": 18,
+    "flavor": {
+      "en": "\"Welcome, one and all, to the greatest show on earth.\"",
+      "ru": "\"Добро пожаловать на величайшее шоу на земле\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player: if they are or become drunk or poisoned tonight, you die.\"",
+      "ru": "\"Каждую ночь* выбирайте игрока: если сегодня он будет или станет пьян или отравлен, вы умрете\"."
+    }
+  },
+  {
+    "id": "lycanthrope",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Lycanthrope",
+      "ru": "Ликантроп"
+    },
+    "jinxes": [],
+    "otherNight": 33,
+    "flavor": {
+      "en": "\"Beneath the thin veneer of civilisation lies a howling madness.\"",
+      "ru": "\"Под тонкой оболочкой цивилизации скрывается воющее безумие\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose an alive player. If good, they die & the Demon doesn’t kill tonight. One good player registers as evil.\"",
+      "ru": "\"Каждую ночь* выбирайте живого игрока. Если он добрый, он умирает, и Демон не убивает его сегодня. Один хороший игрок становится злым\"."
+    }
+  },
+  {
+    "id": "exorcist",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Exorcist",
+      "ru": "Экзорцист"
+    },
+    "jinxes": [],
+    "otherNight": 32,
+    "flavor": {
+      "en": "\"We cast you out, every unclean spirit, every satanic power, every onslaught of the infernal adversary, every legion, every diabolical group and sect, in the name and by the power of Our Lord Jesus Christ. We command you, begone and fly far from the Church of God, from the souls made by God in His image and redeemed by the precious blood of the divine Lamb.\"",
+      "ru": "\"Мы изгоняем вас, всякого нечистого духа, всякую сатанинскую силу, всякий натиск адского противника, всякий легион, всякую дьявольскую группу и секту, во имя и силой Господа нашего Иисуса Христа. Мы повелеваем вам: уходите и бегите прочь от Церкви Божьей, от душ, созданных Богом по Его образу и искупленных драгоценной кровью божественного Агнца\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player (different to last night): the Demon, if chosen, learns who you are then doesn't wake tonight.\"",
+      "ru": "\"Каждую ночь* выбирайте игрока (другого, чем в прошлую ночь): Демон, если он выбран, узнает, кто вы, и не проснется сегодня\"."
+    }
+  },
+  {
+    "id": "gossip",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Gossip",
+      "ru": "Сплетни"
+    },
+    "jinxes": [],
+    "otherNight": 53,
+    "flavor": {
+      "en": "\"Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah. Blah.\"",
+      "ru": "\"Бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла-бла. Бла-бла-бла\"."
+    },
+    "summary": {
+      "en": "\"Each day, you may make a public statement. Tonight, if it was true, a player dies.\"",
+      "ru": "\"Каждый день вы можете делать публичные заявления. Сегодня, если оно было правдивым, игрок умрет\"."
+    }
+  },
+  {
+    "id": "savant",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Savant",
+      "ru": "Savant"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Seventy-two matchsticks on the floor... the sun sets early but the moon is unchanged... a torn piece of cloth... evil in the manor house... three by three... the one we trusted is not what he seems... green light means magnesium... residue, but the pattern is wrong... Seventy-two matchsticks on the floor...\"",
+      "ru": "\"Семьдесят две спички на полу... солнце садится рано, но луна остается неизменной... разорванный кусок ткани... зло в усадьбе... три на три... тот, кому мы доверяли, не тот, кем кажется... зеленый свет означает магний... остатки, но рисунок неправильный... Семьдесят две спички на полу...\""
+    },
+    "summary": {
+      "en": "\"Each day, you may visit the Storyteller to learn 2 things in private: 1 is true & 1 is false.\"",
+      "ru": "\"Каждый день вы можете посетить Сказочника и узнать наедине 2 вещи: 1 истинную и 1 ложную\"."
+    }
+  },
+  {
+    "id": "alsaahir",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Alsaahir",
+      "ru": "Альсаахир"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"I am here because of you, and you are here because of me.\"",
+      "ru": "\"Я здесь благодаря тебе, а ты здесь благодаря мне\"."
+    },
+    "summary": {
+      "en": "\"Each day, if you publicly guess which players are Minion(s) and which are Demon(s), good wins.\"",
+      "ru": "\"Каждый день, если вы публично угадаете, кто из игроков является миньоном, а кто демоном, победит добро\"."
+    }
+  },
+  {
+    "id": "engineer",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Engineer",
+      "ru": "Инженер"
+    },
+    "jinxes": [],
+    "firstNight": 22,
+    "otherNight": 10,
+    "flavor": {
+      "en": "\"If it bends, great. If it breaks, well, it probably needed fixing anyway.\"",
+      "ru": "\"Если он гнется, отлично. Если сломается, что ж, вероятно, его все равно нужно было починить\"."
+    },
+    "summary": {
+      "en": "\"Once per game, at night, choose which Minions or which Demon is in play.\"",
+      "ru": "\"Один раз за игру, ночью, выберите, какой миньон или какой демон находится в игре\"."
+    }
+  },
+  {
+    "id": "nightwatchman",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Nightwatchman",
+      "ru": "Ночной сторож"
+    },
+    "jinxes": [],
+    "firstNight": 64,
+    "otherNight": 82,
+    "flavor": {
+      "en": "\"The night is cold and lonely, but I have the moon, the stars, the crisp wind and the soft thud of leather boots on cobbled stone for company. Yonder, candlelight flickers behind a murky window...\"",
+      "ru": "\"Ночь холодна и одинока, но у меня есть луна, звезды, хрустящий ветер и мягкий стук кожаных сапог по булыжнику. Вон там, за мутным окном, мерцает огонек свечи...\""
+    },
+    "summary": {
+      "en": "\"Once per game, at night, choose a player: they learn you are the Nightwatchman.\"",
+      "ru": "\"Один раз за игру, ночью, выберите игрока: он узнает, что вы - Ночной дозорный\"."
+    }
+  },
+  {
+    "id": "courtier",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Courtier",
+      "ru": "Придворный"
+    },
+    "jinxes": [],
+    "firstNight": 29,
+    "otherNight": 14,
+    "flavor": {
+      "en": "\"I am more afraid of an army of one hundred sheep led by a lion than an army of one hundred lions led by a sheep.\"",
+      "ru": "\"Я больше боюсь армии из ста овец под предводительством льва, чем армии из ста львов под предводительством овцы\"."
+    },
+    "summary": {
+      "en": "\"Once per game, at night, choose a character: they are drunk for 3 nights & 3 days.\"",
+      "ru": "\"Один раз за игру, ночью, выберите персонажа: он пьян на 3 ночи и 3 дня\"."
+    }
+  },
+  {
+    "id": "seamstress",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Seamstress",
+      "ru": "Швея"
+    },
+    "jinxes": [],
+    "firstNight": 56,
+    "otherNight": 76,
+    "flavor": {
+      "en": "\"Did you hear that stranger in the cashmere coat put the word on our young Belle? And she said yes? Well, that's nothing compared to what Harry and that juggler got up to at the fair! The things I could say if I was a tattletale... my, yes.\"",
+      "ru": "\"Вы слышали, как тот незнакомец в кашемировом пальто предложил слово нашей юной красавице? И она согласилась? Да это ничто по сравнению с тем, что вытворяли Гарри и этот жонглер на ярмарке! Что я могла бы сказать, если бы была болтушкой... да, да\"."
+    },
+    "summary": {
+      "en": "\"Once per game, at night, choose 2 players (not yourself): you learn if they are the same alignment.\"",
+      "ru": "\"Один раз за игру, ночью, выберите 2 игроков (не себя): вы узнаете, совпадают ли они по выравниванию\"."
+    }
+  },
+  {
+    "id": "philosopher",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Philosopher",
+      "ru": "Философ"
+    },
+    "jinxes": [],
+    "firstNight": 9,
+    "otherNight": 7,
+    "flavor": {
+      "en": "\"If anything is real, beer is real. Drink, for tomorrow we may die.\"",
+      "ru": "\"Если что-то и существует, то это пиво. Пейте, потому что завтра мы можем умереть\"."
+    },
+    "summary": {
+      "en": "\"Once per game, at night, choose a good character: gain that ability. If this character is in play, they are drunk.\"",
+      "ru": "\"Один раз за игру, ночью, выберите хорошего персонажа: получите эту способность. Если этот персонаж находится в игре, он пьян\"."
+    }
+  },
+  {
+    "id": "huntsman",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Huntsman",
+      "ru": "Huntsman"
+    },
+    "jinxes": [],
+    "firstNight": 43,
+    "otherNight": 61,
+    "flavor": {
+      "en": "\"My cabin is warm and sturdy. My axe by the door, my boots drying by the fire, and elk stew a-simmering… Hark! A scream echoes through the valley! The rain and the mud and the cold, cold wind mask the scent of the wolves, but I know the path and my pace is steady. I am coming.\"",
+      "ru": "\"Моя хижина теплая и крепкая. Топор у двери, сапоги сушатся у костра, тушеное мясо лося... Крик разносится эхом по долине! Дождь, грязь и холодный, холодный ветер скрывают запах волков, но я знаю дорогу и иду уверенно. Я иду\"."
+    },
+    "summary": {
+      "en": "\"Once per game, at night, choose a living player: the Damsel, if chosen, becomes a not-in-play Townsfolk. [+the Damsel]\"",
+      "ru": "\"Один раз за игру, ночью, выберите живого игрока: Damsel, если она выбрана, становится не участвующим в игре Townsfolk. [+Дамсель]\"."
+    }
+  },
+  {
+    "id": "professor",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Professor",
+      "ru": "Профессор"
+    },
+    "jinxes": [],
+    "otherNight": 59,
+    "flavor": {
+      "en": "\"The process is simple. Attach the hydraulic confabulator to the modified chi matrix amplifier, add 20 CCs of pseudodorafine, keep his Z levels above 20%, and your husband will be fine. Now, all we need is a lightning strike.\"",
+      "ru": "\"Процесс прост. Подключите гидравлический конфабулятор к модифицированному матричному усилителю ци, добавьте 20 КК псевдодорафина, поддерживайте уровень Z выше 20%, и ваш муж будет в порядке. Теперь нам нужен только удар молнии\"."
+    },
+    "summary": {
+      "en": "\"Once per game, at night*, choose a dead player: if they are a Townsfolk, they are resurrected.\"",
+      "ru": "\"Один раз за игру, ночью*, выберите мертвого игрока: если это таунсфолк, он воскресает\"."
+    }
+  },
+  {
+    "id": "artist",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Artist",
+      "ru": "Художник"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Mon Dieu! C'est lumineux! My work, she is... how you say... Magnifique! Dieu est révélé! Oui.\"",
+      "ru": "\"Mon Dieu! C'est lumineux! Моя работа, она... как вы говорите... Великолепно! Dieu est révélé! Oui.\""
+    },
+    "summary": {
+      "en": "\"Once per game, during the day, privately ask the Storyteller any yes/no question.\"",
+      "ru": "\"Один раз за игру, в течение дня, в частном порядке задайте Сказочнику любой вопрос \"да/нет\"\"."
+    }
+  },
+  {
+    "id": "slayer",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Slayer",
+      "ru": "Slayer"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Die.\"",
+      "ru": "\"Умри\"."
+    },
+    "summary": {
+      "en": "\"Once per game, during the day, publicly choose a player: if they are the Demon, they die.\"",
+      "ru": "\"Один раз за игру, в течение дня, публично выберите игрока: если это Демон, он умирает\"."
+    }
+  },
+  {
+    "id": "fisherman",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Fisherman",
+      "ru": "Рыбак"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"This was my favourite part of the river... see how the sunlight makes a rainbow from the monastery to the market? This was the best place for big fish. And the older I get, the bigger they were.\"",
+      "ru": "\"Это была моя любимая часть реки... видите, как солнечный свет создает радугу от монастыря до рынка? Это было лучшее место для крупной рыбы. И чем старше я становился, тем крупнее они были\"."
+    },
+    "summary": {
+      "en": "\"Once per game, during the day, visit the Storyteller for some advice to help your team win.\"",
+      "ru": "\"Один раз за игру, в течение дня, посетите Сказочника, чтобы получить совет, который поможет вашей команде победить\"."
+    }
+  },
+  {
+    "id": "juggler",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Juggler",
+      "ru": "Жонглер"
+    },
+    "jinxes": [],
+    "otherNight": 77,
+    "flavor": {
+      "en": "\"For my next trick, as per request, I will need a flower, a bag of beans, a toy snake, a paintbrush, and a motorized gasoline-powered hedge trimming device. I warn you, this trick may be my last. Oh dear.\"",
+      "ru": "\"Для следующего фокуса, как и просили, мне понадобится цветок, мешок бобов, игрушечная змея, кисточка и моторизированное устройство для стрижки живой изгороди, работающее на бензине. Предупреждаю, этот фокус может стать моим последним. О, Боже!\""
+    },
+    "summary": {
+      "en": "\"On your 1st day, publicly guess up to 5 players' characters. That night, you learn how many you got correct.\"",
+      "ru": "\"В свой 1-й день вы публично угадываете до 5 персонажей игроков. Вечером вы узнаете, сколько из них вы угадали правильно\"."
+    }
+  },
+  {
+    "id": "soldier",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Soldier",
+      "ru": "Солдат"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"As David said to Goliath, as Theseus said to the Minotaur, as Arjuna said to Bhagadatta... No.\"",
+      "ru": "\"Как Давид сказал Голиафу, как Тесей сказал Минотавру, как Арджуна сказал Бхагадатте... Нет\"."
+    },
+    "summary": {
+      "en": "\"You are safe from the Demon.\"",
+      "ru": "\"Ты в безопасности от Демона\"."
+    }
+  },
+  {
+    "id": "alchemist",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Alchemist",
+      "ru": "Алхимик"
+    },
+    "jinxes": [],
+    "firstNight": 10,
+    "flavor": {
+      "en": "\"Visit the interior of the Earth. By rectification thou shalt find the hidden stone. Above the gold, lieth the red. Kether in Malkuth.\"",
+      "ru": "\"Побывайте в недрах Земли. Путем ректификации ты найдешь скрытый камень. Над золотом лежит красный. Кетер в Малкуте\"."
+    },
+    "summary": {
+      "en": "\"You have a Minion ability. When using this, the Storyteller may prompt you to choose differently.\"",
+      "ru": "\"У вас есть способность \"Миньон\". При ее использовании Сказочник может предложить вам выбрать другой вариант\"."
+    }
+  },
+  {
+    "id": "cannibal",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Cannibal",
+      "ru": "Каннибал"
+    },
+    "jinxes": [
+      {
+        "roleId": "butler",
+        "reason": {
+          "en": "If the Cannibal gains the Butler ability, the Cannibal learns this.",
+          "ru": "Если каннибал получает способность \"Дворецкий\", он узнает это."
+        }
+      },
+      {
+        "roleId": "juggler",
+        "reason": {
+          "en": "If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct.",
+          "ru": "Если жонглер угадает в первый день и умрет от казни, то сегодня живой каннибал узнает, сколько раз жонглер угадал правильно."
+        }
+      },
+      {
+        "roleId": "zealot",
+        "reason": {
+          "en": "If the Cannibal gains the Zealot ability, the Cannibal learns this.",
+          "ru": "Если каннибал получает способность \"Зилот\", каннибал узнает это."
+        }
+      },
+      {
+        "roleId": "poppygrower",
+        "reason": {
+          "en": "If the Cannibal eats the Poppy Grower, then dies or loses the Poppy Grower ability, the Demon and Minions learn each other that night.",
+          "ru": "Если каннибал съедает маковода, а затем умирает или теряет способность \"Маковод\", демон и миньоны изучают друг друга в эту ночь."
+        }
+      }
+    ],
+    "flavor": {
+      "en": "\"I don’t like clowns. They taste funny.\"",
+      "ru": "\"Я не люблю клоунов. У них смешной вкус\"."
+    },
+    "summary": {
+      "en": "\"You have the ability of the recently killed executee. If they are evil, you are poisoned until a good player dies by execution.\"",
+      "ru": "\"Вы обладаете способностями недавно убитого исполнителя. Если они злые, вы отравлены, пока хороший игрок не умрет от казни\"."
+    }
+  },
+  {
+    "id": "amnesiac",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Amnesiac",
+      "ru": "Амнезия"
+    },
+    "jinxes": [],
+    "firstNight": 45,
+    "otherNight": 63,
+    "flavor": {
+      "en": "\"Wait. What. Who? Oh, ok. Wait. What?\"",
+      "ru": "\"Подождите. Что. Кто? О, хорошо. Подожди. Что?\""
+    },
+    "summary": {
+      "en": "\"You do not know what your ability is. Each day, privately guess what it is: you learn how accurate you are.\"",
+      "ru": "\"Вы не знаете, каковы ваши способности. Каждый день в частном порядке догадываешься, в чем она заключается: ты узнаешь, насколько ты точен\"."
+    }
+  },
+  {
+    "id": "farmer",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Farmer",
+      "ru": "Фермер"
+    },
+    "jinxes": [],
+    "otherNight": 64,
+    "flavor": {
+      "en": "\"Even the high and mighty need food on the table. Without us, the city starves.\"",
+      "ru": "\"Даже высокопоставленным и могущественным людям нужна еда на столе. Без нас город голодает\"."
+    },
+    "summary": {
+      "en": "\"When you die at night, an alive good player becomes a Farmer.\"",
+      "ru": "\"Когда ты умираешь ночью, живой хороший игрок становится фермером\"."
+    }
+  },
+  {
+    "id": "minstrel",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Minstrel",
+      "ru": "Менестрель"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"And I shall hear, tho' soft you tread above me... And all my dreams will warm and sweeter be... If you'll not fail to tell me that you love me... I simply sleep in peace until you come to me.\"",
+      "ru": "\"И я услышу, как тихо ты ступаешь надо мной... И все мои сны станут теплее и слаще... Если ты не откажешься сказать мне, что любишь меня... Я просто буду спать спокойно, пока ты не придешь ко мне\"."
+    },
+    "summary": {
+      "en": "\"When a Minion dies by execution, all other players (except Travellers) are drunk until dusk tomorrow.\"",
+      "ru": "\"Когда миньон умирает от казни, все остальные игроки (кроме Путешественников) напиваются до завтрашних сумерек\"."
+    }
+  },
+  {
+    "id": "ravenkeeper",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Ravenkeeper",
+      "ru": "Ravenkeeper"
+    },
+    "jinxes": [],
+    "otherNight": 68,
+    "flavor": {
+      "en": "\"My birds will avenge me! Fly! Fly, my sweet and dutiful pets! To the manor and to the river! To the alleys and to the salons! Fly!\"",
+      "ru": "\"Мои птицы отомстят за меня! Летите! Летите, мои милые и послушные питомцы! В поместье и на реку! В переулки и салоны! Летите!\""
+    },
+    "summary": {
+      "en": "\"If you die at night, you are woken to choose a player: you learn their character.\"",
+      "ru": "\"Если вы умираете ночью, вас будят, чтобы выбрать игрока: вы узнаете его характер\"."
+    }
+  },
+  {
+    "id": "sage",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Sage",
+      "ru": "Sage"
+    },
+    "jinxes": [],
+    "otherNight": 57,
+    "flavor": {
+      "en": "\"These mountainous tomes guard the secret, I am sure of it! Twixt word and word, it lies in wait. More candles, boy! More ink! These notes may look arcane, but the infernal puzzle is revealing itself.\"",
+      "ru": "\"Эти горные книги хранят тайну, я в этом уверен! Между словом и словом он лежит в ожидании. Больше свечей, мальчик! Больше чернил! Пусть эти записи выглядят заумно, но инфернальная загадка раскрывается\"."
+    },
+    "summary": {
+      "en": "\"If the Demon kills you, you learn that it is 1 of 2 players.\"",
+      "ru": "\"Если Демон убивает вас, вы узнаете, что это 1 из 2 игроков\"."
+    }
+  },
+  {
+    "id": "choirboy",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Choirboy",
+      "ru": "Хор-бой"
+    },
+    "jinxes": [],
+    "otherNight": 60,
+    "flavor": {
+      "en": "\"I saw it, I did. I was in the pews, tidying the hymn books, when a dreadful tune started from the pipe organ. The organist had a long cloak, and long fingers on the keys. And a hat that looked… just like… yours.\"",
+      "ru": "\"Я видел это, видел. Я стоял на скамьях, приводил в порядок сборники гимнов, когда из органа зазвучала ужасная мелодия. У органиста был длинный плащ, и длинные пальцы на клавишах. И шляпа, похожая... на... вашу\"."
+    },
+    "summary": {
+      "en": "\"If the Demon kills the King, you learn which player is the Demon. [+the King]\"",
+      "ru": "\"Если Демон убивает Короля, вы узнаете, кто из игроков является Демоном. [+король]\"."
+    }
+  },
+  {
+    "id": "banshee",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Banshee",
+      "ru": "Банши"
+    },
+    "jinxes": [],
+    "otherNight": 58,
+    "flavor": {
+      "en": "\"Gorm do shúile, dearg do ghruaig, ní bheidh sé i bhfad, is a mbeidh tú san uaigh.\"",
+      "ru": "\"Gorm do shúile, dearg do ghruaig, ní bheidh sé i bhfad, is a mbeidh tú san uaigh\"."
+    },
+    "summary": {
+      "en": "\"If the Demon kills you, all players learn this. From now on, you may nominate twice per day and vote twice per nomination.”",
+      "ru": "\"Если Демон убьет вас, все игроки узнают следующее. С этого момента вы можете выдвигать кандидатуры дважды в день и голосовать дважды за одну номинацию\"."
+    }
+  },
+  {
+    "id": "tealady",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Tea Lady",
+      "ru": "Чайная леди"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"If you are cold, tea will warm you. If you are too heated, tea will cool you. If you are depressed, tea will cheer you. If you are excited, tea will calm you.\"",
+      "ru": "\"Если вам холодно, чай согреет вас. Если вы перегрелись, чай охладит вас. Если вы подавлены, чай вас взбодрит. Если вы взволнованы, чай вас успокоит\"."
+    },
+    "summary": {
+      "en": "\"If both your alive neighbors are good, they can't die.\"",
+      "ru": "\"Если оба ваших живых соседа хороши, они не могут умереть\"."
+    }
+  },
+  {
+    "id": "mayor",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Mayor",
+      "ru": "Мэр"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"We must put our differences aside, and cease this senseless killing. We are all taxpayers after all. Well, most of us.\"",
+      "ru": "\"Мы должны отложить в сторону наши разногласия и прекратить это бессмысленное убийство. В конце концов, мы все налогоплательщики. Ну, большинство из нас\"."
+    },
+    "summary": {
+      "en": "\"If only 3 players live & no execution occurs, your team wins. If you die at night, another player might die instead.\"",
+      "ru": "\"Если в живых останутся только 3 игрока и не будет казни, ваша команда победит. Если вы умрете ночью, вместо вас может погибнуть другой игрок\"."
+    }
+  },
+  {
+    "id": "fool",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Fool",
+      "ru": "Дурак"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"...and the King said 'What?! I've never even owned a pair of rubber pantaloons, let alone a custard cannon!' Ho-ho! Jolly day!\"",
+      "ru": "\"...и король сказал: \"Что?! У меня никогда не было даже пары резиновых панталон, не говоря уже о пушке с кремом! Хо-хо! Веселый день!\""
+    },
+    "summary": {
+      "en": "\"The 1st time you die, you don't.\"",
+      "ru": "\"Когда ты умираешь в первый раз, ты не умираешь\"."
+    }
+  },
+  {
+    "id": "virgin",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Virgin",
+      "ru": "Дева"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"I am pure. Let those who are without sin cast themselves down and suffer in my stead. My reputation shall not be stained with your venomous accusations.\"",
+      "ru": "\"Я чист. Пусть те, кто не имеет греха, сбросят себя и пострадают вместо меня. Моя репутация не будет запятнана вашими ядовитыми обвинениями\"."
+    },
+    "summary": {
+      "en": "\"The 1st time you are nominated, if the nominator is a Townsfolk, they are executed immediately.\"",
+      "ru": "\"При 1-м выдвижении, если выдвиженец - таунсфолк, его казнят немедленно\"."
+    }
+  },
+  {
+    "id": "magician",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Magician",
+      "ru": "Маг"
+    },
+    "jinxes": [],
+    "firstNight": 13,
+    "flavor": {
+      "en": "\"1... 2... Abra... 3... 4... Cadabra... *poof!*\n                And, as you can see, ladies and gentlemen, Captain Farnsworth’s bag of gold has disappeared! Gone! Without a trace! Thank you, and goodnight!\"",
+      "ru": "\"1... 2... Абра... 3... 4... Кадабра... *пуф!\n                И, как вы видите, дамы и господа, сумка с золотом капитана Фарнсворта исчезла! Исчез! Бесследно! Спасибо и спокойной ночи!\""
+    },
+    "summary": {
+      "en": "\"The Demon thinks you are a Minion. Minions think you are a Demon.\"",
+      "ru": "\"Демон думает, что вы - миньон. Миньоны думают, что вы - Демон\"."
+    }
+  },
+  {
+    "id": "poppygrower",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Poppy Grower",
+      "ru": "Выращиватель мака"
+    },
+    "jinxes": [],
+    "firstNight": 11,
+    "otherNight": 8,
+    "flavor": {
+      "en": "\"In the hidden groves of the deep forest, the black poppy dwells. To see its revelry is to be enchanted. To smell its thick aroma is to be lost forever, a slave to the gods of light and dark.\"",
+      "ru": "\"В скрытых рощах глубокого леса обитает черный мак. Увидеть его пиршество - значит быть околдованным. Почувствовать его густой аромат - значит навсегда потеряться, стать рабом богов света и тьмы\"."
+    },
+    "summary": {
+      "en": "\"Minions & Demons do not know each other. If you die, they learn who each other are that night.\"",
+      "ru": "\"Миньоны и демоны не знают друг друга. Если вы умрете, они узнают друг друга этой ночью\"."
+    }
+  },
+  {
+    "id": "pacifist",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Pacifist",
+      "ru": "Пацифист"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Distrust all in whom the impulse to punish is powerful.\"",
+      "ru": "\"Не доверяйте всем, в ком силен импульс к наказанию\"."
+    },
+    "summary": {
+      "en": "\"Executed good players might not die.\"",
+      "ru": "\"Казненные хорошие игроки могут не умирать\"."
+    }
+  },
+  {
+    "id": "atheist",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Atheist",
+      "ru": "Атеист"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Let us disperse with unnecessary conjecture and silly paranoia. There is a perfectly rational explanation for everything. Yes, a teacup may indeed be orbiting the planet, too small to see, but I shall drink my tea from the very real china in my very real hands.\"",
+      "ru": "\"Давайте избавимся от ненужных догадок и глупой паранойи. Всему есть вполне рациональное объяснение. Да, чашка действительно может вращаться по орбите вокруг планеты, слишком маленькой, чтобы ее увидеть, но я буду пить чай из самого настоящего фарфора в моих самых настоящих руках\"."
+    },
+    "summary": {
+      "en": "\"The Storyteller can break the game rules, and if executed, good wins, even if you are dead. [No evil characters]\"",
+      "ru": "\"Сказочник может нарушить правила игры, и если это будет выполнено, добро победит, даже если вы мертвы. [Злых персонажей нет]\"."
+    }
+  },
+  {
+    "id": "butler",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Butler",
+      "ru": "Батлер"
+    },
+    "jinxes": [
+      {
+        "roleId": "organgrinder",
+        "reason": {
+          "en": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too.",
+          "ru": "Если Органодробилка вызывает голосование с закрытыми глазами, дворецкий может поднять руку, чтобы проголосовать, но его голос будет засчитан только в том случае, если его хозяин тоже проголосовал."
+        }
+      }
+    ],
+    "firstNight": 52,
+    "otherNight": 84,
+    "flavor": {
+      "en": "\"Yes, sir...\n\t\t\t\tNo, sir...\n\t\t\t\tCertainly, sir.\"",
+      "ru": "\"Да, сэр...\n\t\t\t\tНет, сэр...\n\t\t\t\tКонечно, сэр\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose a player (not yourself): tomorrow, you may only vote if they are voting too.\"",
+      "ru": "\"Каждую ночь выбирайте игрока (не себя): завтра вы можете голосовать только в том случае, если они тоже голосуют\"."
+    }
+  },
+  {
+    "id": "goon",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Goon",
+      "ru": "Goon"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Yes boss. I explained fings real good to dat geezer. He don't want me explain it again. Nah boss, I don't need no doctor - it's only a knife wound. Be right come mornin'\"",
+      "ru": "\"Да, босс. Я хорошо объяснил этому парню, что такое фингер. Он не хочет, чтобы я объяснял еще раз. Нет, босс, мне не нужен доктор - это всего лишь ножевое ранение. К утру буду здоров\"."
+    },
+    "summary": {
+      "en": "\"Each night, the 1st player to choose you with their ability is drunk until dusk. You become their alignment.\"",
+      "ru": "\"Каждую ночь 1-й игрок, выбравший вас своей способностью, напивается до сумерек. Вы становитесь их выравнивателем\"."
+    }
+  },
+  {
+    "id": "ogre",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Ogre",
+      "ru": "Ogre"
+    },
+    "jinxes": [
+      {
+        "roleId": "recluse",
+        "reason": {
+          "en": "If the Recluse registers as evil to the Ogre, the Ogre learns that they are evil.",
+          "ru": "Если Отшельник записывается в зло для Людоеда, Людоед узнает, что он злой."
+        }
+      }
+    ],
+    "firstNight": 67,
+    "flavor": {
+      "en": "\"<grunt><grin></grunt>\"",
+      "ru": "\"<grunt><grin></grunt>\""
+    },
+    "summary": {
+      "en": "\"On your 1st night, choose a player (not yourself): you become their alignment (you don't know which) even if drunk or poisoned.”",
+      "ru": "\"В свою 1-ю ночь выберите игрока (не себя): вы становитесь его выравниванием (вы не знаете, каким), даже если пьяны или отравлены\"."
+    }
+  },
+  {
+    "id": "lunatic",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Lunatic",
+      "ru": "Лунатик"
+    },
+    "jinxes": [],
+    "firstNight": 16,
+    "otherNight": 31,
+    "flavor": {
+      "en": "\"I am the night... I think.\"",
+      "ru": "\"Я - ночь... Я думаю\"."
+    },
+    "summary": {
+      "en": "\"You think you are a Demon, but you are not. The Demon knows who you are & who you choose at night.\"",
+      "ru": "\"Ты думаешь, что ты Демон, но это не так. Демон знает, кто ты и кого ты выбираешь по ночам\"."
+    }
+  },
+  {
+    "id": "drunk",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Drunk",
+      "ru": "Пьяный"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"I’m only a *hic* social drinker, my dear. Admittedly, I am a heavy *burp* socializer.\"",
+      "ru": "\"Я всего лишь *hic* социальный пьяница, моя дорогая. Хотя, конечно, я тяжелый *burp* социализатор\"."
+    },
+    "summary": {
+      "en": "\"You do not know you are the Drunk. You think you are a Townsfolk character, but you are not.\"",
+      "ru": "\"Вы не знаете, что вы - Пьяница. Ты считаешь себя горожанином, но это не так\"."
+    }
+  },
+  {
+    "id": "tinker",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Tinker",
+      "ru": "Тинкер"
+    },
+    "jinxes": [],
+    "otherNight": 65,
+    "flavor": {
+      "en": "\"I think I see the problem. Luckily, I have an idea! This catapult will shoot twice as far with just a minor adjustment...\"",
+      "ru": "\"Кажется, я вижу проблему. К счастью, у меня есть идея! Эта катапульта будет стрелять в два раза дальше, если ее немного подправить...\""
+    },
+    "summary": {
+      "en": "\"You might die at any time.\"",
+      "ru": "\"Ты можешь умереть в любой момент\"."
+    }
+  },
+  {
+    "id": "recluse",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Recluse",
+      "ru": "Recluse"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Garn git ya darn grub ya mitts ofma lorn yasee. Grr. Natsy pikkins yonder southwise ye begittin afta ya! Git! Me harvy no so widda licks and demmons no be fightin' hadsup ne'er ma kin. Git, assay!\"",
+      "ru": "\"Garn git ya darn grub ya mitts ofma lorn yasee. Гррр. Natsy pikkins yonder southwise ye begittin afta ya! Git! Me harvy no so widda licks and demmons no be fightin' hadsup ne'er ma kin. Git, assay!\""
+    },
+    "summary": {
+      "en": "\"You might register as evil & as a Minion or Demon, even if dead.\"",
+      "ru": "\"Вы можете зарегистрироваться как зло, как миньон или демон, даже если мертвы\"."
+    }
+  },
+  {
+    "id": "golem",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Golem",
+      "ru": "Голем"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Golem help? Golem smash! Golem help.\"",
+      "ru": "\"Голем на помощь? Разбей голема! Голем на помощь!\""
+    },
+    "summary": {
+      "en": "\"You may only nominate once per game. When you do, if the nominee is not the Demon, they die.\"",
+      "ru": "\"Вы можете выдвинуть кандидатуру только один раз за игру. Если номинант - не Демон, он умирает\"."
+    }
+  },
+  {
+    "id": "sweetheart",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Sweetheart",
+      "ru": "Sweetheart"
+    },
+    "jinxes": [],
+    "otherNight": 56,
+    "flavor": {
+      "en": "\"I will never forget her. Never.\"",
+      "ru": "\"Я никогда не забуду ее. Никогда\"."
+    },
+    "summary": {
+      "en": "\"When you die, 1 player is drunk from now on.\"",
+      "ru": "\"Когда вы умираете, 1 игрок с этого момента становится пьяным\"."
+    }
+  },
+  {
+    "id": "plaguedoctor",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Plague Doctor",
+      "ru": "Чумной доктор"
+    },
+    "jinxes": [
+      {
+        "roleId": "eviltwin",
+        "reason": {
+          "en": "The Storyteller cannot gain the Evil Twin ability if the Plague Doctor dies.",
+          "ru": "Сказочник не может получить способность \"Злой близнец\", если Чумной доктор умирает."
+        }
+      },
+      {
+        "roleId": "fearmonger",
+        "reason": {
+          "en": "If the Plague Doctor dies, a living Minion gains the Fearmonger ability in addition to their own ability, and learns this.",
+          "ru": "Если Чумной Доктор умирает, живой миньон получает способность \"Насылатель страха\" в дополнение к своей способности и изучает это."
+        }
+      },
+      {
+        "roleId": "goblin",
+        "reason": {
+          "en": "If the Plague Doctor dies, a living Minion gains the Goblin ability in addition to their own ability, and learns this.",
+          "ru": "Если Чумной Доктор умирает, живой миньон получает способность \"Гоблин\" в дополнение к своей собственной способности и изучает это."
+        }
+      },
+      {
+        "roleId": "spy",
+        "reason": {
+          "en": "If the Plague Doctor dies, a living Minion gains the Spy ability in addition to their own ability, and learns this.",
+          "ru": "Если Чумной Доктор умирает, живой миньон получает способность \"Шпион\" в дополнение к своей способности и изучает это."
+        }
+      },
+      {
+        "roleId": "scarletwoman",
+        "reason": {
+          "en": "If the Plague Doctor dies, a living Minion gains the Scarlet Woman ability in addition to their own ability, and learns this.",
+          "ru": "Если Чумной Доктор умирает, живой миньон получает способность \"Алая женщина\" в дополнение к своей собственной способности и изучает это."
+        }
+      },
+      {
+        "roleId": "boomdandy",
+        "reason": {
+          "en": "If the Plague Doctor is executed and the Storyteller would gain the Boomdandy ability, the Boomdandy ability triggers immediately.",
+          "ru": "Если Чумной Доктор казнен, а Сказочник получил бы способность \"Бумданди\", способность \"Бумданди\" срабатывает немедленно."
+        }
+      },
+      {
+        "roleId": "baron",
+        "reason": {
+          "en": "If the Storyteller gains the Baron ability, up to two players become not-in-play Outsiders.",
+          "ru": "Если Сказочник получает способность \"Барон\", до двух игроков становятся не участвующими в игре аутсайдерами."
+        }
+      },
+      {
+        "roleId": "marionette",
+        "reason": {
+          "en": "If the Demon has a neighbor who is alive and a Townsfolk or Outsider when the Plague Doctor dies, that player becomes an evil Marionette. If there is already an extra evil player, this does not happen.",
+          "ru": "Если у Демона есть сосед, который жив и является горожанином или чужаком, когда Чумной Доктор умирает, этот игрок становится злой марионеткой. Если уже есть лишний злой игрок, этого не происходит."
+        }
+      }
+    ],
+    "flavor": {
+      "en": "“Pleauze shtay shtill. Thinks nid tiime for hillink. Myrhh-myrhh.”",
+      "ru": "\"Плеозе штай штиль. Думает, что не время для хиллинка. Myrhh-myrhh.\""
+    },
+    "summary": {
+      "en": "\"When you die, the Storyteller gains a Minion ability.\"",
+      "ru": "\"Когда вы умираете, Сказочник получает способность \"Миньон\"\"."
+    }
+  },
+  {
+    "id": "klutz",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Klutz",
+      "ru": "Klutz"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Oops.\"",
+      "ru": "\"Упс\"."
+    },
+    "summary": {
+      "en": "\"When you learn that you died, publicly choose 1 alive player: if they are evil, your team loses.\"",
+      "ru": "\"Когда вы узнаете, что умерли, публично выберите 1 живого игрока: если он злой, ваша команда проигрывает\"."
+    }
+  },
+  {
+    "id": "moonchild",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Moonchild",
+      "ru": "Moonchild"
+    },
+    "jinxes": [],
+    "otherNight": 66,
+    "flavor": {
+      "en": "\"Scorpio looks sideways at the lovers, and you have a choice to make. With silver cross my palm, and your fate shall be revealed. With steel cross my throat, and by the stars you shall regret it.\"",
+      "ru": "\"Скорпион\" смотрит в сторону влюбленных, и вам предстоит сделать выбор. Серебряный крест на моей ладони, и ваша судьба будет раскрыта. Со сталью - через горло, и, если верить звездам, вы об этом пожалеете\"."
+    },
+    "summary": {
+      "en": "\"When you learn that you died, publicly choose 1 alive player. Tonight, if it was a good player, they die.\"",
+      "ru": "\"Когда вы узнаете, что умерли, публично выберите 1 живого игрока. Сегодня вечером, если это был хороший игрок, он умрет\"."
+    }
+  },
+  {
+    "id": "saint",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Saint",
+      "ru": "Святой"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Wisdom begets peace. Patience begets wisdom. Fear not, for the time shall come when fear too shall pass. Let us pray, and may the unity of our vision make saints of us all.\"",
+      "ru": "\"Мудрость рождает мир. Терпение рождает мудрость. Не бойтесь, ибо придет время, когда и страх пройдет. Давайте помолимся, и пусть единство нашего видения сделает из всех нас святых\"."
+    },
+    "summary": {
+      "en": "\"If you die by execution, your team loses.\"",
+      "ru": "\"Если ты умираешь от казни, твоя команда проигрывает\"."
+    }
+  },
+  {
+    "id": "barber",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Barber",
+      "ru": "Парикмахерская"
+    },
+    "jinxes": [],
+    "otherNight": 55,
+    "flavor": {
+      "en": "\"Did you know that barbery and surgery were once the same profession? No? Well, now you do.\"",
+      "ru": "\"Знаете ли вы, что когда-то парикмахерское искусство и хирургия были одной профессией? Нет? Ну, теперь знаете\"."
+    },
+    "summary": {
+      "en": "\"If you died today or tonight, the Demon may choose 2 players (not another Demon) to swap characters.\"",
+      "ru": "\"Если вы умерли сегодня или сегодня ночью, Демон может выбрать 2 игроков (не других Демонов), чтобы поменяться персонажами\"."
+    }
+  },
+  {
+    "id": "hatter",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Hatter",
+      "ru": "Шляпник"
+    },
+    "jinxes": [],
+    "otherNight": 54,
+    "flavor": {
+      "en": "”One Hat. Too Hat. Three Hat. Tea Hat. Fore Hat. Thrive Hat. Six Hat. Sticks Hat.”",
+      "ru": "\"Одна шляпа. Слишком шляпа. Три шляпы. Чайная шляпа. Fore Hat. Thrive Hat. Six Hat. Sticks Hat\"."
+    },
+    "summary": {
+      "en": "\"If you died today or tonight, the Minion & Demon players may choose new Minion & Demon characters to be.\"",
+      "ru": "\"Если вы умерли сегодня или сегодня ночью, игроки \"Миньонов и демонов\" могут выбрать новых персонажей \"Миньонов и демонов\"."
+    }
+  },
+  {
+    "id": "mutant",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Mutant",
+      "ru": "Мутант"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"I am not a freak! I am a human being! Have mercy!\"",
+      "ru": "\"Я не урод! Я человек! Помилуйте!\""
+    },
+    "summary": {
+      "en": "\"If you are \"mad\" about being an Outsider, you might be executed.\"",
+      "ru": "\"Если вы \"сходите с ума\" от того, что вы Посторонний, вас могут казнить\"."
+    }
+  },
+  {
+    "id": "politician",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Politician",
+      "ru": "Политик"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"I'm glad you asked that question. Truly, I am. But I think the REAL question here is...\"",
+      "ru": "\"Я рад, что вы задали этот вопрос. Правда, рад. Но я думаю, что настоящий вопрос заключается в следующем...\""
+    },
+    "summary": {
+      "en": "\"If you were the player most responsible for your team losing, you change alignment & win, even if dead.\"",
+      "ru": "\"Если вы были игроком, который больше всех виноват в том, что ваша команда проиграла, вы меняете расстановку и выигрываете, даже если мертвы\"."
+    }
+  },
+  {
+    "id": "zealot",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Zealot",
+      "ru": "Зилот"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"I enjoy talking to you. Your mind appeals to me. It resembles my own mind except that you happen to be insane.\"",
+      "ru": "\"Мне нравится разговаривать с вами. Ваш ум привлекает меня. Он похож на мой собственный, за исключением того, что вы, оказывается, безумны\"."
+    },
+    "summary": {
+      "en": "\"If there are 5 or more players alive, you must vote for every nomination.\"",
+      "ru": "\"Если в игре осталось 5 или более игроков, вы должны проголосовать за каждую номинацию\"."
+    }
+  },
+  {
+    "id": "damsel",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Damsel",
+      "ru": "Damsel"
+    },
+    "jinxes": [],
+    "firstNight": 44,
+    "otherNight": 62,
+    "flavor": {
+      "en": "\"Don't touch the hair, honey.\"",
+      "ru": "\"Не трогай волосы, дорогая\"."
+    },
+    "summary": {
+      "en": "\"All Minions know a Damsel is in play. If a Minion publicly guesses you (once), your team loses.\"",
+      "ru": "\"Все миньоны знают, что в игре находится Дамсел. Если миньон публично угадает вас (один раз), ваша команда проиграет\"."
+    }
+  },
+  {
+    "id": "snitch",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Snitch",
+      "ru": "Стукач"
+    },
+    "jinxes": [],
+    "firstNight": 15,
+    "flavor": {
+      "en": "\"It was John.\"",
+      "ru": "\"Это был Джон\"."
+    },
+    "summary": {
+      "en": "\"Each Minion gets 3 bluffs.\"",
+      "ru": "\"Каждый миньон получает 3 блефа\"."
+    }
+  },
+  {
+    "id": "heretic",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Heretic",
+      "ru": "Еретик"
+    },
+    "jinxes": [
+      {
+        "roleId": "godfather",
+        "reason": {
+          "en": "Only 1 jinxed character can be in play.",
+          "ru": "В игре может находиться только 1 сглаженный персонаж."
+        }
+      },
+      {
+        "roleId": "baron",
+        "reason": {
+          "en": "The Baron might only add 1 Outsider, not 2.",
+          "ru": "Барон может добавить только 1 аутсайдера, а не 2."
+        }
+      },
+      {
+        "roleId": "pithag",
+        "reason": {
+          "en": "A Pit-Hag can not create a Heretic.",
+          "ru": "Пит-хаг не может создать Еретика."
+        }
+      },
+      {
+        "roleId": "spy",
+        "reason": {
+          "en": "Only 1 jinxed character can be in play.",
+          "ru": "В игре может находиться только 1 сглаженный персонаж."
+        }
+      },
+      {
+        "roleId": "widow",
+        "reason": {
+          "en": "Only 1 jinxed character can be in play.",
+          "ru": "В игре может находиться только 1 сглаженный персонаж."
+        }
+      },
+      {
+        "roleId": "lleech",
+        "reason": {
+          "en": "If the Lleech has poisoned the Heretic then the Lleech dies, the Heretic remains poisoned.",
+          "ru": "Если пиявка отравила еретика, пиявка умирает, а еретик остается отравленным."
+        }
+      },
+      {
+        "roleId": "boffin",
+        "reason": {
+          "en": "The Demon cannot have the Heretic ability.",
+          "ru": "Демон не может обладать способностью \"Еретик\"."
+        }
+      }
+    ],
+    "flavor": {
+      "en": "\"After the hail has smashed the roof and splintered the glass of the Cathedral windows, it melts again into the earth, like a dying lamb in the desert sun. Such is the parable of the madman.\"",
+      "ru": "\"После того как град разбил крышу и разбил стекла в окнах собора, он снова тает в земле, как умирающий ягненок под солнцем пустыни. Такова притча о безумце\"."
+    },
+    "summary": {
+      "en": "\"Whoever wins, loses & whoever loses, wins, even if you are dead.\"",
+      "ru": "\"Кто выиграл, тот проиграл, а кто проиграл, тот выиграл, даже если ты мертв\"."
+    }
+  },
+  {
+    "id": "puzzlemaster",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Puzzlemaster",
+      "ru": "Puzzlemaster"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"When one begins to think that some thing is merely some other thing, one is usually on the brink of an error. Patience, patience. Don’t confuse just and should with is and isn’t.\"",
+      "ru": "Когда человек начинает думать, что какая-то вещь - это просто какая-то другая вещь, он, как правило, находится на грани ошибки\". Терпение, терпение. Не путайте \"просто\" и \"должно\" с \"есть\" и \"нет\"\"."
+    },
+    "summary": {
+      "en": "\"1 player is drunk, even if you die. If you guess (once) who it is, learn the Demon player, but guess wrong & get false info.\"",
+      "ru": "\"1 игрок пьян, даже если вы умерли. Если вы угадаете (с одного раза), кто это, узнаете игрока-демона, если угадаете неправильно - получите ложную информацию\"."
+    }
+  },
+  {
+    "id": "mezepheles",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Mezepheles",
+      "ru": "Mezepheles"
+    },
+    "jinxes": [],
+    "firstNight": 40,
+    "otherNight": 28,
+    "flavor": {
+      "en": "\"That which issues from the heart alone, will bend the hearts of others to your own.\"",
+      "ru": "\"То, что исходит только из сердца, склонит сердца других к вашему собственному\"."
+    },
+    "summary": {
+      "en": "\"You start knowing a secret word. The 1st good player to say this word becomes evil that night.\"",
+      "ru": "\"Вы начинаете, зная секретное слово. Первый хороший игрок, произнесший это слово, становится злым в эту ночь\"."
+    }
+  },
+  {
+    "id": "godfather",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Godfather",
+      "ru": "Крестный отец"
+    },
+    "jinxes": [],
+    "firstNight": 32,
+    "otherNight": 52,
+    "flavor": {
+      "en": "\"Normally, it's just business. But when you insult my daughter, you insult me. And when you insult me, you insult my family. You really should be more careful - it would be a shame if you had an unfortunate accident.\"",
+      "ru": "\"Обычно это просто бизнес. Но когда вы оскорбляете мою дочь, вы оскорбляете меня. А когда вы оскорбляете меня, вы оскорбляете мою семью. Вам действительно следует быть осторожнее - будет очень жаль, если с вами произойдет несчастный случай\"."
+    },
+    "summary": {
+      "en": "\"You start knowing which Outsiders are in play. If 1 died today, choose a player tonight: they die. [-1 or +1 Outsider]\"",
+      "ru": "\"Вы начинаете, зная, какие Аутсайдеры находятся в игре. Если сегодня умер 1, выберите игрока сегодня вечером: они умирают. [-1 или +1 Аутсайдер]\"."
+    }
+  },
+  {
+    "id": "poisoner",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Poisoner",
+      "ru": "Отравитель"
+    },
+    "jinxes": [],
+    "firstNight": 27,
+    "otherNight": 13,
+    "flavor": {
+      "en": "\"Add compound Alpha to compound Beta... NOT TOO MUCH!\"",
+      "ru": "\"Добавьте соединение альфа к соединению бета... НО НЕ СЛИШКОМ МНОГО!\""
+    },
+    "summary": {
+      "en": "\"Each night, choose a player: they are poisoned tonight and tomorrow day.\"",
+      "ru": "\"Каждую ночь выбирайте игрока: сегодня он отравлен, а завтра - нет\"."
+    }
+  },
+  {
+    "id": "devilsadvocate",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Devil's Advocate",
+      "ru": "Адвокат дьявола"
+    },
+    "jinxes": [],
+    "firstNight": 34,
+    "otherNight": 22,
+    "flavor": {
+      "en": "\"My client, should the objection be overruled, pleads innocent by virtue of the prosecution's non-observance of statute 27.B - incorrect or misleading conjugation of a verb. The fact that nine of the jury died last night is simply prima facie, which is, as Wills vs Thule set precedent for, further reason to acquit.\"",
+      "ru": "\"Мой клиент, если возражение будет отклонено, признает себя невиновным в силу несоблюдения обвинением статьи 27.B - неправильное или вводящее в заблуждение спряжение глагола. Тот факт, что девять присяжных умерли прошлой ночью, является просто prima facie, что, как показал прецедент Уиллс против Туле, является дополнительным основанием для оправдания.\""
+    },
+    "summary": {
+      "en": "\"Each night, choose a living player (different to last night): if executed tomorrow, they don't die.\"",
+      "ru": "\"Каждую ночь выбирайте живого игрока (не такого, как прошлой ночью): если его казнят завтра, он не умрет\"."
+    }
+  },
+  {
+    "id": "spy",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Spy",
+      "ru": "Шпион"
+    },
+    "jinxes": [
+      {
+        "roleId": "alchemist",
+        "reason": {
+          "en": "If the Alchemist has the Spy ability, they do not see the Grimoire, and the real Spy cannot register falsely.",
+          "ru": "Если у алхимика есть способность \"Шпион\", он не видит Гримуар, а настоящий шпион не может зарегистрироваться ложно."
+        }
+      },
+      {
+        "roleId": "magician",
+        "reason": {
+          "en": "When the Spy sees the Grimoire, the Demon and Magician's character tokens are removed.",
+          "ru": "Когда Шпион видит Гримуар, жетоны персонажей Демона и Мага удаляются."
+        }
+      },
+      {
+        "roleId": "poppygrower",
+        "reason": {
+          "en": "If the Poppy Grower is in play, the Spy does not see the Grimoire until the Poppy Grower dies.",
+          "ru": "Если маковод находится в игре, шпион не видит Гримуар до тех пор, пока маковод не умрет."
+        }
+      },
+      {
+        "roleId": "damsel",
+        "reason": {
+          "en": "If the Spy is (or has been) in play, the Damsel is poisoned.",
+          "ru": "Если Шпион находится (или находился) в игре, Дамзель отравлена."
+        }
+      },
+      {
+        "roleId": "ogre",
+        "reason": {
+          "en": "The Spy registers as evil to the Ogre.",
+          "ru": "Для Людоеда Шпион - это зло."
+        }
+      }
+    ],
+    "firstNight": 66,
+    "otherNight": 85,
+    "flavor": {
+      "en": "\"Any brewmaster worth their liquor, knows no concoction pours trouble quicker, than one where spies seem double.\"",
+      "ru": "\"Любой пивовар, стоящий своего спиртного, знает, что ни один напиток не навлекает беду быстрее, чем тот, в котором шпионы кажутся двойными\"."
+    },
+    "summary": {
+      "en": "\"Each night, you see the Grimoire. You might register as good & as a Townsfolk or Outsider, even if dead.\"",
+      "ru": "\"Каждую ночь вы смотрите Гримуар. Вы можете зарегистрироваться как хороший и как горожанин или чужак, даже если вы мертвы\"."
+    }
+  },
+  {
+    "id": "harpy",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Harpy",
+      "ru": "Гарпия"
+    },
+    "jinxes": [],
+    "firstNight": 39,
+    "otherNight": 27,
+    "flavor": {
+      "en": "”So fair a day I never did see, nor so fowl a presence hanging over me.”",
+      "ru": "\"Такого прекрасного дня я никогда не видел, и такое птичье присутствие не висело надо мной\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose 2 players: tomorrow, the 1st player is mad that the 2nd is evil, or one or both might die.\"",
+      "ru": "\"Каждую ночь выбирайте 2 игроков: завтра 1-й игрок будет злым, 2-й - злым, или один или оба могут умереть\"."
+    }
+  },
+  {
+    "id": "witch",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Witch",
+      "ru": "Ведьма"
+    },
+    "jinxes": [],
+    "firstNight": 36,
+    "otherNight": 23,
+    "flavor": {
+      "en": "\"Three drops of goat's blood. A lock of hair, torn in anger. The name is spoken, the shadow cast. Walk left foot first down that brambled path, and don't look back.\"",
+      "ru": "\"Три капли козьей крови. Прядь волос, вырванная в гневе. Имя произнесено, тень отброшена. Иди сначала левой ногой по заросшей травой тропинке и не оглядывайся\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose a player: if they nominate tomorrow, they die. If just 3 players live, you lose this ability.\"",
+      "ru": "\"Каждую ночь выбирайте игрока: если завтра его номинируют, он умирает. Если в живых останется только 3 игрока, вы потеряете эту способность\"."
+    }
+  },
+  {
+    "id": "cerenovus",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Cerenovus",
+      "ru": "Цереновус"
+    },
+    "jinxes": [
+      {
+        "roleId": "goblin",
+        "reason": {
+          "en": "The Cerenovus may choose to make a player mad that they are the Goblin.",
+          "ru": "Цереновус может заставить игрока злиться на то, что он гоблин."
+        }
+      }
+    ],
+    "firstNight": 37,
+    "otherNight": 24,
+    "flavor": {
+      "en": "\"Reality is merely an opinion. Specifically, my opinion.\"",
+      "ru": "\"Реальность - это всего лишь мнение. Точнее, мое мнение\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose a player & a good character: they are \"mad\" they are this character tomorrow, or might be executed.\"",
+      "ru": "\"Каждую ночь выбирайте игрока и хорошего персонажа: они \"злятся\", что завтра станут этим персонажем, или могут быть казнены\"."
+    }
+  },
+  {
+    "id": "fearmonger",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Fearmonger",
+      "ru": "Fearmonger"
+    },
+    "jinxes": [],
+    "firstNight": 38,
+    "otherNight": 26,
+    "flavor": {
+      "en": "\"Beware of gazing long into the Abyss, lest the Abyss also gaze into you.\"",
+      "ru": "\"Остерегайтесь долго вглядываться в Бездну, чтобы Бездна не вгляделась в вас\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose a player: if you nominate & execute them, their team loses. All players know if you choose a new player.\"",
+      "ru": "\"Каждую ночь выбирайте игрока: если вы его назначите и казните, его команда проиграет. Все игроки знают, если вы выбрали нового игрока\"."
+    }
+  },
+  {
+    "id": "pithag",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Pit-Hag",
+      "ru": "Пит-Хаг"
+    },
+    "jinxes": [
+      {
+        "roleId": "damsel",
+        "reason": {
+          "en": "If a Pit-Hag creates a Damsel, the Storyteller chooses which player it is.",
+          "ru": "Если Яма-колдунья создает даму, Сказочник выбирает, кто из игроков ее создал."
+        }
+      },
+      {
+        "roleId": "politician",
+        "reason": {
+          "en": "If the Pit-Hag turns an evil player into the Politician, they can't turn good due to their own ability.",
+          "ru": "Если Яма-колдунья превращает злого игрока в Политика, он не может стать добрым благодаря своей способности."
+        }
+      },
+      {
+        "roleId": "villageidiot",
+        "reason": {
+          "en": "If there is a spare token, the Pit-Hag can create an extra Village Idiot. If so, the drunk Village Idiot might change.",
+          "ru": "Если есть свободный жетон, Ямщик может создать дополнительного деревенского идиота. В этом случае пьяный деревенский идиот может измениться."
+        }
+      },
+      {
+        "roleId": "cultleader",
+        "reason": {
+          "en": "If the Pit-Hag turns an evil player into the Cult Leader, they can't turn good due to their own ability.",
+          "ru": "Если Пит-Хаг превращает злого игрока в лидера культа, он не может стать добрым благодаря своей способности."
+        }
+      },
+      {
+        "roleId": "goon",
+        "reason": {
+          "en": "If the Pit-Hag turns an evil player into the Goon, they can't turn good due to their own ability.",
+          "ru": "Если Пит-Хаг превращает злого игрока в Гуна, он не может стать добрым благодаря своей способности."
+        }
+      },
+      {
+        "roleId": "ogre",
+        "reason": {
+          "en": "If the Pit-Hag turns an evil player into the Ogre, they can't turn good due to their own ability.",
+          "ru": "Если Пит-Хаг превращает злого игрока в Людоеда, он не может стать добрым благодаря своей способности."
+        }
+      }
+    ],
+    "otherNight": 25,
+    "flavor": {
+      "en": "\"Round about the cauldron go; In the poison'd entrails throw; Toad, that under cold stone; Days and nights has thirty-one; Sweated venom sleeping got; Boil thou first in the charmed pot.\"",
+      "ru": "\"Вокруг котла иди; В ядовитые внутренности брось; Жаба, что под холодным камнем; Дней и ночей тридцать один; Пот яда спящий получил; Сварись сначала в зачарованном котле\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player & a character they become (if not in play). If a Demon is made, deaths tonight are arbitrary.\"",
+      "ru": "\"Каждую ночь* выберите игрока и персонажа, которым он становится (если не в игре). Если выбран Демон, смерти этой ночью произвольны\"."
+    }
+  },
+  {
+    "id": "psychopath",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Psychopath",
+      "ru": "Психопат"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Surprise!\"",
+      "ru": "\"Сюрприз!\""
+    },
+    "summary": {
+      "en": "\"Each day, before nominations, you may publicly choose a player: they die. If executed, you only die if you lose roshambo.\"",
+      "ru": "\"Каждый день, перед номинациями, вы можете публично выбрать игрока: он умирает. Если казнен, то умирает только в случае проигрыша рошамбо\"."
+    }
+  },
+  {
+    "id": "assassin",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Assassin",
+      "ru": "Ассасин"
+    },
+    "jinxes": [],
+    "otherNight": 51,
+    "flavor": {
+      "en": "\"...\"",
+      "ru": "\"...\""
+    },
+    "summary": {
+      "en": "\"Once per game, at night*, choose a player: they die, even if for some reason they could not.\"",
+      "ru": "\"Один раз за игру, ночью*, выберите игрока: он умирает, даже если по какой-то причине не мог этого сделать\"."
+    }
+  },
+  {
+    "id": "wizard",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Wizard",
+      "ru": "Волшебник"
+    },
+    "jinxes": [],
+    "firstNight": 30,
+    "otherNight": 16,
+    "flavor": {
+      "en": "“Every man and every woman is a star. Love is the law, love under will.”",
+      "ru": "\"Каждый мужчина и каждая женщина - звезда. Любовь - закон, любовь - воля\"."
+    },
+    "summary": {
+      "en": "\"Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature.\"",
+      "ru": "\"Один раз за игру вы можете загадать желание. Если оно исполнится, у него может быть цена, и оно оставит подсказку о своей природе\"."
+    }
+  },
+  {
+    "id": "widow",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Widow",
+      "ru": "Вдова"
+    },
+    "jinxes": [
+      {
+        "roleId": "alchemist",
+        "reason": {
+          "en": "If the Alchemist has the Widow ability, they do not see the Grimoire.",
+          "ru": "Если у алхимика есть способность \"Вдова\", он не видит Гримуар."
+        }
+      },
+      {
+        "roleId": "magician",
+        "reason": {
+          "en": "When the Widow sees the Grimoire, the Demon and Magician's character tokens are removed.",
+          "ru": "Когда Вдова видит Гримуар, жетоны персонажей демона и мага удаляются."
+        }
+      },
+      {
+        "roleId": "poppygrower",
+        "reason": {
+          "en": "If the Poppy Grower is in play, the Widow does not see the Grimoire until the Poppy Grower dies.",
+          "ru": "Если маковод находится в игре, вдова не видит Гримуар до тех пор, пока маковод не умрет."
+        }
+      },
+      {
+        "roleId": "damsel",
+        "reason": {
+          "en": "If the Widow is (or has been) in play, the Damsel is poisoned.",
+          "ru": "Если Вдова находится (или находилась) в игре, Дамзель отравлена."
+        }
+      }
+    ],
+    "firstNight": 28,
+    "flavor": {
+      "en": "\"More wine? Château d’Ergot ’07 is a very special vintage. My yes, very special indeed.\"",
+      "ru": "\"Еще вина? Château d'Ergot '07 - очень особенный винтаж. Да, действительно особенный\"."
+    },
+    "summary": {
+      "en": "\"On your first night, look at the Grimoire & choose a player: they are poisoned. 1 good player knows a Widow is in play.\"",
+      "ru": "\"В первую ночь посмотрите в Гримуар и выберите игрока: он отравлен. 1 хороший игрок знает, что в игре находится Вдова\"."
+    }
+  },
+  {
+    "id": "xaan",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Xaan",
+      "ru": "Xaan"
+    },
+    "jinxes": [],
+    "firstNight": 26,
+    "otherNight": 12,
+    "flavor": {
+      "en": "“Down they fall. One by one. By two, by three, by five.”",
+      "ru": "\"Они падают. Один за другим. За двумя, за тремя, за пятью\"."
+    },
+    "summary": {
+      "en": "\"On night X, all Townsfolk are poisoned until dusk. [X Outsiders]\"",
+      "ru": "\"В ночь X все жители города отравлены до наступления сумерек. [X Аутсайдеры]\"."
+    }
+  },
+  {
+    "id": "marionette",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Marionette",
+      "ru": "Марионетка"
+    },
+    "jinxes": [
+      {
+        "roleId": "lilmonsta",
+        "reason": {
+          "en": "The Marionette neighbors a Minion, not the Demon. The Marionette is not woken to choose who takes the Lil' Monsta token, and does not learn they are the Marionette if they have the Lil' Monsta token.",
+          "ru": "Марионетка соседствует с миньоном, а не с демоном. Марионетку не будят, чтобы выбрать, кто возьмет жетон Lil' Monsta, и она не узнает, что является Марионеткой, если у нее есть жетон Lil' Monsta."
+        }
+      },
+      {
+        "roleId": "poppygrower",
+        "reason": {
+          "en": "When the Poppy Grower dies, the Demon learns the Marionette but the Marionette learns nothing.",
+          "ru": "Когда Выращиватель маков умирает, Демон узнает Марионетку, но Марионетка ничего не узнает."
+        }
+      },
+      {
+        "roleId": "snitch",
+        "reason": {
+          "en": "The Marionette does not learn 3 not in-play characters. The Demon learns an extra 3 instead.",
+          "ru": "Марионетка не учит 3 не участвующих в игре персонажей. Вместо этого Демон выучивает дополнительные 3."
+        }
+      },
+      {
+        "roleId": "balloonist",
+        "reason": {
+          "en": "If the Marionette thinks that they are the Balloonist, +1 Outsider might have been added.",
+          "ru": "Если марионетка считает себя Воздухоплавателем, можно было бы добавить +1 Аутсайдера."
+        }
+      },
+      {
+        "roleId": "damsel",
+        "reason": {
+          "en": "The Marionette does not learn that a Damsel is in play.",
+          "ru": "Марионетка не узнает, что в игре находится Дамсель."
+        }
+      },
+      {
+        "roleId": "huntsman",
+        "reason": {
+          "en": "If the Marionette thinks that they are the Huntsman, the Damsel was added.",
+          "ru": "Если марионетка считает себя Охотником, то добавляется Дамсель."
+        }
+      }
+    ],
+    "firstNight": 21,
+    "flavor": {
+      "en": "\"Words, words. They're all we have to go on.\"",
+      "ru": "\"Слова, слова. Это все, на что мы можем опираться\"."
+    },
+    "summary": {
+      "en": "\"You think you are a good character, but you are not. The Demon knows who you are. [You neighbor the Demon]\"",
+      "ru": "\"Ты думаешь, что у тебя хороший характер, но это не так. Демон знает, кто ты. [Ты соседствуешь с Демоном\".]"
+    }
+  },
+  {
+    "id": "eviltwin",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Evil Twin",
+      "ru": "Злой близнец"
+    },
+    "jinxes": [],
+    "firstNight": 35,
+    "flavor": {
+      "en": "\"I'm not Sara! I'm Clara! SHE is Sara! Sara is the evil one! Not me!\"",
+      "ru": "\"Я не Сара! Я Клара! ОНА - Сара! Сара - это зло! Не я!\""
+    },
+    "summary": {
+      "en": "\"You & an opposing player know each other. If the good player is executed, evil wins. Good can't win if you both live.\"",
+      "ru": "\"Вы и игрок противника знаете друг друга. Если доброго игрока казнят, зло побеждает. Добро не может победить, если вы оба живы\"."
+    }
+  },
+  {
+    "id": "summoner",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Summoner",
+      "ru": "Summoner"
+    },
+    "jinxes": [
+      {
+        "roleId": "clockmaker",
+        "reason": {
+          "en": "If the Summoner is in play, the Clockmaker does not receive their information until a Demon is created.",
+          "ru": "Если Суммонер находится в игре, Часовщик не получает информацию о нем до тех пор, пока не будет создан Демон."
+        }
+      },
+      {
+        "roleId": "alchemist",
+        "reason": {
+          "en": "If there is an Alchemist-Summoner in play, the game starts with a Demon in play, as normal. If the Alchemist-Summoner chooses a player, they make that player a Demon but do not change their alignment.",
+          "ru": "Если в игре есть Алхимик-Суммонер, игра начинается с Демона в игре, как обычно. Если Алхимик-Суммонер выбирает игрока, он превращает его в Демона, но не меняет его выравнивание."
+        }
+      },
+      {
+        "roleId": "poppygrower",
+        "reason": {
+          "en": "If the Poppy Grower is alive when the Summoner acts, the Summoner chooses which Demon, but the Storyteller chooses which player.",
+          "ru": "Если в момент действия Суммонера маковод жив, Суммонер выбирает демона, а Рассказчик - игрока."
+        }
+      },
+      {
+        "roleId": "marionette",
+        "reason": {
+          "en": "The Marionette neighbors the Summoner. The Summoner knows who the Marionette is.",
+          "ru": "Марионетка соседствует с вызывателем. Суммонер знает, кто такая Марионетка."
+        }
+      },
+      {
+        "roleId": "pithag",
+        "reason": {
+          "en": "The Summoner cannot create an in-play Demon. If the Summoner creates a not-in-play Demon, deaths tonight are arbitrary.",
+          "ru": "Суммонер не может создать неиграющего Демона. Если Суммонер создает неиграющего Демона, смерть сегодня ночью будет произвольной."
+        }
+      },
+      {
+        "roleId": "hatter",
+        "reason": {
+          "en": "The Summoner cannot create an in-play Demon. If the Summoner creates a not-in-play Demon, deaths tonight are arbitrary.",
+          "ru": "Суммонер не может создать неиграющего Демона. Если Суммонер создает неиграющего Демона, смерть сегодня ночью будет произвольной."
+        }
+      },
+      {
+        "roleId": "courtier",
+        "reason": {
+          "en": "If the Summoner is drunk on the 3rd night, the Summoner chooses which Demon, but the Storyteller chooses which player.",
+          "ru": "Если на третью ночь Суммонер пьян, то Суммонер выбирает Демона, а Сказочник - игрока."
+        }
+      },
+      {
+        "roleId": "engineer",
+        "reason": {
+          "en": "If the Engineer removes a Summoner from play before that Summoner uses their ability, the Summoner uses their ability immediately.",
+          "ru": "Если Инженер убирает Суммонера из игры до того, как этот Суммонер использует свою способность, Суммонер немедленно использует свою способность."
+        }
+      },
+      {
+        "roleId": "zombuul",
+        "reason": {
+          "en": "If the Summoner turns a dead player into the Zombuul, the Storyteller treats that player as a Zombuul that has died once.",
+          "ru": "Если Суммонер превращает мертвого игрока в Зомбуля, Сказочник рассматривает этого игрока как Зомбуля, который умер один раз."
+        }
+      },
+      {
+        "roleId": "pukka",
+        "reason": {
+          "en": "The Summoner may choose a player to become the Pukka on the 2nd night.",
+          "ru": "Во 2-ю ночь Вызыватель может выбрать игрока, который станет Пуккой."
+        }
+      },
+      {
+        "roleId": "legion",
+        "reason": {
+          "en": "If the Summoner creates Legion, most players (including all evil players) become evil Legion.",
+          "ru": "Если Суммонер создает Легион, большинство игроков (включая всех злых игроков) становятся злым Легионом."
+        }
+      },
+      {
+        "roleId": "kazali",
+        "reason": {
+          "en": "The Summoner cannot create an in-play Demon. If the Summoner creates a not-in-play Demon, deaths tonight are arbitrary.",
+          "ru": "Суммонер не может создать неиграющего Демона. Если Суммонер создает неиграющего Демона, смерть сегодня ночью будет произвольной."
+        }
+      },
+      {
+        "roleId": "preacher",
+        "reason": {
+          "en": "If the Preacher chose the Summoner on or before the 3rd night, the Summoner chooses which Demon, but the Storyteller chooses which player.",
+          "ru": "Если Проповедник выбрал Вызывателя в 3-ю ночь или раньше, то Вызыватель выбирает Демона, а Рассказчик - игрока."
+        }
+      },
+      {
+        "roleId": "lordoftyphon",
+        "reason": {
+          "en": "If the Summoner creates a Lord of Typhon, the Lord of Typhon must neighbor a Minion. The other neighbor becomes a not-in-play evil Minion.",
+          "ru": "Если Суммонер создает Владыку Тифона, то Владыка Тифона должен соседствовать с одним из миньонов. Другой сосед становится не участвующим в игре злым миньоном."
+        }
+      }
+    ],
+    "firstNight": 17,
+    "otherNight": 30,
+    "flavor": {
+      "en": "\"Hail the guardians of the north; by my intellect, thou art cut. Hail the guardians of the east; by my will, thou art dominated. Hail the guardians of the south; by that which lies beyond, the mystery is revealed. Hail the guardians of the west; a shield in the darkness\"",
+      "ru": "\"Приветствуйте хранителей севера; моим интеллектом вы рассечены. Приветствуйте стражей востока; моей волей вы властвуете. Слава хранителям юга; через то, что лежит за пределами, открывается тайна. Слава хранителям запада; щит во тьме\"."
+    },
+    "summary": {
+      "en": "\"You get 3 bluffs. On the 3rd night, choose a player: they become an evil Demon of your choice. [No Demon]\"",
+      "ru": "\"Вы получаете 3 блефа. На 3-ю ночь выберите игрока: он становится злым Демоном по вашему выбору. [Нет демона]\"."
+    }
+  },
+  {
+    "id": "goblin",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Goblin",
+      "ru": "Гоблин"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"You don’t want to insult the goblins. You really, really don’t. On a completely different note… can I have another piece of cake?\"",
+      "ru": "\"Ты же не хочешь оскорбить гоблинов. Очень, очень не хочешь. И совсем другое дело... можно мне еще кусочек торта?\""
+    },
+    "summary": {
+      "en": "\"If you publicly claim to be the Goblin when nominated & are executed that day, your team wins.\"",
+      "ru": "\"Если вы публично заявите, что являетесь Гоблином, когда вас выдвинут, и будете казнены в тот же день, ваша команда победит\"."
+    }
+  },
+  {
+    "id": "boomdandy",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Boomdandy",
+      "ru": "Boomdandy"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Tick... Tick... Tick... TOCK.\"",
+      "ru": "\"Тик... Тик... Тик... ТОК.\""
+    },
+    "summary": {
+      "en": "\"If you are executed, all but 3 players die. After a 10 to 1 countdown, the player with the most players pointing at them, dies.\"",
+      "ru": "\"Если вас казнят, все игроки, кроме 3, умирают. После обратного отсчета от 10 до 1 игрок, на которого указывает наибольшее количество игроков, умирает\"."
+    }
+  },
+  {
+    "id": "mastermind",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Mastermind",
+      "ru": "Mastermind"
+    },
+    "jinxes": [
+      {
+        "roleId": "alhadikhia",
+        "reason": {
+          "en": "If the Al-Hadikhia dies by execution, and the Mastermind is alive, the Al-Hadikhia chooses 3 good players tonight: if all 3 choose to live, evil wins. Otherwise, good wins.",
+          "ru": "Если Аль-Хадихия умирает в результате казни, а Мастермайнд жив, Аль-Хадихия выбирает 3 хороших игроков сегодня ночью: если все трое останутся в живых, зло побеждает. В противном случае побеждает добро."
+        }
+      }
+    ],
+    "flavor": {
+      "en": "\"The tentacles of that monster are nailed to the doors of the church. Mothers and children are dancing in the street. Excellent. Everything is proceeding exactly as I have planned.\"",
+      "ru": "\"Щупальца этого чудовища прибиты к дверям церкви. Матери и дети танцуют на улице. Превосходно. Все идет точно по моему плану\"."
+    },
+    "summary": {
+      "en": "\"If the Demon dies by execution (ending the game), play for 1 more day. If a player is then executed, their team loses.\"",
+      "ru": "\"Если Демон умирает в результате казни (завершая игру), игра продолжается еще 1 день. Если игрока казнят, его команда проигрывает\"."
+    }
+  },
+  {
+    "id": "scarletwoman",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Scarlet Woman",
+      "ru": "Алая женщина"
+    },
+    "jinxes": [
+      {
+        "roleId": "fanggu",
+        "reason": {
+          "en": "If the Fang Gu chooses an Outsider and dies, the Scarlet Woman does not become the Fang Gu.",
+          "ru": "Если Фан Гу выбирает чужака и умирает, Алая женщина не становится Фан Гу."
+        }
+      },
+      {
+        "roleId": "alhadikhia",
+        "reason": {
+          "en": "If there are two living Al-Hadikhias, the Scarlet Woman Al-Hadikhia becomes the Scarlet Woman again.",
+          "ru": "Если есть два живых Аль-Хадихия, Алая женщина Аль-Хадихия снова становится Алой женщиной."
+        }
+      }
+    ],
+    "otherNight": 29,
+    "flavor": {
+      "en": "\"You have shown me the secrets of the Council of the Purple Flame. We have lain together in fire and in lust and in beastly commune, and I am forever your servant. But tonight, my dear, I am your master.\"",
+      "ru": "\"Ты открыл мне секреты Совета Пурпурного Пламени. Мы спали вместе в огне, в похоти и в зверином общении, и я навсегда остался твоим слугой. Но сегодня, моя дорогая, я твой хозяин\"."
+    },
+    "summary": {
+      "en": "\"If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don't count)\"",
+      "ru": "\"Если в живых осталось 5 или более игроков, а Демон умер, вы становитесь Демоном. (Путешественники не считаются)\"."
+    }
+  },
+  {
+    "id": "vizier",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Vizier",
+      "ru": "Визирь"
+    },
+    "jinxes": [
+      {
+        "roleId": "investigator",
+        "reason": {
+          "en": "If the Investigator learns that the Vizier is in play, the existence of the Vizier is not announced by the Storyteller.",
+          "ru": "Если Следователь узнает, что Визирь находится в игре, Сказочник не сообщает о существовании Визиря."
+        }
+      },
+      {
+        "roleId": "preacher",
+        "reason": {
+          "en": "If the Vizier loses their ability, they learn this. If the Vizier is executed while they have their ability, their team wins.",
+          "ru": "Если визирь теряет способность, он узнает об этом. Если визиря казнят, пока он владеет способностью, его команда побеждает."
+        }
+      },
+      {
+        "roleId": "courtier",
+        "reason": {
+          "en": "If the Vizier loses their ability, they learn this. If the Vizier is executed while they have their ability, their team wins.",
+          "ru": "Если визирь теряет способность, он узнает об этом. Если визиря казнят, пока он владеет способностью, его команда побеждает."
+        }
+      },
+      {
+        "roleId": "magician",
+        "reason": {
+          "en": "If the Vizier and Magician are both in play, the Demon does not learn the Minions.",
+          "ru": "Если Визирь и Маг находятся в игре, Демон не изучает миньонов."
+        }
+      },
+      {
+        "roleId": "fearmonger",
+        "reason": {
+          "en": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player.",
+          "ru": "Визирь просыпается вместе со Страшилой, узнает, кого они выбрали, и не может выбрать, чтобы немедленно казнить этого игрока."
+        }
+      },
+      {
+        "roleId": "politician",
+        "reason": {
+          "en": "The Politician might register as evil to the Vizier.",
+          "ru": "Политик может показаться визирю злым."
+        }
+      },
+      {
+        "roleId": "alsaahir",
+        "reason": {
+          "en": "If the Vizier is in play, the Alsaahir must also guess which Demon(s) are in play.",
+          "ru": "Если в игре находится Визирь, Альсаахир также должен угадать, какой Демон(ы) находится(ются) в игре."
+        }
+      },
+      {
+        "roleId": "zealot",
+        "reason": {
+          "en": "The Zealot might register as evil to the Vizier.",
+          "ru": "Зилот может показаться визирю злым."
+        }
+      }
+    ],
+    "firstNight": 74,
+    "flavor": {
+      "en": "“An excellent decision, as always, sire. Such a petty crime as bumping into the Bishop indeed deserves your ‘justice’ and ‘mercy’. Take a stroll in the gardens. Visit the gallery and peruse the sculptures of Von Strauf. Relax, sire. Leave everything… to me.”",
+      "ru": "\"Отличное решение, как всегда, сир. Такое мелкое преступление, как столкновение с епископом, действительно заслуживает вашего \"правосудия\" и \"милосердия\". Прогуляйтесь по садам. Посетите галерею и полюбуйтесь скульптурами фон Штрауфа. Расслабьтесь, сир. Предоставьте все... мне\"."
+    },
+    "summary": {
+      "en": "\"All players know you are the Vizier. You cannot die during the day. If good voted, you may choose to execute immediately.\"",
+      "ru": "\"Все игроки знают, что вы - визирь. Вы не можете умереть в течение дня. Если за вас проголосовали, вы можете выбрать немедленную казнь\"."
+    }
+  },
+  {
+    "id": "organgrinder",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Organ Grinder",
+      "ru": "Измельчитель органов"
+    },
+    "jinxes": [],
+    "firstNight": 33,
+    "otherNight": 21,
+    "flavor": {
+      "en": "\"Round and round the handles go. The more you dance the less you know.\"",
+      "ru": "\"Ручки ходят по кругу. Чем больше танцуешь, тем меньше знаешь\"."
+    },
+    "summary": {
+      "en": "\"All players keep their eyes closed when voting and the vote tally is secret. Each night, choose if you are drunk until dusk.\"",
+      "ru": "\"Все игроки при голосовании держат глаза закрытыми, и подсчет голосов ведется тайно. Каждый вечер выбирайте, будете ли вы пьяны до наступления сумерек\"."
+    }
+  },
+  {
+    "id": "boffin",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Boffin",
+      "ru": "Боффин"
+    },
+    "jinxes": [
+      {
+        "roleId": "cultleader",
+        "reason": {
+          "en": "If the Demon has the Cult Leader ability, they can’t turn good due to this ability.",
+          "ru": "Если у демона есть способность \"Лидер культа\", он не может стать хорошим благодаря этой способности."
+        }
+      },
+      {
+        "roleId": "goon",
+        "reason": {
+          "en": "If the Demon has the Goon ability, they can’t turn good due to this ability.",
+          "ru": "Если у демона есть способность Goon, он не может стать хорошим благодаря этой способности."
+        }
+      },
+      {
+        "roleId": "ogre",
+        "reason": {
+          "en": "The Demon cannot have the Ogre ability.",
+          "ru": "Демон не может обладать способностью \"Людоед\"."
+        }
+      },
+      {
+        "roleId": "politician",
+        "reason": {
+          "en": "The Demon cannot have the Politician ability.",
+          "ru": "Демон не может обладать способностью \"Политик\"."
+        }
+      },
+      {
+        "roleId": "drunk",
+        "reason": {
+          "en": "If the Demon would have the Drunk ability, the Boffin chooses a Townsfolk player to have this ability instead.",
+          "ru": "Если у демона была бы способность \"Пьяный\", Боффин выбирает игрока из Таунсфолка, который будет обладать этой способностью вместо него."
+        }
+      },
+      {
+        "roleId": "alchemist",
+        "reason": {
+          "en": "If the Alchemist has the Boffin ability, the Alchemist does not learn what ability the Demon has.",
+          "ru": "Если у алхимика есть способность \"Боффин\", алхимик не узнает, какая способность есть у демона."
+        }
+      },
+      {
+        "roleId": "villageidiot",
+        "reason": {
+          "en": "If there is a spare token, the Boffin can give the Demon the Village Idiot ability.",
+          "ru": "Если есть свободный жетон, Боффин может дать демону способность \"Деревенский идиот\"."
+        }
+      }
+    ],
+    "firstNight": 8,
+    "flavor": {
+      "en": "\"Stellar hydrogen, vast, inert; carbon, oxygen, neon gases, all ruined. Molecular chaos, entropy, yields new cosmic phenomena, rebirth from atomic chaos, dense matter collapsing. All in a teeny little bottle.\"",
+      "ru": "\"Звездный водород, огромный, инертный; углерод, кислород, неоновые газы - все разрушено. Молекулярный хаос, энтропия, порождающая новые космические явления, возрождение из атомного хаоса, разрушение плотной материи. И все это в маленькой бутылочке\"."
+    },
+    "summary": {
+      "en": "\"The Demon (even if drunk or poisoned) has a not-in-play good character's ability. You both know which.\"",
+      "ru": "\"У Демона (даже если он пьян или отравлен) есть неиграбельная способность хорошего персонажа. Вы оба знаете, какая\"."
+    }
+  },
+  {
+    "id": "baron",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Baron",
+      "ru": "Барон"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"This town has gone to the dogs, what? Cheap foreign labor... that's the ticket. Stuff them in the mine, I say. A bit of hard work never hurt anyone, and a clip'o'the ears to any brigand who says otherwise. It's all about the bottom line, what?\"",
+      "ru": "\"Этот город превратился в собачий двор, что? Дешевая иностранная рабочая сила... вот и все. Засуньте их в шахту, говорю я. Немного тяжелой работы никому не повредит, а любому разбойнику, который скажет обратное, прищемит уши. Все дело в конечном результате, что?\""
+    },
+    "summary": {
+      "en": "\"There are extra Outsiders in play. [+2 Outsiders]\"",
+      "ru": "\"В игре есть дополнительные Аутсайдеры. [+2 Аутсайдера]\"."
+    }
+  },
+  {
+    "id": "yaggababble",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Yaggababble",
+      "ru": "Yaggababble"
+    },
+    "jinxes": [
+      {
+        "roleId": "exorcist",
+        "reason": {
+          "en": "If the Exorcist chooses the Yaggababble, the Yaggababble ability does not kill tonight.",
+          "ru": "Если Экзорцист выбирает Яггаббл, способность Яггаббл не убивает эту ночь."
+        }
+      }
+    ],
+    "firstNight": 12,
+    "otherNight": 49,
+    "flavor": {
+      "en": "\"Murders inside the Rue Morgue? Фальшивые новости! Hounds on the Baskerville moor? Фальшивые новости! Death while sailing the Nile? Фальшивые новости!\"",
+      "ru": "\"Убийства на улице Морг\"? Фальшивые новости! Гончие на болоте Баскервилей? Фальшивые новости! Смерть во время плавания по Нилу? Фальшивые новости!\""
+    },
+    "summary": {
+      "en": "\"You start knowing a secret phrase. For each time you said it publicly today, a player might die.\"",
+      "ru": "\"Вы начинаете знать секретную фразу. За каждый раз, когда вы произнесете ее сегодня публично, один игрок может умереть\"."
+    }
+  },
+  {
+    "id": "pukka",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Pukka",
+      "ru": "Pukka"
+    },
+    "jinxes": [],
+    "firstNight": 41,
+    "otherNight": 37,
+    "flavor": {
+      "en": "\"You truly have been kind welcoming me into your beautiful home. I am so sorry I accidentally scratched you. A little thing. No matter. But please, take this golden toothpick as a humble token of my regret.\"",
+      "ru": "\"Вы были очень добры, принимая меня в своем прекрасном доме. Мне очень жаль, что я случайно поцарапала вас. Небольшая мелочь. Неважно. Но, пожалуйста, примите эту золотую зубочистку как скромный знак моего сожаления\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose a player: they are poisoned. The previously poisoned player dies then becomes healthy.\"",
+      "ru": "\"Каждую ночь выбирайте игрока: он отравлен. Ранее отравленный игрок умирает, а затем становится здоровым\"."
+    }
+  },
+  {
+    "id": "lilmonsta",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Lil' Monsta",
+      "ru": "Lil' Monsta"
+    },
+    "jinxes": [
+      {
+        "roleId": "poppygrower",
+        "reason": {
+          "en": "If the Poppy Grower is in play, Minions don't wake together. They are woken one by one, until one of them chooses to take the Lil' Monsta token.",
+          "ru": "Если в игре находится Выращиватель маков, миньоны не просыпаются вместе. Они просыпаются по очереди, пока один из них не решит взять жетон Lil' Monsta."
+        }
+      },
+      {
+        "roleId": "magician",
+        "reason": {
+          "en": "Each night, the Magician chooses a Minion: if that Minion & Lil' Monsta are alive, that Minion babysits Lil’ Monsta.",
+          "ru": "Каждую ночь Маг выбирает миньона: если миньон и Лил Монста живы, то миньон нянчит Лил Монсту."
+        }
+      },
+      {
+        "roleId": "scarletwoman",
+        "reason": {
+          "en": "If there are 5 or more players alive and the player holding the Lil' Monsta token dies, the Scarlet Woman is given the Lil' Monsta token tonight.",
+          "ru": "Если в живых осталось 5 или более игроков и игрок, держащий жетон Lil' Monsta, умирает, Алая женщина получает жетон Lil' Monsta сегодня вечером."
+        }
+      },
+      {
+        "roleId": "vizier",
+        "reason": {
+          "en": "The Vizier can die by execution if they are babysitting Lil' Monsta.",
+          "ru": "Визирь может умереть через казнь, если он нянчится с Лил Монстой."
+        }
+      },
+      {
+        "roleId": "hatter",
+        "reason": {
+          "en": "If a Demon chooses Lil' Monsta, they also choose a Minion to become and babysit Lil' Monsta tonight.",
+          "ru": "Если Демон выбирает Лил Монсту, он также выбирает миньона, который станет и будет нянчить Лил Монсту сегодня ночью."
+        }
+      }
+    ],
+    "firstNight": 24,
+    "otherNight": 48,
+    "flavor": {
+      "en": "\"Step 1: Be cute.\n\t\t\t\tStep 2: World domination.\n\t\t\t\tStep 3: Bweakfast.\"",
+      "ru": "\"Шаг 1: Будь милым.\n\t\t\t\tШаг 2: Мировое господство.\n\t\t\t\tШаг 3: Бвикфаст\"."
+    },
+    "summary": {
+      "en": "\"Each night, Minions choose who babysits Lil' Monsta & 'is the Demon'. Each night*, a player might die. [+1 Minion]\"",
+      "ru": "\"Каждую ночь миньоны выбирают, кто будет нянчить Лил Монста и \"является демоном\". Каждую ночь* игрок может умереть. [+1 миньон]\"."
+    }
+  },
+  {
+    "id": "nodashii",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "No Dashii",
+      "ru": "Нет Дашии"
+    },
+    "jinxes": [],
+    "otherNight": 41,
+    "flavor": {
+      "en": "\"By the sins of Arnoch, I feel thy laden stench. By the curs-ed sun and her foul legion of tiny grinning gods, I corrupt thee. By the blessed night and the hidden depths of the horrid and unholy sea, I end thy squalid life upon this plane.\"",
+      "ru": "\"Грехами Арноха я чувствую твой тяжелый смрад. Проклятым солнцем и легионом крошечных ухмыляющихся богов я развращаю тебя. Благословенной ночью и скрытыми глубинами ужасного и нечестивого моря я заканчиваю твою убогую жизнь на этом свете\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player: they die. Your 2 Townsfolk neighbors are poisoned.\"",
+      "ru": "\"Каждую ночь* выберите игрока: он умирает. 2 ваших соседей по городу отравлены\"."
+    }
+  },
+  {
+    "id": "imp",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Imp",
+      "ru": "Imp"
+    },
+    "jinxes": [],
+    "otherNight": 35,
+    "flavor": {
+      "en": "\"We must keep our wits sharp and our sword sharper. Evil walks among us, and will stop at nothing to destroy us good, simple folk, bringing our fine town to ruin. Trust no-one. But, if you must trust someone, trust me.\"",
+      "ru": "\"Мы должны держать свой ум острым, а меч - острым. Зло ходит среди нас и не остановится ни перед чем, чтобы уничтожить нас, добрых, простых людей, доведя наш прекрасный город до разрушения. Не доверяйте никому. Но если вы должны кому-то доверять, доверьтесь мне\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player: they die. If you kill yourself this way, a Minion becomes the Imp.\"",
+      "ru": "\"Каждую ночь* выбирайте игрока: он умирает. Если вы покончите с собой таким образом, миньон становится Бесом\"."
+    }
+  },
+  {
+    "id": "kazali",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Kazali",
+      "ru": "Казали"
+    },
+    "jinxes": [
+      {
+        "roleId": "goon",
+        "reason": {
+          "en": "The Kazali can choose that the Goon player is one of their evil Minions.",
+          "ru": "Казали могут выбрать, что игрок Goon - один из их злых миньонов."
+        }
+      },
+      {
+        "roleId": "marionette",
+        "reason": {
+          "en": "If the Kazali chooses to create a Marionette, they must choose one of their neighbors.",
+          "ru": "Если Казали решает создать марионетку, он должен выбрать одного из своих соседей."
+        }
+      },
+      {
+        "roleId": "huntsman",
+        "reason": {
+          "en": "If the Kazali chooses the Damsel to become a Minion, and a Huntsman is in play, a good player becomes the Damsel.",
+          "ru": "Если Казали выбирает Дамсель, чтобы она стала миньоном, а в игре находится Егерь, хороший игрок становится Дамсель."
+        }
+      },
+      {
+        "roleId": "choirboy",
+        "reason": {
+          "en": "The Kazali can not choose the King to become a Minion if a Choirboy is in play.",
+          "ru": "Казали не может выбрать короля, чтобы он стал миньоном, если в игре находится хорбой."
+        }
+      },
+      {
+        "roleId": "soldier",
+        "reason": {
+          "en": "The Kazali can choose that the Soldier player is one of their evil Minions.",
+          "ru": "Казали могут выбрать, что игрок-солдат является одним из их злых миньонов."
+        }
+      }
+    ],
+    "firstNight": 3,
+    "otherNight": 50,
+    "flavor": {
+      "en": "\"Gon(z)a7les6. Take cau8tun. The mech4an4ion is iNvert10d. E99ors insy6tum. Reco{7}fig.\"",
+      "ru": "\"Гон(з)а7лес6. Возьмите кау8тун. Мех4ан4ион - это иНверт10д. E99ors insy6tum. Reco{7}fig.\""
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player: they die. [You choose which players are which Minions. -? to +? Outsiders]\"",
+      "ru": "\"Каждую ночь* выбирайте игрока: он умирает. [Вы сами выбираете, какие игроки являются миньонами. От -? до +? Аутсайдеры]\"."
+    }
+  },
+  {
+    "id": "shabaloth",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Shabaloth",
+      "ru": "Шабалот"
+    },
+    "jinxes": [],
+    "otherNight": 38,
+    "flavor": {
+      "en": "\"Blarg f'taag nm mataan! No sho gumtha m'sik na yuuu. Fluuuuuuuuurg h-sikkkh.\"",
+      "ru": "\"Бларг ф'тааг нм матаан! No sho gumtha m'sik na yuuu. Флюууууууууург х-сиккх\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose 2 players: they die. A dead player you chose last night might be regurgitated.\"",
+      "ru": "\"Каждую ночь* выберите 2 игроков: они умирают. Мертвый игрок, которого вы выбрали прошлой ночью, может быть возрожден\"."
+    }
+  },
+  {
+    "id": "ojo",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Ojo",
+      "ru": "Ojo"
+    },
+    "jinxes": [],
+    "otherNight": 45,
+    "flavor": {
+      "en": "“Like a bonfire on a moonless night… I see you, mortal.”",
+      "ru": "\"Как костер в безлунную ночь... Я вижу тебя, смертный\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a character: they die. If they are not in play, the Storyteller chooses who dies.\"",
+      "ru": "\"Каждую ночь* выберите персонажа: он умирает. Если они не в игре, Сказочник выбирает, кто умрет\"."
+    }
+  },
+  {
+    "id": "po",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Po",
+      "ru": "По"
+    },
+    "jinxes": [],
+    "otherNight": 39,
+    "flavor": {
+      "en": "\"Would you like a flower? I'm so lonely.\"",
+      "ru": "\"Хотите цветок? Мне так одиноко\"."
+    },
+    "summary": {
+      "en": "\"Each night*, you may choose a player: they die. If your last choice was no-one, choose 3 players tonight.\"",
+      "ru": "\"Каждую ночь* вы можете выбрать игрока: он умирает. Если в прошлый раз вы никого не выбрали, выберите 3 игроков сегодня\"."
+    }
+  },
+  {
+    "id": "zombuul",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Zombuul",
+      "ru": "Зомбуль"
+    },
+    "jinxes": [],
+    "otherNight": 36,
+    "flavor": {
+      "en": "\"I do not. Understand. Your ways. Fellow human. Show me. The dirt. Where the holy. Lay. Sleeping. I too. Must sleep. Soon.\"",
+      "ru": "\"Я не понимаю. Пойми. Твои пути. Дружище. Покажи мне. Грязь. Где святое. лежат. Спит. Я тоже. Должен уснуть. Скоро\"."
+    },
+    "summary": {
+      "en": "\"Each night*, if no-one died today, choose a player: they die. The 1st time you die, you live but register as dead.\"",
+      "ru": "\"Каждую ночь*, если сегодня никто не умер, выберите игрока: он умирает. В 1-й раз, когда вы умираете, вы живете, но регистрируетесь как мертвый\"."
+    }
+  },
+  {
+    "id": "alhadikhia",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Al-Hadikhia",
+      "ru": "Аль-Хадикия"
+    },
+    "jinxes": [],
+    "otherNight": 46,
+    "flavor": {
+      "en": "\"Alsukut min dhahab.\"",
+      "ru": "\"Альсукут мин дахаб\"."
+    },
+    "summary": {
+      "en": "\"Each night*, you may choose 3 players (all players learn who): each silently chooses to live or die, but if all live, all die.\"",
+      "ru": "\"Каждую ночь* вы можете выбрать 3 игроков (все игроки знают, кого): каждый молча выбирает жить или умереть, но если все живут, то все умирают\"."
+    }
+  },
+  {
+    "id": "vigormortis",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Vigormortis",
+      "ru": "Vigormortis"
+    },
+    "jinxes": [],
+    "otherNight": 44,
+    "flavor": {
+      "en": "\"All doors are one door. All keys are one key. All cups are one cup, but whosoever drinketh of the water that I give shall never thirst, but the water shall be in him a well springing up into everlasting life.\"",
+      "ru": "\"Все двери - одна дверь. Все ключи - один ключ. Все чаши - одна чаша, но кто будет пить воду, которую Я дам, тот никогда не будет жаждать, но вода будет в нем источником, ведущим в жизнь вечную\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player: they die. Minions you kill keep their ability & poison 1 Townsfolk neighbor. [-1 Outsider]\"",
+      "ru": "\"Каждую ночь* выберите игрока: он умирает. Убитые вами миньоны сохраняют свои способности и отравляют 1 соседа горожанина. [-1 Аутсайдер]\"."
+    }
+  },
+  {
+    "id": "vortox",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Vortox",
+      "ru": "Вортокс"
+    },
+    "jinxes": [
+      {
+        "roleId": "banshee",
+        "reason": {
+          "en": "If the Vortox is in play and the Demon kills the Banshee, the players still learn that the Banshee has died.",
+          "ru": "Если Вортокс находится в игре, а Демон убивает Банши, игроки все равно узнают, что Банши умерла."
+        }
+      }
+    ],
+    "otherNight": 42,
+    "flavor": {
+      "en": "\"Black is White. Right is Wrong. Left is Right. Up is Long. Down is Sight. Short is Blind. Follow me. Answers find.\"",
+      "ru": "\"Черное - это белое. Правый - неправильный. Левый - правый. Вверх - это долго. Вниз - это зрение. Короткий - слепой. Следуйте за мной. Ответы найдутся\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player: they die. Townsfolk abilities yield false info. Each day, if no-one is executed, evil wins.\"",
+      "ru": "\"Каждую ночь* выберите игрока: он умирает. Способности горожан дают ложную информацию. Каждый день, если никто не казнен, зло побеждает\"."
+    }
+  },
+  {
+    "id": "fanggu",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Fang Gu",
+      "ru": "Фан Гу"
+    },
+    "jinxes": [],
+    "otherNight": 40,
+    "flavor": {
+      "en": "\"Your walls and your weapons are but smoke in dreams.\"",
+      "ru": "\"Ваши стены и ваше оружие - лишь дым в мечтах\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player: they die. The 1st Outsider this kills becomes an evil Fang Gu & you die instead. [+1 Outsider]\"",
+      "ru": "\"Каждую ночь* выберите игрока: он умирает. 1-й убитый при этом чужак становится злым Фан Гу, а вы умираете вместо него. [+1 Аутсайдер]\"."
+    }
+  },
+  {
+    "id": "legion",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Legion",
+      "ru": "Легион"
+    },
+    "jinxes": [
+      {
+        "roleId": "engineer",
+        "reason": {
+          "en": "Legion and the Engineer can not both be in play at the start of the game. If the Engineer creates Legion, most players (including all evil players) become evil Legion.",
+          "ru": "Легион и Инженер не могут быть в игре в начале игры. Если Инженер создает Легион, большинство игроков (включая всех злых игроков) становятся злыми Легионами."
+        }
+      },
+      {
+        "roleId": "preacher",
+        "reason": {
+          "en": "If the Preacher chooses Legion, Legion keeps their ability, but the Preacher might learn they are Legion.",
+          "ru": "Если Проповедник выбирает Легион, Легион сохраняет свои способности, но Проповедник может узнать, что он - Легион."
+        }
+      },
+      {
+        "roleId": "minstrel",
+        "reason": {
+          "en": "If Legion died by execution today, Legion keeps their ability, but the Minstrel might learn they are Legion.",
+          "ru": "Если Легион погибнет от казни сегодня, Легион сохранит свои способности, но Менестрель может узнать, что он - Легион."
+        }
+      },
+      {
+        "roleId": "hatter",
+        "reason": {
+          "en": "If the Hatter dies and Legion is in play, nothing happens. If the Hatter dies and an evil player chooses Legion, all current evil players become Legion.",
+          "ru": "Если Шляпник умирает, а Легион находится в игре, ничего не происходит. Если Шляпник умирает, а злой игрок выбирает Легион, все текущие злые игроки становятся Легионом."
+        }
+      },
+      {
+        "roleId": "zealot",
+        "reason": {
+          "en": "The Zealot might register as evil to Legion's ability.",
+          "ru": "Зилот может быть зарегистрирован как зло для способностей Легиона."
+        }
+      }
+    ],
+    "otherNight": 34,
+    "flavor": {
+      "en": "\"We are the chill wind on a winter’s day. We are the shadow in the moonless night. We are the poison in your tea and the whisper in your ear. We are everywhere.\"",
+      "ru": "\"Мы - прохладный ветер в зимний день. Мы - тень в безлунную ночь. Мы - яд в вашем чае и шепот на ухо. Мы повсюду\"."
+    },
+    "summary": {
+      "en": "\"Each night*, a player might die. Executions fail if only evil voted. You register as a Minion too. [Most players are Legion]\"",
+      "ru": "\"Каждую ночь* игрок может умереть. Казнь не состоится, если проголосовали только злые. Вы также регистрируетесь как миньон. [Большинство игроков - Легион]\"."
+    }
+  },
+  {
+    "id": "lordoftyphon",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Lord of Typhon",
+      "ru": "Повелитель Тифона"
+    },
+    "jinxes": [],
+    "firstNight": 2,
+    "otherNight": 43,
+    "flavor": {
+      "en": "“In the shadowed and forgotten corners of the cosmos, where the stars whisper secrets to the void, lies a truth so profound that the merest glimpse of it unravels the sanity of mortal minds.”",
+      "ru": "\"В тенистых и забытых уголках космоса, где звезды шепчут секреты в пустоту, скрывается истина, настолько глубокая, что малейший ее проблеск разрушает здравый рассудок смертных\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player: they die. [Evil characters are in a line. You are in the middle. +1 Minion. -? to +? Outsiders]\"",
+      "ru": "\"Каждую ночь* выбирайте игрока: он умирает. [Злые персонажи выстраиваются в линию. Вы находитесь в середине. +1 миньон. от -? до +? Аутсайдеры]\"."
+    }
+  },
+  {
+    "id": "lleech",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Lleech",
+      "ru": "Lleech"
+    },
+    "jinxes": [
+      {
+        "roleId": "mastermind",
+        "reason": {
+          "en": "If the Mastermind is alive and the Lleech's host dies by execution, the Lleech lives but loses their ability.",
+          "ru": "Если хозяин жив, а носитель пиявки погибает от казни, пиявка остается в живых, но теряет свои способности."
+        }
+      },
+      {
+        "roleId": "slayer",
+        "reason": {
+          "en": "If the Slayer slays the Lleech's host, the host dies.",
+          "ru": "Если Истребитель убивает носителя Lleech, тот умирает."
+        }
+      }
+    ],
+    "firstNight": 25,
+    "otherNight": 47,
+    "flavor": {
+      "en": "\"Tasty, tasty, tasty, tasty, tasty, tasty, tasty, tasty brai- I mean pie! Yes. Tasty pie. That’s what I meant to say.\"",
+      "ru": "\"Вкусный, вкусный, вкусный, вкусный, вкусный, вкусный, вкусный, вкусный брай, то есть пирог! Да. Вкусный пирог. Именно это я и хотел сказать\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a player: they die. You start by choosing a player: they are poisoned. You die if & only if they are dead.\"",
+      "ru": "\"Каждую ночь* выбирайте игрока: он умирает. Вы начинаете с выбора игрока: он отравлен. Вы умираете, если и только если они мертвы\"."
+    }
+  },
+  {
+    "id": "leviathan",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Leviathan",
+      "ru": "Левиафан"
+    },
+    "jinxes": [
+      {
+        "roleId": "soldier",
+        "reason": {
+          "en": "If the Leviathan is in play, the Soldier is safe from all evil abilities.",
+          "ru": "Если Левиафан находится в игре, Солдат защищен от всех злых способностей."
+        }
+      },
+      {
+        "roleId": "monk",
+        "reason": {
+          "en": "If the Leviathan is in play, the Monk-protected-player is safe from all evil abilities.",
+          "ru": "Если левиафан находится в игре, игрок под защитой монаха защищен от всех злых способностей."
+        }
+      },
+      {
+        "roleId": "innkeeper",
+        "reason": {
+          "en": "If the Leviathan is in play, the Innkeeper-protected-players are safe from all evil abilities.",
+          "ru": "Если Левиафан находится в игре, игроки, находящиеся под защитой Трактирщика, защищены от всех злых способностей."
+        }
+      },
+      {
+        "roleId": "ravenkeeper",
+        "reason": {
+          "en": "Each night*, the Leviathan chooses an alive player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die.",
+          "ru": "Каждую ночь* левиафан выбирает живого игрока (не такого, как в предыдущие ночи): выбранный Хранитель Ворона использует свою способность, но не умирает."
+        }
+      },
+      {
+        "roleId": "banshee",
+        "reason": {
+          "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability.",
+          "ru": "Каждую ночь* Левиафан выбирает живого хорошего игрока (отличного от предыдущих ночей): выбранный Банши умирает и получает свою способность."
+        }
+      },
+      {
+        "roleId": "sage",
+        "reason": {
+          "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die.",
+          "ru": "Каждую ночь* Левиафан выбирает живого хорошего игрока (не такого, как в предыдущие ночи): выбранный Мудрец использует свою способность, но не умирает."
+        }
+      },
+      {
+        "roleId": "farmer",
+        "reason": {
+          "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+          "ru": "Каждую ночь* Левиафан выбирает живого хорошего игрока (не такого, как в предыдущие ночи): выбранный фермер использует свою способность, но не умирает."
+        }
+      },
+      {
+        "roleId": "mayor",
+        "reason": {
+          "en": "If the Leviathan is in play & no execution occurs on day 5, good wins.",
+          "ru": "Если Левиафан в игре и в пятый день казни не произошло, побеждает добро."
+        }
+      },
+      {
+        "roleId": "exorcist",
+        "reason": {
+          "en": "Evil does not win when more than 1 good player has been executed, if the Exorcist is alive and has ever successfully chosen the Leviathan.",
+          "ru": "Зло не побеждает, если казнено более 1 хорошего игрока, если Экзорцист жив и когда-либо успешно выбирал Левиафана."
+        }
+      },
+      {
+        "roleId": "grandmother",
+        "reason": {
+          "en": "If Leviathan is in play and the Grandchild dies by execution, evil wins.",
+          "ru": "Если Левиафан находится в игре и Внук погибает от казни, зло побеждает."
+        }
+      },
+      {
+        "roleId": "king",
+        "reason": {
+          "en": "If the Leviathan is in play, and at least 1 player is dead, the King learns an alive character each night.",
+          "ru": "Если в игре находится Левиафан и хотя бы один игрок мертв, король каждую ночь выуживает одного живого персонажа."
+        }
+      },
+      {
+        "roleId": "hatter",
+        "reason": {
+          "en": "If the Hatter dies on or after day 5, the Demon cannot choose Leviathan.",
+          "ru": "Если Шляпник умирает на пятый день или позже, Демон не может выбрать Левиафана."
+        }
+      },
+      {
+        "roleId": "pithag",
+        "reason": {
+          "en": "After day 5, the Pit-Hag cannot choose Leviathan.",
+          "ru": "После пятого дня Пит-Хаг не может выбрать Левиафана."
+        }
+      }
+    ],
+    "firstNight": 73,
+    "otherNight": 91,
+    "flavor": {
+      "en": "\"To the last, I grapple with thee. From Hell’s heart, I stab at thee. For hate’s sake, I spit my last breath at thee.\"",
+      "ru": "\"До последнего я сражаюсь с тобой. Из сердца ада я вонзаю в тебя нож. Ради ненависти я выплевываю на тебя свой последний вздох\"."
+    },
+    "summary": {
+      "en": "\"If more than 1 good player is executed, evil wins. All players know you are in play. After day 5, evil wins.\"",
+      "ru": "\"Если казнено более одного доброго игрока, зло побеждает. Все игроки знают, что вы в игре. После 5-го дня зло побеждает\"."
+    }
+  },
+  {
+    "id": "riot",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Riot",
+      "ru": "Бунт"
+    },
+    "jinxes": [
+      {
+        "roleId": "mayor",
+        "reason": {
+          "en": "The Mayor may choose to stop nominations. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins.",
+          "ru": "Мэр может остановить номинацию. Если они сделают это, когда в живых останется только 1 Бунтарь, победит добро. В противном случае побеждает зло."
+        }
+      },
+      {
+        "roleId": "monk",
+        "reason": {
+          "en": "If Riot is in play, the Monk-protected player is safe from all evil abilities.",
+          "ru": "Если в игре находится Бунт, игрок под защитой Монаха защищен от всех злых способностей."
+        }
+      },
+      {
+        "roleId": "farmer",
+        "reason": {
+          "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+          "ru": "Каждую ночь* Riot выбирает живого хорошего игрока (отличного от предыдущих ночей): выбранный фермер использует свою способность, но не умирает."
+        }
+      },
+      {
+        "roleId": "innkeeper",
+        "reason": {
+          "en": "If Riot is in play, the Innkeeper-protected player is safe from all evil abilities.",
+          "ru": "Если в игре находится Бунт, игрок, находящийся под защитой Трактирщика, защищен от всех злых способностей."
+        }
+      },
+      {
+        "roleId": "sage",
+        "reason": {
+          "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die.",
+          "ru": "Каждую ночь* Riot выбирает живого хорошего игрока (отличного от предыдущих ночей): выбранный Мудрец использует свою способность, но не умирает."
+        }
+      },
+      {
+        "roleId": "banshee",
+        "reason": {
+          "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability.",
+          "ru": "Каждую ночь* Бунт выбирает живого хорошего игрока (отличного от предыдущих ночей): выбранный Банши умирает и получает свою способность."
+        }
+      },
+      {
+        "roleId": "ravenkeeper",
+        "reason": {
+          "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die.",
+          "ru": "Каждую ночь* Riot выбирает живого хорошего игрока (отличного от предыдущих): выбранный Ravenkeeper использует свою способность, но не умирает."
+        }
+      },
+      {
+        "roleId": "soldier",
+        "reason": {
+          "en": "If Riot is in play, the Soldier is safe from all evil abilities.",
+          "ru": "Если Бунт находится в игре, Солдат защищен от всех злых способностей."
+        }
+      },
+      {
+        "roleId": "grandmother",
+        "reason": {
+          "en": "If Riot is in play and the Grandchild dies during the day, the Grandmother dies too.",
+          "ru": "Если Бунт находится в игре и внук умирает в течение дня, бабушка тоже умирает."
+        }
+      },
+      {
+        "roleId": "king",
+        "reason": {
+          "en": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night.",
+          "ru": "Если в игре \"Бунт\", и хотя бы один игрок мертв, король каждую ночь выуживает живого персонажа."
+        }
+      },
+      {
+        "roleId": "exorcist",
+        "reason": {
+          "en": "If the Exorcist chooses Riot on the 3rd night, Minions do not become Riot.",
+          "ru": "Если Экзорцист выбирает Бунт на третью ночь, миньоны не становятся Бунтом."
+        }
+      }
+    ],
+    "flavor": {
+      "en": "\"Larga vida a la revolución! Mi revolucion!\"",
+      "ru": "\"Долгой жизни революции! Моя революция!\""
+    },
+    "summary": {
+      "en": "\"On day 3, Minions become Riot & nominees die but nominate an alive player immediately. This must happen.\"",
+      "ru": "\"На 3-й день миньоны становятся бунтарями, а номинанты умирают, но сразу же номинируют живого игрока. Это должно произойти\"."
+    }
+  },
+  {
+    "id": "thief",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Thief",
+      "ru": "Вор"
+    },
+    "jinxes": [],
+    "firstNight": 7,
+    "otherNight": 4,
+    "flavor": {
+      "en": "\"I aint done nuffink. I weren't even in dat alley last night! It weren't me what stole Mayor Bruno's briefcase wiv all dem fancy dockoments innit. Besides, it was too 'eavy to carry far.\"",
+      "ru": "\"Я ничего не делал. Меня даже не было в этом переулке прошлой ночью! Это не я украл портфель мэра Бруно со всеми его модными доками. К тому же он был слишком тяжелым, чтобы нести его далеко\"."
+    },
+    "summary": {
+      "en": "\"Each night, choose a player (not yourself): their vote counts negatively tomorrow.\"",
+      "ru": "\"Каждую ночь выбирайте игрока (не себя): его голос завтра будет учитываться отрицательно\"."
+    }
+  },
+  {
+    "id": "bureaucrat",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Bureaucrat",
+      "ru": "Бюрократ"
+    },
+    "jinxes": [],
+    "firstNight": 6,
+    "otherNight": 3,
+    "flavor": {
+      "en": "\"Sign here please. And here. And here. Aaaaaaaaand here. This should all be sorted and tallied by the end of the day, assuming everyone's signatures are legible. We haven't had a mix-up in the paperwork for ages. Yesterday noon, if memory serves...\"",
+      "ru": "\"Распишитесь здесь, пожалуйста. И здесь. И здесь. Аааааааааа и здесь. К концу дня все будет рассортировано и подсчитано, если, конечно, все подписи будут разборчивыми. У нас уже сто лет не было путаницы в бумагах. Вчера в полдень, если мне не изменяет память...\""
+    },
+    "summary": {
+      "en": "\"Each night, choose a player (not yourself): their vote counts as 3 votes tomorrow.\"",
+      "ru": "\"Каждую ночь выбирайте игрока (не себя): его голос засчитывается как 3 голоса завтра\"."
+    }
+  },
+  {
+    "id": "barista",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Barista",
+      "ru": "Бариста"
+    },
+    "jinxes": [],
+    "firstNight": 5,
+    "otherNight": 2,
+    "flavor": {
+      "en": "“A cup of coffee with no cream, Monsieur? I’m terribly sorry, but we’re fresh out of cream — how about with no milk?”",
+      "ru": "\"Чашечку кофе без сливок, месье? Мне очень жаль, но у нас закончились сливки - как насчет без молока?\""
+    },
+    "summary": {
+      "en": "\"Each night, until dusk, 1) a player becomes sober, healthy & gets true info, or 2) their ability works twice. They learn which.\"",
+      "ru": "\"Каждую ночь, до наступления сумерек, 1) игрок становится трезвым, здоровым и получает истинную информацию, или 2) его способность срабатывает дважды. Они узнают, какая именно\"."
+    }
+  },
+  {
+    "id": "harlot",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Harlot",
+      "ru": "Блудница"
+    },
+    "jinxes": [],
+    "otherNight": 5,
+    "flavor": {
+      "en": "\"Enchanté, Sailor. You look like you need someone to really listen to your troubles. I'm a good listener. Very, very good.\"",
+      "ru": "\"Очаровательно, моряк. Вы выглядите так, будто вам нужен кто-то, кто действительно выслушает ваши проблемы. Я хороший слушатель. Очень, очень хороший\"."
+    },
+    "summary": {
+      "en": "\"Each night*, choose a living player: if they agree, you learn their character, but you both might die.\"",
+      "ru": "\"Каждую ночь* выбирайте живого игрока: если он согласится, вы узнаете его характер, но вы оба можете умереть\"."
+    }
+  },
+  {
+    "id": "butcher",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Butcher",
+      "ru": "Мясник"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"It tastes like chicken. More please.\"",
+      "ru": "\"На вкус как курица. Еще, пожалуйста\"."
+    },
+    "summary": {
+      "en": "\"Each day, after the 1st execution, you may nominate again.\"",
+      "ru": "\"Каждый день, после 1-го исполнения, вы можете выдвинуть свою кандидатуру снова\"."
+    }
+  },
+  {
+    "id": "gunslinger",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Gunslinger",
+      "ru": "Gunslinger"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"It's time someone took matters into their own hands. That someone... is me.\"",
+      "ru": "\"Пришло время кому-то взять дело в свои руки. Этот кто-то... я\"."
+    },
+    "summary": {
+      "en": "\"Each day, after the 1st vote has been tallied, you may choose a player that voted: they die.\"",
+      "ru": "\"Каждый день, после подсчета 1-го голоса, вы можете выбрать игрока, который проголосовал: он умирает\"."
+    }
+  },
+  {
+    "id": "matron",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Matron",
+      "ru": "Матрона"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Miss Featherbottom, be quiet. Master Rutherford, a teacup needs just the four fingers, please. I know you are a father of nine, but age, or lack there-of as the case may be, is never an excuse for poor manners.\"",
+      "ru": "\"Мисс Фезерботтом, тише. Мастер Резерфорд, для чашки с чаем нужны только четыре пальца, пожалуйста. Я знаю, что вы отец девяти детей, но возраст, или его отсутствие, в зависимости от обстоятельств, никогда не является оправданием для плохих манер\"."
+    },
+    "summary": {
+      "en": "\"Each day, you may choose up to 3 sets of 2 players to swap seats. Players may not leave their seats to talk in private.\"",
+      "ru": "\"Каждый день вы можете выбрать до 3 комплектов по 2 игрока, чтобы поменяться местами. Игроки не могут покидать свои места, чтобы поговорить наедине\"."
+    }
+  },
+  {
+    "id": "gangster",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Gangster",
+      "ru": "Гангстер"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"I like your shoes. It would be such a shame if you had a little accident, and they got ruined. Now that you mention it, I like your cufflinks too.\"",
+      "ru": "\"Мне нравятся твои туфли. Было бы очень обидно, если бы с вами произошел какой-нибудь несчастный случай и они испортились. Раз уж вы об этом заговорили, мне тоже нравятся ваши запонки\"."
+    },
+    "summary": {
+      "en": "\"Once per day, you may choose to kill an alive neighbor, if your other alive neighbor agrees.\"",
+      "ru": "\"Один раз в день вы можете убить живого соседа, если другой ваш живой сосед согласен\"."
+    }
+  },
+  {
+    "id": "bonecollector",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Bone Collector",
+      "ru": "Коллекционер костей"
+    },
+    "jinxes": [],
+    "otherNight": 6,
+    "flavor": {
+      "en": "\"I collect many things. Hair. Teeth. Clothes. Fragments of poems. The dreams of lost lovers. My secret arts are not for you to know but my fee is a mere pittance. Bring me the blood of a noblewoman who died of heartbreak under a full moon, and you shall have your answers.\"",
+      "ru": "\"Я коллекционирую множество вещей. Волосы. Зубы. Одежду. Обрывки стихов. Сны потерянных любовников. Мои тайные искусства не должны быть вам известны, но моя плата - всего лишь грош. Принесите мне кровь дворянки, умершей от разрыва сердца под полной луной, и вы получите ответы на свои вопросы\"."
+    },
+    "summary": {
+      "en": "\"Once per game, at night*, choose a dead player: they regain their ability until dusk.\"",
+      "ru": "\"Один раз за игру, ночью*, выберите мертвого игрока: он восстанавливает свои способности до наступления сумерек\"."
+    }
+  },
+  {
+    "id": "judge",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Judge",
+      "ru": "Судья"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"I find the defendant guilty of the crimes of murder, fraud, arson, larceny, impersonating an officer of the law, practicing medicine without a license, slander, regicide, and littering.\"",
+      "ru": "\"Я признаю подсудимого виновным в таких преступлениях, как убийство, мошенничество, поджог, воровство, выдача себя за представителя закона, занятие медициной без лицензии, клевета, рецидив и замусоривание\"."
+    },
+    "summary": {
+      "en": "\"Once per game, if another player nominated, you may choose to force the current execution to pass or fail.\"",
+      "ru": "\"Один раз за игру, если другой игрок номинировал, вы можете выбрать, чтобы заставить текущее исполнение пройти или провалиться\"."
+    }
+  },
+  {
+    "id": "apprentice",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Apprentice",
+      "ru": "Ученик"
+    },
+    "jinxes": [],
+    "firstNight": 4,
+    "flavor": {
+      "en": "\"For years have I traveled, studying the ways of The Craft. Which craft, you ask? Simply that of the simple folk. Nothing to worry about. Not yet.\"",
+      "ru": "\"Долгие годы я путешествовал, изучая пути ремесла. Какого ремесла, спросите вы? Простого ремесла простых людей. Не о чем беспокоиться. Пока нет\"."
+    },
+    "summary": {
+      "en": "\"On your 1st night, you gain a Townsfolk ability (if good) or a Minion ability (if evil).\"",
+      "ru": "\"В свою 1-ю ночь вы получаете способность \"Таунсфолк\" (если вы добрый) или способность \"Миньон\" (если вы злой)\"."
+    }
+  },
+  {
+    "id": "beggar",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Beggar",
+      "ru": "Нищий"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Alms for the poor, good Sir? Spare a coin, Madam? Thank you. God bless! You're a right kind soul and no mistake! I'll have some swanky nosh tonight, I will!\"",
+      "ru": "\"Милостыня для бедных, добрый сэр? Не пожалеете монетку, мадам? Благодарю вас. Да благословит вас Господь! Вы очень добрая душа и не ошиблись! Сегодня вечером у меня будет шикарная еда, обязательно!\""
+    },
+    "summary": {
+      "en": "\"You must use a vote token to vote. If a dead player gives you theirs, you learn their alignment. You are sober and healthy.\"",
+      "ru": "\"Чтобы проголосовать, вы должны использовать жетон для голосования. Если мертвый игрок отдает вам свой, вы узнаете его выравнивание. Вы трезвы и здоровы\"."
+    }
+  },
+  {
+    "id": "deviant",
+    "edition": "3 - Sects and Violets",
+    "name": {
+      "en": "Deviant",
+      "ru": "Deviant"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Twas the lady's quip, forsooth.\"",
+      "ru": "\"Это была шутка леди, не иначе\"."
+    },
+    "summary": {
+      "en": "\"If you were funny today, you cannot die by exile.\"",
+      "ru": "\"Если ты сегодня смешон, ты не можешь умереть в изгнании\"."
+    }
+  },
+  {
+    "id": "scapegoat",
+    "edition": "1 - Trouble Brewing",
+    "name": {
+      "en": "Scapegoat",
+      "ru": "Козел отпущения"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Good evening! Thank you for inviting me to the ball. I'm not from around here, but you sure seem like a friendly bunch, by golly. I'm sure we'll get along just dandy. What's all that rope for?\"",
+      "ru": "\"Добрый вечер! Спасибо, что пригласили меня на бал. Я не местный, но вы, черт возьми, кажетесь дружелюбной компанией. Уверен, мы отлично поладим. Для чего вся эта веревка?\""
+    },
+    "summary": {
+      "en": "\"If a player of your alignment is executed, you might be executed instead.\"",
+      "ru": "\"Если казнят игрока вашего уровня, то вместо него могут казнить вас\"."
+    }
+  },
+  {
+    "id": "gnome",
+    "edition": "4b - Unreleased Experimental",
+    "name": {
+      "en": "Gnome",
+      "ru": "Gnome"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Four the score or seven beers, no shows are goes for me and my. A prank to crack the cranks and planks o' the floor foundation length, so incontravertabubbilly mini. The large essays down streams of joyce, no greater than is scene, not inherdt, Ha-urrumph.o.\"",
+      "ru": "\"Четыре счета или семь пива, никаких шоу для меня и моих. Прикол, чтобы взломать краны и доски о' пола фундамент длиной, так incontravertabubbilly мини. Большие эссе вниз потоки радости, не больше, чем есть сцена, не наследуется, Ha-urrumph.o.\""
+    },
+    "summary": {
+      "en": "\"All players start knowing a player of your alignment. You may choose to kill anyone who nominates them.\"",
+      "ru": "\"Все игроки начинают знакомство с игроком вашего уровня. Вы можете убить любого, кто его назначит\"."
+    }
+  },
+  {
+    "id": "bishop",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Bishop",
+      "ru": "Епископ"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"In nomine Patris, et Filii, et Spiritus Sancti… Nos mos Dei. Deus vult de nobis.\"",
+      "ru": "\"In nomine Patris, et Filii, et Spiritus Sancti... Nos mos Dei. Deus vult de nobis\"."
+    },
+    "summary": {
+      "en": "\"Only the Storyteller can nominate. At least 1 opposing player must be nominated each day.\"",
+      "ru": "\"Только Сказочник может номинировать. Каждый день должен быть номинирован хотя бы 1 игрок противника\"."
+    }
+  },
+  {
+    "id": "voudon",
+    "edition": "2 - Bad Moon Rising",
+    "name": {
+      "en": "Voudon",
+      "ru": "Voudon"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Bien venu. Sit down. Breathe deep. Enter the land of the dead. See with their eyes. Speak with their voice. Yon sel lang se janm ase.\"",
+      "ru": "\"Bien venu. Сядьте. Дышите глубже. Войдите в страну мертвых. Смотрите их глазами. Говорите их голосом. Yon sel lang se janm ase\"."
+    },
+    "summary": {
+      "en": "\"Only you & the dead can vote. They don't need a vote token to do so. A 50% majority isn't required.\"",
+      "ru": "\"Только вы и мертвые могут голосовать. Для этого им не нужен жетон для голосования. Большинство в 50% не требуется\"."
+    }
+  },
+  {
+    "id": "angel",
+    "edition": "Extras",
+    "name": {
+      "en": "Angel",
+      "ru": "Ангел"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Let those who are without sin dare to raise their hand to my chosen, for I shall strike such fools down with the fury and righteousness of a thousand storms.\"",
+      "ru": "\"Пусть те, кто без греха, осмелятся поднять руку на моего избранника, ибо я поражу таких глупцов с яростью и праведностью тысячи бурь\"."
+    },
+    "summary": {
+      "en": "\"Something bad might happen to whoever is most responsible for the death of a new player.\"",
+      "ru": "\"Что-то плохое может случиться с тем, кто больше всех виноват в смерти нового игрока\"."
+    }
+  },
+  {
+    "id": "bootlegger",
+    "edition": "Extras",
+    "name": {
+      "en": "Bootlegger",
+      "ru": "Бутлегер"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"I've got the latest shipment from home, a brew I'd like to call 'Barrowfog'. Wanna try?\"",
+      "ru": "У меня есть последняя поставка из дома, пиво, которое я хотел бы назвать \"Барроуфог\". Хотите попробовать?\""
+    },
+    "summary": {
+      "en": "\"This script has homebrew characters or rules.\"",
+      "ru": "\"В этом скрипте есть самодельные персонажи или правила\"."
+    }
+  },
+  {
+    "id": "buddhist",
+    "edition": "Extras",
+    "name": {
+      "en": "Buddhist",
+      "ru": "Буддист"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"You throw thorns. Falling in my silence, they become flowers.\"",
+      "ru": "\"Ты бросаешь шипы. Падая в моей тишине, они становятся цветами\"."
+    },
+    "summary": {
+      "en": "\"For the first 2 minutes of each day, veteran players may not talk.\"",
+      "ru": "\"Первые 2 минуты каждого дня игроки-ветераны могут не разговаривать\"."
+    }
+  },
+  {
+    "id": "djinn",
+    "edition": "Extras",
+    "name": {
+      "en": "Djinn",
+      "ru": "Джинн"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"نحن لسنا هنا.\n\t\t\t\tانت لست حقيقي.\n\t\t\t\tكل شيء هو وهم.\n\t\t\t\tأسئلتك هي جبل نار في يوم صافٍ.\"",
+      "ru": "\"نحن لسنا هنا.\n\t\t\t\tانت لست حقيقي.\n\t\t\t\tكل شيء هو وهم.\n\t\t\t\tأسئلتك هي جبل نار في يوم صافٍ\"."
+    },
+    "summary": {
+      "en": "\"Use the Djinn's special rule. All players know what it is.\"",
+      "ru": "\"Используйте особое правило Джинна. Все игроки знают, что это такое\"."
+    }
+  },
+  {
+    "id": "doomsayer",
+    "edition": "Extras",
+    "name": {
+      "en": "Doomsayer",
+      "ru": "Doomsayer"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"And on the Seventh Day, there shall be a great flood and a pestilence upon the People of the Village of the Ravens! The dead shall rise and the living shall repent! O Woe! O Unholy day! Only by great sacrifice shall they prevail! So sayeth the Sages of Nostros and so sayeth I.\"",
+      "ru": "\"И в седьмой день будет великий потоп и мор на жителей Деревни Воронов! Мертвые воскреснут, а живые покаются! О горе! О нечестивый день! Только благодаря великим жертвам они смогут победить! Так говорят мудрецы Ностроса и так говорю я\"."
+    },
+    "summary": {
+      "en": "\"If 4 or more players live, each living player may publicly choose (once per game) that a player of their own alignment dies.\"",
+      "ru": "\"Если в живых осталось 4 или более игроков, каждый живой игрок может публично выбрать (один раз за игру), чтобы игрок его уровня умер\"."
+    }
+  },
+  {
+    "id": "duchess",
+    "edition": "Extras",
+    "name": {
+      "en": "Duchess",
+      "ru": "Герцогиня"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"We shall entertain between the hours of 6 and 7 precisely. Tea at 6:15. Scones at 6:45. Do not be late. Formal wear applies, as always.\"",
+      "ru": "\"Мы будем развлекаться ровно с 6 до 7 часов. Чай в 6:15. Булочки в 6:45. Не опаздывайте. Формальная одежда, как всегда, прилагается\"."
+    },
+    "summary": {
+      "en": "\"Each day, 3 players may choose to visit you. At night*, each visitor learns how many visitors are evil, but 1 gets false info.\"",
+      "ru": "\"Каждый день к вам в гости могут прийти 3 игрока. Ночью* каждый посетитель узнает, сколько посетителей являются злыми, но 1 получает ложную информацию\"."
+    }
+  },
+  {
+    "id": "ferryman",
+    "edition": "Extras",
+    "name": {
+      "en": "Ferryman",
+      "ru": "Паромщик"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"When righteous dreams come, they have the weight of truth.\"",
+      "ru": "\"Когда приходят праведные сны, они имеют вес истины\"."
+    },
+    "summary": {
+      "en": "\"On the final day, all dead players regain their vote token.\"",
+      "ru": "\"В последний день все умершие игроки возвращают себе жетон голоса\"."
+    }
+  },
+  {
+    "id": "fibbin",
+    "edition": "Extras",
+    "name": {
+      "en": "Fibbin",
+      "ru": "Фиббин"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Tee-hee-hee.\n\t\t\t\tTee. Hee. Hee.\"",
+      "ru": "\"Ти-хи-хи.\n\t\t\t\tТи. Хи. Хи.\""
+    },
+    "summary": {
+      "en": "\"Once per game, 1 good player might get incorrect information.\"",
+      "ru": "\"Один раз за игру 1 хороший игрок может получить неверную информацию\"."
+    }
+  },
+  {
+    "id": "fiddler",
+    "edition": "Extras",
+    "name": {
+      "en": "Fiddler",
+      "ru": "Скрипач"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"I'll wager mi lyef ye cannae best me in a fiddle contest, ye boss-eyed snook! We'll go out on the lash, get the pub jammers an' have a right craic. I'll be layin' ma boots into ya come mornin' ye rumbly muppet.\"",
+      "ru": "\"Я готов поспорить с тобой, что ты не сможешь превзойти меня в конкурсе скрипачей, ты, босоглазый сопляк! Мы выйдем на плетень, забьем паб и хорошенько повеселимся. Утром я всажу в тебя сапоги, ты, урчащий маппет\"."
+    },
+    "summary": {
+      "en": "\"Once per game, the Demon secretly chooses an opposing player: all players choose which of these 2 players win.\"",
+      "ru": "\"Один раз за игру Демон тайно выбирает игрока противника: все игроки выбирают, кто из этих двух игроков победит\"."
+    }
+  },
+  {
+    "id": "gardener",
+    "edition": "Extras",
+    "name": {
+      "en": "Gardener",
+      "ru": "Садовник"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Oh now, this won't do. We've got the monkshood mixed in with the wolfsbane and the hemlock is smothering the hellebore! Oh dear me, we'd better start over. Fetch my shears.\"",
+      "ru": "\"О, так не пойдет. Мы смешали монашеское дерево с волчьим лыком, а болиголов задушил чемерицу! Боже мой, нам лучше начать все сначала. Принесите мои ножницы\"."
+    },
+    "summary": {
+      "en": "\"The Storyteller assigns 1 or more players' characters.\"",
+      "ru": "\"Рассказчик назначает 1 или более персонажей игроков\"."
+    }
+  },
+  {
+    "id": "hellslibrarian",
+    "edition": "Extras",
+    "name": {
+      "en": "Hell's Librarian",
+      "ru": "Адский библиотекарь"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Shhhhhh. Please be quiet. It is best not to disturb the Librarian. I've heard it has a temper.\"",
+      "ru": "\"Ш-ш-ш. Пожалуйста, не шумите. Лучше не беспокоить библиотекаря. Я слышала, что он вспыльчив\"."
+    },
+    "summary": {
+      "en": "\"Something bad might happen to whoever talks when the Storyteller has asked for silence.\"",
+      "ru": "\"С тем, кто заговорит, когда Сказочник попросил помолчать, может случиться что-то плохое\"."
+    }
+  },
+  {
+    "id": "revolutionary",
+    "edition": "Extras",
+    "name": {
+      "en": "Revolutionary",
+      "ru": "Революционер"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"United we feigned.\n\t\t\t\tDivided, we stalled.\"",
+      "ru": "\"Объединенные мы притворялись.\n\t\t\t\tРазделенные, мы остановились\"."
+    },
+    "summary": {
+      "en": "\"2 neighboring players are known to be the same alignment. Once per game, 1 of them registers falsely.\"",
+      "ru": "\"Известно, что 2 соседних игрока имеют одинаковое выравнивание. Один раз за игру один из них регистрируется ложно\"."
+    }
+  },
+  {
+    "id": "sentinel",
+    "edition": "Extras",
+    "name": {
+      "en": "Sentinel",
+      "ru": "Часовой"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"Name, please.\n\t\t\t\tPapers, please.\n\t\t\t\tWeapons, please.\"",
+      "ru": "\"Имя, пожалуйста.\n\t\t\t\tДокументы, пожалуйста.\n\t\t\t\tОружие, пожалуйста\"."
+    },
+    "summary": {
+      "en": "\"There might be 1 extra or 1 fewer Outsider in play.\"",
+      "ru": "\"В игре может быть на 1 больше или на 1 меньше Аутсайдеров\"."
+    }
+  },
+  {
+    "id": "spiritofivory",
+    "edition": "Extras",
+    "name": {
+      "en": "Spirit of Ivory",
+      "ru": "Дух слоновой кости"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"The Wasteland calls. Bones rise to flesh, then fall to dust. The great spirit grows. The great spirit watches. The great spirit guides. The human listens, or the human is no more.\"",
+      "ru": "\"Пустошь зовет. Кости превращаются в плоть, а затем падают в пыль. Великий дух растет. Великий дух наблюдает. Великий дух направляет. Человек слушает, или его больше нет\"."
+    },
+    "summary": {
+      "en": "\"There can't be more than 1 extra evil player.\"",
+      "ru": "\"Не может быть больше 1 лишнего злого игрока\"."
+    }
+  },
+  {
+    "id": "stormcatcher",
+    "edition": "4a - Kickstarter Experimental",
+    "name": {
+      "en": "Storm Catcher",
+      "ru": "Ловец бурь"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"At dawn, the temple’s long shadow creeps to the fountain. At dusk, the obelisk blocks the red glare, cooling warm water under the archway. All lines converge here. A storm is coming, and this, this pebbled and lush and holy place between the apple trees, is the eye.\"",
+      "ru": "\"На рассвете длинная тень храма ползет к фонтану. В сумерках обелиск загораживает красные блики, охлаждая теплую воду под аркой. Все линии сходятся здесь. Надвигается буря, и это галечное, пышное и святое место между яблонями - глаз\"."
+    },
+    "summary": {
+      "en": "\"Name a good character. If in play, they can only die by execution, but evil players learn which player it is.\"",
+      "ru": "\"Назовите хорошего персонажа. Если он в игре, то может умереть только от казни, но злые игроки узнают, кто это\"."
+    }
+  },
+  {
+    "id": "toymaker",
+    "edition": "Extras",
+    "name": {
+      "en": "Toymaker",
+      "ru": "Игрушечник"
+    },
+    "jinxes": [],
+    "flavor": {
+      "en": "\"It buzzes! It walks down stairs! It keeps you warm at night! It tastes like sugar! The kiddies love it! Introducing... the brand new... Warm'o-buzzy-wuzzy-walk'a'bot-thingy-contraption! Fun for all ages!\"",
+      "ru": "\"Он жужжит! Он ходит по лестнице! Оно согревает вас по ночам! На вкус как сахар! Малыши его обожают! Представляем... совершенно новый... Теплая пушистая прогулочная штуковина-контрацепция! Веселье для всех возрастов!\""
+    },
+    "summary": {
+      "en": "\"The Demon may choose not to attack & must do this at least once per game. Evil players get normal starting info.\"",
+      "ru": "\"Демон может не атаковать и должен сделать это хотя бы раз за игру. Злые игроки получают обычную стартовую информацию\"."
+    }
+  }
+]
