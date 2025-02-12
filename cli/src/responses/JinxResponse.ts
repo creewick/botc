@@ -3,7 +3,7 @@ interface JinxResponse {
   jinx: JinxInnerResponse[];
 }
 
-interface JinxInnerResponse {
+export interface JinxInnerResponse {
   id: string;
   reason: string;
 }

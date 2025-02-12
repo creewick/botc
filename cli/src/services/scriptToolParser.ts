@@ -2,7 +2,7 @@ import { writeFile } from 'fs/promises'
 import { Context } from '../models/Context'
 import JinxResponse from '../responses/JinxResponse'
 import NightOrderResponse from '../responses/NightOrderResponse'
-import RoleResponse from '../responses/RoleResponse'
+import OldRoleResponse from '../responses/OldRoleResponse'
 import TetherResponse from '../responses/TetherResponse'
 import RoleType from '../enums/RoleType'
 
@@ -10,13 +10,13 @@ async function fetchScriptToolData(context: Context) {
   const baseUrl = process.env.SCRIPT_TOOL_URL
 
   const [roles, nightOrders, jinxes] = await Promise.all([
-    fetchJson<RoleResponse[]>(baseUrl + '/data/roles.json'),
+    fetchJson<OldRoleResponse[]>(baseUrl + '/data/roles.json'),
     fetchJson<NightOrderResponse>(baseUrl + '/data/nightsheet.json'),
     fetchJson<JinxResponse[]>(baseUrl + '/data/jinx.json'),
     fetchJson<TetherResponse[]>(baseUrl + '/data/tether.json'),
   ])
 
-  context.roles = roles
+  // context.roles = roles
   context.data = roles.map(role => ({
     id: role.id,
     type: RoleType[role.roleType as keyof typeof RoleType],
@@ -31,12 +31,12 @@ async function fetchScriptToolData(context: Context) {
 }
 
 
-function getNightOrder(role: RoleResponse, orders: string[]) {
+function getNightOrder(role: OldRoleResponse, orders: string[]) {
   const index = orders.indexOf(role.id)
   return index === -1 ? undefined : index + 1
 }
 
-function getJinxes(role: RoleResponse, jinxes: JinxResponse[]) {
+function getJinxes(role: OldRoleResponse, jinxes: JinxResponse[]) {
   return jinxes
     .find(jinx => jinx.id === role.id)?.jinx
     .map(jinx => ({
@@ -86,7 +86,7 @@ async function saveRoleIcons(context: Context, limit = 10) {
   }
 }
 
-async function saveImage(role: RoleResponse, path: string): Promise<void> {
+async function saveImage(role: OldRoleResponse, path: string): Promise<void> {
   const url = `${process.env.SCRIPT_TOOL_URL}/${role.icon}`
   const response = await fetch(url)
   if (!response.ok) {

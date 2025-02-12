@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom'
 import { Context } from '../models/Context'
 import WikiResponse from '../responses/WikiResponse'
-import RoleResponse from '../responses/RoleResponse'
+import OldRoleResponse from '../responses/OldRoleResponse'
 
 async function fetchWikiData(context: Context, limit = 10) {
   let results: WikiResponse[] = []
@@ -34,12 +34,12 @@ async function fetchWikiData(context: Context, limit = 10) {
     const role = context.data?.find(role => role.id === result.id)
     if (role) {
       role.flavor = { en: result.flavor }
-      role.summary = { en: result.summary }
+      role.ability = { en: result.summary }
     }
   }
 }
 
-async function fetchWikiPage(role: RoleResponse): Promise<WikiResponse> {
+async function fetchWikiPage(role: OldRoleResponse): Promise<WikiResponse> {
   const url = encodeURI(`${process.env.WIKI_URL}/${role.name}`)
   const response = await fetch(url)
 

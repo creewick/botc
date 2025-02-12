@@ -6,7 +6,7 @@ import TranslationContext from './translationContext'
 export interface Context {
   rolesPath: string;
   iconsPath: string;
-  translations: TranslationContext[];
+  translations?: TranslationContext[];
   prevData?: Role[];
   data?: Partial<Role>[];
   stepName?: string;

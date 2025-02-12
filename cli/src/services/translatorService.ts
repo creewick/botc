@@ -11,7 +11,7 @@ async function translateRoles(context: Context) {
     
     if (prevRole && 
       prevRole.name.en === role.name!.en &&
-      prevRole.summary.en === role.summary!.en &&
+      prevRole.ability.en === role.ability!.en &&
       prevRole.flavor.en === role.flavor!.en) {
       skipped++
       continue
@@ -43,7 +43,7 @@ async function translateRole(context: Context, translator: Translator,
       translator.translateText(
         role.name!.en, 'en', target.lang, target.nameContext),
       translator.translateText(
-        role.summary!.en, 'en', target.lang, target.summaryContext),
+        role.ability!.en, 'en', target.lang, target.summaryContext),
       translator.translateText(
         role.flavor!.en, 'en', target.lang, target.flavorContext),
       ...(role.jinxes ?? []).map(jinx => translator.translateText(
@@ -52,7 +52,7 @@ async function translateRole(context: Context, translator: Translator,
     ])
 
     role.name![target.lang] = name.text
-    role.summary![target.lang] = summary.text
+    role.ability![target.lang] = summary.text
     role.flavor![target.lang] = flavor.text
     for (let i = 0; i < jinxes.length; i++) {
       role.jinxes![i].reason![target.lang] = jinxes[i].text
