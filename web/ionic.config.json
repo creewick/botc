@@ -1,0 +1,7 @@
+{
+  "name": "Blood on the ClockTower",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
