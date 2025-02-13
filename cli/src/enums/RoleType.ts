@@ -3,7 +3,7 @@ enum RoleType {
   Outsider = 'outsider',
   Minion = 'minion',
   Demon = 'demon',
-  Traveler = 'travellers',
+  Traveler = 'traveller',
   Fabled = 'fabled',
 }
 
