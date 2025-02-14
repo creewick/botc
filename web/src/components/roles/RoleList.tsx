@@ -37,9 +37,9 @@ const RoleList: React.FC<Props> = (props: Props) => {
   const renderRole = (role: Role) =>
     <IonItem key={role.id} onClick={() => setState({ ...state, role })}>
       <IonImg
-        className='ion-padding-end'
-        src={`public/icons/${role.id}.webp`}
-        style={{ height: 36 }}
+        className='ion-margin-end'
+        src={`/botc/assets/icons/${role.id}.webp`}
+        style={{ height: 36, width: 36 }}
       />
       <IonLabel>
         {role.name.en}

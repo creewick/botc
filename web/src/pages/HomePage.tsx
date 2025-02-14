@@ -18,7 +18,9 @@ const HomePage: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Blood on the ClockTower</IonTitle>
+          <IonTitle className="ion-no-padding">
+            Blood on the ClockTower
+          </IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

@@ -1,8 +1,14 @@
 @font-face {
   font-family: "Dumbledore";
-  src: url("public/fonts/dumbledor.woff2") format("woff2");
+  src: url("/botc/assets/fonts/dumbledor.woff2") format("woff2");
 }
 
 .modal-overflow::part(content) {
   overflow: visible;
+}
+
+.flavor {
+  font-family: 'Dumbledore';
+  font-style: italic;
+  color: var(--ion-color-medium);
 }

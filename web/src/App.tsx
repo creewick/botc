@@ -1,4 +1,4 @@
-import { Route } from 'react-router-dom'
+import { Redirect, Route } from 'react-router-dom'
 import {
   IonApp,
   IonIcon,
@@ -9,7 +9,7 @@ import {
   IonTabs,
   setupIonicReact
 } from '@ionic/react'
-import { IonReactRouter } from '@ionic/react-router'
+import { IonReactHashRouter, IonReactRouter } from '@ionic/react-router'
 import { book, dice, home, settings } from 'ionicons/icons'
 
 /* Core CSS required for Ionic components to work properly */
@@ -52,7 +52,7 @@ setupIonicReact({ mode: 'ios' })
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
+    <IonReactHashRouter>
       <IonTabs>
         <IonRouterOutlet>
           <Route exact path="/home">
@@ -63,6 +63,9 @@ const App: React.FC = () => (
           </Route>
           <Route path="/wiki/roles">
             <RoleListPage />
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/home" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
@@ -84,7 +87,7 @@ const App: React.FC = () => (
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
-    </IonReactRouter>
+    </IonReactHashRouter>
   </IonApp>
 )
 

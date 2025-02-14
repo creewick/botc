@@ -12,7 +12,7 @@ import {
   IonToolbar
 } from '@ionic/react'
 import React from 'react'
-import characters from '../../../public/roles.json'
+import characters from '../../../public/assets/roles.json'
 import Role from '../../../../cli/src/models/Role'
 import {
   Key,
@@ -27,7 +27,7 @@ import RoleView from '../../components/roles/RoleView'
 
 
 const RoleListPage: React.FC = () => {
-  const allRoles: Role[] = characters
+  const allRoles: unknown[] = characters
     .filter(role => role.edition !== 'special')
 
   const allTypes: RoleType[] = Object.values(RoleType)
@@ -63,7 +63,7 @@ const RoleListPage: React.FC = () => {
   }
 
   function getRoles() {
-    const filtered = filterRoles(allRoles, state.query, state.type)
+    const filtered = filterRoles(allRoles as Role[], state.query, state.type)
     const sorted = sortRoles(filtered, state.sort?.key)
     const grouped = groupRoles(sorted, state.group?.key)
     return grouped
@@ -139,6 +139,7 @@ const RoleListPage: React.FC = () => {
         isOpen={!!state.role}
         onDidDismiss={() => setState({ ...state, role: undefined })}
         handle={false}
+        backdropBreakpoint={0.33}
       >
         <RoleView role={state.role!} />
       </IonModal>
