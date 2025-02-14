@@ -15,69 +15,38 @@ interface Props {
   state: RoleListState
   setState: (state: RoleListState) => void
   sortOptions: KeyOption[]
-  groupOptions: KeyOption[]
 }
 
 const RoleFilters: React.FC<Props> = (props: Props) => {
-  const { state, setState, sortOptions, groupOptions } = props
+  const { state, setState, sortOptions } = props
   return (
-    <>
-      <IonButton id="filters">
-        <IonIcon icon={filterOutline} />
-      </IonButton>
+    <IonButton id="filters">
+      <IonIcon icon={filterOutline} />
       <IonPopover trigger="filters" triggerAction="click">
-        <IonContent>
-          <IonList>
-            <IonItem button={true} id="group-by">
-              <IonLabel>
-                Group by
-                <p>{state.group?.name}</p>
-              </IonLabel>
-            </IonItem>
-            <IonItem button={true} id="sort-by">
-              <IonLabel>
-                Sort by
-                <p>{state.sort?.name}</p>
-              </IonLabel>
-            </IonItem>
-            <IonPopover trigger="group-by" dismissOnSelect={true}>
-              <IonContent>
-                <IonList>
-                  {groupOptions.map(option => (
-                    <IonItem
-                      key={option.name}
-                      button={true}
-                      detail={false}
-                      onClick={() =>
-                        setState({ ...state, group: option })}
-                    >
-                      {option.name}
-                    </IonItem>
-                  ))}
-                </IonList>
-              </IonContent>
-            </IonPopover>
-            <IonPopover trigger="sort-by" dismissOnSelect={true}>
-              <IonContent>
-                <IonList>
-                  {sortOptions.map(option => (
-                    <IonItem
-                      key={option.name}
-                      button={true}
-                      detail={false}
-                      onClick={() =>
-                        setState({ ...state, sort: option })}
-                    >
-                      {option.name}
-                    </IonItem>
-                  ))}
-                </IonList>
-              </IonContent>
-            </IonPopover>
-          </IonList>
-        </IonContent>
+        <IonList>
+          <IonItem button={true} id="sort-by">
+            <IonLabel>
+              Sort by
+              <p>{state.sort?.name}</p>
+            </IonLabel>
+          </IonItem>
+          <IonPopover trigger="sort-by" dismissOnSelect={true}>
+            <IonList>
+              {sortOptions.map(option => (
+                <IonItem
+                  key={option.name}
+                  button={true}
+                  detail={false}
+                  onClick={() => setState({ ...state, sort: option })}
+                >
+                  {option.name}
+                </IonItem>
+              ))}
+            </IonList>
+          </IonPopover>
+        </IonList>
       </IonPopover>
-    </>
+    </IonButton>
   )
 }
 

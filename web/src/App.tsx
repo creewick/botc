@@ -41,6 +41,8 @@ import '@ionic/react/css/palettes/dark.system.css'
 
 /* Theme variables */
 import './theme/variables.css'
+import './App.css'
+
 import HomePage from './pages/HomePage'
 import WikiPage from './pages/WikiPage'
 import React from 'react'

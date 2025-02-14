@@ -1,5 +1,6 @@
 import React from 'react'
 import Role from '../../../../cli/src/models/Role'
+import { RoleListState } from '../../models/RoleListState'
 import { 
   IonList, 
   IonItem, 
@@ -8,15 +9,15 @@ import {
   IonAccordionGroup, 
   IonAccordion 
 } from '@ionic/react'
-import { RoleListState } from '../../models/RoleListState'
 
 interface Props {
   groups: { [key: string]: Role[] }
+  state: RoleListState
   setState: (state: RoleListState) => void
 }
 
 const RoleList: React.FC<Props> = (props: Props) => {
-  const { groups, setState } = props
+  const { groups, state, setState } = props
   const groupList = Object.entries(groups)
 
   function renderGroup(group: [string, Role[]]) {
@@ -33,20 +34,17 @@ const RoleList: React.FC<Props> = (props: Props) => {
     )
   }
 
-  function renderRole(role: Role) {
-    return (
-      <IonItem key={role.id} onClick={() => setState({ role })}>
-        <IonImg
-          className='ion-padding-end'
-          src={`public/icons/${role.id}.webp`}
-          style={{ height: 36 }}
-        />
-        <IonLabel>
-          {role.name.en}
-        </IonLabel>
-      </IonItem>
-    )
-  }
+  const renderRole = (role: Role) =>
+    <IonItem key={role.id} onClick={() => setState({ ...state, role })}>
+      <IonImg
+        className='ion-padding-end'
+        src={`public/icons/${role.id}.webp`}
+        style={{ height: 36 }}
+      />
+      <IonLabel>
+        {role.name.en}
+      </IonLabel>
+    </IonItem>
 
   if (groupList.length < 2) {
     return (

@@ -11,7 +11,7 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react'
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import characters from '../../../public/roles.json'
 import Role from '../../../../cli/src/models/Role'
 import {
@@ -23,16 +23,10 @@ import {
 import RoleList from '../../components/roles/RoleList'
 import RoleType from '../../../../cli/src/enums/RoleType'
 import RoleFilters from '../../components/roles/RoleFilters'
+import RoleView from '../../components/roles/RoleView'
 
 
 const RoleListPage: React.FC = () => {
-  const pageRef = useRef(undefined)
-  const [page, setPage] = useState<HTMLElement>()
-
-  useEffect(() => {
-    setPage(pageRef.current)
-  }, [])
-
   const allRoles: Role[] = characters
     .filter(role => role.edition !== 'special')
 
@@ -49,18 +43,11 @@ const RoleListPage: React.FC = () => {
 
   const sortOptions: KeyOption[] = [
     { name: 'Name', key: role => role.name.en },
-    { name: 'First Night Order', key: role => role.firstNightOrder ?? -1 },
-    { name: 'Other Night Order', key: role => role.otherNightOrder ?? -1 }
-  ]
-
-  const groupOptions: KeyOption[] = [
-    { name: 'None' },
-    { name: 'Name', key: role => role.name.en[0] },
-    { name: 'Edition', key: role => role.edition }
+    { name: 'First Night Order', key: role => role.firstNightOrder ?? Number.MAX_VALUE },
+    { name: 'Other Night Order', key: role => role.otherNightOrder ?? Number.MAX_VALUE }
   ]
 
   const [state, setState] = React.useState<RoleListState>({
-    group: groupOptions[0],
     sort: sortOptions[0],
     view: RoleListView.List
   })
@@ -115,7 +102,7 @@ const RoleListPage: React.FC = () => {
   }
 
   return (
-    <IonPage ref={pageRef}>
+    <IonPage>
       <IonHeader collapse='fade'>
         <IonToolbar>
           <IonButtons slot='start'>
@@ -127,7 +114,6 @@ const RoleListPage: React.FC = () => {
               state={state}
               setState={setState}
               sortOptions={sortOptions}
-              groupOptions={groupOptions}
             />
           </IonButtons>
         </IonToolbar>
@@ -143,17 +129,18 @@ const RoleListPage: React.FC = () => {
             {allTypes.map(renderType)}
           </IonGrid>
         </IonHeader>
-        <RoleList groups={getRoles()} setState={setState} />
+        <RoleList groups={getRoles()} state={state} setState={setState} />
       </IonContent>
 
       <IonModal
-        presentingElement={page}
-        isOpen={!!state.role} 
+        className="modal-overflow"
+        initialBreakpoint={0.33} 
+        breakpoints={[0, 0.33, 0.66, 1]}
+        isOpen={!!state.role}
         onDidDismiss={() => setState({ ...state, role: undefined })}
+        handle={false}
       >
-        <IonContent>
-          <IonTitle>{state.role?.name.en}</IonTitle>
-        </IonContent>
+        <RoleView role={state.role!} />
       </IonModal>
     </IonPage>
   )
