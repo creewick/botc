@@ -9,7 +9,7 @@ import {
   IonTabs,
   setupIonicReact
 } from '@ionic/react'
-import { IonReactHashRouter, IonReactRouter } from '@ionic/react-router'
+import { IonReactHashRouter } from '@ionic/react-router'
 import { book, dice, home, settings } from 'ionicons/icons'
 
 /* Core CSS required for Ionic components to work properly */
@@ -46,7 +46,8 @@ import './App.css'
 import HomePage from './pages/HomePage'
 import WikiPage from './pages/WikiPage'
 import React from 'react'
-import RoleListPage from './pages/wiki/RoleListPage'
+import RolesPage from './pages/wiki/RolesPage'
+import SettingsPage from './pages/SettingsPage'
 
 setupIonicReact({ mode: 'ios' })
 
@@ -62,7 +63,10 @@ const App: React.FC = () => (
             <WikiPage />
           </Route>
           <Route path="/wiki/roles">
-            <RoleListPage />
+            <RolesPage />
+          </Route>
+          <Route path="/settings">
+            <SettingsPage />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
@@ -81,7 +85,7 @@ const App: React.FC = () => (
             <IonIcon icon={dice} />
             <IonLabel>Table</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab4" href="/tab4">
+          <IonTabButton tab="settings" href="/settings">
             <IonIcon icon={settings} />
             <IonLabel>Settings</IonLabel>
           </IonTabButton>

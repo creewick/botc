@@ -1,5 +1,8 @@
-import React from 'react'
+import React, {  } from 'react'
 import Role from '../../../../cli/src/models/Role'
+import useStorageState from '../../hooks/useStorageState'
+import AppSettings, { DEFAULT_APP_SETTINGS } from '../../models/AppSettings'
+import getLocalizedText from '../../helpers/getLocalizedText'
 
 interface Props {
   role: Role
@@ -7,24 +10,25 @@ interface Props {
   size?: number
 }
 
-const RoleIcon: React.FC<Props> = (props: Props) => {
-  const { role } = props
+const RoleIcon: React.FC<Props> = ({ role, hideTitle, size }: Props) => {
+  const [settings] = 
+    useStorageState<AppSettings>('settings', DEFAULT_APP_SETTINGS)
 
-  const title = props.hideTitle ? '' : (
+  const title = hideTitle ? '' : (
     <text fontSize="12" fontWeight="bold" fill="black" stroke="#fff8" 
       strokeWidth="2" paintOrder="stroke"
     >
       <textPath href="#circle-path" startOffset="50%" textAnchor="middle">
-        {role.name.en.toUpperCase()}
+        {getLocalizedText(role.name, settings.lang).toUpperCase()}
       </textPath>
     </text>
   )
 
-  const y = props.hideTitle ? 20 : 15
+  const y = hideTitle ? 20 : 15
 
   return (
     <svg viewBox="0 0 100 100"
-     style={{ fontFamily: 'Dumbledore', width: props.size, height: props.size }}
+     style={{ fontFamily: 'Dumbledore', width: size, height: size }}
     >
       <defs>
         <clipPath id="circle-clip"><circle cx="50" cy="50" r="44" /></clipPath>

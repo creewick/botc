@@ -16,37 +16,36 @@ interface Props {
   sortOptions: KeyOption[]
 }
 
-const RoleFilters: React.FC<Props> = (props: Props) => {
-  const { state, setState, sortOptions } = props
-  return (
-    <IonButton id="filters">
-      <IonIcon icon={filterOutline} />
-      <IonPopover trigger="filters" triggerAction="click">
-        <IonList>
-          <IonItem button={true} id="sort-by">
-            <IonLabel>
-              Sort by
-              <p>{state.sort?.name}</p>
-            </IonLabel>
-          </IonItem>
-          <IonPopover trigger="sort-by" dismissOnSelect={true}>
-            <IonList>
-              {sortOptions.map(option => (
-                <IonItem
-                  key={option.name}
-                  button={true}
-                  detail={false}
-                  onClick={() => setState({ ...state, sort: option })}
-                >
-                  {option.name}
-                </IonItem>
-              ))}
-            </IonList>
-          </IonPopover>
-        </IonList>
-      </IonPopover>
-    </IonButton>
-  )
-}
+const RoleFilters: React.FC<Props> = ({ 
+  state, setState, sortOptions 
+}: Props) => (
+  <IonButton id="filters">
+    <IonIcon icon={filterOutline} />
+    <IonPopover trigger="filters" triggerAction="click">
+      <IonList>
+        <IonItem button={true} id="sort-by">
+          <IonLabel>
+            Sort by
+            <p>{state.sort?.name}</p>
+          </IonLabel>
+        </IonItem>
+        <IonPopover trigger="sort-by" dismissOnSelect={true}>
+          <IonList>
+            {sortOptions.map(option => (
+              <IonItem
+                key={option.name}
+                button={true}
+                detail={false}
+                onClick={() => setState({ ...state, sort: option })}
+              >
+                {option.name}
+              </IonItem>
+            ))}
+          </IonList>
+        </IonPopover>
+      </IonList>
+    </IonPopover>
+  </IonButton>
+)
 
 export default RoleFilters

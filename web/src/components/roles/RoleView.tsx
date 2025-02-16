@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {  } from 'react'
 import Role from '../../../../cli/src/models/Role'
 import RoleIcon from './RoleIcon'
 import {
@@ -6,7 +6,6 @@ import {
   IonCol,
   IonContent,
   IonGrid,
-  IonImg,
   IonItem,
   IonLabel,
   IonList,
@@ -15,13 +14,17 @@ import {
 } from '@ionic/react'
 import LocalizedText from '../../../../cli/src/models/LocalizedText'
 import Limitation from '../../../../cli/src/models/Limitation'
+import useStorageState from '../../hooks/useStorageState'
+import AppSettings, { DEFAULT_APP_SETTINGS } from '../../models/AppSettings'
+import getLocalizedText from '../../helpers/getLocalizedText'
 
 interface Props {
   role: Role
 }
 
-const RoleView: React.FC<Props> = (props: Props) => {
-  const { role } = props
+const RoleView: React.FC<Props> = ({ role }: Props) => {
+  const [settings] = 
+    useStorageState<AppSettings>('settings', DEFAULT_APP_SETTINGS)
 
   const renderHeader = () =>
     <div style={{ 
@@ -60,7 +63,7 @@ const RoleView: React.FC<Props> = (props: Props) => {
     <IonItem key={index}>
       <RoleIcon role={role} size={36} hideTitle />
       <IonLabel className="ion-margin-start">
-        {reminder.en}
+        {getLocalizedText(reminder, settings.lang)}
       </IonLabel>
     </IonItem>
 
@@ -79,7 +82,7 @@ const RoleView: React.FC<Props> = (props: Props) => {
     <IonItem key={index}>
       <RoleIcon role={{id: jinx.roleId} as Role} size={36} hideTitle />
       <IonLabel className="ion-margin-start">
-        {jinx.reason.en}
+        {getLocalizedText(jinx.reason, settings.lang)}
       </IonLabel>
     </IonItem>
 
@@ -88,10 +91,10 @@ const RoleView: React.FC<Props> = (props: Props) => {
       {renderHeader()}
       <IonContent>
         <p className="ion-text-center ion-no-margin ion-padding-horizontal">
-          {role.ability.en}
+          {getLocalizedText(role.ability, settings.lang)}
         </p>
         <p className="ion-text-center flavor ion-padding-horizontal">
-          {role.flavor.en}
+          {getLocalizedText(role.flavor, settings.lang)}
         </p>
         {renderReminders()}
         {renderJinxes()}

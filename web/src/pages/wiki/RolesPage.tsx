@@ -24,9 +24,14 @@ import RoleList from '../../components/roles/RoleList'
 import RoleType from '../../../../cli/src/enums/RoleType'
 import RoleFilters from '../../components/roles/RoleFilters'
 import RoleView from '../../components/roles/RoleView'
+import useStorageState from '../../hooks/useStorageState'
+import AppSettings, { DEFAULT_APP_SETTINGS } from '../../models/AppSettings'
+import getLocalizedText from '../../helpers/getLocalizedText'
 
+const RolesPage: React.FC = () => {
+  const [settings] = 
+    useStorageState<AppSettings>('settings', DEFAULT_APP_SETTINGS)
 
-const RoleListPage: React.FC = () => {
   const allRoles: unknown[] = characters
     .filter(role => role.edition !== 'special')
 
@@ -42,9 +47,15 @@ const RoleListPage: React.FC = () => {
     </IonChip>
 
   const sortOptions: KeyOption[] = [
-    { name: 'Name', key: role => role.name.en },
-    { name: 'First Night Order', key: role => role.firstNightOrder ?? Number.MAX_VALUE },
-    { name: 'Other Night Order', key: role => role.otherNightOrder ?? Number.MAX_VALUE }
+    { name: 'Name', key: role => getLocalizedText(role.name, settings.lang) },
+    { 
+      name: 'First Night Order', 
+      key: role => role.firstNightOrder ?? Number.MAX_VALUE 
+    },
+    { 
+      name: 'Other Night Order', 
+      key: role => role.otherNightOrder ?? Number.MAX_VALUE 
+    }
   ]
 
   const [state, setState] = React.useState<RoleListState>({
@@ -65,8 +76,7 @@ const RoleListPage: React.FC = () => {
   function getRoles() {
     const filtered = filterRoles(allRoles as Role[], state.query, state.type)
     const sorted = sortRoles(filtered, state.sort?.key)
-    const grouped = groupRoles(sorted, state.group?.key)
-    return grouped
+    return sorted
   }
 
   function filterRoles(roles: Role[], query?: string, type?: RoleType) {
@@ -81,16 +91,6 @@ const RoleListPage: React.FC = () => {
       : typeof obj === 'string'
         ? obj.toLowerCase().includes(query)
         : false
-  }
-
-  function groupRoles(roles: Role[], key?: Key) {
-    if (!key) return { '': roles }
-
-    return roles.reduce((groups, role) => {
-      groups[key(role)] = groups[key(role)] ?? []
-      groups[key(role)].push(role)
-      return groups
-    }, {} as { [key: string]: Role[] })
   }
 
   function sortRoles(roles: Role[], key?: Key) {
@@ -129,17 +129,17 @@ const RoleListPage: React.FC = () => {
             {allTypes.map(renderType)}
           </IonGrid>
         </IonHeader>
-        <RoleList groups={getRoles()} state={state} setState={setState} />
+        <RoleList roles={getRoles()} state={state} setState={setState} />
       </IonContent>
 
       <IonModal
         className="modal-overflow"
-        initialBreakpoint={0.33} 
-        breakpoints={[0, 0.33, 0.66, 1]}
+        initialBreakpoint={0.25} 
+        breakpoints={[0, 0.25, 0.66, 1]}
         isOpen={!!state.role}
         onDidDismiss={() => setState({ ...state, role: undefined })}
         handle={false}
-        backdropBreakpoint={0.33}
+        backdropBreakpoint={0.25}
       >
         <RoleView role={state.role!} />
       </IonModal>
@@ -147,4 +147,4 @@ const RoleListPage: React.FC = () => {
   )
 }
 
-export default RoleListPage
+export default RolesPage
