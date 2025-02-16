@@ -15,8 +15,9 @@ import {
 import LocalizedText from '../../../../cli/src/models/LocalizedText'
 import Limitation from '../../../../cli/src/models/Limitation'
 import useStorageState from '../../hooks/useStorageState'
-import AppSettings, { DEFAULT_APP_SETTINGS } from '../../models/AppSettings'
+import AppSettings, { APP_SETTINGS } from '../../models/AppSettings'
 import getLocalizedText from '../../helpers/getLocalizedText'
+import { Translation } from 'i18nano'
 
 interface Props {
   role: Role
@@ -24,7 +25,7 @@ interface Props {
 
 const RoleView: React.FC<Props> = ({ role }: Props) => {
   const [settings] = 
-    useStorageState<AppSettings>('settings', DEFAULT_APP_SETTINGS)
+    useStorageState<AppSettings>('settings', APP_SETTINGS)
 
   const renderHeader = () =>
     <div style={{ 
@@ -42,7 +43,9 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
             </div>
           </IonCol>
           <IonCol className="ion-text-right">
-            <IonChip outline>{role.type}</IonChip>
+            <IonChip outline>
+              <Translation path={`types.${role.type}`} />
+            </IonChip>
           </IonCol>
         </IonRow>
       </IonGrid>
@@ -51,7 +54,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
   const renderReminders = () => role.reminders && role.reminders.length > 0 && (
     <>
       <IonListHeader>
-        Reminders
+        <Translation path="reminders" />
       </IonListHeader>
       <IonList>
         {role.reminders?.map(renderReminder)}
@@ -70,7 +73,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
   const renderJinxes = () => role.jinxes && role.jinxes.length > 0 && (
     <>
       <IonListHeader>
-        Jinxes
+        <Translation path="jinxes" />
       </IonListHeader>
       <IonList>
         {role.jinxes?.map(renderJinx)}

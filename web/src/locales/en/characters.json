@@ -1,0 +1,21 @@
+{
+  "title": "Characters",
+  "search": "Search",
+  "back": "Wiki",
+  "types": {
+    "townsfolk": "Townsfolks",
+    "outsider": "Outsiders",
+    "minion": "Minions",
+    "demon": "Demons",
+    "traveller": "Travellers",
+    "fabled": "Fabled"
+  },
+  "sortBy": "Sort by",
+  "sortOptions": {
+    "name": "Name",
+    "firstNight": "First Night",
+    "otherNight": "Other Nights"
+  },
+  "reminders": "Reminders",
+  "jinxes": "Jinxes"
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Wiki",
+  "sections": "Sections",
+  "rules": {
+    "title": "Rules",
+    "subtitle": "Game rules and mechanics"
+  },
+  "characters": {
+    "title": "Characters",
+    "subtitle": "Character abilities and roles"
+  },
+  "scripts": {
+    "title": "Scripts",
+    "subtitle": "Game scripts and scenarios"
+  }
+}

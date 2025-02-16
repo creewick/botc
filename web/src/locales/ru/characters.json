@@ -1,0 +1,21 @@
+{
+  "title": "Персонажи",
+  "search": "Поиск",
+  "back": "Вики",
+  "types": {
+    "townsfolk": "Горожане",
+    "outsider": "Изгои",
+    "minion": "Миньоны",
+    "demon": "Демоны",
+    "traveller": "Странники",
+    "fabled": "Легенды"
+  },
+  "sortBy": "Сортировка",
+  "sortOptions": {
+    "name": "Имя",
+    "firstNight": "Первая ночь",
+    "otherNight": "Другие ночи"
+  },
+  "reminders": "Напоминания",
+  "jinxes": "Проклятия"
+}

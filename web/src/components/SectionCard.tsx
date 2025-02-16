@@ -7,6 +7,7 @@ import {
   IonLabel, 
   IonRow 
 } from '@ionic/react'
+import { Translation } from 'i18nano'
 import React from 'react'
 
 interface Props {
@@ -15,10 +16,11 @@ interface Props {
   icon?: string
   title?: string
   subtitle?: string
+  disabled?: boolean
 }
 
 const SectionCard: React.FC<Props> = ({ 
-  href, routerLink, icon, title, subtitle 
+  href, routerLink, icon, title, subtitle, disabled
 }: Props) => (
   <IonCard 
     button={true}
@@ -27,6 +29,7 @@ const SectionCard: React.FC<Props> = ({
     routerDirection='forward'
     color="light" 
     style={{ boxShadow: 'none', margin: '8px' }}
+    disabled={disabled}
   >
     <IonGrid className="ion-padding">
       <IonRow className="ion-align-items-center">
@@ -35,9 +38,11 @@ const SectionCard: React.FC<Props> = ({
         </IonCol>
         <IonCol>
           <IonCardSubtitle style={{ color: 'var(--ion-color-primary)' }}>
-            {title}
+            <Translation path={title ?? ''} />
           </IonCardSubtitle>
-          <IonLabel>{subtitle}</IonLabel>
+          <IonLabel>
+            <Translation path={subtitle ?? ''} />
+          </IonLabel>
         </IonCol>
       </IonRow>
     </IonGrid>

@@ -9,6 +9,7 @@ import {
 import { filterOutline } from 'ionicons/icons'
 import React from 'react'
 import { KeyOption, RoleListState } from '../../models/RoleListState'
+import { Translation } from 'i18nano'
 
 interface Props {
   state: RoleListState
@@ -25,7 +26,7 @@ const RoleFilters: React.FC<Props> = ({
       <IonList>
         <IonItem button={true} id="sort-by">
           <IonLabel>
-            Sort by
+            <Translation path="sortBy" />
             <p>{state.sort?.name}</p>
           </IonLabel>
         </IonItem>

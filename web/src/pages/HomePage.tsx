@@ -12,6 +12,7 @@ import {
 import SectionCard from '../components/SectionCard'
 import { book, build, home, play } from 'ionicons/icons'
 import React from 'react'
+import { Translation } from 'i18nano'
 
 const HomePage: React.FC = () => {
   return (
@@ -19,33 +20,37 @@ const HomePage: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle className="ion-no-padding">
-            Blood on the ClockTower
+            <Translation path="title" />
           </IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Blood on the ClockTower</IonTitle>
+            <IonTitle size="large">
+              <Translation path="title" />
+            </IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonListHeader>Official Links</IonListHeader>
+        <IonListHeader>
+          <Translation path="links" />
+        </IonListHeader>
         <IonGrid>
           <IonRow>
             <IonCol size="12" sizeMd="6" className="ion-no-padding">
               <SectionCard
                 href="https://bloodontheclocktower.com"
                 icon={home}
-                title="Website"
-                subtitle="Official website of the game"
+                title="website.title"
+                subtitle="website.subtitle"
               />
             </IonCol>
             <IonCol size="12" sizeMd="6" className="ion-no-padding">
               <SectionCard
                 href="https://wiki.bloodontheclocktower.com"
                 icon={book}
-                title="Wiki"
-                subtitle="Game rules, character abilities, and more"
+                title="wiki.title"
+                subtitle="wiki.subtitle"
               />
             </IonCol>
           </IonRow>
@@ -54,18 +59,16 @@ const HomePage: React.FC = () => {
               <SectionCard
                 href="https://script.bloodontheclocktower.com"
                 icon={build}
-                title="Script Tool"
-                subtitle="Script generator 
-                  with JSON import, JSON and PDF export"
+                title="scriptTool.title"
+                subtitle="scriptTool.subtitle"
               />
             </IonCol>
             <IonCol size="12" sizeMd="6" className="ion-no-padding">
               <SectionCard
                 href="https://botc.app"
                 icon={play}
-                title="Online Client"
-                subtitle="Play online on a virtual table 
-                  with an integrated voice chat"
+                title="onlineClient.title"
+                subtitle="onlineClient.subtitle"
               />
             </IonCol>
           </IonRow>

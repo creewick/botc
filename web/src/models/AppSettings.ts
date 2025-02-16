@@ -2,7 +2,7 @@ interface AppSettings {
   lang: string
 }
 
-export const DEFAULT_APP_SETTINGS = {
+export const APP_SETTINGS = {
   lang: 'ru'
 }
 

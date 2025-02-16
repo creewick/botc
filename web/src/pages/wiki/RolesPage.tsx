@@ -25,12 +25,14 @@ import RoleType from '../../../../cli/src/enums/RoleType'
 import RoleFilters from '../../components/roles/RoleFilters'
 import RoleView from '../../components/roles/RoleView'
 import useStorageState from '../../hooks/useStorageState'
-import AppSettings, { DEFAULT_APP_SETTINGS } from '../../models/AppSettings'
+import AppSettings, { APP_SETTINGS } from '../../models/AppSettings'
 import getLocalizedText from '../../helpers/getLocalizedText'
+import { Translation, useTranslation } from 'i18nano'
 
 const RolesPage: React.FC = () => {
+  const t = useTranslation()
   const [settings] = 
-    useStorageState<AppSettings>('settings', DEFAULT_APP_SETTINGS)
+    useStorageState<AppSettings>('settings', APP_SETTINGS)
 
   const allRoles: unknown[] = characters
     .filter(role => role.edition !== 'special')
@@ -43,17 +45,19 @@ const RolesPage: React.FC = () => {
       color={state.type === type ? 'primary' : 'medium'}
       onClick={() => onTypeClick(type)}
     >
-      {type}
+      <Translation path={`types.${type}`} />
     </IonChip>
 
   const sortOptions: KeyOption[] = [
-    { name: 'Name', key: role => getLocalizedText(role.name, settings.lang) },
+    { name: t('sortOptions.name'), 
+      key: role => getLocalizedText(role.name, settings.lang) 
+    },
     { 
-      name: 'First Night Order', 
+      name: t('sortOptions.firstNight'), 
       key: role => role.firstNightOrder ?? Number.MAX_VALUE 
     },
     { 
-      name: 'Other Night Order', 
+      name: t('sortOptions.otherNight'),
       key: role => role.otherNightOrder ?? Number.MAX_VALUE 
     }
   ]
@@ -108,7 +112,9 @@ const RolesPage: React.FC = () => {
           <IonButtons slot='start'>
             <IonBackButton />
           </IonButtons>
-          <IonTitle>Characters</IonTitle>
+          <IonTitle>
+            <Translation path='title' />
+          </IonTitle>
           <IonButtons slot='end'>
             <RoleFilters
               state={state}
@@ -122,9 +128,11 @@ const RolesPage: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Characters</IonTitle>
+            <IonTitle size="large">            
+              <Translation path='title' />
+            </IonTitle>
           </IonToolbar>
-          <IonSearchbar onIonInput={onSearchInput} />
+          <IonSearchbar placeholder={t('search')} onIonInput={onSearchInput} />
           <IonGrid style={{ whiteSpace: 'nowrap', overflowX: 'auto' }}>
             {allTypes.map(renderType)}
           </IonGrid>

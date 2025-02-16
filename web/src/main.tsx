@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App'
 import { Storage } from '@ionic/storage'
-import StorageContext from './contexts/StorageContext'
+import App from './App'
 
+import StorageContext from './contexts/StorageContext'
+import { TranslationProvider } from 'i18nano'
+import { locales } from './locales/locales'
 const container = document.getElementById('root')
 const root = createRoot(container!)
 const storage = new Storage()
@@ -12,7 +14,11 @@ storage.create()
 root.render(
   <React.StrictMode>
     <StorageContext.Provider value={storage}>
-      <App />
+      <TranslationProvider translations={locales.common} fallback='en'>
+        <Suspense>
+          <App />
+        </Suspense>
+      </TranslationProvider>
     </StorageContext.Provider>
   </React.StrictMode>
 )

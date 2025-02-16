@@ -45,54 +45,84 @@ import './App.css'
 
 import HomePage from './pages/HomePage'
 import WikiPage from './pages/WikiPage'
-import React from 'react'
+import React, { useEffect } from 'react'
 import RolesPage from './pages/wiki/RolesPage'
 import SettingsPage from './pages/SettingsPage'
+import { Translation, TranslationProvider, useTranslationChange } from 'i18nano'
+import { APP_SETTINGS } from './models/AppSettings'
+import useStorageState from './hooks/useStorageState'
+import { locales } from './locales/locales'
 
 setupIonicReact({ mode: 'ios' })
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactHashRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/home">
-            <HomePage />
-          </Route>
-          <Route exact path="/wiki">
-            <WikiPage />
-          </Route>
-          <Route path="/wiki/roles">
-            <RolesPage />
-          </Route>
-          <Route path="/settings">
-            <SettingsPage />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="home" href="/home">
-            <IonIcon icon={home} />
-            <IonLabel>Home</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="wiki" href="/wiki">
-            <IonIcon icon={book} />
-            <IonLabel>Wiki</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={dice} />
-            <IonLabel>Table</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="settings" href="/settings">
-            <IonIcon icon={settings} />
-            <IonLabel>Settings</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactHashRouter>
-  </IonApp>
-)
+const App: React.FC = () => {
+  const { change, preload } = useTranslationChange()
+  const [appSettings] = useStorageState('settings', APP_SETTINGS)
+
+  useEffect(() => {
+    preload(appSettings.lang)
+    change(appSettings.lang)
+  }, [appSettings.lang])
+
+  return (
+    <IonApp>
+      <IonReactHashRouter>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route exact path="/home">
+              <TranslationProvider translations={locales.home}>
+                <HomePage />
+              </TranslationProvider>
+            </Route>
+            <Route exact path="/wiki">
+              <TranslationProvider translations={locales.wiki}>
+                <WikiPage />
+              </TranslationProvider>
+            </Route>
+            <Route path="/wiki/roles">
+              <TranslationProvider translations={locales.characters}>
+                <RolesPage />
+              </TranslationProvider>
+            </Route>
+            <Route path="/settings">
+              <TranslationProvider translations={locales.settings}>
+                <SettingsPage />
+              </TranslationProvider>
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+          </IonRouterOutlet>
+            <IonTabBar slot="bottom">
+              <IonTabButton tab="home" href="/home">
+                <IonIcon icon={home} />
+                <IonLabel>
+                  <Translation path="home" />
+                </IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="wiki" href="/wiki">
+                <IonIcon icon={book} />
+                <IonLabel>
+                  <Translation path="wiki" />
+                </IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="tab3" href="/tab3" disabled>
+                <IonIcon icon={dice} />
+                <IonLabel>
+                  <Translation path="table" />
+                </IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="settings" href="/settings">
+                <IonIcon icon={settings} />
+                <IonLabel>
+                  <Translation path="settings" />
+                </IonLabel>
+              </IonTabButton>
+            </IonTabBar>
+        </IonTabs>
+      </IonReactHashRouter>
+    </IonApp>
+  )
+}
 
 export default App

@@ -1,7 +1,7 @@
 import React, {  } from 'react'
 import Role from '../../../../cli/src/models/Role'
 import useStorageState from '../../hooks/useStorageState'
-import AppSettings, { DEFAULT_APP_SETTINGS } from '../../models/AppSettings'
+import AppSettings, { APP_SETTINGS } from '../../models/AppSettings'
 import getLocalizedText from '../../helpers/getLocalizedText'
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 
 const RoleIcon: React.FC<Props> = ({ role, hideTitle, size }: Props) => {
   const [settings] = 
-    useStorageState<AppSettings>('settings', DEFAULT_APP_SETTINGS)
+    useStorageState<AppSettings>('settings', APP_SETTINGS)
 
   const title = hideTitle ? '' : (
     <text fontSize="12" fontWeight="bold" fill="black" stroke="#fff8" 
