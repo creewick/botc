@@ -1,0 +1,1 @@
+const a=[{id:"_meta",name:"Bad Moon Rising",author:"The Pandemonium Institute"},"grandmother","sailor","chambermaid","exorcist","innkeeper","gambler","gossip","courtier","professor","minstrel","tealady","pacifist","fool","tinker","moonchild","goon","lunatic","godfather","devilsadvocate","assassin","mastermind","zombuul","pukka","shabaloth","po"];export{a as default};

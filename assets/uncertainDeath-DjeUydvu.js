@@ -1,0 +1,1 @@
+const a=[{id:"_meta",name:"Uncertain Death",author:"Matt"},"clockmaker","grandmother","librarian","empath","fortune_teller","exorcist","flowergirl","oracle","undertaker","artist","slayer","seamstress","monk","lunatic","mutant","sweetheart","recluse","godfather","assassin","scarlet_woman","marionette","no_dashii","pukka"];export{a as default};
