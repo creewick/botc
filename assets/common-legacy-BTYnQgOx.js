@@ -1,1 +1,0 @@
-System.register([],(function(e,t){"use strict";return{execute:function(){const t=e("home","Home"),i=e("wiki","Wiki"),s=e("table","Table"),n=e("settings","Settings");e("default",{home:t,wiki:i,table:s,settings:n})}}}));
