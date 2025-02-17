@@ -1,1 +1,0 @@
-const t="Вики",s="Разделы",e={title:"Правила",subtitle:"Описание правил и механик игры"},c={title:"Персонажи",subtitle:"Роли персонажей и их способности"},i={title:"Сценарии",subtitle:"Игровые сценарии"},l={title:t,sections:s,rules:e,characters:c,scripts:i};export{c as characters,l as default,e as rules,i as scripts,s as sections,t as title};

@@ -1,1 +1,0 @@
-const t="Wiki",s="Sections",e={title:"Rules",subtitle:"Game rules and mechanics"},i={title:"Characters",subtitle:"Character abilities and roles"},c={title:"Scripts",subtitle:"Game scripts and scenarios"},a={title:t,sections:s,rules:e,characters:i,scripts:c};export{i as characters,a as default,e as rules,c as scripts,s as sections,t as title};
