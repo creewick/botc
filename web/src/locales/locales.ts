@@ -18,6 +18,10 @@ export const locales = {
   characters: {
     en: () => import('./en/characters.json'),
     ru: () => import('./ru/characters.json'),
+  },
+  scripts: {
+    en: () => import('./en/scripts.json'),
+    ru: () => import('./ru/scripts.json'),
   }
 }
 

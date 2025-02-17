@@ -60,7 +60,6 @@ const WikiPage: React.FC = () => {
                 icon={document}
                 title="scripts.title"
                 subtitle="scripts.subtitle"
-                disabled
               />
             </IonCol>
           </IonRow>

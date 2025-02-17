@@ -45,13 +45,14 @@ import './App.css'
 
 import HomePage from './pages/HomePage'
 import WikiPage from './pages/WikiPage'
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import RolesPage from './pages/wiki/RolesPage'
 import SettingsPage from './pages/SettingsPage'
 import { Translation, TranslationProvider, useTranslationChange } from 'i18nano'
 import { APP_SETTINGS } from './models/AppSettings'
 import useStorageState from './hooks/useStorageState'
 import { locales } from './locales/locales'
+import ScriptsPage from './pages/wiki/ScriptsPage'
 
 setupIonicReact({ mode: 'ios' })
 
@@ -79,12 +80,21 @@ const App: React.FC = () => {
                 <WikiPage />
               </TranslationProvider>
             </Route>
-            <Route path="/wiki/roles">
+            <Route exact path="/wiki/roles/:id?">
               <TranslationProvider translations={locales.characters}>
-                <RolesPage />
+                <Suspense>
+                  <RolesPage />
+                </Suspense>
               </TranslationProvider>
             </Route>
-            <Route path="/settings">
+            <Route exact path="/wiki/scripts">
+              <TranslationProvider translations={locales.scripts}>
+                <Suspense>
+                  <ScriptsPage />
+                </Suspense>              
+              </TranslationProvider>
+            </Route>
+            <Route exact path="/settings">
               <TranslationProvider translations={locales.settings}>
                 <SettingsPage />
               </TranslationProvider>

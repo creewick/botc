@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { Storage } from '@ionic/storage'
 import App from './App'
@@ -15,9 +15,7 @@ root.render(
   <React.StrictMode>
     <StorageContext.Provider value={storage}>
       <TranslationProvider translations={locales.common} fallback='en'>
-        <Suspense>
-          <App />
-        </Suspense>
+        <App />
       </TranslationProvider>
     </StorageContext.Provider>
   </React.StrictMode>

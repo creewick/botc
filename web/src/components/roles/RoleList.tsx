@@ -10,6 +10,7 @@ import {
 import useStorageState from '../../hooks/useStorageState'
 import AppSettings, { APP_SETTINGS } from '../../models/AppSettings'
 import getLocalizedText from '../../helpers/getLocalizedText'
+import { useHistory } from 'react-router-dom'
 
 interface Props {
   roles: Role[]
@@ -18,13 +19,17 @@ interface Props {
 }
 
 const RoleList: React.FC<Props> = ({ roles, state, setState }: Props) => {
-  const [settings] = 
-    useStorageState<AppSettings>('settings', APP_SETTINGS)
+  const [settings] = useStorageState<AppSettings>('settings', APP_SETTINGS)
+
+   function openRole(role: Role) {
+    setState(({ ...state, role }))
+    window.history.replaceState(null, '', `/botc/#/wiki/roles/${role.id}`)
+  }
 
   const renderRole = (role: Role) =>
     <IonItem 
       key={role.id} 
-      onClick={() => setState({ ...state, role })}
+      onClick={() => openRole(role)}
       color={state.role?.id === role.id ? 'light' : undefined}
     >
       <IonImg

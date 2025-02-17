@@ -11,7 +11,7 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import characters from '../../../public/assets/roles.json'
 import Role from '../../../../cli/src/models/Role'
 import {
@@ -26,18 +26,32 @@ import RoleFilters from '../../components/roles/RoleFilters'
 import RoleView from '../../components/roles/RoleView'
 import useStorageState from '../../hooks/useStorageState'
 import AppSettings, { APP_SETTINGS } from '../../models/AppSettings'
-import getLocalizedText from '../../helpers/getLocalizedText'
 import { Translation, useTranslation } from 'i18nano'
+import getLocalizedText from '../../helpers/getLocalizedText'
+import { useParams } from 'react-router-dom'
 
 const RolesPage: React.FC = () => {
   const t = useTranslation()
-  const [settings] = 
-    useStorageState<AppSettings>('settings', APP_SETTINGS)
+  const { id } = useParams<{ id?: string }>()
+  const [settings] = useStorageState<AppSettings>('settings', APP_SETTINGS)
 
   const allRoles: unknown[] = characters
     .filter(role => role.edition !== 'special')
 
   const allTypes: RoleType[] = Object.values(RoleType)
+
+  useEffect(() => {
+    if (id) {
+      const foundRole = (allRoles as Role[]).find(role => role.id === id)
+      if (foundRole) {
+        setState(prev => ({ ...prev, role: foundRole }))
+      }
+    }
+  }, [id])
+
+  function closeRole() {
+    setState(({ ...state, role: undefined }))
+  }
 
   const renderType = (type: RoleType) =>
     <IonChip
@@ -110,7 +124,7 @@ const RolesPage: React.FC = () => {
       <IonHeader collapse='fade'>
         <IonToolbar>
           <IonButtons slot='start'>
-            <IonBackButton />
+            <IonBackButton text={t('wiki')} />
           </IonButtons>
           <IonTitle>
             <Translation path='title' />
@@ -128,8 +142,8 @@ const RolesPage: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">            
-              <Translation path='title' />
+            <IonTitle size="large">
+              <Translation path='characters.title' />
             </IonTitle>
           </IonToolbar>
           <IonSearchbar placeholder={t('search')} onIonInput={onSearchInput} />
@@ -145,8 +159,7 @@ const RolesPage: React.FC = () => {
         initialBreakpoint={0.25} 
         breakpoints={[0, 0.25, 0.66, 1]}
         isOpen={!!state.role}
-        onDidDismiss={() => setState({ ...state, role: undefined })}
-        handle={false}
+        onDidDismiss={closeRole}
         backdropBreakpoint={0.25}
       >
         <RoleView role={state.role!} />
