@@ -1,0 +1,72 @@
+{
+  "tabs": {
+    "home": "Home",
+    "wiki": "Wiki",
+    "table": "Table",
+    "settings": "Settings"
+  },
+  "home": {
+    "title": "Blood on the Clocktower",
+    "links": "Official Links",
+    "website": {
+      "title": "Website",
+      "subtitle": "Official website of the game"
+    },
+    "wiki": {
+      "title": "Wiki",
+      "subtitle": "Game rules, character abilities, and more"
+    },
+    "scriptTool": {
+      "title": "Script Tool",
+      "subtitle": "Script generator with JSON import, JSON and PDF export"
+    },
+    "onlineClient": {
+      "title": "Online Client",
+      "subtitle": "Play online on a virtual table with an integrated voice chat"
+    }
+  },
+  "wiki": {
+    "title": "Wiki",
+    "sections": "Sections",
+    "rules": {
+      "title": "Rules",
+      "subtitle": "Game rules and mechanics"
+    },
+    "characters": {
+      "title": "Characters",
+      "subtitle": "Character abilities and roles"
+    },
+    "scripts": {
+      "title": "Scripts",
+      "subtitle": "Game scripts and scenarios"
+    }
+  },
+  "roles": {
+    "title": "Characters",
+    "search": "Search",
+    "types": {
+      "townsfolk": "Townsfolks",
+      "outsider": "Outsiders",
+      "minion": "Minions",
+      "demon": "Demons",
+      "traveller": "Travellers",
+      "fabled": "Fabled"
+    },
+    "sortBy": "Sort by",
+    "sortOptions": {
+      "name": "Name",
+      "firstNight": "First Night",
+      "otherNight": "Other Nights"
+    },
+    "reminders": "Reminders",
+    "jinxes": "Jinxes"
+  },
+  "scripts": {
+    "title": "Scripts",
+    "search": "Search"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language"
+  }
+}

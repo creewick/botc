@@ -1,8 +1,6 @@
 import React, {  } from 'react'
 import Role from '../../../../cli/src/models/Role'
-import useStorageState from '../../hooks/useStorageState'
-import AppSettings, { APP_SETTINGS } from '../../models/AppSettings'
-import getLocalizedText from '../../helpers/getLocalizedText'
+import { useTranslation } from 'i18nano'
 
 interface Props {
   role: Role
@@ -11,20 +9,18 @@ interface Props {
 }
 
 const RoleIcon: React.FC<Props> = ({ role, hideTitle, size }: Props) => {
-  const [settings] = 
-    useStorageState<AppSettings>('settings', APP_SETTINGS)
+  const t = useTranslation()
+  const y = hideTitle ? 20 : 15
 
-  const title = hideTitle ? '' : (
+  const title = (
     <text fontSize="12" fontWeight="bold" fill="black" stroke="#fff8" 
       strokeWidth="2" paintOrder="stroke"
     >
       <textPath href="#circle-path" startOffset="50%" textAnchor="middle">
-        {getLocalizedText(role.name, settings.lang).toUpperCase()}
+        {t(`${role.id}.name`).toUpperCase()}
       </textPath>
     </text>
   )
-
-  const y = hideTitle ? 20 : 15
 
   return (
     <svg viewBox="0 0 100 100"
@@ -44,7 +40,7 @@ const RoleIcon: React.FC<Props> = ({ role, hideTitle, size }: Props) => {
       </g>
       <image href={`botc/assets/icons/${role.id}.webp`} 
         width="60" height="60" x="20" y={y} />
-      { title }
+      { !hideTitle && title }
     </svg>
   )
 }

@@ -24,16 +24,12 @@ import RoleList from '../../components/roles/RoleList'
 import RoleType from '../../../../cli/src/enums/RoleType'
 import RoleFilters from '../../components/roles/RoleFilters'
 import RoleView from '../../components/roles/RoleView'
-import useStorageState from '../../hooks/useStorageState'
-import AppSettings, { APP_SETTINGS } from '../../models/AppSettings'
 import { Translation, useTranslation } from 'i18nano'
-import getLocalizedText from '../../helpers/getLocalizedText'
 import { useParams } from 'react-router-dom'
 
 const RolesPage: React.FC = () => {
   const t = useTranslation()
   const { id } = useParams<{ id?: string }>()
-  const [settings] = useStorageState<AppSettings>('settings', APP_SETTINGS)
 
   const allRoles: unknown[] = characters
     .filter(role => role.edition !== 'special')
@@ -51,6 +47,7 @@ const RolesPage: React.FC = () => {
 
   function closeRole() {
     setState(({ ...state, role: undefined }))
+    window.history.replaceState(null, '', '/botc/#/wiki/roles')
   }
 
   const renderType = (type: RoleType) =>
@@ -59,19 +56,19 @@ const RolesPage: React.FC = () => {
       color={state.type === type ? 'primary' : 'medium'}
       onClick={() => onTypeClick(type)}
     >
-      <Translation path={`types.${type}`} />
+      <Translation path={`roles.types.${type}`} />
     </IonChip>
 
   const sortOptions: KeyOption[] = [
-    { name: t('sortOptions.name'), 
-      key: role => getLocalizedText(role.name, settings.lang) 
+    { name: t('roles.sortOptions.name'), 
+      key: role => t(`${role.id}.name`)
     },
     { 
-      name: t('sortOptions.firstNight'), 
+      name: t('roles.sortOptions.firstNight'), 
       key: role => role.firstNightOrder ?? Number.MAX_VALUE 
     },
     { 
-      name: t('sortOptions.otherNight'),
+      name: t('roles.sortOptions.otherNight'),
       key: role => role.otherNightOrder ?? Number.MAX_VALUE 
     }
   ]
@@ -81,7 +78,7 @@ const RolesPage: React.FC = () => {
     view: RoleListView.List
   })
 
-  function onSearchInput(event: Event) {
+  function onSearch(event: Event) {
     const target = event.target as HTMLIonSearchbarElement
     const query = target.value!.toLowerCase()
     setState({ ...state, query })
@@ -124,10 +121,10 @@ const RolesPage: React.FC = () => {
       <IonHeader collapse='fade'>
         <IonToolbar>
           <IonButtons slot='start'>
-            <IonBackButton text={t('wiki')} />
+            <IonBackButton text={t('wiki.title')} />
           </IonButtons>
           <IonTitle>
-            <Translation path='title' />
+            <Translation path='roles.title' />
           </IonTitle>
           <IonButtons slot='end'>
             <RoleFilters
@@ -143,10 +140,10 @@ const RolesPage: React.FC = () => {
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">
-              <Translation path='characters.title' />
+              <Translation path='roles.title' />
             </IonTitle>
           </IonToolbar>
-          <IonSearchbar placeholder={t('search')} onIonInput={onSearchInput} />
+          <IonSearchbar placeholder={t('roles.search')} onIonInput={onSearch} />
           <IonGrid style={{ whiteSpace: 'nowrap', overflowX: 'auto' }}>
             {allTypes.map(renderType)}
           </IonGrid>
@@ -161,6 +158,7 @@ const RolesPage: React.FC = () => {
         isOpen={!!state.role}
         onDidDismiss={closeRole}
         backdropBreakpoint={0.25}
+        handle={false}
       >
         <RoleView role={state.role!} />
       </IonModal>

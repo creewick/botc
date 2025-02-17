@@ -20,7 +20,7 @@ const WikiPage: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>
-            <Translation path="title" />
+            <Translation path="wiki.title" />
           </IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -28,12 +28,12 @@ const WikiPage: React.FC = () => {
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">
-              <Translation path="title" />
+              <Translation path="wiki.title" />
             </IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonListHeader>
-          <Translation path="sections" />
+          <Translation path="wiki.sections" />
         </IonListHeader>
         <IonGrid>
           <IonRow>
@@ -41,8 +41,8 @@ const WikiPage: React.FC = () => {
               <SectionCard
                 routerLink="/wiki/rules"
                 icon={book}
-                title="rules.title"
-                subtitle="rules.subtitle"
+                title="wiki.rules.title"
+                subtitle="wiki.rules.subtitle"
                 disabled
               />
             </IonCol>
@@ -50,16 +50,16 @@ const WikiPage: React.FC = () => {
               <SectionCard
                 routerLink="/wiki/roles"
                 icon={person}
-                title="characters.title"
-                subtitle="characters.subtitle"
+                title="wiki.characters.title"
+                subtitle="wiki.characters.subtitle"
               />
             </IonCol>
             <IonCol size="12" sizeMd="4" className="ion-no-padding">
               <SectionCard
                 routerLink="/wiki/scripts"
                 icon={document}
-                title="scripts.title"
-                subtitle="scripts.subtitle"
+                title="wiki.scripts.title"
+                subtitle="wiki.scripts.subtitle"
               />
             </IonCol>
           </IonRow>

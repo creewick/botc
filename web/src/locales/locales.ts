@@ -1,27 +1,11 @@
 export const locales = {
-  common: {
-    en: () => import('./en/common.json'),
-    ru: () => import('./ru/common.json'),
+  ui: {
+    en: () => import('./en/ui.json'),
+    ru: () => import('./ru/ui.json'),
   },
-  home: {
-    en: () => import('./en/home.json'),
-    ru: () => import('./ru/home.json'),
-  },
-  wiki: {
-    en: () => import('./en/wiki.json'),
-    ru: () => import('./ru/wiki.json'),
-  },
-  settings: {
-    en: () => import('./en/settings.json'),
-    ru: () => import('./ru/settings.json'),
-  },
-  characters: {
-    en: () => import('./en/characters.json'),
-    ru: () => import('./ru/characters.json'),
-  },
-  scripts: {
-    en: () => import('./en/scripts.json'),
-    ru: () => import('./ru/scripts.json'),
+  roles: {
+    en: () => import('./en/roles.json'),
+    ru: () => import('./ru/roles.json'),
   }
 }
 

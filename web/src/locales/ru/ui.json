@@ -1,0 +1,72 @@
+{
+  "tabs": {
+    "home": "Главная",
+    "wiki": "Вики",
+    "table": "Стол",
+    "settings": "Настройки"
+  },
+  "home": {
+    "title": "Кровь на Часовой Башне",
+    "links": "Официальные ссылки",
+    "website": {
+      "title": "Веб-сайт",
+      "subtitle": "Официальный сайт игры"
+    },
+    "wiki": {
+      "title": "Вики",
+      "subtitle": "Правила игры, способности персонажей и другое"
+    },
+    "scriptTool": {
+      "title": "Редактор сценариев",
+      "subtitle": "С импортом JSON, экспортом JSON и PDF"
+    },
+    "onlineClient": {
+      "title": "Онлайн клиент",
+      "subtitle": "Играть онлайн с голосовым чатом"
+    }
+  },
+  "wiki": {
+    "title": "Вики",
+    "sections": "Разделы",
+    "rules": {
+      "title": "Правила",
+      "subtitle": "Описание правил и механик игры"
+    },
+    "characters": {
+      "title": "Персонажи",
+      "subtitle": "Роли персонажей и их способности"
+    },
+    "scripts": {
+      "title": "Сценарии",
+      "subtitle": "Игровые сценарии"
+    }
+  },
+  "roles": {
+    "title": "Персонажи",
+    "search": "Поиск",
+    "types": {
+      "townsfolk": "Горожане",
+      "outsider": "Изгои",
+      "minion": "Миньоны",
+      "demon": "Демоны",
+      "traveller": "Странники",
+      "fabled": "Легенды"
+    },
+    "sortBy": "Сортировка",
+    "sortOptions": {
+      "name": "Имя",
+      "firstNight": "Первая ночь",
+      "otherNight": "Другие ночи"
+    },
+    "reminders": "Напоминания",
+    "jinxes": "Проклятия"
+  },
+  "scripts": {
+    "title": "Сценарии",
+    "search": "Поиск"
+  },
+  "settings": {
+    "title": "Настройки",
+    "language": "Язык"
+  }
+}

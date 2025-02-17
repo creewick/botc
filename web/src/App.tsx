@@ -51,8 +51,8 @@ import SettingsPage from './pages/SettingsPage'
 import { Translation, TranslationProvider, useTranslationChange } from 'i18nano'
 import { APP_SETTINGS } from './models/AppSettings'
 import useStorageState from './hooks/useStorageState'
-import { locales } from './locales/locales'
 import ScriptsPage from './pages/wiki/ScriptsPage'
+import { locales } from './locales/locales'
 
 setupIonicReact({ mode: 'ios' })
 
@@ -71,33 +71,25 @@ const App: React.FC = () => {
         <IonTabs>
           <IonRouterOutlet>
             <Route exact path="/home">
-              <TranslationProvider translations={locales.home}>
-                <HomePage />
-              </TranslationProvider>
+              <HomePage />
             </Route>
             <Route exact path="/wiki">
-              <TranslationProvider translations={locales.wiki}>
-                <WikiPage />
-              </TranslationProvider>
+              <WikiPage />
             </Route>
             <Route exact path="/wiki/roles/:id?">
-              <TranslationProvider translations={locales.characters}>
-                <Suspense>
+              <Suspense>
+                <TranslationProvider translations={locales.roles}>
                   <RolesPage />
-                </Suspense>
-              </TranslationProvider>
+                </TranslationProvider>
+              </Suspense>
             </Route>
             <Route exact path="/wiki/scripts">
-              <TranslationProvider translations={locales.scripts}>
-                <Suspense>
-                  <ScriptsPage />
-                </Suspense>              
-              </TranslationProvider>
+              <Suspense>
+                <ScriptsPage />
+              </Suspense>         
             </Route>
             <Route exact path="/settings">
-              <TranslationProvider translations={locales.settings}>
-                <SettingsPage />
-              </TranslationProvider>
+              <SettingsPage />
             </Route>
             <Route exact path="/">
               <Redirect to="/home" />
@@ -107,25 +99,25 @@ const App: React.FC = () => {
               <IonTabButton tab="home" href="/home">
                 <IonIcon icon={home} />
                 <IonLabel>
-                  <Translation path="home" />
+                  <Translation path="tabs.home" />
                 </IonLabel>
               </IonTabButton>
               <IonTabButton tab="wiki" href="/wiki">
                 <IonIcon icon={book} />
                 <IonLabel>
-                  <Translation path="wiki" />
+                  <Translation path="tabs.wiki" />
                 </IonLabel>
               </IonTabButton>
               <IonTabButton tab="tab3" href="/tab3" disabled>
                 <IonIcon icon={dice} />
                 <IonLabel>
-                  <Translation path="table" />
+                  <Translation path="tabs.table" />
                 </IonLabel>
               </IonTabButton>
               <IonTabButton tab="settings" href="/settings">
                 <IonIcon icon={settings} />
                 <IonLabel>
-                  <Translation path="settings" />
+                  <Translation path="tabs.settings" />
                 </IonLabel>
               </IonTabButton>
             </IonTabBar>

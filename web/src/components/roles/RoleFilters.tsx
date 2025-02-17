@@ -26,7 +26,7 @@ const RoleFilters: React.FC<Props> = ({
       <IonList>
         <IonItem button={true} id="sort-by">
           <IonLabel>
-            <Translation path="sortBy" />
+            <Translation path="roles.sortBy" />
             <p>{state.sort?.name}</p>
           </IonLabel>
         </IonItem>

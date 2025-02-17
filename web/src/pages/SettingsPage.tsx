@@ -32,7 +32,7 @@ const SettingsPage: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>
-            <Translation path="title" />
+            <Translation path="settings.title" />
           </IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -40,13 +40,13 @@ const SettingsPage: React.FC = () => {
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large"> 
-              <Translation path="title" />  
+              <Translation path="settings.title" />  
             </IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonList inset={true}>
           <IonItem color="light">
-            <Translation path="language" />
+            <Translation path="settings.language" />
             <IonSelect slot="end" interface="popover" 
               value={settings.lang} onIonChange={setLanguage}>
               <IonSelectOption value="en">

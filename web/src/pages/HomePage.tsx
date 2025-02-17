@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle className="ion-no-padding">
-            <Translation path="title" />
+            <Translation path="home.title" />
           </IonTitle>
         </IonToolbar>
       </IonHeader>
@@ -28,12 +28,12 @@ const HomePage: React.FC = () => {
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">
-              <Translation path="title" />
+              <Translation path="home.title" />
             </IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonListHeader>
-          <Translation path="links" />
+          <Translation path="home.links" />
         </IonListHeader>
         <IonGrid>
           <IonRow>
@@ -41,16 +41,16 @@ const HomePage: React.FC = () => {
               <SectionCard
                 href="https://bloodontheclocktower.com"
                 icon={home}
-                title="website.title"
-                subtitle="website.subtitle"
+                title="home.website.title"
+                subtitle="home.website.subtitle"
               />
             </IonCol>
             <IonCol size="12" sizeMd="6" className="ion-no-padding">
               <SectionCard
                 href="https://wiki.bloodontheclocktower.com"
                 icon={book}
-                title="wiki.title"
-                subtitle="wiki.subtitle"
+                title="home.wiki.title"
+                subtitle="home.wiki.subtitle"
               />
             </IonCol>
           </IonRow>
@@ -59,16 +59,16 @@ const HomePage: React.FC = () => {
               <SectionCard
                 href="https://script.bloodontheclocktower.com"
                 icon={build}
-                title="scriptTool.title"
-                subtitle="scriptTool.subtitle"
+                title="home.scriptTool.title"
+                subtitle="home.scriptTool.subtitle"
               />
             </IonCol>
             <IonCol size="12" sizeMd="6" className="ion-no-padding">
               <SectionCard
                 href="https://botc.app"
                 icon={play}
-                title="onlineClient.title"
-                subtitle="onlineClient.subtitle"
+                title="home.onlineClient.title"
+                subtitle="home.onlineClient.subtitle"
               />
             </IonCol>
           </IonRow>

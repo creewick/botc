@@ -12,20 +12,25 @@ import {
   IonListHeader,
   IonRow
 } from '@ionic/react'
-import LocalizedText from '../../../../cli/src/models/LocalizedText'
-import Limitation from '../../../../cli/src/models/Limitation'
-import useStorageState from '../../hooks/useStorageState'
-import AppSettings, { APP_SETTINGS } from '../../models/AppSettings'
-import getLocalizedText from '../../helpers/getLocalizedText'
-import { Translation } from 'i18nano'
+import { Translation, useTranslation } from 'i18nano'
 
 interface Props {
   role: Role
 }
 
 const RoleView: React.FC<Props> = ({ role }: Props) => {
-  const [settings] = 
-    useStorageState<AppSettings>('settings', APP_SETTINGS)
+  const t = useTranslation()
+
+  const getTextList = (key: string): string[] => {
+    const result: string[] = []
+    let index = 0
+    let text = t(`${role.id}.${key}.${index++}`)
+    while (text) {
+      result.push(text)
+      text = t(`${role.id}.${key}.${index++}`)
+    }
+    return result
+  }
 
   const renderHeader = () =>
     <div style={{ 
@@ -44,49 +49,59 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
           </IonCol>
           <IonCol className="ion-text-right">
             <IonChip outline>
-              <Translation path={`types.${role.type}`} />
+              <Translation path={`roles.types.${role.type}`} />
             </IonChip>
           </IonCol>
         </IonRow>
       </IonGrid>
     </div>
 
-  const renderReminders = () => role.reminders && role.reminders.length > 0 && (
-    <>
-      <IonListHeader>
-        <Translation path="reminders" />
-      </IonListHeader>
-      <IonList>
-        {role.reminders?.map(renderReminder)}
-      </IonList>
-    </>
-  )
+  const renderReminders = () => {
+    const reminders = getTextList('reminders')
+    if (reminders.length === 0) return null
 
-  const renderReminder = (reminder: LocalizedText, index: number) =>
+    return (
+      <>
+        <IonListHeader>
+          <Translation path="roles.reminders" />
+        </IonListHeader>
+        <IonList>
+          {reminders.map(renderReminder)}
+        </IonList>
+      </>
+    )
+  }
+
+  const renderReminder = (reminder: string, index: number) =>
     <IonItem key={index}>
       <RoleIcon role={role} size={36} hideTitle />
       <IonLabel className="ion-margin-start">
-        {getLocalizedText(reminder, settings.lang)}
+        {reminder}
       </IonLabel>
     </IonItem>
 
-  const renderJinxes = () => role.jinxes && role.jinxes.length > 0 && (
-    <>
-      <IonListHeader>
-        <Translation path="jinxes" />
-      </IonListHeader>
-      <IonList>
-        {role.jinxes?.map(renderJinx)}
-      </IonList>
-    </>
-  )
+  const renderJinxes = () => {
+    const jinxes = getTextList('jinxes')
+    if (jinxes.length === 0) return null
 
-  const renderJinx = (jinx: Limitation, index: number) =>
+    return (
+      <>
+        <IonListHeader>
+          <Translation path="roles.jinxes" />
+        </IonListHeader>
+        <IonList>
+          {jinxes.map(renderJinx)}
+        </IonList>
+      </>
+    )
+  }
+
+  const renderJinx = (jinx: string, index: number) =>
     <IonItem key={index}>
-      <RoleIcon role={{id: jinx.roleId} as Role} size={36} hideTitle />
-      <IonLabel className="ion-margin-start">
-        {getLocalizedText(jinx.reason, settings.lang)}
-      </IonLabel>
+      {/* <RoleIcon role={{id: jinx.roleId} as Role} size={36} hideTitle /> */}
+      {/* <IonLabel className="ion-margin-start"> */}
+        {/* {getLocalizedText(jinx.reason, settings.lang)} */}
+      {/* </IonLabel> */}
     </IonItem>
 
   return (
@@ -94,10 +109,10 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
       {renderHeader()}
       <IonContent>
         <p className="ion-text-center ion-no-margin ion-padding-horizontal">
-          {getLocalizedText(role.ability, settings.lang)}
+          <Translation path={`${role.id}.ability`} />
         </p>
         <p className="ion-text-center flavor ion-padding-horizontal">
-          {getLocalizedText(role.flavor, settings.lang)}
+          <Translation path={`${role.id}.flavor`} />
         </p>
         {renderReminders()}
         {renderJinxes()}

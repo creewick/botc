@@ -7,10 +7,7 @@ import {
   IonImg, 
   IonLabel
 } from '@ionic/react'
-import useStorageState from '../../hooks/useStorageState'
-import AppSettings, { APP_SETTINGS } from '../../models/AppSettings'
-import getLocalizedText from '../../helpers/getLocalizedText'
-import { useHistory } from 'react-router-dom'
+import { Translation } from 'i18nano'
 
 interface Props {
   roles: Role[]
@@ -19,9 +16,7 @@ interface Props {
 }
 
 const RoleList: React.FC<Props> = ({ roles, state, setState }: Props) => {
-  const [settings] = useStorageState<AppSettings>('settings', APP_SETTINGS)
-
-   function openRole(role: Role) {
+  function openRole(role: Role) {
     setState(({ ...state, role }))
     window.history.replaceState(null, '', `/botc/#/wiki/roles/${role.id}`)
   }
@@ -38,7 +33,7 @@ const RoleList: React.FC<Props> = ({ roles, state, setState }: Props) => {
         style={{ height: 36, width: 36 }}
       />
       <IonLabel>
-        {getLocalizedText(role.name, settings.lang)}
+        <Translation path={`${role.id}.name`} />
       </IonLabel>
     </IonItem>
 

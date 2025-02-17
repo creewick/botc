@@ -14,7 +14,7 @@ storage.create()
 root.render(
   <React.StrictMode>
     <StorageContext.Provider value={storage}>
-      <TranslationProvider translations={locales.common} fallback='en'>
+      <TranslationProvider translations={locales.ui} fallback='en'>
         <App />
       </TranslationProvider>
     </StorageContext.Provider>
