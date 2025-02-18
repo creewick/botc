@@ -2,7 +2,11 @@
   {
     "id": "_meta",
     "author": "Aero",
-    "name": "Separation Of Church and State"
+    "name": "Separation Of Church and State",
+    "difficulty": {
+      "storyteller": 4.5,
+      "player": 4
+    }
   },
   "knight",
   "grandmother",

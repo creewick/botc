@@ -2,7 +2,11 @@
   {
     "id": "_meta",
     "author": "Viva La Sam",
-    "name": "Extension Cord"
+    "name": "Extension Cord",
+    "difficulty": {
+      "storyteller": 4,
+      "player": 3
+    }
   },
   "investigator",
   "pixie",

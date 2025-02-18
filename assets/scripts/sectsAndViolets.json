@@ -2,7 +2,12 @@
   {
     "id": "_meta",
     "name": "Sects and Violets",
-    "author": "The Pandemonium Institute"
+    "author": "The Pandemonium Institute",
+    "tags": ["official"],
+    "difficulty": {
+      "storyteller": 3,
+      "player": 3
+    }
   },
   "clockmaker",
   "dreamer",

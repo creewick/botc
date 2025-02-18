@@ -2,7 +2,11 @@
   {
     "id": "_meta",
     "name": "Uncertain Death",
-    "author": "Matt"
+    "author": "Matt",
+    "difficulty": {
+      "storyteller": 2.5,
+      "player": 2.5
+    }
   },
   "clockmaker",
   "grandmother",

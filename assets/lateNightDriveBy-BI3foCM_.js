@@ -1,0 +1,1 @@
+const e=[{id:"_meta",name:"Late Night Drive By",author:"Aero",tags:["teen"],difficulty:{storyteller:3.5,player:2.5}},"snake_charmer","lycanthrope","slayer","fool","alchemist","minstrel","tinker","recluse","golem","godfather","psychopath","scarlet_woman","pukka","imp"];export{e as default};

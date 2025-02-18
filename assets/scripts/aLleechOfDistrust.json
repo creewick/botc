@@ -2,7 +2,12 @@
   {
     "id": "_meta",
     "author": "OJ",
-    "name": "A Lleech of Distrust"
+    "name": "A Lleech of Distrust",
+    "tags": ["teen"],
+    "difficulty": {
+      "storyteller": 2.5,
+      "player": 3
+    }
   },
   "pixie",
   "undertaker",

@@ -2,7 +2,11 @@
   {
     "id": "_meta",
     "author": "Ekin",
-    "name": "Lunar Eclipse"
+    "name": "Lunar Eclipse",
+    "difficulty": {
+      "storyteller": 3,
+      "player": 3.5
+    }
   },
   "grandmother",
   "pixie",

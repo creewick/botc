@@ -1,1 +1,0 @@
-System.register([],(function(e,t){"use strict";return{execute:function(){e("default",[{id:"_meta",name:"No Greater Joy",author:"Steven Medway"},"clockmaker","investigator","empath","chambermaid","artist","sage","drunk","klutz","scarlet_woman","baron","imp"])}}}));

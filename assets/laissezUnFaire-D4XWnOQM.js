@@ -1,1 +1,0 @@
-const a=[{id:"_meta",name:"Laissez Un Faire",author:"Steven Medway"},"balloonist","savant","amnesiac","fisherman","artist","cannibal","mutant","lunatic","widow","goblin","leviathan"];export{a as default};

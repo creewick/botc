@@ -1,0 +1,1 @@
+const e=[{id:"_meta",name:"Trouble Brewing",author:"The Pandemonium Institute",tags:["official"],difficulty:{storyteller:2,player:2}},"washerwoman","librarian","investigator","chef","empath","fortuneteller","undertaker","monk","ravenkeeper","virgin","slayer","soldier","mayor","butler","drunk","recluse","saint","poisoner","spy","scarletwoman","baron","imp"];export{e as default};

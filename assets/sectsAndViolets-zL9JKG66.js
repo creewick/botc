@@ -1,1 +1,0 @@
-const e=[{id:"_meta",name:"Sects and Violets",author:"The Pandemonium Institute"},"clockmaker","dreamer","snakecharmer","mathematician","flowergirl","towncrier","oracle","savant","seamstress","philosopher","artist","juggler","sage","mutant","sweetheart","barber","klutz","eviltwin","witch","cerenovus","pithag","fanggu","vigormortis","nodashii","vortox"];export{e as default};

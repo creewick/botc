@@ -1,0 +1,1 @@
+const e=[{id:"_meta",name:"No Greater Joy",author:"Steven Medway",tags:["teen"],difficulty:{storyteller:1.5,player:1.5}},"clockmaker","investigator","empath","chambermaid","artist","sage","drunk","klutz","scarlet_woman","baron","imp"];export{e as default};

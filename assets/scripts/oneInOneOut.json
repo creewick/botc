@@ -2,7 +2,11 @@
   {
     "id": "_meta",
     "author": "Baron von Klutz",
-    "name": "One in one out"
+    "name": "One in one out",
+    "difficulty": {
+      "storyteller": 4,
+      "player": 3
+    }
   },
   "steward",
   "knight",

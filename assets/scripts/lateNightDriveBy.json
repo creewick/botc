@@ -2,7 +2,12 @@
   {
     "id": "_meta",
     "name": "Late Night Drive By",
-    "author": "Aero"
+    "author": "Aero",
+    "tags": ["teen"],
+    "difficulty": {
+      "storyteller": 3.5,
+      "player": 2.5
+    }
   },
   "snake_charmer",
   "lycanthrope",

@@ -2,7 +2,12 @@
   {
     "id": "_meta",
     "name": "Over the River",
-    "author": "Andrew Nathenson"
+    "author": "Andrew Nathenson",
+    "tags": ["teen"],
+    "difficulty": {
+      "storyteller": 2,
+      "player": 3
+    }
   },
   "grandmother",
   "clockmaker",
