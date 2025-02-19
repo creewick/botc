@@ -1,9 +1,9 @@
 {
-  "short_name": "BotC",
-  "name": "Blood on the ClockTower",
+  "short_name": "Clocktower",
+  "name": "Blood on the Clocktower",
   "icons": [
     {
-      "src": "assets/images/logo.png",
+      "src": "/assets/images/logo.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
