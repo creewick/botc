@@ -5,8 +5,8 @@
     {
       "src": "/botc/assets/images/logo.png",
       "type": "image/png",
-      "sizes": "600x600",
-      "purpose": "maskable"
+      "sizes": "512x512",
+      "purpose": "any"
     },
     {
       "src": "/botc/assets/images/logo-180.png",
