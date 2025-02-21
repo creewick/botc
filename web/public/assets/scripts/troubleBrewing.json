@@ -2,7 +2,12 @@
   {
     "id": "_meta",
     "name": "Trouble Brewing",
-    "author": "The Pandemonium Institute"
+    "author": "The Pandemonium Institute",
+    "tags": ["official"],
+    "difficulty": {
+      "storyteller": 2,
+      "player": 2
+    }
   },
   "washerwoman",
   "librarian",

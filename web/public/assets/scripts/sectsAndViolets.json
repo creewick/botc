@@ -1,0 +1,37 @@
+[
+  {
+    "id": "_meta",
+    "name": "Sects and Violets",
+    "author": "The Pandemonium Institute",
+    "tags": ["official"],
+    "difficulty": {
+      "storyteller": 3,
+      "player": 3
+    }
+  },
+  "clockmaker",
+  "dreamer",
+  "snakecharmer",
+  "mathematician",
+  "flowergirl",
+  "towncrier",
+  "oracle",
+  "savant",
+  "seamstress",
+  "philosopher",
+  "artist",
+  "juggler",
+  "sage",
+  "mutant",
+  "sweetheart",
+  "barber",
+  "klutz",
+  "eviltwin",
+  "witch",
+  "cerenovus",
+  "pithag",
+  "fanggu",
+  "vigormortis",
+  "nodashii",
+  "vortox"
+]
