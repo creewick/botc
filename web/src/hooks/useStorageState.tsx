@@ -18,7 +18,7 @@ function useStorageState<T>(key: string, defaultValue: T) {
     setState(value)
   }
 
-  return [state, setStorageState] as const
+  return [state, setStorageState, storage] as const
 }
 
 export default useStorageState

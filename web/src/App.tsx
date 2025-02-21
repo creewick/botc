@@ -36,9 +36,9 @@ import '@ionic/react/css/display.css'
  * https://ionicframework.com/docs/theming/dark-mode
  */
 
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
-import '@ionic/react/css/palettes/dark.system.css'
+/* import '@ionic/react/css/palettes/dark.always.css' */
+import '@ionic/react/css/palettes/dark.class.css'
+// import '@ionic/react/css/palettes/dark.system.css'
 
 /* Theme variables */
 import './theme/variables.css'
@@ -65,13 +65,11 @@ const App: React.FC = () => {
   const [workerToUpdate, setWorkerToUpdate] = useState<ServiceWorker>()
 
   useEffect(() => {
-    if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator)
       navigator.serviceWorker.ready.then((registration) => {
-        if (registration?.waiting) {
+        if (registration?.waiting)
           setWorkerToUpdate(registration.waiting)
-        }
       })
-    }
   }, [])
 
   useEffect(() => {
@@ -94,49 +92,62 @@ const App: React.FC = () => {
     change(appSettings.lang)
   }, [appSettings.lang])
 
+  const setDarkMode = (isDark: boolean) => {
+    document.documentElement.classList.toggle('ion-palette-dark', isDark)
+  }
+
+  useEffect(() => {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
+    setDarkMode(prefersDark.matches)
+
+    const setDarkPaletteFromMediaQuery = (mediaQuery: MediaQueryListEvent) => {
+      setDarkMode(mediaQuery.matches)
+    }
+
+    prefersDark.addEventListener('change', setDarkPaletteFromMediaQuery)
+
+    return () => {
+      prefersDark.removeEventListener('change', setDarkPaletteFromMediaQuery)
+    }
+  }, [])
+
   return (
     <IonApp>
       <IonReactHashRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Route exact path="/home">
-              <HomePage />
-            </Route>
-            <Route exact path="/wiki">
-              <WikiPage />
-            </Route>
-            <Route exact path="/wiki/roles/:id?">
-              <Suspense>
+            <Suspense>
+              <Route exact path="/home">
+                <HomePage />
+              </Route>
+              <Route exact path="/wiki">
+                <WikiPage />
+              </Route>
+              <Route exact path="/wiki/roles/:id?">
                 <TranslationProvider translations={locales.roles}>
                   <RolesPage />
                 </TranslationProvider>
-              </Suspense>
-            </Route>
-            <Route exact path="/wiki/scripts">
-              <Suspense>
+              </Route>
+              <Route exact path="/wiki/scripts">
                 <TranslationProvider translations={locales.scripts}>
                   <ScriptsPage />
                 </TranslationProvider>
-              </Suspense>
-            </Route>
-            <Route exact path="/wiki/scripts/:id">
-              <Suspense>
+              </Route>
+              <Route exact path="/wiki/scripts/:id">
                 <TranslationProvider translations={locales.scripts}>
                   <ScriptPage />
                 </TranslationProvider>
-              </Suspense>
-            </Route>
-            <Route exact path="/games">
-              <Suspense>
+              </Route>
+              <Route exact path="/games">
                 <GamesPage />
-              </Suspense>
-            </Route>
-            <Route exact path="/settings">
-              <SettingsPage />
-            </Route>
-            <Route exact path="/">
-              <Redirect to="/home" />
-            </Route>
+              </Route>
+              <Route exact path="/settings">
+                <SettingsPage />
+              </Route>
+              <Route exact path="/">
+                <Redirect to="/home" />
+              </Route>
+            </Suspense>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
             <IonTabButton tab="home" href="/home">
@@ -158,8 +169,8 @@ const App: React.FC = () => {
               </IonLabel>
             </IonTabButton>
             <IonTabButton tab="settings" href="/settings">
-              { workerToUpdate && 
-                <IonBadge color="danger">&nbsp;&nbsp;</IonBadge>
+              {workerToUpdate &&
+                <IonBadge color="primary">&nbsp;&nbsp;</IonBadge>
               }
               <IonIcon icon={settings} />
               <IonLabel>

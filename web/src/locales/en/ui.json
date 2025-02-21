@@ -89,7 +89,26 @@
   "settings": {
     "title": "Settings",
     "language": "Language",
+    "darkMode": {
+      "title": "Dark Mode",
+      "true": "On",
+      "false": "Off",
+      "null": "Auto"
+    },
+    "data": "Data",
+    "import": "Import data",
+    "export": "Export data",
+    "clear": "Delete all data",
+    "about": "About",
+    "github": "GitHub repository",
+    "bug": "Report a bug",
     "update": "Update app",
     "version": "Version"
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "deleteAllData": "Delete All Data",
+    "youCantUndoThisAction": "You can't undo this action"
   }
 }
