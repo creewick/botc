@@ -103,7 +103,8 @@
     "github": "GitHub repository",
     "bug": "Report a bug",
     "update": "Update app",
-    "version": "Version"
+    "version": "Version",
+    "checkForUpdates": "Check for updates"
   },
   "actions": {
     "cancel": "Cancel",

@@ -18,7 +18,7 @@ import {
   IonSearchbar
 } from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import Script from '../../../../cli/src/schema/Script'
 import ScriptMeta from '../../../../cli/src/schema/ScriptMeta'
 import ScriptMetaExtended from '../../../../cli/src/models/ScriptMetaExtended'
@@ -37,14 +37,14 @@ const ScriptsPage: React.FC = () => {
     return Object
       .entries(allScripts ?? {})
       .filter(([id, script]) => {
-        const meta = script.find(item => 
+        const meta = script.find(item =>
           (item as ScriptMeta).id === '_meta') as ScriptMetaExtended
 
         return (!state.query || t(id)
-        .toLowerCase().includes(state.query)) &&
+          .toLowerCase().includes(state.query)) &&
           (!state.tag ||
-             (state.tag === 'full' && !meta.tags?.includes('teen')) ||
-              meta.tags?.includes(state.tag))
+            (state.tag === 'full' && !meta.tags?.includes('teen')) ||
+            meta.tags?.includes(state.tag))
       })
   }
 
@@ -95,27 +95,27 @@ const ScriptsPage: React.FC = () => {
       .find(item => (item as ScriptMeta).id === '_meta') as ScriptMeta
 
     return (
-      <IonItem 
-        routerLink={`/wiki/scripts/${id}`} 
+      <IonItem
+        routerLink={`/wiki/scripts/${id}`}
         detail={false}
-        key={index} 
-        button 
+        key={index}
+        button
       >
         <IonLabel>
-          <h2><Translation path={id}/></h2>
+          <h2><Translation path={id} /></h2>
           <p>{meta?.author}</p>
         </IonLabel>
-        <IonButton 
+        <IonButton
           className='ion-no-padding'
-          fill='clear' 
+          fill='clear'
           size='default'
-          onClick={() => onCopy(script)} 
+          onClick={() => onCopy(script)}
           id='copyScript'
         >
           <IonIcon icon={shareOutline} color='primary' />
         </IonButton>
       </IonItem>
-    )  
+    )
   }
 
   return (
@@ -128,7 +128,7 @@ const ScriptsPage: React.FC = () => {
           <IonTitle>
             <Translation path='scripts.title' />
           </IonTitle>
-          { !allScripts && <IonProgressBar type="indeterminate" /> }
+          {!allScripts && <IonProgressBar type="indeterminate" />}
         </IonToolbar>
       </IonHeader>
 
@@ -139,18 +139,18 @@ const ScriptsPage: React.FC = () => {
               <Translation path='scripts.title' />
             </IonTitle>
           </IonToolbar>
-          <IonSearchbar 
-            placeholder={t('scripts.search')} 
-            onIonInput={onSearch} 
+          <IonSearchbar
+            placeholder={t('scripts.search')}
+            onIonInput={onSearch}
           />
           <IonGrid style={{ whiteSpace: 'nowrap', overflowX: 'auto' }}>
             {tags.map(renderTag)}
           </IonGrid>
         </IonHeader>
-       
+
         <IonList>
           {getScripts()
-            .map(([id, script], index) => 
+            .map(([id, script], index) =>
               renderScript(id, script, index))
           }
         </IonList>

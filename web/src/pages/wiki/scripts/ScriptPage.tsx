@@ -125,9 +125,9 @@ const ScriptPage: React.FC = () => {
             <IonSegmentButton contentId='otherNights' className='ion-text-wrap'>
               <Translation path='scripts.tabs.otherNight' />
             </IonSegmentButton>
-            <IonSegmentButton contentId='jinxes' className='ion-text-wrap'>
+            {/* <IonSegmentButton contentId='jinxes' className='ion-text-wrap'>
               <Translation path='scripts.tabs.jinxes' />
-            </IonSegmentButton>
+            </IonSegmentButton> */}
           </IonSegment>
         </IonToolbar>
       </IonHeader>

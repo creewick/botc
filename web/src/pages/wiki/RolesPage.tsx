@@ -149,7 +149,7 @@ const RolesPage: React.FC = () => {
           roles={getRoles()} 
           getText={role => `${role.id}.ability`} 
           openRole={openRole} 
-        />
+      />
       </IonContent>
 
       <IonModal

@@ -29,21 +29,25 @@ import {
   refreshOutline,
   trashOutline
 } from 'ionicons/icons'
+import { useLocation } from 'react-router-dom'
 
 const SettingsPage: React.FC = () => {
   const { change, preload } = useTranslationChange()
+  const location = useLocation()
   const t = useTranslation()
   const [settings, setSettings, storage] = 
     useStorageState('settings', APP_SETTINGS)
   const [workerToUpdate, setWorkerToUpdate] = useState<ServiceWorker>()
 
-  useEffect(() => {
-    if ('serviceWorker' in navigator)
+  const checkForUpdate = () => {
+    if (location.pathname === '/settings' && 'serviceWorker' in navigator)
       navigator.serviceWorker.ready.then((registration) => {
         if (registration?.waiting)
           setWorkerToUpdate(registration.waiting)
       })
-  }, [])
+  }
+
+  useEffect(() => checkForUpdate, [location.pathname])
 
   const updateApp = () => {
     workerToUpdate?.postMessage({ type: 'SKIP_WAITING' })
@@ -167,6 +171,10 @@ const SettingsPage: React.FC = () => {
           >
             <IonIcon slot="start" icon={bugOutline} />
             <Translation path="settings.bug" />
+          </IonItem>
+          <IonItem button detail={false} color="light" onClick={checkForUpdate}>
+            <IonIcon slot="start" icon={refreshOutline} />
+            <Translation path="settings.checkForUpdates" /> 
           </IonItem>
         </IonList>
 

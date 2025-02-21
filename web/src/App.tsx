@@ -116,7 +116,6 @@ const App: React.FC = () => {
       <IonReactHashRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Suspense>
               <Route exact path="/home">
                 <HomePage />
               </Route>
@@ -125,29 +124,28 @@ const App: React.FC = () => {
               </Route>
               <Route exact path="/wiki/roles/:id?">
                 <TranslationProvider translations={locales.roles}>
-                  <RolesPage />
+                  <Suspense><RolesPage /></Suspense>
                 </TranslationProvider>
               </Route>
               <Route exact path="/wiki/scripts">
                 <TranslationProvider translations={locales.scripts}>
-                  <ScriptsPage />
+                  <Suspense><ScriptsPage /></Suspense>
                 </TranslationProvider>
               </Route>
               <Route exact path="/wiki/scripts/:id">
                 <TranslationProvider translations={locales.scripts}>
-                  <ScriptPage />
+                  <Suspense><ScriptPage /></Suspense>
                 </TranslationProvider>
               </Route>
               <Route exact path="/games">
                 <GamesPage />
               </Route>
               <Route exact path="/settings">
-                <SettingsPage />
+                <Suspense><SettingsPage /></Suspense>
               </Route>
               <Route exact path="/">
                 <Redirect to="/home" />
               </Route>
-            </Suspense>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
             <IonTabButton tab="home" href="/home">
@@ -162,7 +160,7 @@ const App: React.FC = () => {
                 <Translation path="tabs.wiki" />
               </IonLabel>
             </IonTabButton>
-            <IonTabButton tab="games" href="/games">
+            <IonTabButton tab="games" href="/games" disabled>
               <IonIcon icon={dice} />
               <IonLabel>
                 <Translation path="tabs.games" />
