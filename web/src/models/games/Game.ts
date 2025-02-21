@@ -1,7 +1,7 @@
 interface Game {
   id: string
   scriptId?: string
-  players: Player[]
+  // players: Player[]
 }
 
 export default Game

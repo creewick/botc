@@ -38,6 +38,7 @@ const SettingsPage: React.FC = () => {
   const [settings, setSettings, storage] = 
     useStorageState('settings', APP_SETTINGS)
   const [workerToUpdate, setWorkerToUpdate] = useState<ServiceWorker>()
+  const [serviceWorkers, setServiceWorkers] = useState<unknown>()
 
   const checkForUpdate = () => {
     if (location.pathname === '/settings' && 'serviceWorker' in navigator)
@@ -48,6 +49,8 @@ const SettingsPage: React.FC = () => {
   }
 
   useEffect(() => checkForUpdate, [location.pathname])
+  useEffect(() => 
+    void navigator.serviceWorker.getRegistrations().then(setServiceWorkers), [])
 
   const updateApp = () => {
     workerToUpdate?.postMessage({ type: 'SKIP_WAITING' })
@@ -181,6 +184,7 @@ const SettingsPage: React.FC = () => {
         <div className="ion-text-center">
           <IonNote>
             <Translation path="settings.version" /> {packageJson.version}
+            {JSON.stringify(serviceWorkers)}
           </IonNote>
         </div>
 

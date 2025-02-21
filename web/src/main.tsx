@@ -6,6 +6,7 @@ import App from './App'
 import StorageContext from './contexts/StorageContext'
 import { TranslationProvider } from 'i18nano'
 import { locales } from './locales/locales'
+
 const container = document.getElementById('root')
 const root = createRoot(container!)
 const storage = new Storage()

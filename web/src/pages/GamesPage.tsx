@@ -17,9 +17,9 @@ import useStorageState from '../hooks/useStorageState'
 const GamesPage: React.FC = () => {
   const [games, setGames] = useStorageState('games', [])
 
-  function createGame() {
-    setGames([{}, ...games])
-  }
+  // function createGame() {
+  //   setGames([{}, ...games])
+  // }
 
   return (
     <IonPage>
