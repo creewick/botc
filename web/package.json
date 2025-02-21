@@ -2,7 +2,7 @@
   "name": "blood-on-the-clocktower",
   "homepage": "https://creewick.github.io/botc",
   "private": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -157,11 +157,14 @@ const SettingsPage: React.FC = () => {
           <Translation path="settings.about" />
         </IonText>
         <IonList inset={true}>
-          <IonItem color="light" href="github.com/creewick/botc">
+          <IonItem color="light" href="https://github.com/creewick/botc">
             <IonIcon slot="start" icon={logoGithub} />
             <Translation path="settings.github" />
           </IonItem>
-          <IonItem color="light" href="github.com/creewick/botc/issues/new">
+          <IonItem
+            color="light"
+            href="https://github.com/creewick/botc/issues/new"
+          >
             <IonIcon slot="start" icon={bugOutline} />
             <Translation path="settings.bug" />
           </IonItem>
