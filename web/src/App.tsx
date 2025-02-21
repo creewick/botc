@@ -1,6 +1,7 @@
 import { Redirect, Route } from 'react-router-dom'
 import {
   IonApp,
+  IonBadge,
   IonIcon,
   IonLabel,
   IonRouterOutlet,
@@ -45,7 +46,7 @@ import './App.css'
 
 import HomePage from './pages/HomePage'
 import WikiPage from './pages/WikiPage'
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import RolesPage from './pages/wiki/RolesPage'
 import SettingsPage from './pages/SettingsPage'
 import { Translation, TranslationProvider, useTranslationChange } from 'i18nano'
@@ -61,11 +62,22 @@ setupIonicReact({ mode: 'ios' })
 const App: React.FC = () => {
   const { change, preload } = useTranslationChange()
   const [appSettings] = useStorageState('settings', APP_SETTINGS)
+  const [workerToUpdate, setWorkerToUpdate] = useState<ServiceWorker>()
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.ready.then((registration) => {
+        if (registration?.waiting) {
+          setWorkerToUpdate(registration.waiting)
+        }
+      })
+    }
+  }, [])
 
   useEffect(() => {
     const handleTouchMove = (event: TouchEvent) => {
       if (event.touches.length > 1) return
-      if (event.touches[0].pageX > 20 && 
+      if (event.touches[0].pageX > 20 &&
         event.touches[0].pageX < window.innerWidth - 20) return
       event.preventDefault()
     }
@@ -105,14 +117,14 @@ const App: React.FC = () => {
                 <TranslationProvider translations={locales.scripts}>
                   <ScriptsPage />
                 </TranslationProvider>
-              </Suspense>         
+              </Suspense>
             </Route>
             <Route exact path="/wiki/scripts/:id">
               <Suspense>
                 <TranslationProvider translations={locales.scripts}>
                   <ScriptPage />
                 </TranslationProvider>
-              </Suspense>         
+              </Suspense>
             </Route>
             <Route exact path="/games">
               <Suspense>
@@ -126,32 +138,35 @@ const App: React.FC = () => {
               <Redirect to="/home" />
             </Route>
           </IonRouterOutlet>
-            <IonTabBar slot="bottom">
-              <IonTabButton tab="home" href="/home">
-                <IonIcon icon={home} />
-                <IonLabel>
-                  <Translation path="tabs.home" />
-                </IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="wiki" href="/wiki">
-                <IonIcon icon={book} />
-                <IonLabel>
-                  <Translation path="tabs.wiki" />
-                </IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="games" href="/games">
-                <IonIcon icon={dice} />
-                <IonLabel>
-                  <Translation path="tabs.games" />
-                </IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="settings" href="/settings">
-                <IonIcon icon={settings} />
-                <IonLabel>
-                  <Translation path="tabs.settings" />
-                </IonLabel>
-              </IonTabButton>
-            </IonTabBar>
+          <IonTabBar slot="bottom">
+            <IonTabButton tab="home" href="/home">
+              <IonIcon icon={home} />
+              <IonLabel>
+                <Translation path="tabs.home" />
+              </IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="wiki" href="/wiki">
+              <IonIcon icon={book} />
+              <IonLabel>
+                <Translation path="tabs.wiki" />
+              </IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="games" href="/games">
+              <IonIcon icon={dice} />
+              <IonLabel>
+                <Translation path="tabs.games" />
+              </IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="settings" href="/settings">
+              { workerToUpdate && 
+                <IonBadge color="danger">&nbsp;&nbsp;</IonBadge>
+              }
+              <IonIcon icon={settings} />
+              <IonLabel>
+                <Translation path="tabs.settings" />
+              </IonLabel>
+            </IonTabButton>
+          </IonTabBar>
         </IonTabs>
       </IonReactHashRouter>
     </IonApp>

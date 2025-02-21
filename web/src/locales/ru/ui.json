@@ -88,6 +88,8 @@
   },
   "settings": {
     "title": "Настройки",
-    "language": "Язык"
+    "language": "Язык",
+    "update": "Обновить приложение",
+    "version": "Версия"
   }
 }
