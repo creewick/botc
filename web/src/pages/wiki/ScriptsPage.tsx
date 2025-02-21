@@ -18,7 +18,7 @@ import {
   IonSearchbar
 } from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Script from '../../../../cli/src/schema/Script'
 import ScriptMeta from '../../../../cli/src/schema/ScriptMeta'
 import ScriptMetaExtended from '../../../../cli/src/models/ScriptMetaExtended'

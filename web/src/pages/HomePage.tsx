@@ -1,15 +1,13 @@
-import { 
-  IonCol, 
-  IonContent, 
-  IonGrid, 
-  IonHeader, 
-  IonListHeader, 
-  IonPage, 
-  IonRow, 
-  IonTitle, 
-  IonToolbar 
+import {
+  IonContent,
+  IonHeader,
+  IonList,
+  IonPage,
+  IonText,
+  IonTitle,
+  IonToolbar
 } from '@ionic/react'
-import SectionCard from '../components/SectionCard'
+import SectionListItem from '../components/SectionListItem'
 import { book, build, home, play } from 'ionicons/icons'
 import React from 'react'
 import { Translation } from 'i18nano'
@@ -32,47 +30,35 @@ const HomePage: React.FC = () => {
             </IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonListHeader>
+        <IonText className="inset-list-title">
           <Translation path="home.links" />
-        </IonListHeader>
-        <IonGrid>
-          <IonRow>
-            <IonCol size="12" sizeMd="6" className="ion-no-padding">
-              <SectionCard
-                href="https://bloodontheclocktower.com"
-                icon={home}
-                title="home.website.title"
-                subtitle="home.website.subtitle"
-              />
-            </IonCol>
-            <IonCol size="12" sizeMd="6" className="ion-no-padding">
-              <SectionCard
-                href="https://wiki.bloodontheclocktower.com"
-                icon={book}
-                title="home.wiki.title"
-                subtitle="home.wiki.subtitle"
-              />
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol size="12" sizeMd="6" className="ion-no-padding">
-              <SectionCard
-                href="https://script.bloodontheclocktower.com"
-                icon={build}
-                title="home.scriptTool.title"
-                subtitle="home.scriptTool.subtitle"
-              />
-            </IonCol>
-            <IonCol size="12" sizeMd="6" className="ion-no-padding">
-              <SectionCard
-                href="https://botc.app"
-                icon={play}
-                title="home.onlineClient.title"
-                subtitle="home.onlineClient.subtitle"
-              />
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+        </IonText>
+        <IonList inset={true}>
+          <SectionListItem
+            href="https://bloodontheclocktower.com"
+            icon={home}
+            title="home.website.title"
+            subtitle="home.website.subtitle"
+          />
+          <SectionListItem
+            href="https://wiki.bloodontheclocktower.com"
+            icon={book}
+            title="home.wiki.title"
+            subtitle="home.wiki.subtitle"
+          />
+          <SectionListItem
+            href="https://script.bloodontheclocktower.com"
+            icon={build}
+            title="home.scriptTool.title"
+            subtitle="home.scriptTool.subtitle"
+          />
+          <SectionListItem
+            href="https://botc.app"
+            icon={play}
+            title="home.onlineClient.title"
+            subtitle="home.onlineClient.subtitle"
+          />
+        </IonList>
       </IonContent>
     </IonPage>
   )

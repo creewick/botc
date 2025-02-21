@@ -34,11 +34,11 @@
     },
     "characters": {
       "title": "Characters",
-      "subtitle": "Character abilities and roles"
+      "subtitle": "Characters list and ability descriptions"
     },
     "scripts": {
       "title": "Scripts",
-      "subtitle": "Game scripts and scenarios"
+      "subtitle": "Game scenarios list"
     }
   },
   "roles": {

@@ -1,15 +1,17 @@
-import { 
-  IonCol, 
-  IonContent, 
-  IonGrid, 
-  IonHeader, 
-  IonListHeader, 
-  IonPage, 
-  IonRow, 
-  IonTitle, 
-  IonToolbar 
+import {
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonHeader,
+  IonList,
+  IonListHeader,
+  IonPage,
+  IonRow,
+  IonText,
+  IonTitle,
+  IonToolbar
 } from '@ionic/react'
-import SectionCard from '../components/SectionCard'
+import SectionListItem from '../components/SectionListItem'
 import { book, document, person } from 'ionicons/icons'
 import React from 'react'
 import { Translation } from 'i18nano'
@@ -32,38 +34,30 @@ const WikiPage: React.FC = () => {
             </IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonListHeader>
+        <IonText className="inset-list-title">
           <Translation path="wiki.sections" />
-        </IonListHeader>
-        <IonGrid>
-          <IonRow>
-            <IonCol size="12" sizeMd="4" className="ion-no-padding">
-              <SectionCard
-                routerLink="/wiki/rules"
-                icon={book}
-                title="wiki.rules.title"
-                subtitle="wiki.rules.subtitle"
-                disabled
-              />
-            </IonCol>
-            <IonCol size="12" sizeMd="4" className="ion-no-padding">
-              <SectionCard
-                routerLink="/wiki/roles"
-                icon={person}
-                title="wiki.characters.title"
-                subtitle="wiki.characters.subtitle"
-              />
-            </IonCol>
-            <IonCol size="12" sizeMd="4" className="ion-no-padding">
-              <SectionCard
-                routerLink="/wiki/scripts"
-                icon={document}
-                title="wiki.scripts.title"
-                subtitle="wiki.scripts.subtitle"
-              />
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+        </IonText>
+        <IonList inset={true}>
+          <SectionListItem
+            routerLink="/wiki/rules"
+            icon={book}
+            title="wiki.rules.title"
+            subtitle="wiki.rules.subtitle"
+            disabled
+          />
+          <SectionListItem
+            routerLink="/wiki/roles"
+            icon={person}
+            title="wiki.characters.title"
+            subtitle="wiki.characters.subtitle"
+          />
+          <SectionListItem
+            routerLink="/wiki/scripts"
+            icon={document}
+            title="wiki.scripts.title"
+            subtitle="wiki.scripts.subtitle"
+          />
+        </IonList>
       </IonContent>
     </IonPage>
   )
