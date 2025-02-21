@@ -21,7 +21,8 @@ interface Props {
 
 const SectionCard: React.FC<Props> = ({ 
   href, routerLink, icon, title, subtitle, disabled
-}: Props) => (
+}: Props) => {
+  return (
   <IonCard 
     button={true}
     href={href} 
@@ -48,5 +49,6 @@ const SectionCard: React.FC<Props> = ({
     </IonGrid>
   </IonCard>
 )
+}
 
 export default SectionCard

@@ -6,6 +6,10 @@ export const locales = {
   roles: {
     en: () => import('./en/roles.json'),
     ru: () => import('./ru/roles.json'),
-  }
+  },
+  scripts: {
+    en: () => import('./en/scripts.json'),
+    ru: () => import('./ru/scripts.json'),
+  },
 }
 

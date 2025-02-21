@@ -2,7 +2,7 @@
   "tabs": {
     "home": "Home",
     "wiki": "Wiki",
-    "table": "Table",
+    "games": "Games",
     "settings": "Settings"
   },
   "home": {
@@ -50,7 +50,13 @@
       "minion": "Minions",
       "demon": "Demons",
       "traveller": "Travellers",
-      "fabled": "Fabled"
+      "fabled": "Fabled",
+      "all": "All"
+    },
+    "editions": {
+      "bmr": "Bad Moon Rising",
+      "snv": "Sects & Violets",
+      "tb": "Trouble Brewing"
     },
     "sortBy": "Sort by",
     "sortOptions": {
@@ -63,7 +69,22 @@
   },
   "scripts": {
     "title": "Scripts",
-    "search": "Search"
+    "search": "Search",
+    "copied": "Script JSON data is copied to clipboard",
+    "tabs": {
+      "roles": "Roles",
+      "firstNight": "First Night",
+      "otherNight": "Other Nights",
+      "jinxes": "Jinxes"
+    },
+    "tags": {
+      "teen": "Teensyville",
+      "official": "Official",
+      "full": "Full"
+    }
+  },
+  "games": {
+    "title": "Games"
   },
   "settings": {
     "title": "Settings",

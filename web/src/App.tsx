@@ -53,12 +53,29 @@ import { APP_SETTINGS } from './models/AppSettings'
 import useStorageState from './hooks/useStorageState'
 import ScriptsPage from './pages/wiki/ScriptsPage'
 import { locales } from './locales/locales'
+import ScriptPage from './pages/wiki/scripts/ScriptPage'
+import GamesPage from './pages/GamesPage'
 
 setupIonicReact({ mode: 'ios' })
 
 const App: React.FC = () => {
   const { change, preload } = useTranslationChange()
   const [appSettings] = useStorageState('settings', APP_SETTINGS)
+
+  useEffect(() => {
+    const handleTouchMove = (event: TouchEvent) => {
+      if (event.touches.length > 1) return
+      if (event.touches[0].pageX > 20 && 
+        event.touches[0].pageX < window.innerWidth - 20) return
+      event.preventDefault()
+    }
+
+    document.addEventListener('touchstart', handleTouchMove, { passive: false })
+
+    return () => {
+      document.removeEventListener('touchstart', handleTouchMove)
+    }
+  }, [])
 
   useEffect(() => {
     preload(appSettings.lang)
@@ -85,8 +102,22 @@ const App: React.FC = () => {
             </Route>
             <Route exact path="/wiki/scripts">
               <Suspense>
-                <ScriptsPage />
+                <TranslationProvider translations={locales.scripts}>
+                  <ScriptsPage />
+                </TranslationProvider>
               </Suspense>         
+            </Route>
+            <Route exact path="/wiki/scripts/:id">
+              <Suspense>
+                <TranslationProvider translations={locales.scripts}>
+                  <ScriptPage />
+                </TranslationProvider>
+              </Suspense>         
+            </Route>
+            <Route exact path="/games">
+              <Suspense>
+                <GamesPage />
+              </Suspense>
             </Route>
             <Route exact path="/settings">
               <SettingsPage />
@@ -108,10 +139,10 @@ const App: React.FC = () => {
                   <Translation path="tabs.wiki" />
                 </IonLabel>
               </IonTabButton>
-              <IonTabButton tab="tab3" href="/tab3" disabled>
+              <IonTabButton tab="games" href="/games">
                 <IonIcon icon={dice} />
                 <IonLabel>
-                  <Translation path="tabs.table" />
+                  <Translation path="tabs.games" />
                 </IonLabel>
               </IonTabButton>
               <IonTabButton tab="settings" href="/settings">

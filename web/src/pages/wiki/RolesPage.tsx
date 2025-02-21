@@ -31,10 +31,8 @@ const RolesPage: React.FC = () => {
   const t = useTranslation()
   const { id } = useParams<{ id?: string }>()
 
-  const allRoles: unknown[] = characters
-    .filter(role => role.edition !== 'special')
-
-  const allTypes: RoleType[] = Object.values(RoleType)
+  const allRoles: Role[] = characters
+    .filter(role => role.edition !== 'special') as Role[]
 
   useEffect(() => {
     if (id) {
@@ -44,6 +42,11 @@ const RolesPage: React.FC = () => {
       }
     }
   }, [id])
+
+  function openRole(role: Role) {
+    setState(({ ...state, role }))
+    window.history.replaceState(null, '', `/botc/#/wiki/roles/${role.id}`)
+  }
 
   function closeRole() {
     setState(({ ...state, role: undefined }))
@@ -97,15 +100,9 @@ const RolesPage: React.FC = () => {
   function filterRoles(roles: Role[], query?: string, type?: RoleType) {
     return roles
       .filter(role => !type || role.type === type)
-      .filter(role => !query || searchInObject(role, query))
-  }
-
-  function searchInObject(obj: unknown, query: string): boolean {
-    return obj && typeof obj === 'object'
-      ? Object.values(obj).some(value => searchInObject(value, query))
-      : typeof obj === 'string'
-        ? obj.toLowerCase().includes(query)
-        : false
+      .filter(role => !query || 
+        t(`${role.id}.name`).toLowerCase().includes(query) ||
+        t(`${role.id}.ability`).toLowerCase().includes(query))
   }
 
   function sortRoles(roles: Role[], key?: Key) {
@@ -145,10 +142,14 @@ const RolesPage: React.FC = () => {
           </IonToolbar>
           <IonSearchbar placeholder={t('roles.search')} onIonInput={onSearch} />
           <IonGrid style={{ whiteSpace: 'nowrap', overflowX: 'auto' }}>
-            {allTypes.map(renderType)}
+            {Object.values(RoleType).map(renderType)}
           </IonGrid>
         </IonHeader>
-        <RoleList roles={getRoles()} state={state} setState={setState} />
+        <RoleList 
+          roles={getRoles()} 
+          getText={role => `${role.id}.ability`} 
+          openRole={openRole} 
+        />
       </IonContent>
 
       <IonModal

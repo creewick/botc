@@ -2,7 +2,7 @@ import React, {  } from 'react'
 import Role from '../../../../cli/src/models/Role'
 import RoleIcon from './RoleIcon'
 import {
-  IonChip,
+  IonBadge,
   IonCol,
   IonContent,
   IonGrid,
@@ -39,18 +39,16 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
     }}>
       <IonGrid>
         <IonRow>
-          <IonCol>
-            {role.edition && <IonChip outline>{role.edition}</IonChip>}
-          </IonCol>
-          <IonCol>
+          <IonCol size="4" />
+          <IonCol size="4">
             <div style={{ margin: '-55% auto 0' }}> 
               <RoleIcon role={role} />
             </div>
           </IonCol>
-          <IonCol className="ion-text-right">
-            <IonChip outline>
+          <IonCol size="4" className="ion-text-right">
+            <IonBadge color="light">
               <Translation path={`roles.types.${role.type}`} />
-            </IonChip>
+            </IonBadge>
           </IonCol>
         </IonRow>
       </IonGrid>

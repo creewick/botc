@@ -12,3 +12,23 @@
   font-style: italic;
   color: var(--ion-color-medium);
 }
+
+ion-searchbar.sc-ion-searchbar-ios-h {
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: auto;
+}
+
+ion-segment-content {
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+.title-padding {
+  padding: 0 48px;
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+}
