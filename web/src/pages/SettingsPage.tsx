@@ -45,11 +45,22 @@ const SettingsPage: React.FC = () => {
       return stopLoading()
 
     const registration = await navigator.serviceWorker.ready
-    if (!registration.waiting) 
-      return stopLoading()
+    await registration.update()
 
-    setWorkerToUpdate(registration.waiting)
-    return stopLoading()
+    if (registration.installing) {
+      const newWorker = registration.installing
+      newWorker.onstatechange = () => {
+        if (newWorker.state === 'installed') {
+          setWorkerToUpdate(newWorker) 
+          stopLoading()
+        }
+      }
+    } else if (registration.waiting) {
+      setWorkerToUpdate(registration.waiting)
+      stopLoading()
+    } else {
+      stopLoading()
+    }
   }
 
   const stopLoading = () => setTimeout(() => setLoading(false), 1000)
