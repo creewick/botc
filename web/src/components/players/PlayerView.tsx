@@ -1,6 +1,7 @@
-import React, { MouseEvent, useEffect, useState } from 'react'
+import React, { MouseEvent, useEffect, useRef, useState } from 'react'
 import {
   IonAlert,
+  IonButton,
   IonContent,
   IonHeader,
   IonIcon,
@@ -30,6 +31,7 @@ interface Props {
 const scriptFiles = import.meta.glob('/public/assets/scripts/*.json')
 
 const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
+  const rolesSearchbar = useRef<HTMLIonSearchbarElement>(null)
   const t = useTranslation()
   const [rolesModal, setRolesModal] = useState(false)
   const [query, setQuery] = useState('')
@@ -44,17 +46,6 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
     .filter(role => role.edition !== 'special' && (!query || 
       t(`${role.id}.name`).toLowerCase().includes(query) ||
       t(`${role.id}.ability`).toLowerCase().includes(query)))
-
-  const renderClearButton = (condition: boolean, action: () => void) => {
-    if (!condition) return
-
-    function onClick(event: MouseEvent) {
-      action()
-      event.stopPropagation()
-    }
-
-    return <IonIcon size='small' icon={closeCircle} onClick={onClick} />
-  }
 
   const loadScript = async () => {
     const path = `/public/assets/scripts/${scriptId}.json`
@@ -83,40 +74,42 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
     <IonList inset>
       <IonItem color='light'>
         <IonInput
+          clearInput
           labelPlacement='stacked'
           label={t('games.players.name')}
           value={player.name}
           onIonChange={e => setPlayer({ ...player, name: e.detail.value! })}
         />
-        {renderClearButton(
+        {/* {renderClearButton(
           !!player.name,
           () => setPlayer({...player, name: ''})
-        )}
+        )} */}
       </IonItem>
       <IonItem color='light' onClick={() => setRolesModal(true)}>
         <IonInput
           clearInput
           labelPlacement='stacked'
           label={t('games.players.roles')}
+          onIonChange={e => !e.detail.value && 
+            setPlayer({...player, roles: []})
+          }
           value={playerRoles}
-          readonly
         />
-        {renderClearButton(
-          !!player.roles.length,
-          () => setPlayer({...player, roles: []})
-        )}
       </IonItem>
       <IonItem color='light'>
         <IonTextarea
           labelPlacement='stacked'
           label={t('games.players.note')}
           value={player.note}
+          autoGrow={true}
           onIonInput={e => setPlayer({ ...player, note: e.detail.value! })}
         />
-        {renderClearButton(
-          !!player.note,
-          () => setPlayer({...player, note: undefined})
-        )}
+        <button 
+          className='input-clear-icon sc-ion-input-ios' 
+          onClick={() => setPlayer({ ...player, note: undefined })}
+        >
+          <IonIcon className='sc-ion-input-ios ios' icon={closeCircle} />
+        </button>
       </IonItem>
       <IonItem color='light' id='delete-player' button detail={false}>
         <IonLabel color='danger'>
@@ -129,11 +122,12 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
         initialBreakpoint={1}
         breakpoints={[0, 1]}
         handle={false}
+        onDidPresent={() => rolesSearchbar.current?.setFocus()}
       >
         <IonHeader>
           <IonToolbar>
-            <IonSearchbar 
-              autoFocus 
+            <IonSearchbar
+              ref={rolesSearchbar}
               onIonInput={e => setQuery(e.detail.value!.toLowerCase())} 
             />
           </IonToolbar>

@@ -51,3 +51,9 @@ ion-segment-content {
   justify-content: center;
   align-items: center;
 }
+
+.has-value.sc-ion-textarea-ios-h + .input-clear-icon.sc-ion-input-ios {
+  visibility: visible;
+  color: inherit;
+  min-width: 30px;
+}
