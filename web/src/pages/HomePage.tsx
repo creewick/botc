@@ -1,6 +1,7 @@
 import {
   IonContent,
   IonHeader,
+  IonImg,
   IonList,
   IonPage,
   IonText,
@@ -59,6 +60,12 @@ const HomePage: React.FC = () => {
             subtitle="home.onlineClient.subtitle"
           />
         </IonList>
+
+        <IonImg 
+          className="ion-text-center ion-margin-bottom" 
+          src="botc/assets/images/logo.png" 
+          style={{height: 200}} 
+        />
       </IonContent>
     </IonPage>
   )

@@ -42,3 +42,12 @@ ion-segment-content {
   position: relative;
   top: 8px;
 }
+
+.circle-container {
+  position: relative;
+  width: 100vmin;
+  height: 100vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

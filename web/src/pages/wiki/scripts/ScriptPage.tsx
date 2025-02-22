@@ -78,10 +78,10 @@ const ScriptPage: React.FC = () => {
 
     for (const item of script) {
       if (typeof item === 'string') {
-        const role = allRoles.find(role => role.id === item)
+        const role = allRoles.find(role => role.id === item.replaceAll('_', ''))
         if (role) roles.push(role)
       } else if (item.id) {
-        const role = allRoles.find(role => role.id === item.id)
+        const role = allRoles.find(role => role.id === item.id.replaceAll('_', ''))
         if (role) roles.push(role)
       }
     }
@@ -138,7 +138,7 @@ const ScriptPage: React.FC = () => {
               <RoleList 
                 roles={scriptRoles} 
                 getText={role => `${role.id}.ability`}
-                openRole={openRole} 
+                onSelectRole={openRole} 
                 groupByType 
               />
             </IonSegmentContent>
@@ -146,14 +146,14 @@ const ScriptPage: React.FC = () => {
               <RoleList 
                 roles={firstNightOrder()}
                 getText={role => `${role.id}.firstNightReminder`} 
-                openRole={openRole} 
+                onSelectRole={openRole} 
                 />
             </IonSegmentContent>
             <IonSegmentContent id='otherNights'>
               <RoleList 
                 roles={otherNightOrder()} 
                 getText={role => `${role.id}.otherNightReminder`}
-                openRole={openRole} 
+                onSelectRole={openRole} 
               />
             </IonSegmentContent>
             {/* <IonSegmentContent id='jinxes' /> */}

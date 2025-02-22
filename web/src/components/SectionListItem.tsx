@@ -32,7 +32,9 @@ const SectionListItem: React.FC<Props> = ({
       <IonCardSubtitle color='primary'>
         <Translation path={title ?? ''} />
       </IonCardSubtitle>
-      <p><Translation path={subtitle ?? ''} /></p>
+      <IonLabel className='ion-text-nowrap'>
+        <p><Translation path={subtitle ?? ''} /></p>
+      </IonLabel>
     </IonLabel>
   </IonItem>
 )

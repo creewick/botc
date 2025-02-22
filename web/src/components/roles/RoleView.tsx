@@ -42,7 +42,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
           <IonCol size="4" />
           <IonCol size="4">
             <div style={{ margin: '-55% auto 0' }}> 
-              <RoleIcon role={role} />
+              <RoleIcon roleId={role.id} />
             </div>
           </IonCol>
           <IonCol size="4" className="ion-text-right">
@@ -72,7 +72,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
 
   const renderReminder = (reminder: string, index: number) =>
     <IonItem key={index}>
-      <RoleIcon role={role} size={36} hideTitle />
+      <RoleIcon roleId={role.id} size={36} hideTitle />
       <IonLabel className="ion-margin-start">
         {reminder}
       </IonLabel>
@@ -96,7 +96,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
 
   const renderJinx = (jinx: string, index: number) =>
     <IonItem key={index}>
-      {/* <RoleIcon role={{id: jinx.roleId} as Role} size={36} hideTitle /> */}
+      {/* <RoleIcon roleId={jinx.roleId} size={36} hideTitle /> */}
       {/* <IonLabel className="ion-margin-start"> */}
         {/* {getLocalizedText(jinx.reason, settings.lang)} */}
       {/* </IonLabel> */}

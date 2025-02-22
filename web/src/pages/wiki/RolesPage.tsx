@@ -148,7 +148,7 @@ const RolesPage: React.FC = () => {
         <RoleList 
           roles={getRoles()} 
           getText={role => `${role.id}.ability`} 
-          openRole={openRole} 
+          onSelectRole={openRole} 
       />
       </IonContent>
 

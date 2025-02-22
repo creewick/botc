@@ -8,6 +8,7 @@ import {
   IonList,
   IonNote,
   IonPage,
+  IonProgressBar,
   IonSelect,
   IonSelectOption,
   IonText,
@@ -29,28 +30,31 @@ import {
   refreshOutline,
   trashOutline
 } from 'ionicons/icons'
-import { useLocation } from 'react-router-dom'
 
 const SettingsPage: React.FC = () => {
   const { change, preload } = useTranslationChange()
-  const location = useLocation()
   const t = useTranslation()
-  const [settings, setSettings, storage] = 
+  const [settings, setSettings, storage] =
     useStorageState('settings', APP_SETTINGS)
   const [workerToUpdate, setWorkerToUpdate] = useState<ServiceWorker>()
-  const [serviceWorkers, setServiceWorkers] = useState<unknown>()
+  const [loading, setLoading] = useState(false)
 
-  const checkForUpdate = () => {
-    if (location.pathname === '/settings' && 'serviceWorker' in navigator)
-      navigator.serviceWorker.ready.then((registration) => {
-        if (registration?.waiting)
-          setWorkerToUpdate(registration.waiting)
-      })
+  const checkForUpdate = async () => {  
+    setLoading(true)
+    if (!('serviceWorker' in navigator)) 
+      return stopLoading()
+
+    const registration = await navigator.serviceWorker.ready
+    if (!registration.waiting) 
+      return stopLoading()
+
+    setWorkerToUpdate(registration.waiting)
+    return stopLoading()
   }
 
-  useEffect(() => checkForUpdate, [location.pathname])
-  useEffect(() => 
-    void navigator.serviceWorker.getRegistrations().then(setServiceWorkers), [])
+  const stopLoading = () => setTimeout(() => setLoading(false), 1000)
+
+  useEffect(() => void checkForUpdate(), [])
 
   const updateApp = () => {
     workerToUpdate?.postMessage({ type: 'SKIP_WAITING' })
@@ -93,6 +97,7 @@ const SettingsPage: React.FC = () => {
             <Translation path="settings.title" />
           </IonTitle>
         </IonToolbar>
+        {loading && <IonProgressBar type="indeterminate" />}
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
@@ -177,19 +182,22 @@ const SettingsPage: React.FC = () => {
           </IonItem>
           <IonItem button detail={false} color="light" onClick={checkForUpdate}>
             <IonIcon slot="start" icon={refreshOutline} />
-            <Translation path="settings.checkForUpdates" /> 
+            <Translation path="settings.checkForUpdates" />
           </IonItem>
         </IonList>
 
         <div className="ion-text-center">
           <IonNote>
             <Translation path="settings.version" /> {packageJson.version}
-            {JSON.stringify(serviceWorkers)}
+            <p>Service Worker: {
+              navigator.serviceWorker.controller?.state ?? 
+              'Not Registered'
+            }</p>
           </IonNote>
         </div>
 
-        <IonAlert 
-          trigger="clear-data" 
+        <IonAlert
+          trigger="clear-data"
           header={t('actions.deleteAllData') + '?'}
           message={t('actions.youCantUndoThisAction')}
           buttons={[

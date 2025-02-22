@@ -56,6 +56,7 @@ import ScriptsPage from './pages/wiki/ScriptsPage'
 import { locales } from './locales/locales'
 import ScriptPage from './pages/wiki/scripts/ScriptPage'
 import GamesPage from './pages/GamesPage'
+import GamePage from './pages/games/GamePage'
 
 setupIonicReact({ mode: 'ios' })
 
@@ -72,20 +73,20 @@ const App: React.FC = () => {
       })
   }, [])
 
-  useEffect(() => {
-    const handleTouchMove = (event: TouchEvent) => {
-      if (event.touches.length > 1) return
-      if (event.touches[0].pageX > 20 &&
-        event.touches[0].pageX < window.innerWidth - 20) return
-      event.preventDefault()
-    }
+  // useEffect(() => {
+  //   const handleTouchMove = (event: TouchEvent) => {
+  //     if (event.touches.length > 1) return
+  //     if (event.touches[0].pageX > 20 &&
+  //       event.touches[0].pageX < window.innerWidth - 20) return
+  //     event.preventDefault()
+  //   }
 
-    document.addEventListener('touchstart', handleTouchMove, { passive: false })
+  //   document.addEventListener('touchstart', handleTouchMove, { passive: false })
 
-    return () => {
-      document.removeEventListener('touchstart', handleTouchMove)
-    }
-  }, [])
+  //   return () => {
+  //     document.removeEventListener('touchstart', handleTouchMove)
+  //   }
+  // }, [])
 
   useEffect(() => {
     preload(appSettings.lang)
@@ -116,36 +117,43 @@ const App: React.FC = () => {
       <IonReactHashRouter>
         <IonTabs>
           <IonRouterOutlet>
-              <Route exact path="/home">
-                <HomePage />
-              </Route>
-              <Route exact path="/wiki">
-                <WikiPage />
-              </Route>
-              <Route exact path="/wiki/roles/:id?">
-                <TranslationProvider translations={locales.roles}>
-                  <Suspense><RolesPage /></Suspense>
-                </TranslationProvider>
-              </Route>
-              <Route exact path="/wiki/scripts">
+            <Route exact path="/home">
+              <HomePage />
+            </Route>
+            <Route exact path="/wiki">
+              <WikiPage />
+            </Route>
+            <Route exact path="/wiki/roles/:id?">
+              <TranslationProvider translations={locales.roles}>
+                <Suspense><RolesPage /></Suspense>
+              </TranslationProvider>
+            </Route>
+            <Route exact path="/wiki/scripts">
+              <TranslationProvider translations={locales.scripts}>
+                <Suspense><ScriptsPage /></Suspense>
+              </TranslationProvider>
+            </Route>
+            <Route exact path="/wiki/scripts/:id">
+              <TranslationProvider translations={locales.scripts}>
+                <Suspense><ScriptPage /></Suspense>
+              </TranslationProvider>
+            </Route>
+            <Route exact path="/games">
+              <GamesPage />
+            </Route>
+            <Route exact path="/games/:id">
+              <TranslationProvider translations={locales.roles}>
                 <TranslationProvider translations={locales.scripts}>
-                  <Suspense><ScriptsPage /></Suspense>
+                  <Suspense><GamePage /></Suspense>
                 </TranslationProvider>
-              </Route>
-              <Route exact path="/wiki/scripts/:id">
-                <TranslationProvider translations={locales.scripts}>
-                  <Suspense><ScriptPage /></Suspense>
-                </TranslationProvider>
-              </Route>
-              <Route exact path="/games">
-                <GamesPage />
-              </Route>
-              <Route exact path="/settings">
-                <Suspense><SettingsPage /></Suspense>
-              </Route>
-              <Route exact path="/">
-                <Redirect to="/home" />
-              </Route>
+              </TranslationProvider>
+            </Route>
+            <Route exact path="/settings">
+              <Suspense><SettingsPage /></Suspense>
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
             <IonTabButton tab="home" href="/home">
@@ -160,7 +168,7 @@ const App: React.FC = () => {
                 <Translation path="tabs.wiki" />
               </IonLabel>
             </IonTabButton>
-            <IonTabButton tab="games" href="/games" disabled>
+            <IonTabButton tab="games" href="/games">
               <IonIcon icon={dice} />
               <IonLabel>
                 <Translation path="tabs.games" />

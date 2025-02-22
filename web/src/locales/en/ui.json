@@ -14,15 +14,15 @@
     },
     "wiki": {
       "title": "Wiki",
-      "subtitle": "Game rules, character abilities, and more"
+      "subtitle": "Game rules, character abilities"
     },
     "scriptTool": {
       "title": "Script Tool",
-      "subtitle": "Script generator with JSON import, JSON and PDF export"
+      "subtitle": "With JSON and PDF export"
     },
     "onlineClient": {
       "title": "Online Client",
-      "subtitle": "Play online on a virtual table with an integrated voice chat"
+      "subtitle": "Play online with voice chat"
     }
   },
   "wiki": {
@@ -34,7 +34,7 @@
     },
     "characters": {
       "title": "Characters",
-      "subtitle": "Characters list and ability descriptions"
+      "subtitle": "Roles list and ability descriptions"
     },
     "scripts": {
       "title": "Scripts",
@@ -84,7 +84,15 @@
     }
   },
   "games": {
-    "title": "Games"
+    "title": "Games",
+    "game": "Game",
+    "player": "Player",
+    "script": "Script",
+    "players": {
+      "name": "Name",
+      "note": "Note",
+      "roles": "Roles"
+    }
   },
   "settings": {
     "title": "Settings",
@@ -110,6 +118,8 @@
     "cancel": "Cancel",
     "delete": "Delete",
     "deleteAllData": "Delete All Data",
+    "deleteGame": "Delete Game",
+    "deletePlayer": "Delete Player",
     "youCantUndoThisAction": "You can't undo this action"
   }
 }

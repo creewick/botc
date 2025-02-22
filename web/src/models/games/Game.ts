@@ -1,7 +1,10 @@
+import Player from './Player'
+
 interface Game {
-  id: string
-  scriptId?: string
-  // players: Player[]
+  name: string;
+  scriptId?: string;
+  players: Player[];
+  created: Date;
 }
 
 export default Game

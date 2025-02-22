@@ -1,14 +1,13 @@
 import React, {  } from 'react'
-import Role from '../../../../cli/src/models/Role'
 import { useTranslation } from 'i18nano'
 
 interface Props {
-  role: Role
+  roleId?: string
   hideTitle?: boolean
   size?: number
 }
 
-const RoleIcon: React.FC<Props> = ({ role, hideTitle, size }: Props) => {
+const RoleIcon: React.FC<Props> = ({ roleId, hideTitle, size }: Props) => {
   const t = useTranslation()
   const y = hideTitle ? 20 : 15
 
@@ -17,10 +16,13 @@ const RoleIcon: React.FC<Props> = ({ role, hideTitle, size }: Props) => {
       strokeWidth="2" paintOrder="stroke"
     >
       <textPath href="#circle-path" startOffset="50%" textAnchor="middle">
-        {t(`${role.id}.name`).toUpperCase()}
+        {t(`${roleId}.name`).toUpperCase()}
       </textPath>
     </text>
   )
+
+  const logo = <image href={`botc/assets/icons/${roleId}.webp`} 
+    width="60" height="60" x="20" y={y} />
 
   return (
     <svg viewBox="0 0 100 100"
@@ -38,8 +40,7 @@ const RoleIcon: React.FC<Props> = ({ role, hideTitle, size }: Props) => {
         <image href="botc/assets/images/token.webp"
           width="110" height="110" x="-5" y="-5" clipPath="url(#circle-clip)" />
       </g>
-      <image href={`botc/assets/icons/${role.id}.webp`} 
-        width="60" height="60" x="20" y={y} />
+      { roleId && logo }
       { !hideTitle && title }
     </svg>
   )

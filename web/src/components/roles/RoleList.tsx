@@ -5,20 +5,20 @@ import {
   IonItem, 
   IonImg, 
   IonLabel,
-  IonItemDivider,
-  IonCol} from '@ionic/react'
+  IonItemDivider
+} from '@ionic/react'
 import { Translation } from 'i18nano'
 import RoleType from '../../../../cli/src/enums/RoleType'
 
 interface Props {
   roles: Role[]
-  getText: (role: Role) => string
-  openRole: (role: Role) => void
+  onSelectRole: (role: Role) => void
+  getText?: (role: Role) => string
   groupByType?: boolean
 }
 
 const RoleList: React.FC<Props> = ({ 
-  roles, getText, openRole, groupByType 
+  roles, getText, onSelectRole: openRole, groupByType 
 }: Props) => {
 
   const renderGroups = () =>
@@ -51,8 +51,12 @@ const RoleList: React.FC<Props> = ({
         style={{ height: 36, width: 36 }}
       />
       <IonLabel className='ion-text-nowrap'>
-        <h2><Translation path={`${role.id}.name`} /></h2>
-        <p className='ion-hide-sm-down'><Translation path={getText(role)} /></p>
+        <h2>
+          <Translation path={`${role.id}.name`} />
+        </h2>
+        <p className='ion-hide-sm-down'>
+          <Translation path={getText ? getText(role) : ''} />
+        </p>
       </IonLabel>
     </IonItem>
 
