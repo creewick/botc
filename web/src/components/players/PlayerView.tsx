@@ -80,14 +80,11 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
           value={player.name}
           onIonChange={e => setPlayer({ ...player, name: e.detail.value! })}
         />
-        {/* {renderClearButton(
-          !!player.name,
-          () => setPlayer({...player, name: ''})
-        )} */}
       </IonItem>
       <IonItem color='light' onClick={() => setRolesModal(true)}>
         <IonInput
           clearInput
+          autoCapitalize='on'
           labelPlacement='stacked'
           label={t('games.players.roles')}
           onIonChange={e => !e.detail.value && 
@@ -98,6 +95,7 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
       </IonItem>
       <IonItem color='light'>
         <IonTextarea
+          autoCapitalize='on'
           labelPlacement='stacked'
           label={t('games.players.note')}
           value={player.note}
