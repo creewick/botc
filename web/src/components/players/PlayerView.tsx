@@ -68,9 +68,15 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
     setScriptRoles(roles)
   }
 
-  function setRolesModal(value: boolean) {
-    modalRef.current?.setCurrentBreakpoint(value ? 1 : ZERO)
+  function openModal() {
+    modalRef.current?.setCurrentBreakpoint(1)
     searchRef.current?.setFocus()
+  }
+
+  async function closeModal() {
+    modalRef.current?.setCurrentBreakpoint(ZERO)
+    const input = await searchRef.current?.getInputElement()
+    input?.blur()
   }
 
   useEffect(() => {
@@ -98,15 +104,15 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
           onIonChange={e => setPlayer({ ...player, name: e.detail.value! })}
         />
       </IonItem>
-      <IonItem color='light' button onClick={() => setRolesModal(true)} >
+      <IonItem color='light' button onClick={openModal} >
         <IonInput
           labelPlacement='stacked'
           label={t('games.players.roles')}
           readonly
         >
-          <span slot='start' style={{ margin: '8px -4px'}}>
+          <span slot='start' style={{ margin: '8px -4px' }}>
             {player.roles?.map((role, id) =>
-              <IonChip key={id}>
+              <IonChip key={id} outline>
                 <span style={{ width: 20, height: 20, marginRight: 8 }}>
                   <RoleIcon roleId={role} hideTitle />
                 </span>
@@ -152,7 +158,7 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
       <IonModal
         ref={modalRef}
         isOpen={true}
-        onDidDismiss={() => setRolesModal(false)}
+        onDidDismiss={closeModal}
         initialBreakpoint={ZERO}
         backdropBreakpoint={1}
         breakpoints={[ZERO, 1]}
@@ -171,9 +177,11 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
           <RoleList
             roles={getRoles()}
             onSelectRole={(role) => {
-              setPlayer({ ...player, 
-                roles: [...player.roles.filter(r => r !== role.id), role.id] })
-              setRolesModal(false)
+              setPlayer({
+                ...player,
+                roles: [...player.roles.filter(r => r !== role.id), role.id]
+              })
+              closeModal()
             }}
           />
         </IonContent>

@@ -151,7 +151,7 @@ const GamePage: React.FC = () => {
           isOpen={!!selectedPlayer}
           onDidDismiss={() => setSelectedPlayer(undefined)}
           initialBreakpoint={0.4}
-          breakpoints={[0, 0.4, 0.6]}
+          breakpoints={[0, 0.4, 1]}
           backdropBreakpoint={0.4}
         >
           {selectedPlayer &&
