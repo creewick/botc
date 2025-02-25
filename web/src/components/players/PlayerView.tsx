@@ -1,7 +1,7 @@
 import React, { MouseEvent, useEffect, useRef, useState } from 'react'
 import {
   IonAlert,
-  IonButton,
+  IonChip,
   IonContent,
   IonHeader,
   IonIcon,
@@ -21,31 +21,31 @@ import Role from '../../../../cli/src/models/Role'
 import RoleList from '../roles/RoleList'
 import { closeCircle } from 'ionicons/icons'
 import Script from '../../../../cli/src/schema/Script'
+import RoleIcon from '../roles/RoleIcon'
 
 interface Props {
   player: Player
-  setPlayer: (player?: Player) => void
+  setPlayer: (player: Player | undefined) => void
   scriptId?: string
 }
 
 const scriptFiles = import.meta.glob('/public/assets/scripts/*.json')
+const ZERO = 0.00001
+
 
 const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
-  const rolesSearchbar = useRef<HTMLIonSearchbarElement>(null)
+  const modalRef = useRef<HTMLIonModalElement>(null)
+  const searchRef = useRef<HTMLIonSearchbarElement>(null)
+
   const t = useTranslation()
-  const [rolesModal, setRolesModal] = useState(false)
   const [query, setQuery] = useState('')
   const [scriptRoles, setScriptRoles] = useState<Role[]>([])
 
-  const playerRoles = player
-    .roles
-    .map(role => t(`${role}.name`))
-    .join(', ')
-
   const getRoles = () => (scriptId ? scriptRoles : characters as Role[])
-    .filter(role => role.edition !== 'special' && (!query || 
-      t(`${role.id}.name`).toLowerCase().includes(query) ||
-      t(`${role.id}.ability`).toLowerCase().includes(query)))
+    .filter(role => role.edition !== 'special' && (!query ||
+      t(`${role.id}.name`).toLowerCase().includes(query.toLowerCase()) ||
+      t(`${role.id}.ability`).toLowerCase().includes(query.toLowerCase())))
+    .sort((a, b) => t(`${a.id}.name`).localeCompare(t(`${b.id}.name`)))
 
   const loadScript = async () => {
     const path = `/public/assets/scripts/${scriptId}.json`
@@ -55,10 +55,12 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
 
     for (const item of script) {
       if (typeof item === 'string') {
-        const role = characters.find(role => role.id === item.replaceAll('_', '')) as Role
+        const role = characters
+          .find(role => role.id === item.replaceAll('_', '')) as Role
         if (role) roles.push(role)
       } else if (item.id) {
-        const role = characters.find(role => role.id === item.id.replaceAll('_', '')) as Role
+        const role = characters
+          .find(role => role.id === item.id.replaceAll('_', '')) as Role
         if (role) roles.push(role)
       }
     }
@@ -66,44 +68,76 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
     setScriptRoles(roles)
   }
 
+  function setRolesModal(value: boolean) {
+    modalRef.current?.setCurrentBreakpoint(value ? 1 : ZERO)
+    searchRef.current?.setFocus()
+  }
+
   useEffect(() => {
     if (scriptId) void loadScript()
   }, [])
+
+  function removeRole(event: MouseEvent, role: string) {
+    setPlayer({
+      ...player,
+      roles: player.roles.filter(r => r !== role)
+    })
+    event.preventDefault()
+    event.stopPropagation()
+  }
 
   return (
     <IonList inset>
       <IonItem color='light'>
         <IonInput
           clearInput
+          autocapitalize='on'
           labelPlacement='stacked'
           label={t('games.players.name')}
           value={player.name}
           onIonChange={e => setPlayer({ ...player, name: e.detail.value! })}
         />
       </IonItem>
-      <IonItem color='light' onClick={() => setRolesModal(true)}>
+      <IonItem color='light' button onClick={() => setRolesModal(true)} >
         <IonInput
-          clearInput
-          autoCapitalize='on'
           labelPlacement='stacked'
           label={t('games.players.roles')}
-          onIonChange={e => !e.detail.value && 
-            setPlayer({...player, roles: []})
-          }
-          value={playerRoles}
-        />
+          readonly
+        >
+          <span slot='start' style={{ margin: '8px -4px'}}>
+            {player.roles?.map((role, id) =>
+              <IonChip key={id}>
+                <span style={{ width: 20, height: 20, marginRight: 8 }}>
+                  <RoleIcon roleId={role} hideTitle />
+                </span>
+
+                <Translation path={`${role}.name`} />
+                <IonIcon
+                  icon={closeCircle}
+                  onClick={(event) => removeRole(event, role)}
+                />
+              </IonChip>
+            )}
+          </span>
+        </IonInput>
+        <button
+          className='input-clear-icon sc-ion-input-ios'
+          onClick={() => setPlayer({ ...player, roles: [] })}
+        >
+          <IonIcon className='sc-ion-input-ios ios' icon={closeCircle} />
+        </button>
       </IonItem>
       <IonItem color='light'>
         <IonTextarea
-          autoCapitalize='on'
+          autocapitalize='on'
           labelPlacement='stacked'
           label={t('games.players.note')}
           value={player.note}
           autoGrow={true}
           onIonInput={e => setPlayer({ ...player, note: e.detail.value! })}
         />
-        <button 
-          className='input-clear-icon sc-ion-input-ios' 
+        <button
+          className='input-clear-icon sc-ion-input-ios'
           onClick={() => setPlayer({ ...player, note: undefined })}
         >
           <IonIcon className='sc-ion-input-ios ios' icon={closeCircle} />
@@ -114,32 +148,37 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
           <Translation path='actions.deletePlayer' />
         </IonLabel>
       </IonItem>
+
       <IonModal
-        isOpen={rolesModal}
+        ref={modalRef}
+        isOpen={true}
         onDidDismiss={() => setRolesModal(false)}
-        initialBreakpoint={1}
-        breakpoints={[0, 1]}
+        initialBreakpoint={ZERO}
+        backdropBreakpoint={1}
+        breakpoints={[ZERO, 1]}
         handle={false}
-        onDidPresent={() => rolesSearchbar.current?.setFocus()}
+        keepContentsMounted
       >
         <IonHeader>
           <IonToolbar>
             <IonSearchbar
-              ref={rolesSearchbar}
-              onIonInput={e => setQuery(e.detail.value!.toLowerCase())} 
+              ref={searchRef}
+              onIonInput={e => setQuery(e.detail.value!.toLowerCase())}
             />
           </IonToolbar>
         </IonHeader>
         <IonContent>
-          <RoleList 
+          <RoleList
             roles={getRoles()}
             onSelectRole={(role) => {
-              setPlayer({ ...player, roles: [...player.roles, role.id] })
+              setPlayer({ ...player, 
+                roles: [...player.roles.filter(r => r !== role.id), role.id] })
               setRolesModal(false)
-            }} 
-        />
+            }}
+          />
         </IonContent>
       </IonModal>
+
       <IonAlert
         trigger="delete-player"
         header={t('actions.deletePlayer') + '?'}

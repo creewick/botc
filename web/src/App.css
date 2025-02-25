@@ -52,8 +52,11 @@ ion-segment-content {
   align-items: center;
 }
 
-.has-value.sc-ion-textarea-ios-h + .input-clear-icon.sc-ion-input-ios {
+.has-value.sc-ion-textarea-ios-h + .input-clear-icon.sc-ion-input-ios,
+.has-value.sc-ion-input-ios-h + .input-clear-icon.sc-ion-input-ios {
   visibility: visible;
   color: inherit;
   min-width: 30px;
+  min-height: 30px;
+  margin-top: 20px;
 }

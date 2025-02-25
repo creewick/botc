@@ -53,13 +53,13 @@ const GamePage: React.FC = () => {
   }
 
   const updatePlayer = (value?: Player) => {
-    setSelectedPlayer(value)
     setGame({
       ...game,
       players: game.players
         .map(player => player === selectedPlayer ? value : player)
         .filter(player => player !== undefined)
     })
+    setSelectedPlayer(value)
   }
 
   const addPlayer = () => {

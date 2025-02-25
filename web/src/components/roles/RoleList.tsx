@@ -18,7 +18,7 @@ interface Props {
 }
 
 const RoleList: React.FC<Props> = ({ 
-  roles, getText, onSelectRole: openRole, groupByType 
+  roles, getText, onSelectRole, groupByType
 }: Props) => {
 
   const renderGroups = () =>
@@ -43,7 +43,7 @@ const RoleList: React.FC<Props> = ({
       button
       detail={false}
       key={role.id} 
-      onClick={() => openRole(role)}
+      onClick={() => onSelectRole(role)}
     >
       <IonImg
         className='ion-margin-end'
