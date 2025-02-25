@@ -134,7 +134,7 @@ const ScriptPage: React.FC = () => {
       <IonContent>
         <IonSegmentView>
           <TranslationProvider translations={locales.roles}>
-            <IonSegmentContent id='roles'>
+            <IonSegmentContent className='height-100' id='roles'>
               <RoleList 
                 roles={scriptRoles} 
                 getText={role => `${role.id}.ability`}
@@ -142,14 +142,14 @@ const ScriptPage: React.FC = () => {
                 groupByType 
               />
             </IonSegmentContent>
-            <IonSegmentContent id='firstNight'>
+            <IonSegmentContent className='height-100' id='firstNight'>
               <RoleList 
                 roles={firstNightOrder()}
                 getText={role => `${role.id}.firstNightReminder`} 
                 onSelectRole={openRole} 
                 />
             </IonSegmentContent>
-            <IonSegmentContent id='otherNights'>
+            <IonSegmentContent className='height-100' id='otherNights'>
               <RoleList 
                 roles={otherNightOrder()} 
                 getText={role => `${role.id}.otherNightReminder`}

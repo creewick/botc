@@ -1,14 +1,13 @@
 import React from 'react'
-import Player from '../models/games/Player'
-import RoleIcon from './roles/RoleIcon'
-import { IonLabel } from '@ionic/react'
+import Player from '../../models/games/Player'
+import RoleIcon from '../roles/RoleIcon'
 
 interface Props {
   players: Player[]
   openPlayer: (player: Player) => void
 }
 
-const Table: React.FC<Props> = ({ players, openPlayer }: Props) => {
+const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
 
   const renderPlayer = (player: Player, index: number) => {
     const angle = (index / players.length) * (2 * Math.PI)
@@ -27,7 +26,10 @@ const Table: React.FC<Props> = ({ players, openPlayer }: Props) => {
           textAlign: 'center',
           transform: 'translate(-50%, -50%)',
         }}>
-        <RoleIcon roleId={player.roles[0]} />
+        <RoleIcon 
+          roleId={player.roles[player.roles.length - 1]} 
+          status={player.status} 
+        />
         <span className='ion-text-nowrap' style={{
           fontSize: '0.6rem',
           fontWeight: 600,
@@ -48,4 +50,4 @@ const Table: React.FC<Props> = ({ players, openPlayer }: Props) => {
   )
 }
 
-export default Table
+export default PlayerTable

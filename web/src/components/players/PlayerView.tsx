@@ -11,6 +11,8 @@ import {
   IonList,
   IonModal,
   IonSearchbar,
+  IonSegment,
+  IonSegmentButton,
   IonTextarea,
   IonToolbar
 } from '@ionic/react'
@@ -22,6 +24,7 @@ import RoleList from '../roles/RoleList'
 import { closeCircle } from 'ionicons/icons'
 import Script from '../../../../cli/src/schema/Script'
 import RoleIcon from '../roles/RoleIcon'
+import PlayerStatus from '../../models/games/PlayerStatus'
 
 interface Props {
   player: Player
@@ -79,6 +82,11 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
     input?.blur()
   }
 
+  function changeStatus(e: Event) {
+    const status = (e.target as HTMLIonSegmentElement).value as PlayerStatus
+    setPlayer({ ...player, status })
+  }
+
   useEffect(() => {
     if (scriptId) void loadScript()
   }, [])
@@ -104,7 +112,20 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
           onIonChange={e => setPlayer({ ...player, name: e.detail.value! })}
         />
       </IonItem>
-      <IonItem color='light' button onClick={openModal} >
+      <IonItem color='light'>
+        <IonSegment value={player.status} onIonChange={changeStatus}>
+          {Object.values(PlayerStatus).map(status => 
+            <IonSegmentButton key={status} value={status}>
+              <IonLabel>
+                <Translation 
+                  path={`games.statuses.${status.toLowerCase()}`} 
+                />
+              </IonLabel>
+            </IonSegmentButton>
+          )}
+        </IonSegment>
+      </IonItem>
+      <IonItem color='light' onClick={openModal}>
         <IonInput
           labelPlacement='stacked'
           label={t('games.players.roles')}
@@ -112,12 +133,15 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
         >
           <span slot='start' style={{ margin: '8px -4px' }}>
             {player.roles?.map((role, id) =>
-              <IonChip key={id} outline>
-                <span style={{ width: 20, height: 20, marginRight: 8 }}>
-                  <RoleIcon roleId={role} hideTitle />
+              <IonChip key={id}>
+                <span style={{ position: 'absolute', left: 0, top: 0 }}>
+                  <RoleIcon size={32} roleId={role} status={PlayerStatus.Alive}
+                    hideShadow hideTitle
+                  />
                 </span>
-
-                <Translation path={`${role}.name`} />
+                <span style={{ paddingLeft: 26 }}>
+                  <Translation path={`${role}.name`} />
+                </span>
                 <IonIcon
                   icon={closeCircle}
                   onClick={(event) => removeRole(event, role)}
@@ -126,12 +150,6 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
             )}
           </span>
         </IonInput>
-        <button
-          className='input-clear-icon sc-ion-input-ios'
-          onClick={() => setPlayer({ ...player, roles: [] })}
-        >
-          <IonIcon className='sc-ion-input-ios ios' icon={closeCircle} />
-        </button>
       </IonItem>
       <IonItem color='light'>
         <IonTextarea

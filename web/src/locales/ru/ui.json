@@ -30,10 +30,21 @@
     "game": "Игра",
     "player": "Игрок",
     "script": "Сценарий",
+    "addPlayer": "Добавить игрока",
     "players": {
       "name": "Имя",
       "note": "Заметка",
-      "roles": "Роли"
+      "roles": "Роли",
+      "status": "Статус"
+    },
+    "statuses": {
+      "alive": "Живой",
+      "executed": "Казнён",
+      "killed": "Убит"
+    },
+    "tabs": {
+      "list": "Список",
+      "table": "Стол"
     }
   },
   "wiki": {

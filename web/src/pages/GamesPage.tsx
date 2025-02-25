@@ -15,7 +15,6 @@ import { Translation, useTranslation } from 'i18nano'
 import { addCircleOutline } from 'ionicons/icons'
 import React, { useContext, useEffect, useState } from 'react'
 import Game from '../models/games/Game'
-import PlayerStatus from '../models/games/PlayerStatus'
 import { useHistory } from 'react-router-dom'
 import StorageContext from '../contexts/StorageContext'
 
@@ -52,12 +51,7 @@ const GamesPage: React.FC = () => {
   const getNewGame = () => ({
     name: `${t('games.game')} #${Object.keys(games).length + 1}`,
     created: new Date(),
-    players: [1,2,3,4,5,6,7,8,9,10]
-      .map(i => ({ 
-        name: `${t('games.player')} ${i}`,
-        roles: [],
-        status: PlayerStatus.Alive,
-    })),
+    players: [],
   })
 
   async function addGame() {

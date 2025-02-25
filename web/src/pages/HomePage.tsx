@@ -63,8 +63,8 @@ const HomePage: React.FC = () => {
 
         <IonImg 
           className="ion-text-center ion-margin-bottom" 
-          src="botc/assets/images/logo.png" 
-          style={{height: 200}} 
+          src="botc/assets/images/logo-180.png" 
+          style={{height: 100}} 
         />
       </IonContent>
     </IonPage>

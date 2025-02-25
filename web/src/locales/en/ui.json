@@ -88,10 +88,21 @@
     "game": "Game",
     "player": "Player",
     "script": "Script",
+    "addPlayer": "Add Player",
     "players": {
       "name": "Name",
       "note": "Note",
-      "roles": "Roles"
+      "roles": "Roles",
+      "status": "Status"
+    },
+    "statuses": {
+      "alive": "Alive",
+      "executed": "Executed",
+      "killed": "Killed"
+    },
+    "tabs": {
+      "list": "List",
+      "table": "Table"
     }
   },
   "settings": {

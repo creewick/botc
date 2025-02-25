@@ -13,6 +13,8 @@ import {
   IonListHeader,
   IonModal,
   IonPage,
+  IonSegment,
+  IonSegmentButton,
   IonTitle,
   IonToolbar
 } from '@ionic/react'
@@ -22,12 +24,18 @@ import React, { MouseEvent, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useStorageState from '../../hooks/useStorageState'
 import Game from '../../models/games/Game'
-import Table from '../../components/Table'
+import PlayerTable from '../../components/players/PlayerTable'
 import Script from '../../../../cli/src/schema/Script'
 import Player from '../../models/games/Player'
 import PlayerStatus from '../../models/games/PlayerStatus'
 import PlayerView from '../../components/players/PlayerView'
 import ScriptMeta from '../../../../cli/src/schema/ScriptMeta'
+import PlayerList from '../../components/players/PlayerList'
+
+enum GameTab {
+  List = 'list',
+  Table = 'table',
+}
 
 const scriptFiles = import.meta.glob('/public/assets/scripts/*.json')
 
@@ -36,8 +44,9 @@ const GamePage: React.FC = () => {
   const [game, setGame, storage] = 
     useStorageState<Game>(`games.${id}`, {} as Game)
   const [allScripts, setAllScripts] = useState<Record<string, Script>>()
+  const [tab, setTab] = useState<GameTab>(GameTab.List)
   const [scriptModal, setScriptModal] = useState(false)
-  const [selectedPlayer, setSelectedPlayer] = useState<Player>()
+  const [player, setPlayer] = useState<Player>()
   const t = useTranslation()
 
   useEffect(() => void loadScripts(), [])
@@ -56,10 +65,10 @@ const GamePage: React.FC = () => {
     setGame({
       ...game,
       players: game.players
-        .map(player => player === selectedPlayer ? value : player)
-        .filter(player => player !== undefined)
+        .map(p => p === player ? value : p)
+        .filter(p => p !== undefined)
     })
-    setSelectedPlayer(value)
+    setPlayer(value)
   }
 
   const addPlayer = () => {
@@ -124,10 +133,33 @@ const GamePage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent fullscreen>      
-        <Table players={game.players ?? []} openPlayer={setSelectedPlayer} />
-        <IonListHeader />
+      <IonContent fullscreen>
+        { tab === GameTab.List &&
+          <PlayerList
+            game={game}
+            setGame={setGame}
+            openPlayer={setPlayer}
+          />
+        }
+        { tab === GameTab.Table &&
+          <PlayerTable 
+            players={game.players ?? []} 
+            openPlayer={setPlayer}
+          />
+        }
         <IonList inset={true}>
+          <IonItem color='light'>
+            <IonSegment 
+              value={tab} 
+              onIonChange={e => setTab(e.detail.value as GameTab)}
+            >
+              {Object.values(GameTab).map((tab) => 
+                <IonSegmentButton key={tab} value={tab}>
+                  <Translation path={`games.tabs.${tab}`} />
+                </IonSegmentButton>
+              )}
+            </IonSegment>
+          </IonItem>
           <IonItem color='light' onClick={() => setScriptModal(true)}>
             <IonInput
               labelPlacement='stacked'
@@ -148,15 +180,15 @@ const GamePage: React.FC = () => {
         </IonList>
 
         <IonModal
-          isOpen={!!selectedPlayer}
-          onDidDismiss={() => setSelectedPlayer(undefined)}
+          isOpen={!!player}
+          onDidDismiss={() => setPlayer(undefined)}
           initialBreakpoint={0.4}
-          breakpoints={[0, 0.4, 1]}
+          breakpoints={[0, 0.4, 0.6, 1]}
           backdropBreakpoint={0.4}
         >
-          {selectedPlayer &&
+          {player &&
             <PlayerView 
-              player={selectedPlayer} 
+              player={player} 
               setPlayer={updatePlayer}
               scriptId={game.scriptId}  
             />
