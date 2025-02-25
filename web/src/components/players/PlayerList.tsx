@@ -31,19 +31,8 @@ const PlayerList: React.FC<Props> = ({
   const t = useTranslation()
 
   function handleReorder(event: CustomEvent<ItemReorderEventDetail>) {
-    const clamp = (x: number) => x
-    const indexFrom = clamp(event.detail.from)
-    const indexTo = clamp(event.detail.to)
-
-    const newPlayers = [...game.players]
-    const [removed] = newPlayers.splice(indexFrom, 1)
-    newPlayers.splice(indexTo, 0, removed)
-    setGame({ ...game, players: newPlayers })
-
-    event.detail.complete()
+    setGame({ ...game, players: event.detail.complete(game.players) })
   }
-
-  console.log(game.players)
 
   function renderPlayer(player: Player, index: number) {
     const rename = (event: Event) => {

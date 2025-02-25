@@ -10,7 +10,7 @@ interface Props {
 const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
 
   const renderPlayer = (player: Player, index: number) => {
-    const angle = (index / players.length) * (2 * Math.PI)
+    const angle = (index / players.length) * (2 * Math.PI) + Math.PI / 2
     const width = Math.max(15, Math.min(30, (220 / players.length)))
 
     return (
