@@ -8,12 +8,15 @@ import {
   IonItemOptions,
   IonItemSliding,
   IonLabel,
-  IonList
+  IonList,
+  IonReorder,
+  IonReorderGroup,
+  ItemReorderEventDetail
 } from '@ionic/react'
 import RoleIcon from '../roles/RoleIcon'
 import Game from '../../models/games/Game'
 import { addCircleOutline } from 'ionicons/icons'
-import { Translation } from 'i18nano'
+import { Translation, useTranslation } from 'i18nano'
 import PlayerStatus from '../../models/games/PlayerStatus'
 
 interface Props {
@@ -25,6 +28,23 @@ interface Props {
 const PlayerList: React.FC<Props> = ({
   game, openPlayer, setGame
 }: Props) => {
+  const t = useTranslation()
+
+  function handleReorder(event: CustomEvent<ItemReorderEventDetail>) {
+    const clamp = (x: number) => x
+    const indexFrom = clamp(event.detail.from)
+    const indexTo = clamp(event.detail.to)
+
+    const newPlayers = [...game.players]
+    const [removed] = newPlayers.splice(indexFrom, 1)
+    newPlayers.splice(indexTo, 0, removed)
+    setGame({ ...game, players: newPlayers })
+
+    event.detail.complete()
+  }
+
+  console.log(game.players)
+
   function renderPlayer(player: Player, index: number) {
     const rename = (event: Event) => {
       const name = (event.target as HTMLInputElement).value
@@ -40,7 +60,7 @@ const PlayerList: React.FC<Props> = ({
     }
 
     return (
-      <IonItemSliding key={player.name + index}>
+      <IonItemSliding key={index}>
         <IonItem color='light'>
           <span slot='start' onClick={() => openPlayer(player)}>
             <RoleIcon
@@ -50,7 +70,13 @@ const PlayerList: React.FC<Props> = ({
               hideTitle
             />
           </span>
-          <IonInput value={player.name} onIonChange={rename} />
+          <IonInput 
+            placeholder={t('games.players.name')}
+            value={player.name} 
+            onIonChange={rename} 
+            autocapitalize='on' 
+          />
+          <IonReorder slot="end" />
         </IonItem>
         <IonItemOptions onIonSwipe={remove}>
           <IonItemOption color="danger" onClick={remove} expandable>
@@ -77,7 +103,9 @@ const PlayerList: React.FC<Props> = ({
 
   return (
     <IonList inset>
-      {game.players?.map(renderPlayer)}
+      <IonReorderGroup disabled={false} onIonItemReorder={handleReorder}>
+        {game.players?.map(renderPlayer)}
+      </IonReorderGroup>
       <IonItem color='light' onClick={addPlayer}>
         <IonIcon slot='start' icon={addCircleOutline} color='primary' />
         <IonLabel color='primary'>

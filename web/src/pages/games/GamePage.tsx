@@ -1,7 +1,6 @@
 import {
   IonAlert,
   IonBackButton,
-  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
@@ -10,7 +9,6 @@ import {
   IonItem,
   IonLabel,
   IonList,
-  IonListHeader,
   IonModal,
   IonPage,
   IonSegment,
@@ -19,7 +17,7 @@ import {
   IonToolbar
 } from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
-import { addCircleOutline, closeCircle } from 'ionicons/icons'
+import { closeCircle } from 'ionicons/icons'
 import React, { MouseEvent, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useStorageState from '../../hooks/useStorageState'
@@ -27,7 +25,6 @@ import Game from '../../models/games/Game'
 import PlayerTable from '../../components/players/PlayerTable'
 import Script from '../../../../cli/src/schema/Script'
 import Player from '../../models/games/Player'
-import PlayerStatus from '../../models/games/PlayerStatus'
 import PlayerView from '../../components/players/PlayerView'
 import ScriptMeta from '../../../../cli/src/schema/ScriptMeta'
 import PlayerList from '../../components/players/PlayerList'
@@ -71,20 +68,6 @@ const GamePage: React.FC = () => {
     setPlayer(value)
   }
 
-  const addPlayer = () => {
-    setGame({
-      ...game,
-      players: [
-        ...game.players,
-        { 
-          name: `${t('games.player')} ${game.players.length + 1}`, 
-          status: PlayerStatus.Alive,
-          roles: [], 
-        }
-      ]
-    })
-  }
-
   const renderScript = (id: string, script: Script, index: number) => {
     const meta = script
       .find(item => (item as ScriptMeta).id === '_meta') as ScriptMeta
@@ -125,11 +108,6 @@ const GamePage: React.FC = () => {
           <IonTitle>
             {game.name}
           </IonTitle>
-          <IonButtons slot='end'>
-            <IonButton onClick={addPlayer}>
-              <IonIcon icon={addCircleOutline} />
-            </IonButton>
-          </IonButtons>
         </IonToolbar>
       </IonHeader>
 
