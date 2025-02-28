@@ -1,6 +1,6 @@
 import React from 'react'
 import Player from '../../models/games/Player'
-import RoleIcon from '../roles/RoleIcon'
+import Token from '../Token'
 
 interface Props {
   players: Player[]
@@ -11,7 +11,7 @@ const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
 
   const renderPlayer = (player: Player, index: number) => {
     const angle = (index / players.length) * (2 * Math.PI) + Math.PI / 2
-    const width = Math.max(15, Math.min(30, (220 / players.length)))
+    const width = Math.max(15, Math.min(30, (200 / players.length)))
 
     return (
       <div
@@ -26,19 +26,22 @@ const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
           textAlign: 'center',
           transform: 'translate(-50%, -50%)',
         }}>
-        <RoleIcon 
-          roleId={player.roles[player.roles.length - 1]} 
-          status={player.status} 
+        <Token
+          roleId={player.roles[player.roles.length - 1]}
+          status={player.status}
         />
-        <span className='ion-text-nowrap' style={{
-          fontSize: '0.6rem',
+        <div style={{
+          fontSize: `${width / 2}px`,
           fontWeight: 600,
           opacity: '0.8',
           position: 'relative',
-          top: '-12px'
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          top: '-0.4rem'
         }}>
           {player.name}
-        </span>
+        </div>
       </div>
     )
   }

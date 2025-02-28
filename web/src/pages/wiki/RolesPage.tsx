@@ -63,16 +63,17 @@ const RolesPage: React.FC = () => {
     </IonChip>
 
   const sortOptions: KeyOption[] = [
-    { name: t('roles.sortOptions.name'), 
+    {
+      name: t('roles.sortOptions.name'),
       key: role => t(`${role.id}.name`)
     },
-    { 
-      name: t('roles.sortOptions.firstNight'), 
-      key: role => role.firstNightOrder ?? Number.MAX_VALUE 
+    {
+      name: t('roles.sortOptions.firstNight'),
+      key: role => role.firstNightOrder ?? Number.MAX_VALUE
     },
-    { 
+    {
       name: t('roles.sortOptions.otherNight'),
-      key: role => role.otherNightOrder ?? Number.MAX_VALUE 
+      key: role => role.otherNightOrder ?? Number.MAX_VALUE
     }
   ]
 
@@ -100,7 +101,7 @@ const RolesPage: React.FC = () => {
   function filterRoles(roles: Role[], query?: string, type?: RoleType) {
     return roles
       .filter(role => !type || role.type === type)
-      .filter(role => !query || 
+      .filter(role => !query ||
         t(`${role.id}.name`).toLowerCase().includes(query) ||
         t(`${role.id}.ability`).toLowerCase().includes(query))
   }
@@ -145,16 +146,16 @@ const RolesPage: React.FC = () => {
             {Object.values(RoleType).map(renderType)}
           </IonGrid>
         </IonHeader>
-        <RoleList 
-          roles={getRoles()} 
-          getText={role => `${role.id}.ability`} 
-          onSelectRole={openRole} 
-      />
+        <RoleList
+          roles={getRoles()}
+          getText={role => `${role.id}.ability`}
+          onSelect={openRole}
+        />
       </IonContent>
 
       <IonModal
         className="modal-overflow"
-        initialBreakpoint={0.25} 
+        initialBreakpoint={0.25}
         breakpoints={[0, 0.25, 0.66, 1]}
         isOpen={!!state.role}
         onDidDismiss={closeRole}

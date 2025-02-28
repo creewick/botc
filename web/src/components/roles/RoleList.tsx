@@ -1,9 +1,9 @@
 import React from 'react'
 import Role from '../../../../cli/src/models/Role'
-import { 
-  IonList, 
-  IonItem, 
-  IonImg, 
+import {
+  IonList,
+  IonItem,
+  IonImg,
   IonLabel,
   IonItemDivider
 } from '@ionic/react'
@@ -12,43 +12,32 @@ import RoleType from '../../../../cli/src/enums/RoleType'
 
 interface Props {
   roles: Role[]
-  onSelectRole: (role: Role) => void
+  onSelect: (role: Role) => void
   getText?: (role: Role) => string
   groupByType?: boolean
 }
 
-const RoleList: React.FC<Props> = ({ 
-  roles, getText, onSelectRole, groupByType
+const RoleList: React.FC<Props> = ({
+  roles, getText, onSelect, groupByType
 }: Props) => {
+  const filterBy = (type: RoleType) => roles.filter(role => role.type === type)
 
-  const renderGroups = () =>
-    <>
-      {Object.values(RoleType).map(type => 
-        roles.filter(role => role.type === type).length > 0 &&
-        <div key={type}>
-          <IonItemDivider className='ion-no-padding' color='light'>
-            <IonImg
-              className='icon'
-              src={`/botc/assets/icons/${type}.webp`}
-            />
-            <Translation path={`roles.types.${type}`} />
-          </IonItemDivider>
-          {roles.filter(role => role.type === type).map(renderRole)}
-        </div>
-      )}
-    </>
+  const renderGroups = (groups: RoleType[]) =>
+    groups.map(type => filterBy(type).length > 0 &&
+      <div key={type}>
+        <IonItemDivider sticky className='ion-no-padding' color='light'>
+          <IonImg className='icon' src={`/botc/assets/icons/${type}.webp`} />
+          <Translation path={`roles.types.${type}`} />
+        </IonItemDivider>
+        {filterBy(type).map(renderRole)}
+      </div>
+    )
 
   const renderRole = (role: Role) =>
-    <IonItem 
-      button
-      detail={false}
-      key={role.id} 
-      onClick={() => onSelectRole(role)}
-    >
+    <IonItem button detail={false} key={role.id} onClick={() => onSelect(role)}>
       <IonImg
-        className='ion-margin-end'
+        className='ion-margin-end role-list-icon'
         src={`/botc/assets/icons/${role.id}.webp`}
-        style={{ height: 36, width: 36 }}
       />
       <IonLabel className='ion-text-nowrap'>
         <h2>
@@ -62,7 +51,7 @@ const RoleList: React.FC<Props> = ({
 
   return (
     <IonList>
-      {!!groupByType && renderGroups()}
+      {!!groupByType && renderGroups(Object.values(RoleType))}
       {!groupByType && roles.map(renderRole)}
     </IonList>
   )

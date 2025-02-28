@@ -1,16 +1,21 @@
 @font-face {
-  font-family: "Dumbledore";
-  src: url("/botc/assets/fonts/dumbledor.woff2") format("woff2");
+  font-family: 'Dumbledore';
+  src: url('/botc/assets/fonts/dumbledor.woff2') format('woff2');
 }
 
 .modal-overflow::part(content) {
   overflow: visible;
 }
 
-.flavor {
+.role-view-flavor {
   font-family: 'Dumbledore';
   font-style: italic;
   color: var(--ion-color-medium);
+}
+
+.role-list-icon {
+  width: 36px;
+  height: 36px;
 }
 
 ion-searchbar.sc-ion-searchbar-ios-h {
@@ -52,8 +57,8 @@ ion-searchbar.sc-ion-searchbar-ios-h {
   align-items: center;
 }
 
-.has-value.sc-ion-textarea-ios-h + .input-clear-icon.sc-ion-input-ios,
-.has-value.sc-ion-input-ios-h + .input-clear-icon.sc-ion-input-ios {
+.has-value.sc-ion-textarea-ios-h+.input-clear-icon.sc-ion-input-ios,
+.has-value.sc-ion-input-ios-h+.input-clear-icon.sc-ion-input-ios {
   visibility: visible;
   color: inherit;
   min-width: 30px;

@@ -4,16 +4,13 @@ import {
   IonIcon,
   IonInput,
   IonItem,
-  IonItemOption,
-  IonItemOptions,
-  IonItemSliding,
   IonLabel,
   IonList,
   IonReorder,
   IonReorderGroup,
   ItemReorderEventDetail
 } from '@ionic/react'
-import RoleIcon from '../roles/RoleIcon'
+import Token from '../Token'
 import Game from '../../models/games/Game'
 import { addCircleOutline } from 'ionicons/icons'
 import { Translation, useTranslation } from 'i18nano'
@@ -42,37 +39,24 @@ const PlayerList: React.FC<Props> = ({
       setGame({ ...game, players: newPlayers })
     }
 
-    const remove = () => {
-      const newPlayers = [...game.players]
-      newPlayers.splice(index, 1)
-      setGame({ ...game, players: newPlayers })
-    }
-
     return (
-      <IonItemSliding key={index}>
-        <IonItem color='light'>
-          <span slot='start' onClick={() => openPlayer(player)}>
-            <RoleIcon
-              size={36}
-              roleId={player.roles[player.roles.length - 1]}
-              status={player.status}
-              hideTitle
-            />
-          </span>
-          <IonInput 
-            placeholder={t('games.players.name')}
-            value={player.name} 
-            onIonChange={rename} 
-            autocapitalize='on' 
+      <IonItem color='light' key={index}>
+        <span slot='start' onClick={() => openPlayer(player)}>
+          <Token
+            size={36}
+            roleId={player.roles[player.roles.length - 1]}
+            status={player.status}
+            hideTitle
           />
-          <IonReorder slot="end" />
-        </IonItem>
-        <IonItemOptions onIonSwipe={remove}>
-          <IonItemOption color="danger" onClick={remove} expandable>
-            <Translation path="actions.delete" />
-          </IonItemOption>
-        </IonItemOptions>
-      </IonItemSliding>
+        </span>
+        <IonInput
+          placeholder={t('games.players.name')}
+          value={player.name}
+          onIonChange={rename}
+          autocapitalize='on'
+        />
+        <IonReorder className="ion-padding-start" slot="end" />
+      </IonItem>
     )
   }
 

@@ -23,7 +23,7 @@ import Role from '../../../../cli/src/models/Role'
 import RoleList from '../roles/RoleList'
 import { closeCircle } from 'ionicons/icons'
 import Script from '../../../../cli/src/schema/Script'
-import RoleIcon from '../roles/RoleIcon'
+import Token from '../Token'
 import PlayerStatus from '../../models/games/PlayerStatus'
 
 interface Props {
@@ -72,14 +72,14 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
   }
 
   function openModal() {
+    setQuery('')
     modalRef.current?.setCurrentBreakpoint(1)
     searchRef.current?.setFocus()
   }
 
   async function closeModal() {
     modalRef.current?.setCurrentBreakpoint(ZERO)
-    const input = await searchRef.current?.getInputElement()
-    input?.blur()
+    modalRef.current?.focus()
   }
 
   function changeStatus(e: Event) {
@@ -114,11 +114,11 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
       </IonItem>
       <IonItem color='light'>
         <IonSegment value={player.status} onIonChange={changeStatus}>
-          {Object.values(PlayerStatus).map(status => 
+          {Object.values(PlayerStatus).map(status =>
             <IonSegmentButton key={status} value={status}>
               <IonLabel>
-                <Translation 
-                  path={`games.statuses.${status.toLowerCase()}`} 
+                <Translation
+                  path={`games.statuses.${status.toLowerCase()}`}
                 />
               </IonLabel>
             </IonSegmentButton>
@@ -135,8 +135,8 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
             {player.roles?.map((role, id) =>
               <IonChip key={id}>
                 <span style={{ position: 'absolute', left: 0, top: 0 }}>
-                  <RoleIcon size={32} roleId={role} status={PlayerStatus.Alive}
-                    hideShadow hideTitle
+                  <Token size={32} roleId={role} status={PlayerStatus.Alive}
+                    hideTitle
                   />
                 </span>
                 <span style={{ paddingLeft: 26 }}>
@@ -194,7 +194,7 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
         <IonContent>
           <RoleList
             roles={getRoles()}
-            onSelectRole={(role) => {
+            onSelect={(role) => {
               setPlayer({
                 ...player,
                 roles: [...player.roles.filter(r => r !== role.id), role.id]

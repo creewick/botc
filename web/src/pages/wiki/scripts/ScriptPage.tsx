@@ -138,7 +138,7 @@ const ScriptPage: React.FC = () => {
               <RoleList 
                 roles={scriptRoles} 
                 getText={role => `${role.id}.ability`}
-                onSelectRole={openRole} 
+                onSelect={openRole} 
                 groupByType 
               />
             </IonSegmentContent>
@@ -146,14 +146,14 @@ const ScriptPage: React.FC = () => {
               <RoleList 
                 roles={firstNightOrder()}
                 getText={role => `${role.id}.firstNightReminder`} 
-                onSelectRole={openRole} 
+                onSelect={openRole} 
                 />
             </IonSegmentContent>
             <IonSegmentContent className='height-100' id='otherNights'>
               <RoleList 
                 roles={otherNightOrder()} 
                 getText={role => `${role.id}.otherNightReminder`}
-                onSelectRole={openRole} 
+                onSelect={openRole} 
               />
             </IonSegmentContent>
             {/* <IonSegmentContent id='jinxes' /> */}

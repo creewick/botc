@@ -1,6 +1,7 @@
 import {
   IonAlert,
   IonBackButton,
+  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
@@ -13,13 +14,15 @@ import {
   IonPage,
   IonSegment,
   IonSegmentButton,
+  IonSegmentContent,
+  IonSegmentView,
   IonTitle,
   IonToolbar
 } from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
-import { closeCircle } from 'ionicons/icons'
+import { closeCircle, copyOutline } from 'ionicons/icons'
 import React, { MouseEvent, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import useStorageState from '../../hooks/useStorageState'
 import Game from '../../models/games/Game'
 import PlayerTable from '../../components/players/PlayerTable'
@@ -28,20 +31,24 @@ import Player from '../../models/games/Player'
 import PlayerView from '../../components/players/PlayerView'
 import ScriptMeta from '../../../../cli/src/schema/ScriptMeta'
 import PlayerList from '../../components/players/PlayerList'
+import PlayerStatus from '../../models/games/PlayerStatus'
 
 enum GameTab {
-  List = 'list',
   Table = 'table',
+  List = 'list',
 }
+
+
+const PREFIX = 'games.'
 
 const scriptFiles = import.meta.glob('/public/assets/scripts/*.json')
 
 const GamePage: React.FC = () => {
+  const history = useHistory()
   const { id } = useParams<{ id: string }>()
-  const [game, setGame, storage] = 
+  const [game, setGame, storage] =
     useStorageState<Game>(`games.${id}`, {} as Game)
   const [allScripts, setAllScripts] = useState<Record<string, Script>>()
-  const [tab, setTab] = useState<GameTab>(GameTab.List)
   const [scriptModal, setScriptModal] = useState(false)
   const [player, setPlayer] = useState<Player>()
   const t = useTranslation()
@@ -73,7 +80,7 @@ const GamePage: React.FC = () => {
       .find(item => (item as ScriptMeta).id === '_meta') as ScriptMeta
 
     const setScript = () => {
-      setGame({...game, scriptId: id})
+      setGame({ ...game, scriptId: id })
       setScriptModal(false)
     }
 
@@ -98,6 +105,37 @@ const GamePage: React.FC = () => {
     return <IonIcon size='small' icon={closeCircle} onClick={onClick} />
   }
 
+  const getNewGame = (ids: string[]) => ({
+    name: `${t('games.game')} #${ids.length + 1}`,
+    created: new Date(),
+    players: game.players.map(p => ({
+      name: p.name,
+      roles: [],
+      status: PlayerStatus.Alive,
+    })),
+  })
+
+  function getUniqueUUID(ids: string[]): string {
+    const id = crypto.randomUUID()
+    return id in ids ? getUniqueUUID(ids) : id
+  }
+
+  async function copyGame() {
+    const ids = await getAllGameIds()
+    const id = getUniqueUUID(ids)
+    const game = getNewGame(ids)
+    await storage!.set(PREFIX + id, game)
+    history.push(`/games/${id}`)
+  }
+
+  async function getAllGameIds() {
+    const allKeys = await storage!.keys()
+    const gameKeys = allKeys
+      .filter(key => key.startsWith(PREFIX))
+      .map(key => key.replace(PREFIX, ''))
+    return gameKeys
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -108,34 +146,42 @@ const GamePage: React.FC = () => {
           <IonTitle>
             {game.name}
           </IonTitle>
+          <IonButtons slot='end'>
+            <IonButton onClick={copyGame}>
+              <IonIcon icon={copyOutline} />
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
 
       <IonContent fullscreen>
-        { tab === GameTab.List &&
-          <PlayerList
-            game={game}
-            setGame={setGame}
-            openPlayer={setPlayer}
-          />
-        }
-        { tab === GameTab.Table &&
-          <PlayerTable 
-            players={game.players ?? []} 
-            openPlayer={setPlayer}
-          />
-        }
+        <IonSegmentView style={{ height: 'calc(100vmin + 0.8rem)' }}>
+          <IonSegmentContent id='table' style={{ maxHeight: 'calc(100vmin + 0.8rem)', overflowY: 'scroll' }}>
+            <PlayerTable
+              players={game.players ?? []}
+              openPlayer={setPlayer}
+            />
+          </IonSegmentContent>
+          <IonSegmentContent id='list' style={{ maxHeight: 'calc(100vmin + 0.8rem)', overflowY: 'scroll' }}>
+            <PlayerList
+              game={game}
+              setGame={setGame}
+              openPlayer={setPlayer}
+            />
+          </IonSegmentContent>
+
+        </IonSegmentView>
         <IonList inset={true}>
           <IonItem color='light'>
-            <IonSegment 
-              value={tab} 
-              onIonChange={e => setTab(e.detail.value as GameTab)}
-            >
-              {Object.values(GameTab).map((tab) => 
-                <IonSegmentButton key={tab} value={tab}>
-                  <Translation path={`games.tabs.${tab}`} />
-                </IonSegmentButton>
-              )}
+            <IonSegment>
+              {Object
+                .values(GameTab)
+                .filter(tab => !(tab === GameTab.Table && (game.players?.length ?? 0) === 0))
+                .map((tab) =>
+                  <IonSegmentButton key={tab} value={tab} contentId={tab}>
+                    <Translation path={`games.tabs.${tab}`} />
+                  </IonSegmentButton>
+                )}
             </IonSegment>
           </IonItem>
           <IonItem color='light' onClick={() => setScriptModal(true)}>
@@ -146,9 +192,17 @@ const GamePage: React.FC = () => {
               readonly
             />
             {renderClearButton(
-              !!game.scriptId, 
-              () => setGame({...game, scriptId: undefined })
+              !!game.scriptId,
+              () => setGame({ ...game, scriptId: undefined })
             )}
+          </IonItem>
+          <IonItem color='light'>
+            <IonInput
+              labelPlacement='stacked'
+              label={t('games.name')}
+              value={game.name}
+              onIonChange={e => setGame({ ...game, name: e.detail.value! })}
+            />
           </IonItem>
           <IonItem color='light' button detail={false}>
             <IonLabel color='danger' id='delete-game'>
@@ -165,10 +219,10 @@ const GamePage: React.FC = () => {
           backdropBreakpoint={0.4}
         >
           {player &&
-            <PlayerView 
-              player={player} 
+            <PlayerView
+              player={player}
               setPlayer={updatePlayer}
-              scriptId={game.scriptId}  
+              scriptId={game.scriptId}
             />
           }
         </IonModal>
@@ -202,7 +256,7 @@ const GamePage: React.FC = () => {
               role: 'destructive',
               handler: async () => {
                 await storage!.remove(`games.${id}`)
-                history.back()
+                history.goBack()
                 setTimeout(() => location.reload(), 100)
               }
             }

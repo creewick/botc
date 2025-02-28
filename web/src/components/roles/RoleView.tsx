@@ -1,6 +1,6 @@
-import React, {  } from 'react'
+import React, { } from 'react'
 import Role from '../../../../cli/src/models/Role'
-import RoleIcon from './RoleIcon'
+import Token from '../Token'
 import {
   IonBadge,
   IonCol,
@@ -33,16 +33,16 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
   }
 
   const renderHeader = () =>
-    <div style={{ 
-      boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.23)', 
+    <div style={{
+      boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.23)',
       borderRadius: 'var(--border-radius) var(--border-radius) 0 0'
     }}>
       <IonGrid>
         <IonRow>
           <IonCol size="4" />
           <IonCol size="4">
-            <div style={{ margin: '-55% auto 0' }}> 
-              <RoleIcon roleId={role.id} />
+            <div style={{ margin: '-55% auto 0' }}>
+              <Token roleId={role.id} />
             </div>
           </IonCol>
           <IonCol size="4" className="ion-text-right">
@@ -72,7 +72,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
 
   const renderReminder = (reminder: string, index: number) =>
     <IonItem key={index}>
-      <RoleIcon roleId={role.id} size={36} hideTitle />
+      <Token roleId={role.id} size={36} hideTitle />
       <IonLabel className="ion-margin-start">
         {reminder}
       </IonLabel>
@@ -98,7 +98,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
     <IonItem key={index}>
       {/* <RoleIcon roleId={jinx.roleId} size={36} hideTitle /> */}
       {/* <IonLabel className="ion-margin-start"> */}
-        {/* {getLocalizedText(jinx.reason, settings.lang)} */}
+      {/* {getLocalizedText(jinx.reason, settings.lang)} */}
       {/* </IonLabel> */}
     </IonItem>
 
@@ -109,7 +109,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
         <p className="ion-text-center ion-no-margin ion-padding-horizontal">
           <Translation path={`${role.id}.ability`} />
         </p>
-        <p className="ion-text-center flavor ion-padding-horizontal">
+        <p className="ion-text-center role-view-flavor ion-padding-horizontal">
           <Translation path={`${role.id}.flavor`} />
         </p>
         {renderReminders()}
