@@ -1,11 +1,11 @@
 import { useContext, useEffect } from 'react'
-import { AppSettingsContext } from '../contexts/AppSettingsContext'
+import { SettingsContext } from '../contexts/SettingsContext'
 
 const DARK_MODE_CLASS = 'ion-palette-dark'
 const DARK_MODE_MEDIA = '(prefers-color-scheme: dark)'
 
 function useDarkMode() {
-  const { settings } = useContext(AppSettingsContext)
+  const { settings } = useContext(SettingsContext)
   function setDarkMode(value: boolean) {
     document.documentElement.classList.toggle(DARK_MODE_CLASS, value)
   }

@@ -28,7 +28,7 @@ import {
   refreshOutline,
   trashOutline
 } from 'ionicons/icons'
-import { AppSettingsContext } from '../contexts/AppSettingsContext'
+import { SettingsContext } from '../contexts/SettingsContext'
 
 const SettingsPage: React.FC = () => {
   const [workerToUpdate, setWorkerToUpdate] = useState<ServiceWorker>()
@@ -41,7 +41,7 @@ const SettingsPage: React.FC = () => {
     checkForUpdates,
     updateApp,
     clearStorage,
-  } = useContext(AppSettingsContext)
+  } = useContext(SettingsContext)
 
   useEffect(() => void checkForUpdate(), [])
 

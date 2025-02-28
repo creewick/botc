@@ -54,12 +54,12 @@ import '@ionic/react/css/palettes/dark.class.css'
 /* Theme variables */
 import './theme/variables.css'
 import './App.css'
-import { AppSettingsContext } from './contexts/AppSettingsContext'
+import { SettingsContext } from './contexts/SettingsContext'
 
 setupIonicReact({ mode: 'ios' })
 
 const App: React.FC = () => {
-  const { settings: appSettings } = useContext(AppSettingsContext)
+  const { settings: appSettings } = useContext(SettingsContext)
   const { change } = useTranslationChange()
 
   useEffect(() => change(appSettings.lang), [appSettings.lang])

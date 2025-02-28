@@ -1,7 +1,7 @@
-import AppSettings from './AppSettings'
+import Settings from './AppSettings'
 
 interface AppStorage {
-  settings: AppSettings
+  settings: Settings
 }
 
 export default AppStorage

@@ -1,11 +1,11 @@
-interface AppSettings {
+interface Settings {
   lang: string
   darkMode: boolean | null
 }
 
-export const APP_SETTINGS = {
+const SETTINGS = {
   lang: 'ru',
   darkMode: null
 }
 
-export default AppSettings
+export { type Settings, SETTINGS }

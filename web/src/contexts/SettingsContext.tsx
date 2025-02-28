@@ -6,11 +6,11 @@ import React, {
   useMemo,
   useState
 } from 'react'
-import AppSettings, { APP_SETTINGS } from '../models/AppSettings'
+import  { Settings, SETTINGS } from '../models/AppSettings'
 import { StorageContext } from './StorageContext'
 
-interface AppSettingsContextType {
-  settings: AppSettings
+interface SettingsContextType {
+  settings: Settings
   setLanguage(lang: string): void
   setDarkMode(darkMode: boolean | null): void
   checkForUpdates(): Promise<ServiceWorker | undefined>
@@ -24,9 +24,9 @@ interface Props {
 
 const KEY = 'settings'
 
-const AppSettingsContext = createContext<AppSettingsContextType>(
+const SettingsContext = createContext<SettingsContextType>(
   {
-    settings: APP_SETTINGS,
+    settings: SETTINGS,
     setLanguage: () => { },
     setDarkMode: () => { },
     checkForUpdates: () => Promise.resolve(undefined),
@@ -35,8 +35,8 @@ const AppSettingsContext = createContext<AppSettingsContextType>(
   }
 )
 
-const AppSettingsProvider: React.FC<Props> = ({ children }) => {
-  const [settings, setSettings] = useState<AppSettings>(APP_SETTINGS)
+const SettingsProvider: React.FC<Props> = ({ children }) => {
+  const [settings, setSettings] = useState<Settings>(SETTINGS)
   const storage = useContext(StorageContext)
 
   useEffect(() => void loadSettings(), [])
@@ -81,7 +81,7 @@ const AppSettingsProvider: React.FC<Props> = ({ children }) => {
 
   const clearStorage = useCallback(async () => {
     await storage?.clear()
-    setSettings(APP_SETTINGS)
+    setSettings(SETTINGS)
     window.location.reload()
   }, [])
 
@@ -105,10 +105,10 @@ const AppSettingsProvider: React.FC<Props> = ({ children }) => {
   )
 
   return (
-    <AppSettingsContext.Provider value={value}>
+    <SettingsContext.Provider value={value}>
       {children}
-    </AppSettingsContext.Provider>
+    </SettingsContext.Provider>
   )
 }
 
-export { AppSettingsContext, AppSettingsProvider, type AppSettingsContextType }
+export { SettingsContext, SettingsProvider, type SettingsContextType }
