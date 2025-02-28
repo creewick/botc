@@ -1,7 +1,6 @@
 import { Redirect, Route } from 'react-router-dom'
 import {
   IonApp,
-  IonBadge,
   IonIcon,
   IonLabel,
   IonRouterOutlet,
@@ -11,7 +10,19 @@ import {
   setupIonicReact
 } from '@ionic/react'
 import { IonReactHashRouter } from '@ionic/react-router'
-import { book, dice, home, settings } from 'ionicons/icons'
+import { book, dice, home, settings, statsChart } from 'ionicons/icons'
+import HomePage from './pages/HomePage'
+import WikiPage from './pages/WikiPage'
+import React, { Suspense, useContext, useEffect } from 'react'
+import RolesPage from './pages/wiki/RolesPage'
+import SettingsPage from './pages/SettingsPage'
+import { Translation, TranslationProvider, useTranslationChange } from 'i18nano'
+import ScriptsPage from './pages/wiki/ScriptsPage'
+import { locales } from './locales/locales'
+import ScriptPage from './pages/wiki/scripts/ScriptPage'
+import GamesPage from './pages/GamesPage'
+import GamePage from './pages/games/GamePage'
+import useDarkMode from './hooks/useDarkMode'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css'
@@ -43,74 +54,24 @@ import '@ionic/react/css/palettes/dark.class.css'
 /* Theme variables */
 import './theme/variables.css'
 import './App.css'
-
-import HomePage from './pages/HomePage'
-import WikiPage from './pages/WikiPage'
-import React, { Suspense, useEffect, useState } from 'react'
-import RolesPage from './pages/wiki/RolesPage'
-import SettingsPage from './pages/SettingsPage'
-import { Translation, TranslationProvider, useTranslationChange } from 'i18nano'
-import { APP_SETTINGS } from './models/AppSettings'
-import useStorageState from './hooks/useStorageState'
-import ScriptsPage from './pages/wiki/ScriptsPage'
-import { locales } from './locales/locales'
-import ScriptPage from './pages/wiki/scripts/ScriptPage'
-import GamesPage from './pages/GamesPage'
-import GamePage from './pages/games/GamePage'
+import { AppSettingsContext } from './contexts/AppSettingsContext'
 
 setupIonicReact({ mode: 'ios' })
 
 const App: React.FC = () => {
-  const { change, preload } = useTranslationChange()
-  const [appSettings] = useStorageState('settings', APP_SETTINGS)
-  const [workerToUpdate, setWorkerToUpdate] = useState<ServiceWorker>()
+  const { settings: appSettings } = useContext(AppSettingsContext)
+  const { change } = useTranslationChange()
 
-  useEffect(() => {
-    if ('serviceWorker' in navigator)
-      navigator.serviceWorker.ready.then((registration) => {
-        if (registration?.waiting)
-          setWorkerToUpdate(registration.waiting)
-      })
-  }, [])
+  useEffect(() => change(appSettings.lang), [appSettings.lang])
+  useDarkMode()
 
-  // useEffect(() => {
-  //   const handleTouchMove = (event: TouchEvent) => {
-  //     if (event.touches.length > 1) return
-  //     if (event.touches[0].pageX > 20 &&
-  //       event.touches[0].pageX < window.innerWidth - 20) return
-  //     event.preventDefault()
-  //   }
-
-  //   document.addEventListener('touchstart', handleTouchMove, { passive: false })
-
-  //   return () => {
-  //     document.removeEventListener('touchstart', handleTouchMove)
-  //   }
-  // }, [])
-
-  useEffect(() => {
-    preload(appSettings.lang)
-    change(appSettings.lang)
-  }, [appSettings.lang])
-
-  const setDarkMode = (isDark: boolean) => {
-    document.documentElement.classList.toggle('ion-palette-dark', isDark)
-  }
-
-  useEffect(() => {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
-    setDarkMode(prefersDark.matches)
-
-    const setDarkPaletteFromMediaQuery = (mediaQuery: MediaQueryListEvent) => {
-      setDarkMode(mediaQuery.matches)
-    }
-
-    prefersDark.addEventListener('change', setDarkPaletteFromMediaQuery)
-
-    return () => {
-      prefersDark.removeEventListener('change', setDarkPaletteFromMediaQuery)
-    }
-  }, [])
+  const renderTab = (name: string, icon: string, disabled = false) =>
+    <IonTabButton tab={name} href={`/${name}`} disabled={disabled}>
+      <IonIcon icon={icon} />
+      <IonLabel>
+        <Translation path={`tabs.${name}`} />
+      </IonLabel>
+    </IonTabButton>
 
   return (
     <IonApp>
@@ -156,33 +117,11 @@ const App: React.FC = () => {
             </Route>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
-            <IonTabButton tab="home" href="/home">
-              <IonIcon icon={home} />
-              <IonLabel>
-                <Translation path="tabs.home" />
-              </IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="wiki" href="/wiki">
-              <IonIcon icon={book} />
-              <IonLabel>
-                <Translation path="tabs.wiki" />
-              </IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="games" href="/games">
-              <IonIcon icon={dice} />
-              <IonLabel>
-                <Translation path="tabs.games" />
-              </IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="settings" href="/settings">
-              {workerToUpdate &&
-                <IonBadge color="primary">&nbsp;&nbsp;</IonBadge>
-              }
-              <IonIcon icon={settings} />
-              <IonLabel>
-                <Translation path="tabs.settings" />
-              </IonLabel>
-            </IonTabButton>
+            {renderTab('home', home)}
+            {renderTab('wiki', book)}
+            {renderTab('games', dice)}
+            {renderTab('trends', statsChart, true)}
+            {renderTab('settings', settings)}
           </IonTabBar>
         </IonTabs>
       </IonReactHashRouter>
