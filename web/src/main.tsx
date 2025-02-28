@@ -1,23 +1,22 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { Storage } from '@ionic/storage'
 import App from './App'
-
-import StorageContext from './contexts/StorageContext'
+import { StorageProvider } from './contexts/StorageContext'
 import { TranslationProvider } from 'i18nano'
 import { locales } from './locales/locales'
+import { AppSettingsProvider } from './contexts/AppSettingsContext'
 
 const container = document.getElementById('root')
 const root = createRoot(container!)
-const storage = new Storage()
-storage.create()
 
 root.render(
   <React.StrictMode>
-    <StorageContext.Provider value={storage}>
-      <TranslationProvider translations={locales.ui} fallback='en'>
-        <App />
-      </TranslationProvider>
-    </StorageContext.Provider>
+    <TranslationProvider translations={locales.ui} fallback='en'>
+      <StorageProvider>
+        <AppSettingsProvider>
+          <App />
+        </AppSettingsProvider>
+      </StorageProvider>
+    </TranslationProvider>
   </React.StrictMode>
 )

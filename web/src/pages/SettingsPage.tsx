@@ -15,10 +15,8 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react'
-import React, { useEffect, useState } from 'react'
-import useStorageState from '../hooks/useStorageState'
-import { APP_SETTINGS } from '../models/AppSettings'
-import { Translation, useTranslation, useTranslationChange } from 'i18nano'
+import React, { useContext, useEffect, useState } from 'react'
+import { Translation, useTranslation } from 'i18nano'
 import packageJson from '../../package.json'
 import {
   bugOutline,
@@ -30,200 +28,173 @@ import {
   refreshOutline,
   trashOutline
 } from 'ionicons/icons'
+import { AppSettingsContext } from '../contexts/AppSettingsContext'
 
 const SettingsPage: React.FC = () => {
-  const { change, preload } = useTranslationChange()
-  const t = useTranslation()
-  const [settings, setSettings, storage] =
-    useStorageState('settings', APP_SETTINGS)
   const [workerToUpdate, setWorkerToUpdate] = useState<ServiceWorker>()
   const [loading, setLoading] = useState(false)
-
-  const checkForUpdate = async () => {  
-    setLoading(true)
-    if (!('serviceWorker' in navigator)) 
-      return stopLoading()
-
-    const registration = await navigator.serviceWorker.ready
-    await registration.update()
-
-    if (registration.installing) {
-      const newWorker = registration.installing
-      newWorker.onstatechange = () => {
-        if (newWorker.state === 'installed') {
-          setWorkerToUpdate(newWorker) 
-          stopLoading()
-        }
-      }
-    } else if (registration.waiting) {
-      setWorkerToUpdate(registration.waiting)
-      stopLoading()
-    } else {
-      stopLoading()
-    }
-  }
-
-  const stopLoading = () => setTimeout(() => setLoading(false), 1000)
+  const t = useTranslation()
+  const {
+    settings,
+    setLanguage,
+    setDarkMode,
+    checkForUpdates,
+    updateApp,
+    clearStorage,
+  } = useContext(AppSettingsContext)
 
   useEffect(() => void checkForUpdate(), [])
 
-  const updateApp = () => {
-    workerToUpdate?.postMessage({ type: 'SKIP_WAITING' })
-    window.location.reload()
+  const checkForUpdate = async () => {
+    setLoading(true)
+    const serviceWorker = await checkForUpdates()
+    setTimeout(() => setLoading(false), 1000)
+    setWorkerToUpdate(serviceWorker)
   }
 
   const renderUpdateButton = () =>
     <IonList inset={true}>
-      <IonItem color="primary" button={true} detail={false} onClick={updateApp}>
-        <IonIcon slot="start" icon={refreshOutline} />
+      <IonItem
+        color='primary'
+        button={true}
+        detail={false}
+        onClick={() => updateApp(workerToUpdate!)}
+      >
+        <IonIcon slot='start' icon={refreshOutline} />
         <IonLabel>
-          <Translation path="settings.update" />
+          <Translation path='settings.update' />
         </IonLabel>
       </IonItem>
     </IonList>
 
-  const setLanguage = async (event: Event) => {
-    const target = event.target as HTMLIonSelectElement
-    const value = target.value
-    await setSettings({ ...settings, lang: value })
-    preload(value)
-    change(value)
-  }
-
-  const setDarkMode = async (event: Event) => {
-    const target = event.target as HTMLIonSelectElement
-    const value = target.value
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
-
-    await setSettings({ ...settings, darkMode: value })
-    document.documentElement.classList
-      .toggle('ion-palette-dark', value ?? prefersDark.matches)
-  }
+  const alertButtons = [
+    {
+      text: t('actions.cancel'),
+      role: 'cancel'
+    },
+    {
+      text: t('actions.delete'),
+      role: 'destructive',
+      handler: clearStorage
+    }
+  ]
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>
-            <Translation path="settings.title" />
+            <Translation path='settings.title' />
           </IonTitle>
         </IonToolbar>
-        {loading && <IonProgressBar type="indeterminate" />}
+        {loading && <IonProgressBar type='indeterminate' />}
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
+        <IonHeader collapse='condense'>
           <IonToolbar>
-            <IonTitle size="large">
-              <Translation path="settings.title" />
+            <IonTitle size='large'>
+              <Translation path='settings.title' />
             </IonTitle>
           </IonToolbar>
         </IonHeader>
 
         {workerToUpdate && renderUpdateButton()}
 
-        <IonText className="inset-list-title">
-          <Translation path="settings.title" />
+        <IonText className='inset-list-title'>
+          <Translation path='settings.title' />
         </IonText>
-        <IonList inset={true}>
-          <IonItem color="light">
-            <IonIcon slot="start" icon={languageOutline} />
-            <Translation path="settings.language" />
-            <IonSelect slot="end" interface="popover"
-              value={settings.lang} onIonChange={setLanguage}>
-              <IonSelectOption value="en">
+        <IonList inset>
+          <IonItem color='light'>
+            <IonIcon slot='start' icon={languageOutline} />
+            <Translation path='settings.language' />
+            <IonSelect
+              slot='end'
+              interface='popover'
+              value={settings.lang}
+              onIonChange={(e) => setLanguage(e.target.value)}
+            >
+              <IonSelectOption value='en'>
                 English
               </IonSelectOption>
-              <IonSelectOption value="ru">
+              <IonSelectOption value='ru'>
                 Русский
               </IonSelectOption>
             </IonSelect>
           </IonItem>
-          <IonItem color="light">
-            <IonIcon slot="start" icon={contrastOutline} />
-            <Translation path="settings.darkMode.title" />
-            <IonSelect slot="end" interface="popover"
-              value={settings.darkMode} onIonChange={setDarkMode}>
+          <IonItem color='light'>
+            <IonIcon slot='start' icon={contrastOutline} />
+            <Translation path='settings.darkMode.title' />
+            <IonSelect
+              slot='end'
+              interface='popover'
+              value={settings.darkMode}
+              onIonChange={(e) => setDarkMode(e.target.value)}
+            >
               <IonSelectOption value={true}>
-                <Translation path="settings.darkMode.true" />
+                <Translation path='settings.darkMode.true' />
               </IonSelectOption>
               <IonSelectOption value={false}>
-                <Translation path="settings.darkMode.false" />
+                <Translation path='settings.darkMode.false' />
               </IonSelectOption>
               <IonSelectOption value={null}>
-                <Translation path="settings.darkMode.null" />
+                <Translation path='settings.darkMode.null' />
               </IonSelectOption>
             </IonSelect>
           </IonItem>
         </IonList>
 
-        <IonText className="inset-list-title">
-          <Translation path="settings.data" />
+        <IonText className='inset-list-title'>
+          <Translation path='settings.data' />
         </IonText>
         <IonList inset={true}>
-          <IonItem color="light" disabled>
-            <IonIcon slot="start" icon={logInOutline} />
-            <Translation path="settings.import" />
+          <IonItem color='light' disabled>
+            <IonIcon slot='start' icon={logInOutline} />
+            <Translation path='settings.import' />
           </IonItem>
-          <IonItem color="light" disabled>
-            <IonIcon slot="start" icon={logOutOutline} />
-            <Translation path="settings.export" />
+          <IonItem color='light' disabled>
+            <IonIcon slot='start' icon={logOutOutline} />
+            <Translation path='settings.export' />
           </IonItem>
-          <IonItem color="light" id="clear-data">
-            <IonIcon color="danger" slot="start" icon={trashOutline} />
-            <IonLabel color="danger">
-              <Translation path="settings.clear" />
+          <IonItem color='light' id='clear-data'>
+            <IonIcon color='danger' slot='start' icon={trashOutline} />
+            <IonLabel color='danger'>
+              <Translation path='settings.clear' />
             </IonLabel>
           </IonItem>
         </IonList>
 
-        <IonText className="inset-list-title">
-          <Translation path="settings.about" />
+        <IonText className='inset-list-title'>
+          <Translation path='settings.about' />
         </IonText>
         <IonList inset={true}>
-          <IonItem color="light" href="https://github.com/creewick/botc">
-            <IonIcon slot="start" icon={logoGithub} />
-            <Translation path="settings.github" />
+          <IonItem color='light' href='https://github.com/creewick/botc'>
+            <IonIcon slot='start' icon={logoGithub} />
+            <Translation path='settings.github' />
           </IonItem>
           <IonItem
-            color="light"
-            href="https://github.com/creewick/botc/issues/new"
+            color='light'
+            href='https://github.com/creewick/botc/issues/new'
           >
-            <IonIcon slot="start" icon={bugOutline} />
-            <Translation path="settings.bug" />
+            <IonIcon slot='start' icon={bugOutline} />
+            <Translation path='settings.bug' />
           </IonItem>
-          <IonItem button detail={false} color="light" onClick={checkForUpdate}>
-            <IonIcon slot="start" icon={refreshOutline} />
-            <Translation path="settings.checkForUpdates" />
+          <IonItem button detail={false} color='light' onClick={checkForUpdate}>
+            <IonIcon slot='start' icon={refreshOutline} />
+            <Translation path='settings.checkForUpdates' />
           </IonItem>
         </IonList>
 
-        <div className="ion-text-center">
+        <div className='ion-text-center'>
           <IonNote>
-            <Translation path="settings.version" /> {packageJson.version}
-            <p>Service Worker: {
-              navigator.serviceWorker.controller?.state ?? 
-              'Not Registered'
-            }</p>
+            <Translation path='settings.version' /> {packageJson.version}
           </IonNote>
         </div>
 
         <IonAlert
-          trigger="clear-data"
+          trigger='clear-data'
           header={t('actions.deleteAllData') + '?'}
           message={t('actions.youCantUndoThisAction')}
-          buttons={[
-            {
-              text: t('actions.cancel'),
-              role: 'cancel'
-            }, {
-              text: t('actions.delete'),
-              role: 'destructive',
-              handler: async () => {
-                await storage?.clear()
-                window.location.reload()
-              }
-            }
-          ]}
+          buttons={alertButtons}
         />
       </IonContent>
     </IonPage>

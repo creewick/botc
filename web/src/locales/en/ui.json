@@ -3,6 +3,7 @@
     "home": "Home",
     "wiki": "Wiki",
     "games": "Games",
+    "trends": "Trends",
     "settings": "Settings"
   },
   "home": {
@@ -86,6 +87,7 @@
   "games": {
     "title": "Games",
     "game": "Game",
+    "name": "Name",
     "player": "Player",
     "script": "Script",
     "addPlayer": "Add Player",
