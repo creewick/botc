@@ -13,11 +13,6 @@
   color: var(--ion-color-medium);
 }
 
-.role-list-icon {
-  width: 36px;
-  height: 36px;
-}
-
 ion-searchbar.sc-ion-searchbar-ios-h {
   padding-top: 0;
   padding-bottom: 0;
@@ -64,4 +59,15 @@ ion-searchbar.sc-ion-searchbar-ios-h {
   min-width: 30px;
   min-height: 30px;
   margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  ion-tab-button {
+    display: flex;
+    flex-direction: row;
+  }
+
+  ion-tab-button > ion-icon {
+    padding-right: 8px;
+  }
 }

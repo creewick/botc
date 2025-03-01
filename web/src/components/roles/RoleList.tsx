@@ -36,7 +36,7 @@ const RoleList: React.FC<Props> = ({
   const renderRole = (role: Role) =>
     <IonItem button detail={false} key={role.id} onClick={() => onSelect(role)}>
       <IonImg
-        className='ion-margin-end role-list-icon'
+        className='ion-margin-end icon'
         src={`/botc/assets/icons/${role.id}.webp`}
       />
       <IonLabel className='ion-text-nowrap'>

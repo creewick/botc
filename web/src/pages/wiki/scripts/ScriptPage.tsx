@@ -16,16 +16,16 @@ import {
   IonSegmentContent
 } from '@ionic/react'
 import { Translation, TranslationProvider, useTranslation } from 'i18nano'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Script from '../../../../../cli/src/schema/Script'
-import characters from '../../../../public/assets/roles.json'
 import Role from '../../../../../cli/src/models/Role'
 import RoleList from '../../../components/roles/RoleList'
 import { locales } from '../../../locales/locales'
 import { shareOutline } from 'ionicons/icons'
 import { RoleListState } from '../../../models/RoleListState'
 import RoleView from '../../../components/roles/RoleView'
+import { RolesContext } from '../../../contexts/RolesProvider'
 
 const scriptFiles = import.meta.glob('/public/assets/scripts/*.json')
 
@@ -33,10 +33,12 @@ const ScriptPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const [script, setScript] = useState<Script>()
   const [scriptRoles, setScriptRoles] = useState<Role[]>([])
+  const { roles, loadRoles } = useContext(RolesContext)
   const t = useTranslation()
   const [showToast] = useIonToast()
-
   const [state, setState] = React.useState<RoleListState>({})
+
+  useEffect(() => void loadRoles(), [])
 
   const firstNightOrder = () => [...scriptRoles, ...specialRoles]
     .filter(role => role.firstNightOrder)
@@ -63,10 +65,10 @@ const ScriptPage: React.FC = () => {
     })
   }
 
-  const allRoles: Role[] = characters
+  const allRoles: Role[] = roles
     .filter(role => role.edition !== 'special') as Role[]
 
-  const specialRoles = characters
+  const specialRoles = roles
     .filter(role => role.edition === 'special') as Role[]
 
   const loadScript = async () => {
@@ -78,10 +80,12 @@ const ScriptPage: React.FC = () => {
 
     for (const item of script) {
       if (typeof item === 'string') {
-        const role = allRoles.find(role => role.id === item.replaceAll('_', ''))
+        const role = allRoles
+          .find(role => role.id === item.replaceAll('_', ''))
         if (role) roles.push(role)
       } else if (item.id) {
-        const role = allRoles.find(role => role.id === item.id.replaceAll('_', ''))
+        const role = allRoles
+          .find(role => role.id === item.id.replaceAll('_', ''))
         if (role) roles.push(role)
       }
     }

@@ -18,12 +18,6 @@ interface SettingsContextType {
   clearStorage(): Promise<void>
 }
 
-interface Props {
-  children: React.ReactNode
-}
-
-const KEY = 'settings'
-
 const SettingsContext = createContext<SettingsContextType>(
   {
     settings: SETTINGS,
@@ -34,6 +28,12 @@ const SettingsContext = createContext<SettingsContextType>(
     clearStorage: () => Promise.resolve()
   }
 )
+
+interface Props {
+  children: React.ReactNode
+}
+
+const KEY = 'settings'
 
 const SettingsProvider: React.FC<Props> = ({ children }) => {
   const [settings, setSettings] = useState<Settings>(SETTINGS)

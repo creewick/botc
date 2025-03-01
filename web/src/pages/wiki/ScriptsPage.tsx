@@ -18,7 +18,7 @@ import {
   IonSearchbar
 } from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
-import React, { useEffect, useState } from 'react'
+import React, { MouseEvent, useEffect, useState } from 'react'
 import Script from '../../../../cli/src/schema/Script'
 import ScriptMeta from '../../../../cli/src/schema/ScriptMeta'
 import ScriptMetaExtended from '../../../../cli/src/models/ScriptMetaExtended'
@@ -60,7 +60,9 @@ const ScriptsPage: React.FC = () => {
 
   useEffect(() => void loadScripts(), [])
 
-  const onCopy = async (script: Script) => {
+  const onCopy = async (event: MouseEvent, script: Script) => {
+    event.preventDefault()
+    event.stopPropagation()
     await navigator.clipboard.writeText(JSON.stringify(script))
     showToast({
       message: t('scripts.copied'),
@@ -109,7 +111,7 @@ const ScriptsPage: React.FC = () => {
           className='ion-no-padding'
           fill='clear'
           size='default'
-          onClick={() => onCopy(script)}
+          onClick={(e) => onCopy(e, script)}
           id='copyScript'
         >
           <IonIcon icon={shareOutline} color='primary' />

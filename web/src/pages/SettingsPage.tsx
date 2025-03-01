@@ -178,7 +178,13 @@ const SettingsPage: React.FC = () => {
             <IonIcon slot='start' icon={bugOutline} />
             <Translation path='settings.bug' />
           </IonItem>
-          <IonItem button detail={false} color='light' onClick={checkForUpdate}>
+          <IonItem
+            button
+            detail={false}
+            color='light'
+            onClick={checkForUpdate}
+            disabled={loading}
+          >
             <IonIcon slot='start' icon={refreshOutline} />
             <Translation path='settings.checkForUpdates' />
           </IonItem>

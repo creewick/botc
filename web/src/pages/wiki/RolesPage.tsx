@@ -11,8 +11,7 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react'
-import React, { useEffect } from 'react'
-import characters from '../../../public/assets/roles.json'
+import React, { useContext, useEffect } from 'react'
 import Role from '../../../../cli/src/models/Role'
 import {
   Key,
@@ -26,13 +25,17 @@ import RoleFilters from '../../components/roles/RoleFilters'
 import RoleView from '../../components/roles/RoleView'
 import { Translation, useTranslation } from 'i18nano'
 import { useParams } from 'react-router-dom'
+import { RolesContext } from '../../contexts/RolesProvider'
 
 const RolesPage: React.FC = () => {
   const t = useTranslation()
   const { id } = useParams<{ id?: string }>()
+  const { roles, loadRoles } = useContext(RolesContext)
 
-  const allRoles: Role[] = characters
-    .filter(role => role.edition !== 'special') as Role[]
+  useEffect(() => void loadRoles(), [])
+
+  const allRoles: Role[] = roles
+    .filter(role => role.edition !== 'special')
 
   useEffect(() => {
     if (id) {
@@ -92,7 +95,7 @@ const RolesPage: React.FC = () => {
     setState({ ...state, type: state.type === type ? undefined : type })
   }
 
-  function getRoles() {
+  function getDisplayRoles() {
     const filtered = filterRoles(allRoles as Role[], state.query, state.type)
     const sorted = sortRoles(filtered, state.sort?.key)
     return sorted
@@ -147,7 +150,7 @@ const RolesPage: React.FC = () => {
           </IonGrid>
         </IonHeader>
         <RoleList
-          roles={getRoles()}
+          roles={getDisplayRoles()}
           getText={role => `${role.id}.ability`}
           onSelect={openRole}
         />
