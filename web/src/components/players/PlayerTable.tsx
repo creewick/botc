@@ -1,6 +1,8 @@
 import React from 'react'
 import Player from '../../models/games/Player'
 import Token from '../Token'
+import RoleType from '../../../../cli/src/enums/RoleType'
+import { Translation } from 'i18nano'
 
 interface Props {
   players: Player[]
@@ -8,6 +10,17 @@ interface Props {
 }
 
 const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
+
+  const getCount = (type: RoleType): number|undefined => {
+    if (type === RoleType.Townsfolk) 
+      return Math.floor((players.length - 1) / 3) * 2 + 1
+    if (type === RoleType.Outsider)
+      return (players.length - 1) % 3 - (players.length < 7 ? 1 : 0)
+    if (type === RoleType.Minion)
+      return Math.max(1, Math.floor((players.length - 1) / 3) - 1)
+    if (type === RoleType.Demon)
+      return 1
+  } 
 
   const renderPlayer = (player: Player, index: number) => {
     const angle = (index / players.length) * (2 * Math.PI) + Math.PI / 2
@@ -48,6 +61,16 @@ const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
 
   return (
     <div className='circle-container'>
+      <div>
+        {Object.values(RoleType)
+          .filter(type => ![RoleType.Fabled, RoleType.Traveler].includes(type))
+          .map(type => 
+            <div key={type}>
+              { getCount(type) } {' '}
+              <Translation path={`roles.types.${type.toLowerCase()}`} />
+            </div>
+        )}
+      </div>
       {players.map(renderPlayer)}
     </div>
   )

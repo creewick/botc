@@ -16,6 +16,7 @@ import {
   IonSegmentButton,
   IonSegmentContent,
   IonSegmentView,
+  IonTextarea,
   IonTitle,
   IonToolbar
 } from '@ionic/react'
@@ -191,6 +192,22 @@ const GamePage: React.FC = () => {
               value={game.name}
               onIonChange={e => setGame({ ...game, name: e.detail.value! })}
             />
+          </IonItem>
+          <IonItem color='light'>
+            <IonTextarea
+              autocapitalize='on'
+              labelPlacement='stacked'
+              label={t('games.players.note')}
+              value={game.note}
+              autoGrow={true}
+              onIonInput={e => setGame({ ...game, note: e.detail.value! })}
+            />
+            <button
+              className='input-clear-icon sc-ion-input-ios'
+              onClick={() => setGame({ ...game, note: undefined })}
+            >
+              <IonIcon className='sc-ion-input-ios ios' icon={closeCircle} />
+            </button>
           </IonItem>
           <IonItem color='light' button detail={false}>
             <IonLabel color='danger' id='delete-game'>
