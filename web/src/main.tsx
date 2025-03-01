@@ -6,6 +6,7 @@ import { TranslationProvider } from 'i18nano'
 import { locales } from './locales/locales'
 import { SettingsProvider } from './contexts/SettingsContext'
 import { RolesProvider } from './contexts/RolesProvider'
+import { ScriptsProvider } from './contexts/ScriptsContext'
 
 const container = document.getElementById('root')
 const root = createRoot(container!)
@@ -16,7 +17,9 @@ root.render(
       <StorageProvider>
         <SettingsProvider>
           <RolesProvider>
-           <App />
+            <ScriptsProvider>
+              <App />
+            </ScriptsProvider>
           </RolesProvider>
         </SettingsProvider>
       </StorageProvider>

@@ -21,7 +21,7 @@ import {
 } from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
 import { closeCircle, copyOutline } from 'ionicons/icons'
-import React, { MouseEvent, useEffect, useState } from 'react'
+import React, { MouseEvent, useContext, useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import useStorageState from '../../hooks/useStorageState'
 import Game from '../../models/games/Game'
@@ -32,38 +32,26 @@ import PlayerView from '../../components/players/PlayerView'
 import ScriptMeta from '../../../../cli/src/schema/ScriptMeta'
 import PlayerList from '../../components/players/PlayerList'
 import PlayerStatus from '../../models/games/PlayerStatus'
+import { ScriptsContext } from '../../contexts/ScriptsContext'
 
 enum GameTab {
   Table = 'table',
   List = 'list',
 }
 
-
 const PREFIX = 'games.'
-
-const scriptFiles = import.meta.glob('/public/assets/scripts/*.json')
 
 const GamePage: React.FC = () => {
   const history = useHistory()
   const { id } = useParams<{ id: string }>()
   const [game, setGame, storage] =
     useStorageState<Game>(`games.${id}`, {} as Game)
-  const [allScripts, setAllScripts] = useState<Record<string, Script>>()
+  const { scripts, loadScripts } = useContext(ScriptsContext)
   const [scriptModal, setScriptModal] = useState(false)
   const [player, setPlayer] = useState<Player>()
   const t = useTranslation()
 
   useEffect(() => void loadScripts(), [])
-
-  const loadScripts = async () => {
-    const result: Record<string, Script> = {}
-    for (const path in scriptFiles) {
-      const module = await scriptFiles[path]() as { default: Script }
-      const id = path.split('/').pop()!.replace('.json', '')
-      result[id] = module.default
-    }
-    setAllScripts(result)
-  }
 
   const updatePlayer = (value?: Player) => {
     setGame({
@@ -235,7 +223,7 @@ const GamePage: React.FC = () => {
         >
           <IonContent>
             <IonList>
-              {Object.entries(allScripts ?? {})
+              {Object.entries(scripts ?? {})
                 .map(([id, script], index) =>
                   renderScript(id, script, index))
               }

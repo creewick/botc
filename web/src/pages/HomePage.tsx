@@ -58,7 +58,7 @@ const HomePage: React.FC = () => (
       <IonImg
         className="ion-text-center ion-margin-bottom"
         src="botc/assets/images/logo-180.png"
-        style={{ height: 100 }} />
+        style={{ height: 100, width: 100, margin: 'auto' }} />
     </IonContent>
   </IonPage>
 )

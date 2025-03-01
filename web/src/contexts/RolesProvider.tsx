@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { createContext, useCallback, useState } from 'react'
 import Role from '../../../cli/src/models/Role'
 
 interface RolesContextType {
@@ -6,7 +6,7 @@ interface RolesContextType {
   loadRoles: () => Promise<void>
 }
 
-const RolesContext = React.createContext<RolesContextType>({
+const RolesContext = createContext<RolesContextType>({
   roles: [],
   loadRoles: () => Promise.resolve()
 })

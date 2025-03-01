@@ -26,19 +26,25 @@ import { shareOutline } from 'ionicons/icons'
 import { RoleListState } from '../../../models/RoleListState'
 import RoleView from '../../../components/roles/RoleView'
 import { RolesContext } from '../../../contexts/RolesProvider'
+import { ScriptsContext } from '../../../contexts/ScriptsContext'
 
-const scriptFiles = import.meta.glob('/public/assets/scripts/*.json')
 
 const ScriptPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const [script, setScript] = useState<Script>()
   const [scriptRoles, setScriptRoles] = useState<Role[]>([])
+  const { scripts, loadScripts } = useContext(ScriptsContext)
   const { roles, loadRoles } = useContext(RolesContext)
   const t = useTranslation()
   const [showToast] = useIonToast()
   const [state, setState] = React.useState<RoleListState>({})
 
-  useEffect(() => void loadRoles(), [])
+  useEffect(() => {
+    void loadRoles()
+    void loadScripts()
+  }, [])
+
+  useEffect(() => void loadScript(), [scripts, id])
 
   const firstNightOrder = () => [...scriptRoles, ...specialRoles]
     .filter(role => role.firstNightOrder)
@@ -72,9 +78,8 @@ const ScriptPage: React.FC = () => {
     .filter(role => role.edition === 'special') as Role[]
 
   const loadScript = async () => {
-    const path = `/public/assets/scripts/${id}.json`
-    const module = await scriptFiles[path]() as { default: Script }
-    const script: Script = module.default
+    if (!id || !scripts[id]) return
+    const script = scripts[id]
     const roles: Role[] = []
     setScript(script)
 
@@ -92,9 +97,6 @@ const ScriptPage: React.FC = () => {
 
     setScriptRoles(roles)
   }
-
-  useEffect(() => void loadScript(), [id])
-
 
   return (
     <IonPage>

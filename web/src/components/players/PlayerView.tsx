@@ -31,6 +31,7 @@ import Script from '../../../../cli/src/schema/Script'
 import Token from '../Token'
 import PlayerStatus from '../../models/games/PlayerStatus'
 import { RolesContext } from '../../contexts/RolesProvider'
+import { ScriptsContext } from '../../contexts/ScriptsContext'
 
 interface Props {
   player: Player
@@ -38,7 +39,6 @@ interface Props {
   scriptId?: string
 }
 
-const scriptFiles = import.meta.glob('/public/assets/scripts/*.json')
 const ZERO = 0.00001
 
 
@@ -49,8 +49,14 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
   const t = useTranslation()
   const [query, setQuery] = useState('')
   const [scriptRoles, setScriptRoles] = useState<Role[]>([])
+  const { scripts, loadScripts } = useContext(ScriptsContext)
 
-  useEffect(() => void loadRoles(), [])
+  useEffect(() => {
+    void loadRoles()
+    void loadScripts()
+  }, [])
+
+  useEffect(() => loadScript(), [scripts, scriptId])
 
   const getRoles = () => (scriptId ? scriptRoles : roles as Role[])
     .filter(role => role.edition !== 'special' && (!query ||
@@ -58,29 +64,29 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
       t(`${role.id}.ability`).toLowerCase().includes(query.toLowerCase())))
     .sort((a, b) => t(`${a.id}.name`).localeCompare(t(`${b.id}.name`)))
 
-  const loadScript = async () => {
-    const path = `/public/assets/scripts/${scriptId}.json`
-    const module = await scriptFiles[path]() as { default: Script }
-    const script: Script = module.default
-    const roles: Role[] = []
+  function loadScript() {
+    if (!scriptId || !scripts[scriptId]) return
+    const script = scripts[scriptId] as Script
+    const result: Role[] = []
 
     for (const item of script) {
       if (typeof item === 'string') {
         const role = roles
           .find(role => role.id === item.replaceAll('_', '')) as Role
-        if (role) roles.push(role)
+        if (role) result.push(role)
       } else if (item.id) {
         const role = roles
           .find(role => role.id === item.id.replaceAll('_', '')) as Role
-        if (role) roles.push(role)
+        if (role) result.push(role)
       }
     }
 
-    setScriptRoles(roles)
+    setScriptRoles(result)
   }
 
   function openModal() {
     setQuery('')
+    searchRef.current!.value = ''
     modalRef.current?.setCurrentBreakpoint(1)
     searchRef.current?.setFocus()
   }
@@ -94,10 +100,6 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId }: Props) => {
     const status = (e.target as HTMLIonSegmentElement).value as PlayerStatus
     setPlayer({ ...player, status })
   }
-
-  useEffect(() => {
-    if (scriptId) void loadScript()
-  }, [])
 
   function removeRole(event: MouseEvent, role: string) {
     setPlayer({

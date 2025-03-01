@@ -111,4 +111,4 @@ const SettingsProvider: React.FC<Props> = ({ children }) => {
   )
 }
 
-export { SettingsContext, SettingsProvider, type SettingsContextType }
+export { SettingsContext, SettingsProvider }

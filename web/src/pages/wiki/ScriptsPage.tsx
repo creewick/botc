@@ -18,24 +18,24 @@ import {
   IonSearchbar
 } from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
-import React, { MouseEvent, useEffect, useState } from 'react'
+import React, { MouseEvent, useContext, useEffect, useState } from 'react'
 import Script from '../../../../cli/src/schema/Script'
 import ScriptMeta from '../../../../cli/src/schema/ScriptMeta'
 import ScriptMetaExtended from '../../../../cli/src/models/ScriptMetaExtended'
 import { shareOutline } from 'ionicons/icons'
 import { ScriptListState } from '../../models/ScriptListState'
+import { ScriptsContext } from '../../contexts/ScriptsContext'
 
-const scriptFiles = import.meta.glob('/public/assets/scripts/*.json')
 
 const ScriptsPage: React.FC = () => {
   const t = useTranslation()
-  const [allScripts, setAllScripts] = useState<Record<string, Script>>()
+  const { scripts, loadScripts } = useContext(ScriptsContext)
   const [state, setState] = useState<ScriptListState>({})
   const [showToast] = useIonToast()
 
   function getScripts() {
     return Object
-      .entries(allScripts ?? {})
+      .entries(scripts ?? {})
       .filter(([id, script]) => {
         const meta = script.find(item =>
           (item as ScriptMeta).id === '_meta') as ScriptMetaExtended
@@ -47,17 +47,6 @@ const ScriptsPage: React.FC = () => {
             meta.tags?.includes(state.tag))
       })
   }
-
-  const loadScripts = async () => {
-    const result: Record<string, Script> = {}
-    for (const path in scriptFiles) {
-      const module = await scriptFiles[path]() as { default: Script }
-      const id = path.split('/').pop()!.replace('.json', '')
-      result[id] = module.default
-    }
-    setAllScripts(result)
-  }
-
   useEffect(() => void loadScripts(), [])
 
   const onCopy = async (event: MouseEvent, script: Script) => {
@@ -130,7 +119,7 @@ const ScriptsPage: React.FC = () => {
           <IonTitle>
             <Translation path='scripts.title' />
           </IonTitle>
-          {!allScripts && <IonProgressBar type="indeterminate" />}
+          {!scripts && <IonProgressBar type="indeterminate" />}
         </IonToolbar>
       </IonHeader>
 
