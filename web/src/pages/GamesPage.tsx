@@ -24,6 +24,11 @@ const GamesPage: React.FC = () => {
 
   useEffect(() => void loadGames(), [])
 
+  async function createGame() {
+    const id = await addGame()
+    history.push(`/games/${id}`)
+  }
+
   const sortGames = ([_, a]: [string, Game], [__, b]: [string, Game]) =>
     a.created < b.created ? 1 : -1
 
@@ -43,11 +48,6 @@ const GamesPage: React.FC = () => {
     .entries(games)
     .sort(sortGames)
     .map(renderGame)
-
-  async function createGame() {
-    const id = await addGame()
-    history.push(`/games/${id}`)
-  }
 
   return (
     <IonPage>

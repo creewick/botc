@@ -47,14 +47,14 @@ const GamePage: React.FC = () => {
   const { games, loadGames, addGame, deleteGame } = useContext(GamesContext)
   const { scripts, loadScripts } = useContext(ScriptsContext)
   const [scriptModal, setScriptModal] = useState(false)
-  const [game, setGame] = useState<Game>(games[id])
+  const [game, setGame] = useState<Game>({} as Game)
   const [player, setPlayer] = useState<Player>()
 
-  useEffect(() => setGame(games[id]), [games])
   useEffect(() => {
     void loadScripts()
-    void loadGames
+    void loadGames()
   }, [])
+  useEffect(() => setGame(games[id] ?? {} as Game), [games])
 
   const updatePlayer = (value?: Player) => {
     setGame({

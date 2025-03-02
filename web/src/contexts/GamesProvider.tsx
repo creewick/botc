@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useCallback, useContext, useState } from 'react'
 import Game from '../models/games/Game'
 import { StorageContext } from './StorageContext'
 import { useTranslation } from 'i18nano'
@@ -29,7 +29,9 @@ const GamesProvider: React.FC<Props> = ({ children }) => {
   const storage = useContext(StorageContext)
   const t = useTranslation()
 
-  async function loadGames() {
+  const loadGames = useCallback(async () => {
+    if (Object.values(games).length) return
+
     const allKeys = await storage!.keys()
     const gameKeys = allKeys.filter(key => key.startsWith(PREFIX))
     const result: Record<string, Game> = {}
@@ -41,25 +43,25 @@ const GamesProvider: React.FC<Props> = ({ children }) => {
       })
     )
     setGames(result)
-  }
+  }, [])
 
-  async function addGame(gameToCopy?: Game) {
-    const id = getUniqueUUID()
+  const addGame = useCallback(async (gameToCopy?: Game) => {
     const game = getNewGame(gameToCopy)
+    const id = getUniqueUUID()
 
     await storage!.set(PREFIX + id, game)
-    setGames({ ...games, [id]: game })
+    setGames(prev => ({ ...prev, [id]: game }))
 
     return id
-  }
+  }, [games])
 
-  async function deleteGame(id: string) {
+  const deleteGame = useCallback(async (id: string) => {
     await storage!.remove(`${PREFIX}${id}`)
     setGames(prev => {
       const { [id]: _, ...rest } = prev
       return rest
     })
-  }
+  }, [])
 
   function getUniqueUUID(): string {
     const id = crypto.randomUUID()

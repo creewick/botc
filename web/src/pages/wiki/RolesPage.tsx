@@ -44,7 +44,7 @@ const RolesPage: React.FC = () => {
         setState(prev => ({ ...prev, role: foundRole }))
       }
     }
-  }, [id])
+  }, [id, roles])
 
   function openRole(role: Role) {
     setState(({ ...state, role }))
