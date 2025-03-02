@@ -1,28 +1,15 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
 import App from './App'
-import  { StorageProvider } from './contexts/StorageContext'
-import { TranslationProvider } from 'i18nano'
-import { locales } from './locales/locales'
-import { SettingsProvider } from './contexts/SettingsContext'
-import { RolesProvider } from './contexts/RolesProvider'
-import { ScriptsProvider } from './contexts/ScriptsContext'
+import { createRoot } from 'react-dom/client'
+import ContextComposition from './contexts/ContextComposition'
 
 const container = document.getElementById('root')
 const root = createRoot(container!)
 
 root.render(
   <React.StrictMode>
-    <TranslationProvider translations={locales.ui} fallback='en'>
-      <StorageProvider>
-        <SettingsProvider>
-          <RolesProvider>
-            <ScriptsProvider>
-              <App />
-            </ScriptsProvider>
-          </RolesProvider>
-        </SettingsProvider>
-      </StorageProvider>
-    </TranslationProvider>
+    <ContextComposition>
+      <App />
+    </ContextComposition>
   </React.StrictMode>
 )

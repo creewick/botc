@@ -16,6 +16,10 @@ export default [
       'semi': ['error', 'never'], 
       'quotes': ['error', 'single'],
       'max-len': ['error', {code: 80}],
+      '@typescript-eslint/no-unused-vars': [
+        'error', 
+        { 'argsIgnorePattern': '^_', 'varsIgnorePattern': '^_', }
+      ],
       '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }]
     }
   }

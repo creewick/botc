@@ -8,65 +8,44 @@ import {
   IonLabel,
   IonList,
   IonPage,
-  IonRefresher,
-  IonRefresherContent,
   IonTitle,
-  IonToolbar,
-  RefresherEventDetail
+  IonToolbar
 } from '@ionic/react'
-import { Translation, useTranslation } from 'i18nano'
+import { Translation } from 'i18nano'
 import { addCircleOutline } from 'ionicons/icons'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { GamesContext } from '../contexts/GamesProvider'
 import Game from '../models/games/Game'
 import { useHistory } from 'react-router-dom'
-import { StorageContext } from '../contexts/StorageContext'
-
-const PREFIX = 'games.'
 
 const GamesPage: React.FC = () => {
-  const [games, setGames] = useState<Record<string, Game>>({})
-  const storage = useContext(StorageContext)
-  const t = useTranslation()
+  const { games, loadGames, addGame } = useContext(GamesContext)
   const history = useHistory()
 
-  useEffect(() => void getAllGames(), [])
+  useEffect(() => void loadGames(), [])
 
-  async function getAllGames() {
-    const allKeys = await storage!.keys()
-    const gameKeys = allKeys.filter(key => key.startsWith(PREFIX))
-    const games: Record<string, Game> = {}
+  const sortGames = ([_, a]: [string, Game], [__, b]: [string, Game]) =>
+    a.created < b.created ? 1 : -1
 
-    await Promise.all(
-      gameKeys.map(async key => {
-        const id = key.replace(PREFIX, '')
-        games[id] = await storage!.get(key)
-      })
-    )
+  const renderGame = ([id, game]: [string, Game]) =>
+    <IonItem key={id} routerLink={`/games/${id}`}>
+      <IonLabel>
+        <h2>{game.name}</h2>
+        <p>
+          {game.created.toLocaleDateString()}
+          {' '}
+          {game.created.toLocaleTimeString()}
+        </p>
+      </IonLabel>
+    </IonItem>
 
-    setGames(games)
-  }
+  const renderGames = () => Object
+    .entries(games)
+    .sort(sortGames)
+    .map(renderGame)
 
-  async function refresh(event: CustomEvent<RefresherEventDetail>) {
-    await getAllGames()
-    event.detail.complete()
-  }
-
-  function getUniqueUUID(): string {
-    const id = crypto.randomUUID()
-    return id in games ? getUniqueUUID() : id
-  }
-
-  const getNewGame = () => ({
-    name: `${t('games.game')} #${Object.keys(games).length + 1}`,
-    created: new Date(),
-    players: [],
-  })
-
-  async function addGame() {
-    const id = getUniqueUUID()
-    const game = getNewGame()
-    await storage!.set(PREFIX + id, game)
-    setGames({ ...games, [id]: game })
+  async function createGame() {
+    const id = await addGame()
     history.push(`/games/${id}`)
   }
 
@@ -78,7 +57,7 @@ const GamesPage: React.FC = () => {
             <Translation path='games.title' />
           </IonTitle>
           <IonButtons slot='end'>
-            <IonButton onClick={addGame}>
+            <IonButton onClick={createGame}>
               <IonIcon icon={addCircleOutline} />
             </IonButton>
           </IonButtons>
@@ -93,21 +72,8 @@ const GamesPage: React.FC = () => {
             </IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonRefresher slot="fixed" onIonRefresh={refresh}>
-          <IonRefresherContent />
-        </IonRefresher>
         <IonList>
-          {Object
-            .entries(games)
-            .sort((a, b) => a[1].created < b[1].created ? 1 : -1)
-            .map(([id, game]) =>
-              <IonItem key={id} routerLink={`/games/${id}`}>
-                <IonLabel>
-                  <h2>{game.name}</h2>
-                  <p>{game.created.toLocaleDateString()}</p>
-                </IonLabel>
-              </IonItem>
-            )}
+          {renderGames()}
         </IonList>
       </IonContent>
     </IonPage>

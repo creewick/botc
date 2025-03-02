@@ -24,7 +24,6 @@ import { Translation, useTranslation } from 'i18nano'
 import { closeCircle, copyOutline } from 'ionicons/icons'
 import React, { MouseEvent, useContext, useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import useStorageState from '../../hooks/useStorageState'
 import Game from '../../models/games/Game'
 import PlayerTable from '../../components/players/PlayerTable'
 import Script from '../../../../cli/src/schema/Script'
@@ -32,27 +31,30 @@ import Player from '../../models/games/Player'
 import PlayerView from '../../components/players/PlayerView'
 import ScriptMeta from '../../../../cli/src/schema/ScriptMeta'
 import PlayerList from '../../components/players/PlayerList'
-import PlayerStatus from '../../models/games/PlayerStatus'
 import { ScriptsContext } from '../../contexts/ScriptsContext'
+import { GamesContext } from '../../contexts/GamesProvider'
 
 enum GameTab {
   Table = 'table',
   List = 'list',
 }
 
-const PREFIX = 'games.'
-
 const GamePage: React.FC = () => {
-  const history = useHistory()
   const { id } = useParams<{ id: string }>()
-  const [game, setGame, storage] =
-    useStorageState<Game>(`games.${id}`, {} as Game)
-  const { scripts, loadScripts } = useContext(ScriptsContext)
-  const [scriptModal, setScriptModal] = useState(false)
-  const [player, setPlayer] = useState<Player>()
+  const history = useHistory()
   const t = useTranslation()
 
-  useEffect(() => void loadScripts(), [])
+  const { games, loadGames, addGame, deleteGame } = useContext(GamesContext)
+  const { scripts, loadScripts } = useContext(ScriptsContext)
+  const [scriptModal, setScriptModal] = useState(false)
+  const [game, setGame] = useState<Game>(games[id])
+  const [player, setPlayer] = useState<Player>()
+
+  useEffect(() => setGame(games[id]), [games])
+  useEffect(() => {
+    void loadScripts()
+    void loadGames
+  }, [])
 
   const updatePlayer = (value?: Player) => {
     setGame({
@@ -94,35 +96,10 @@ const GamePage: React.FC = () => {
     return <IonIcon size='small' icon={closeCircle} onClick={onClick} />
   }
 
-  const getNewGame = (ids: string[]) => ({
-    name: `${t('games.game')} #${ids.length + 1}`,
-    created: new Date(),
-    players: game.players.map(p => ({
-      name: p.name,
-      roles: [],
-      status: PlayerStatus.Alive,
-    })),
-  })
-
-  function getUniqueUUID(ids: string[]): string {
-    const id = crypto.randomUUID()
-    return id in ids ? getUniqueUUID(ids) : id
-  }
-
   async function copyGame() {
-    const ids = await getAllGameIds()
-    const id = getUniqueUUID(ids)
-    const game = getNewGame(ids)
-    await storage!.set(PREFIX + id, game)
-    history.push(`/games/${id}`)
-  }
-
-  async function getAllGameIds() {
-    const allKeys = await storage!.keys()
-    const gameKeys = allKeys
-      .filter(key => key.startsWith(PREFIX))
-      .map(key => key.replace(PREFIX, ''))
-    return gameKeys
+    const id = await addGame(game)
+    history.goBack()
+    setTimeout(() => history.push(`/games/${id}`), 300)
   }
 
   return (
@@ -259,11 +236,7 @@ const GamePage: React.FC = () => {
             }, {
               text: t('actions.delete'),
               role: 'destructive',
-              handler: async () => {
-                await storage!.remove(`games.${id}`)
-                history.goBack()
-                setTimeout(() => location.reload(), 100)
-              }
+              handler: () => deleteGame(id)
             }
           ]}
         />

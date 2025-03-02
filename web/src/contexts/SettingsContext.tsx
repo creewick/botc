@@ -11,8 +11,8 @@ import { StorageContext } from './StorageContext'
 
 interface SettingsContextType {
   settings: Settings
-  setLanguage(lang: string): void
-  setDarkMode(darkMode: boolean | null): void
+  setLanguage(lang: string): Promise<void>
+  setDarkMode(darkMode: boolean | null): Promise<void>
   checkForUpdates(): Promise<ServiceWorker | undefined>
   updateApp(serviceWorker: ServiceWorker): void
   clearStorage(): Promise<void>
@@ -21,8 +21,8 @@ interface SettingsContextType {
 const SettingsContext = createContext<SettingsContextType>(
   {
     settings: SETTINGS,
-    setLanguage: () => { },
-    setDarkMode: () => { },
+    setLanguage: () => Promise.resolve(),
+    setDarkMode: () => Promise.resolve(),
     checkForUpdates: () => Promise.resolve(undefined),
     updateApp: () => { },
     clearStorage: () => Promise.resolve()
@@ -47,12 +47,12 @@ const SettingsProvider: React.FC<Props> = ({ children }) => {
     if (value) setSettings(value)
   }, [])
 
-  const setLanguage = useCallback((lang: string) => {
-    setSettings((prev) => ({ ...prev, lang: lang }))
+  const setLanguage = useCallback(async (lang: string) => {
+    setSettings((prev) => ({ ...prev, lang }))
   }, [])
 
-  const setDarkMode = useCallback((enabled: boolean) => {
-    setSettings((prev) => ({ ...prev, darkMode: enabled }))
+  const setDarkMode = useCallback(async (darkMode: boolean) => {
+    setSettings((prev) => ({ ...prev, darkMode }))
   }, [])
 
   const checkForUpdates = useCallback(async () => {
