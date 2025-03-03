@@ -44,25 +44,27 @@ const GamePage: React.FC = () => {
   const history = useHistory()
   const t = useTranslation()
 
-  const { games, loadGames, addGame, deleteGame } = useContext(GamesContext)
+  const { games, loadGames, addGame, deleteGame, setGame } = useContext(GamesContext)
   const { scripts, loadScripts } = useContext(ScriptsContext)
   const [scriptModal, setScriptModal] = useState(false)
-  const [game, setGame] = useState<Game>({} as Game)
   const [player, setPlayer] = useState<Player>()
+  const game = games[id] ?? {} as Game
 
   useEffect(() => {
     void loadScripts()
     void loadGames()
   }, [])
-  useEffect(() => setGame(games[id] ?? {} as Game), [games])
 
   const updatePlayer = (value?: Player) => {
-    setGame({
-      ...game,
-      players: game.players
-        .map(p => p === player ? value : p)
-        .filter(p => p !== undefined)
-    })
+    setGame(
+        id,
+        {
+          ...game,
+          players: game.players
+              .map(p => p === player ? value : p)
+              .filter(p => p !== undefined)
+        }
+    )
     setPlayer(value)
   }
 
@@ -71,7 +73,7 @@ const GamePage: React.FC = () => {
       .find(item => (item as ScriptMeta).id === '_meta') as ScriptMeta
 
     const setScript = () => {
-      setGame({ ...game, scriptId: id })
+      setGame(id, { ...game, scriptId: id })
       setScriptModal(false)
     }
 
@@ -131,7 +133,7 @@ const GamePage: React.FC = () => {
           <IonSegmentContent id='list' style={{ maxHeight: 'calc(100vmin + 0.8rem)', overflowY: 'scroll' }}>
             <PlayerList
               game={game}
-              setGame={setGame}
+              setGame={(game) => setGame(id, game)}
               openPlayer={setPlayer}
             />
           </IonSegmentContent>
@@ -159,7 +161,7 @@ const GamePage: React.FC = () => {
             />
             {renderClearButton(
               !!game.scriptId,
-              () => setGame({ ...game, scriptId: undefined })
+              () => setGame(id, { ...game, scriptId: undefined })
             )}
           </IonItem>
           <IonItem color='light'>
@@ -167,7 +169,7 @@ const GamePage: React.FC = () => {
               labelPlacement='stacked'
               label={t('games.name')}
               value={game.name}
-              onIonChange={e => setGame({ ...game, name: e.detail.value! })}
+              onIonChange={e => setGame(id, { ...game, name: e.detail.value! })}
             />
           </IonItem>
           <IonItem color='light'>
@@ -177,11 +179,11 @@ const GamePage: React.FC = () => {
               label={t('games.players.note')}
               value={game.note}
               autoGrow={true}
-              onIonInput={e => setGame({ ...game, note: e.detail.value! })}
+              onIonInput={e => setGame(id, { ...game, note: e.detail.value! })}
             />
             <button
               className='input-clear-icon sc-ion-input-ios'
-              onClick={() => setGame({ ...game, note: undefined })}
+              onClick={() => setGame(id, { ...game, note: undefined })}
             >
               <IonIcon className='sc-ion-input-ios ios' icon={closeCircle} />
             </button>

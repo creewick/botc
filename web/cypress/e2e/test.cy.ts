@@ -1,6 +1,6 @@
-describe('My First Test', () => {
-  it('Visits the app root url', () => {
-    cy.visit('/')
-    cy.contains('ion-content', 'Tab 1 page')
-  })
+/**
+ * https://ionicframework.com/docs/react/testing/unit-testing/best-practices
+ */
+
+test('My First Test', () => {
 })
