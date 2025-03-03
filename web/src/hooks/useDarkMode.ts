@@ -17,6 +17,8 @@ function useDarkMode() {
   useEffect(() => {
     if (settings.darkMode !== null)
       return setDarkMode(settings.darkMode)
+    if (typeof window === 'undefined')
+      return
 
     const mediaQuery = window.matchMedia(DARK_MODE_MEDIA)
     setDarkMode(mediaQuery.matches)
@@ -25,8 +27,7 @@ function useDarkMode() {
 
     return () =>
       mediaQuery.removeEventListener('change', darkModeChangesEventHandler)
-
-  }, [settings.darkMode])
+  }, [])
 }
 
 export default useDarkMode

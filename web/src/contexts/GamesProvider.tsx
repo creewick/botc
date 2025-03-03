@@ -9,6 +9,7 @@ interface GamesContextType {
   loadGames: () => Promise<void>
   addGame: (gameToCopy?: Game) => Promise<string>
   deleteGame: (id: string) => Promise<void>
+  setGame: (id: string, game: Game) => Promise<void>
 }
 
 const GamesContext = createContext<GamesContextType>({
@@ -16,6 +17,7 @@ const GamesContext = createContext<GamesContextType>({
   loadGames: () => Promise.resolve(),
   addGame: () => Promise.resolve(''),
   deleteGame: () => Promise.resolve(),
+  setGame: () => Promise.resolve(),
 })
 
 interface Props {
@@ -37,10 +39,10 @@ const GamesProvider: React.FC<Props> = ({ children }) => {
     const result: Record<string, Game> = {}
 
     await Promise.all(
-      gameKeys.map(async key => {
-        const id = key.replace(PREFIX, '')
-        result[id] = await storage!.get(key)
-      })
+        gameKeys.map(async key => {
+          const id = key.replace(PREFIX, '')
+          result[id] = await storage!.get(key)
+        })
     )
     setGames(result)
   }, [])
@@ -63,6 +65,12 @@ const GamesProvider: React.FC<Props> = ({ children }) => {
     })
   }, [])
 
+  const setGame = useCallback(async (id: string, game: Game) => {
+    // foreach games and update the one with the same id
+    await storage!.set(`${PREFIX}${id}`, game)
+    setGames(prev => ({ ...prev, [id]: game }))
+  }, [])
+
   function getUniqueUUID(): string {
     const id = crypto.randomUUID()
     return id in games ? getUniqueUUID() : id
@@ -80,9 +88,15 @@ const GamesProvider: React.FC<Props> = ({ children }) => {
   })
 
   return (
-    <GamesContext.Provider value={{ games, loadGames, addGame, deleteGame }}>
-      {children}
-    </GamesContext.Provider>
+      <GamesContext.Provider value={{
+        games,
+        loadGames,
+        addGame,
+        deleteGame,
+        setGame,
+      }}>
+        {children}
+      </GamesContext.Provider>
   )
 }
 
