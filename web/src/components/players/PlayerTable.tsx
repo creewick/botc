@@ -13,9 +13,9 @@ const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
 
   const getCount = (type: RoleType): number|undefined => {
     if (type === RoleType.Townsfolk) 
-      return Math.floor((players.length - 1) / 3) * 2 + 1
+      return Math.max(0, Math.floor((players.length - 1) / 3) * 2 + 1)
     if (type === RoleType.Outsider)
-      return (players.length - 1) % 3 - (players.length < 7 ? 1 : 0)
+      return Math.max(0, (players.length - 1) % 3 - (players.length < 7 ? 1 : 0))
     if (type === RoleType.Minion)
       return Math.max(1, Math.floor((players.length - 1) / 3) - 1)
     if (type === RoleType.Demon)

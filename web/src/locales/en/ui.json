@@ -91,6 +91,9 @@
     "player": "Player",
     "script": "Script",
     "addPlayer": "Add Player",
+    "gameSettings": "Game Settings",
+    "edit": "Edit",
+    "done": "Done",
     "players": {
       "name": "Name",
       "note": "Note",
@@ -104,7 +107,7 @@
     },
     "tabs": {
       "list": "List",
-      "table": "Table"
+      "circle": "Circle"
     }
   },
   "settings": {
