@@ -11,7 +11,6 @@ import {
   IonProgressBar,
   IonSelect,
   IonSelectOption,
-  IonText,
   IonTitle,
   IonToolbar
 } from '@ionic/react'
@@ -100,9 +99,6 @@ const SettingsPage: React.FC = () => {
 
         {workerToUpdate && renderUpdateButton()}
 
-        <IonText className='inset-list-title'>
-          <Translation path='settings.title' />
-        </IonText>
         <IonList inset>
           <IonItem color='light'>
             <IonIcon slot='start' icon={languageOutline} />
@@ -143,9 +139,6 @@ const SettingsPage: React.FC = () => {
           </IonItem>
         </IonList>
 
-        <IonText className='inset-list-title'>
-          <Translation path='settings.data' />
-        </IonText>
         <IonList inset={true}>
           <IonItem color='light' disabled>
             <IonIcon slot='start' icon={logInOutline} />
@@ -163,9 +156,6 @@ const SettingsPage: React.FC = () => {
           </IonItem>
         </IonList>
 
-        <IonText className='inset-list-title'>
-          <Translation path='settings.about' />
-        </IonText>
         <IonList inset={true}>
           <IonItem color='light' href='https://github.com/creewick/botc'>
             <IonIcon slot='start' icon={logoGithub} />

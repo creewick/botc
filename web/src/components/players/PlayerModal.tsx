@@ -29,7 +29,7 @@ import Player from '../../models/games/Player'
 import { Translation, useTranslation } from 'i18nano'
 import Role from '../../../../cli/src/models/Role'
 import RoleList from '../roles/RoleList'
-import { closeCircle, closeCircleSharp } from 'ionicons/icons'
+import { closeCircle, close as closeIcon } from 'ionicons/icons'
 import Script from '../../../../cli/src/schema/Script'
 import Token from '../Token'
 import PlayerStatus from '../../models/games/PlayerStatus'
@@ -45,7 +45,7 @@ interface Props {
 
 const ZERO = 0.00001
 
-const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId, close }: Props) => {
+const PlayerModal: React.FC<Props> = ({ player, setPlayer, scriptId, close }: Props) => {
   const modalRef = useRef<HTMLIonModalElement>(null)
   const searchRef = useRef<HTMLIonSearchbarElement>(null)
   const { roles, loadRoles } = useContext(RolesContext)
@@ -130,7 +130,7 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId, close }: Props
               </IonTitle>
               <IonButtons slot='end'>
                 <IonButton onClick={close}>
-                  <IonIcon icon={closeCircleSharp}/>
+                  <IonIcon icon={closeIcon}/>
                 </IonButton>
               </IonButtons>
             </IonToolbar>
@@ -196,7 +196,7 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId, close }: Props
                   className='input-clear-icon sc-ion-input-ios'
                   onClick={() => setPlayer({ ...player, note: undefined })}
                 >
-                  <IonIcon className='sc-ion-input-ios ios' icon={closeCircle} />
+                  <IonIcon color='medium' className='sc-ion-input-ios ios' icon={closeCircle} />
                 </button>
               </IonItem>
               <IonItem id='delete-player' button detail={false}>
@@ -223,7 +223,7 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId, close }: Props
                     />
                     <IonButtons slot='end' className='ion-align-self-center'>
                       <IonButton onClick={closeModal}>
-                        <IonIcon icon={closeCircleSharp} />
+                        <IonIcon icon={closeIcon} />
                       </IonButton>
                     </IonButtons>
                   </IonToolbar>
@@ -266,4 +266,4 @@ const RoleView: React.FC<Props> = ({ player, setPlayer, scriptId, close }: Props
   )
 }
 
-export default RoleView
+export default PlayerModal

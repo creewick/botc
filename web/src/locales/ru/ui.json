@@ -135,6 +135,7 @@
     "delete": "Удалить",
     "deleteAllData": "Удалить все данные",
     "deleteGame": "Удалить игру",
+    "copyGame": "Дублировать игру",
     "deletePlayer": "Удалить игрока",
     "youCantUndoThisAction": "Это действие нельзя отменить"
   }

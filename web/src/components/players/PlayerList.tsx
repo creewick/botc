@@ -61,7 +61,7 @@ const PlayerList: React.FC<Props> = ({ editMode, players, setPlayers, openPlayer
   const renderPlayer = (player: Player, index: number) =>
     <IonItemSliding key={index}>
       <IonItem button detail={false} onClick={() => openPlayer(player)}>
-        <span slot='start'>
+        <span slot='start' style={{ marginBottom: 0 }}>
           <Token
             size={48}
             roleId={player.roles[player.roles.length - 1]}

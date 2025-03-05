@@ -134,6 +134,7 @@
     "cancel": "Cancel",
     "delete": "Delete",
     "deleteAllData": "Delete All Data",
+    "copyGame": "Copy Game",
     "deleteGame": "Delete Game",
     "deletePlayer": "Delete Player",
     "youCantUndoThisAction": "You can't undo this action"

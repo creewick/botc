@@ -24,7 +24,9 @@ import Player from '../../models/games/Player'
 import PlayerList from '../../components/players/PlayerList'
 import { GamesContext } from '../../contexts/GamesProvider'
 import { GamePageState, GameTab } from '../../models/GamePageState'
-import PlayerView from '../../components/players/PlayerView'
+import PlayerModal from '../../components/players/PlayerModal'
+import GameModal from '../../components/games/GameModal'
+import ScriptListModal from '../../components/scripts/ScriptListModal'
 
 const GamePage: React.FC = () => {
   const { games, loadGames, setGame } = useContext(GamesContext)
@@ -32,6 +34,7 @@ const GamePage: React.FC = () => {
     tab: GameTab.List,
     editMode: false,
     gameModal: false,
+    scriptModal: false,
   })
   const { id } = useParams<{ id: string }>()
   const t = useTranslation()
@@ -97,7 +100,7 @@ const GamePage: React.FC = () => {
               )}
             </IonSegment>
           </IonItem>
-          <IonItem color='light' button detail={false}>
+          <IonItem color='light' button detail={false} onClick={() => setState(prev => ({ ...prev, gameModal: true }))}>
             <IonLabel color='primary' className='ion-text-center'>
               <Translation path='games.gameSettings' />
             </IonLabel>
@@ -105,11 +108,24 @@ const GamePage: React.FC = () => {
         </IonList>
       </IonFooter>
 
-      <PlayerView 
+      <PlayerModal 
         player={state.playerModal} 
         setPlayer={setPlayerFromModal} 
         close={() => openPlayer(undefined)} 
         scriptId={game.scriptId} 
+      />
+
+      <ScriptListModal
+        isOpen={state.scriptModal}
+        close={() => setState(prev => ({ ...prev, scriptModal: false }))}
+        setScript={scriptId => setGame(id, { ...game, scriptId })}
+      />
+
+      <GameModal
+        isOpen={state.gameModal} 
+        close={() => setState(prev => ({ ...prev, gameModal: false }))} 
+        openScriptModal={() => setState(prev => ({ ...prev, scriptModal: true }))}
+        gameId={id}
       />
     </IonPage>
   )

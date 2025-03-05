@@ -9,5 +9,6 @@ export interface GamePageState {
   tab: GameTab
   editMode: boolean
   gameModal: boolean
+  scriptModal: boolean
   playerModal?: Player
 }
