@@ -79,8 +79,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
     </IonItem>
 
   const renderJinxes = () => {
-    const jinxes = getTextList('jinxes')
-    if (jinxes.length === 0) return null
+    if (!role.jinxes) return null
 
     return (
       <>
@@ -88,18 +87,18 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
           <Translation path="roles.jinxes" />
         </IonListHeader>
         <IonList>
-          {jinxes.map(renderJinx)}
+          {role.jinxes.map(renderJinx)}
         </IonList>
       </>
     )
   }
 
-  const renderJinx = (jinx: string, index: number) =>
-    <IonItem key={index}>
-      {/* <RoleIcon roleId={jinx.roleId} size={36} hideTitle /> */}
-      {/* <IonLabel className="ion-margin-start"> */}
-      {/* {getLocalizedText(jinx.reason, settings.lang)} */}
-      {/* </IonLabel> */}
+  const renderJinx = (roleId: string) =>
+    <IonItem key={roleId}>
+      <Token roleId={roleId} size={36} hideTitle />
+      <IonLabel className="ion-margin-start">
+        <Translation path={`${role.id}.jinxes.${roleId}`} />
+      </IonLabel>
     </IonItem>
 
   return (

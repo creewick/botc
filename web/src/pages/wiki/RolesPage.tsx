@@ -146,12 +146,12 @@ const RolesPage: React.FC = () => {
           </IonToolbar>
           <IonSearchbar placeholder={t('roles.search')} onIonInput={onSearch} />
           <IonGrid style={{ whiteSpace: 'nowrap', overflowX: 'auto' }}>
-            {Object.values(RoleType).map(renderType)}
+            {Object.values(RoleType).filter(type => type !== RoleType.Bootlegger).map(renderType)}
           </IonGrid>
         </IonHeader>
         <RoleList
           roles={getDisplayRoles()}
-          getText={role => `${role.id}.ability`}
+          getText={role => t(`${role.id}.ability`)}
           onSelect={openRole}
         />
       </IonContent>

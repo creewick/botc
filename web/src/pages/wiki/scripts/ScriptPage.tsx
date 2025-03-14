@@ -145,15 +145,15 @@ const ScriptPage: React.FC = () => {
             <IonSegmentButton contentId='roles' className='ion-text-wrap'>
               <Translation path='scripts.tabs.roles' />
             </IonSegmentButton>
+            <IonSegmentButton contentId='jinxes' className='ion-text-wrap'>
+              <Translation path='scripts.tabs.jinxes' />
+            </IonSegmentButton>
             <IonSegmentButton contentId='firstNight' className='ion-text-wrap'>
               <Translation path='scripts.tabs.firstNight' />
             </IonSegmentButton>
             <IonSegmentButton contentId='otherNights' className='ion-text-wrap'>
               <Translation path='scripts.tabs.otherNight' />
             </IonSegmentButton>
-            {/* <IonSegmentButton contentId='jinxes' className='ion-text-wrap'>
-              <Translation path='scripts.tabs.jinxes' />
-            </IonSegmentButton> */}
           </IonSegment>
         </IonToolbar>
       </IonHeader>
@@ -166,6 +166,9 @@ const ScriptPage: React.FC = () => {
                 onSelect={openRole} 
                 groupByType 
               />
+            </IonSegmentContent>
+
+            <IonSegmentContent className='height-100' id='jinxes'>
             </IonSegmentContent>
             <IonSegmentContent className='height-100' id='firstNight'>
               <RoleList 
@@ -181,7 +184,6 @@ const ScriptPage: React.FC = () => {
                 onSelect={openRole} 
               />
             </IonSegmentContent>
-            {/* <IonSegmentContent id='jinxes' /> */}
         </IonSegmentView>
       </IonContent>
       <IonModal

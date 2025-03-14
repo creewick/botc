@@ -7,6 +7,7 @@ interface Role {
   setup: boolean;
   firstNightOrder?: number;
   otherNightOrder?: number;
+  jinxes?: string[];
 }
 
 export default Role

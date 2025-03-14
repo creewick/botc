@@ -33,6 +33,15 @@ ion-searchbar.sc-ion-searchbar-ios-h {
   height: 36px;
 }
 
+.jinx-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0 0 -2px 16px;
+  transform: scale(1.5);
+}
+
 .inset-list-title {
   color: var(--ion-color-medium);
   margin-left: 32px;

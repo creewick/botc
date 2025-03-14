@@ -42,6 +42,17 @@ const RoleList: React.FC<Props> = ({
       </IonLabel>
     </IonItem>
 
+  const renderJinxes = (role: Role) =>
+    role.jinxes && role.jinxes
+    .filter(roleId => roles.some(role => role.id === roleId))
+    .map(roleId => 
+      <IonImg
+        key={roleId}
+        className='ion-margin-end jinx-icon'
+        src={`/botc/assets/icons/${roleId}.webp`}
+      />
+    )
+
   const renderRole = (role: Role) =>
     role.type === RoleType.Bootlegger ? renderBootlegger(role) :
     <IonItem button detail={false} key={role.id} onClick={() => onSelect(role)}>
@@ -51,7 +62,8 @@ const RoleList: React.FC<Props> = ({
       />
       <IonLabel className='ion-text-nowrap'>
         <h2>
-          <Translation path={`${role.id}.name`} />
+          <span><Translation path={`${role.id}.name`} /></span>
+          {renderJinxes(role)}
         </h2>
         <p className='ion-hide-sm-down'>
           {getText ? getText(role) : ''}
