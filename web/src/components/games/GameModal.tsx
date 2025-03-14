@@ -48,6 +48,7 @@ const GameModal: React.FC<Props> = ({ isOpen, close, gameId, openScriptModal }: 
       breakpoints={[0, 0.40, 0.6, 1]}
       backdropBreakpoint={0.40}
     >
+      <IonContent>
       <IonHeader>
         <IonToolbar>
           <IonTitle>
@@ -60,7 +61,6 @@ const GameModal: React.FC<Props> = ({ isOpen, close, gameId, openScriptModal }: 
                         </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
         <IonItem>
           <IonInput
             clearInput
@@ -76,9 +76,12 @@ const GameModal: React.FC<Props> = ({ isOpen, close, gameId, openScriptModal }: 
             value={t(game.scriptId ?? '')}
             readonly
           />
-           <button
+          <button
             className='input-clear-icon sc-ion-input-ios'
-            onClick={() => setGame(gameId, { ...game, scriptId: undefined })}
+            onClick={(e) => {
+              setGame(gameId, { ...game, scriptId: undefined })
+              e.stopPropagation()
+            }}
           >
             <IonIcon className='sc-ion-input-ios ios' icon={closeCircle} color='medium' />
           </button>
@@ -122,6 +125,7 @@ const GameModal: React.FC<Props> = ({ isOpen, close, gameId, openScriptModal }: 
             text: t('actions.delete'),
             role: 'destructive',
             handler: () => {
+              close()
               deleteGame(gameId)
               history.goBack()
             }

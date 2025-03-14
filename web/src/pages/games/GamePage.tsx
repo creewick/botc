@@ -40,29 +40,34 @@ const GamePage: React.FC = () => {
   const t = useTranslation()
   const game = games[id] ?? {} as Game
 
-  useEffect(() => void loadGames(), [])
+  useEffect(() => void load(), [])
+
+  async function load() {
+    await loadGames()
+    setState(prev => ({ ...prev, editMode: !games[id]?.players.length}))
+  }
 
   const openPlayer = useCallback((player?: Player) =>
-     setState(prev => ({ ...prev, playerModal: player }))
-  , [])
-  const setTab = useCallback((e: SegmentCustomEvent) => 
+    setState(prev => ({ ...prev, playerModal: player }))
+    , [])
+  const setTab = useCallback((e: SegmentCustomEvent) =>
     setState(prev => ({ ...prev, tab: e.target.value as GameTab }))
-  , [])
+    , [])
   const setPlayers = useCallback(async (players: Player[]) =>
     await setGame(id, { ...game, players })
-  , [id, game, setGame])
-  const setPlayerFromModal = useCallback((player?: Player) => {
-    if (player !== undefined) setPlayers(game.players.map(p => p === state.playerModal ? player : p))
-    else setPlayers(game.players.filter(p => p !== state.playerModal))
+    , [id, game, setGame])
+  const setPlayerFromModal = useCallback(async (player?: Player) => {
+    if (player !== undefined) await setPlayers(game.players.map(p => p === state.playerModal ? player : p))
+    else await setPlayers(game.players.filter(p => p !== state.playerModal))
     setState(prev => ({ ...prev, playerModal: player }))
   }, [game, setPlayers, state.playerModal])
   const switchEditMode = () =>
     setState(prev => ({ ...prev, editMode: !prev.editMode }))
 
-  const props = { 
-    editMode: state.editMode, 
-    players: game.players, 
-    setPlayers, 
+  const props = {
+    editMode: state.editMode,
+    players: game.players,
+    setPlayers,
     openPlayer
   }
 
@@ -84,49 +89,51 @@ const GamePage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent> 
-        { state.tab === GameTab.List && <PlayerList {...props} /> }
-        { state.tab === GameTab.Circle && <PlayerTable {...props} /> }
+      <IonContent>
+        {state.tab === GameTab.List && <PlayerList {...props} />}
+        {state.tab === GameTab.Circle && <PlayerTable {...props} />}
       </IonContent>
 
       <IonFooter>
-        <IonList lines='full' inset>
-          <IonItem color='light'>
-            <IonSegment value={state.tab} onIonChange={setTab}>
-              { Object.values(GameTab).map(tab => 
-                <IonSegmentButton key={tab} value={tab}>
-                  <Translation path={`games.tabs.${tab}`} />
-                </IonSegmentButton>
-              )}
-            </IonSegment>
-          </IonItem>
-          <IonItem color='light' button detail={false} onClick={() => setState(prev => ({ ...prev, gameModal: true }))}>
-            <IonLabel color='primary' className='ion-text-center'>
-              <Translation path='games.gameSettings' />
-            </IonLabel>
-          </IonItem>
-        </IonList>
+        {/* <IonToolbar> */}
+          <IonList lines='full' inset>
+            <IonItem color='light'>
+              <IonSegment value={state.tab} onIonChange={setTab}>
+                {Object.values(GameTab).map(tab =>
+                  <IonSegmentButton key={tab} value={tab}>
+                    <Translation path={`games.tabs.${tab}`} />
+                  </IonSegmentButton>
+                )}
+              </IonSegment>
+            </IonItem>
+            <IonItem color='light' button detail={false} onClick={() => setState(prev => ({ ...prev, gameModal: true }))}>
+              <IonLabel color='primary' className='ion-text-center'>
+                <Translation path='games.gameSettings' />
+              </IonLabel>
+            </IonItem>
+          </IonList>
+        {/* </IonToolbar> */}
       </IonFooter>
 
-      <PlayerModal 
-        player={state.playerModal} 
-        setPlayer={setPlayerFromModal} 
-        close={() => openPlayer(undefined)} 
-        scriptId={game.scriptId} 
+      <PlayerModal
+        player={state.playerModal}
+        setPlayer={setPlayerFromModal}
+        close={() => openPlayer(undefined)}
+        scriptId={game.scriptId}
       />
 
-      <ScriptListModal
-        isOpen={state.scriptModal}
-        close={() => setState(prev => ({ ...prev, scriptModal: false }))}
-        setScript={scriptId => setGame(id, { ...game, scriptId })}
-      />
+        <ScriptListModal
+          isOpen={state.scriptModal}
+          close={() => setState(prev => ({ ...prev, scriptModal: false }))}
+          setScript={scriptId => setGame(id, { ...game, scriptId })}
+        />
 
-      <GameModal
-        isOpen={state.gameModal} 
-        close={() => setState(prev => ({ ...prev, gameModal: false }))} 
-        openScriptModal={() => setState(prev => ({ ...prev, scriptModal: true }))}
-        gameId={id}
-      />
+        <GameModal
+          isOpen={state.gameModal}
+          close={() => setState(prev => ({ ...prev, gameModal: false }))}
+          openScriptModal={() => setState(prev => ({ ...prev, scriptModal: true }))}
+          gameId={id}
+        />
     </IonPage>
   )
 }

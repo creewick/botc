@@ -107,7 +107,8 @@ const PlayerList: React.FC<Props> = ({ editMode, players, setPlayers, openPlayer
       {editMode &&
         <IonItem>
           <IonIcon style={{ width: 48 }} size='large' slot='start' icon={addCircleOutline} color='primary' />
-          <IonInput placeholder={t('games.addPlayer')} onIonChange={addPlayer} />
+          <IonInput 
+            autocapitalize='on' placeholder={t('games.addPlayer')} onIonChange={addPlayer} />
         </IonItem>
       }
     </IonList>
