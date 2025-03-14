@@ -29,6 +29,7 @@ import { RolesContext } from '../../../contexts/RolesProvider'
 import { ScriptsContext } from '../../../contexts/ScriptsContext'
 import ScriptMeta from '../../../../../cli/src/schema/ScriptMeta'
 import RoleType from '../../../../../cli/src/enums/RoleType'
+import JinxList from '../../../components/roles/JinxList'
 
 
 const ScriptPage: React.FC = () => {
@@ -169,6 +170,9 @@ const ScriptPage: React.FC = () => {
             </IonSegmentContent>
 
             <IonSegmentContent className='height-100' id='jinxes'>
+              <JinxList
+                roles={scriptRoles}
+              />
             </IonSegmentContent>
             <IonSegmentContent className='height-100' id='firstNight'>
               <RoleList 
