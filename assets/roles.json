@@ -118,7 +118,8 @@
     "edition": "tb",
     "setup": false,
     "firstNightOrder": 52,
-    "otherNightOrder": 84
+    "otherNightOrder": 84,
+    "jinxes": ["organgrinder"]
   },
   {
     "id": "drunk",
@@ -152,14 +153,16 @@
     "edition": "tb",
     "setup": false,
     "firstNightOrder": 66,
-    "otherNightOrder": 85
+    "otherNightOrder": 85,
+    "jinxes": ["alchemist", "magician", "poppygrower", "damsel", "ogre"]
   },
   {
     "id": "scarletwoman",
     "type": "minion",
     "edition": "tb",
     "setup": false,
-    "otherNightOrder": 29
+    "otherNightOrder": 29,
+    "jinxes": ["fanggu", "alhadikhia"]
   },
   {
     "id": "baron",
@@ -354,7 +357,8 @@
     "id": "mastermind",
     "type": "minion",
     "edition": "bmr",
-    "setup": false
+    "setup": false,
+    "jinxes": ["alhadikhia"]
   },
   {
     "id": "zombuul",
@@ -445,7 +449,8 @@
     "edition": "snv",
     "setup": false,
     "firstNightOrder": 71,
-    "otherNightOrder": 89
+    "otherNightOrder": 89,
+    "jinxes": ["chambermaid", "lunatic"]
   },
   {
     "id": "flowergirl",
@@ -557,14 +562,16 @@
     "edition": "snv",
     "setup": false,
     "firstNightOrder": 37,
-    "otherNightOrder": 24
+    "otherNightOrder": 24,
+    "jinxes": ["goblin"]
   },
   {
     "id": "pithag",
     "type": "minion",
     "edition": "snv",
     "setup": false,
-    "otherNightOrder": 25
+    "otherNightOrder": 25,
+    "pithag": ["damsel", "politician", "villageidiot", "cultleader", "goon", "ogre"]
   },
   {
     "id": "fanggu",
@@ -592,7 +599,8 @@
     "type": "demon",
     "edition": "snv",
     "setup": false,
-    "otherNightOrder": 42
+    "otherNightOrder": 42,
+    "jinxes": ["banshee"]
   },
   {
     "id": "barista",
@@ -641,7 +649,8 @@
     "edition": "",
     "setup": false,
     "firstNightOrder": 63,
-    "otherNightOrder": 81
+    "otherNightOrder": 81,
+    "jinxes": ["philosopher", "kazali"]
   },
   {
     "id": "pixie",
@@ -781,7 +790,8 @@
     "id": "cannibal",
     "type": "townsfolk",
     "edition": "",
-    "setup": false
+    "setup": false,
+    "jinxes": ["butler", "juggler", "zealot", "poppygrower"]
   },
   {
     "id": "snitch",
@@ -807,7 +817,8 @@
     "id": "heretic",
     "type": "outsider",
     "edition": "",
-    "setup": false
+    "setup": false,
+    "jinxes": ["godfather", "baron", "pithag", "spy", "widow", "lleech", "boffin"]
   },
   {
     "id": "damsel",
@@ -834,7 +845,8 @@
     "type": "minion",
     "edition": "",
     "setup": false,
-    "firstNightOrder": 28
+    "firstNightOrder": 28,
+    "jinxes": ["alchemist", "magician", "poppygrower", "damsel"]
   },
   {
     "id": "fearmonger",
@@ -869,7 +881,8 @@
     "type": "minion",
     "edition": "",
     "setup": true,
-    "firstNightOrder": 21
+    "firstNightOrder": 21,
+    "jinxes": ["lilmonsta", "poppygrower", "snitch", "balloonist", "damsel", "huntsman"]
   },
   {
     "id": "boomdandy",
@@ -883,7 +896,8 @@
     "edition": "",
     "setup": true,
     "firstNightOrder": 24,
-    "otherNightOrder": 48
+    "otherNightOrder": 48,
+    "jinxes": ["poppygrower", "magician", "scarletwoman", "vizier", "hatter"]
   },
   {
     "id": "lleech",
@@ -891,7 +905,8 @@
     "edition": "",
     "setup": false,
     "firstNightOrder": 25,
-    "otherNightOrder": 47
+    "otherNightOrder": 47,
+    "jinxes": ["mastermind", "slayer"]
   },
   {
     "id": "alhadikhia",
@@ -905,7 +920,8 @@
     "type": "demon",
     "edition": "",
     "setup": true,
-    "otherNightOrder": 34
+    "otherNightOrder": 34,
+    "jinxes": ["engineer", "preacher", "minstrel", "hatter", "zealot"]
   },
   {
     "id": "leviathan",
@@ -913,13 +929,15 @@
     "edition": "",
     "setup": false,
     "firstNightOrder": 73,
-    "otherNightOrder": 91
+    "otherNightOrder": 91,
+    "jinxes": ["soldier", "monk", "innkeeper", "ravenkeeper", "banshee", "sage", "farmer", "mayor", "exorcist", "grandmother", "king", "hatter", "pithag"]
   },
   {
     "id": "riot",
     "type": "demon",
     "edition": "",
-    "setup": false
+    "setup": false,
+    "jinxes": ["mayor", "monk", "farmer", "innkeeper", "sage", "banshee", "ravenkeeper", "soldier", "grandmother", "king", "exorcist"]
   },
   {
     "id": "gangster",
@@ -940,7 +958,8 @@
     "type": "minion",
     "edition": "",
     "setup": false,
-    "firstNightOrder": 74
+    "firstNightOrder": 74,
+    "jinxes": ["investigator", "preacher", "courtier", "magician", "fearmonger", "politician", "alsaahir", "zealot"]
   },
   {
     "id": "knight",
@@ -976,7 +995,8 @@
     "id": "plaguedoctor",
     "type": "outsider",
     "edition": "",
-    "setup": false
+    "setup": false,
+    "jinxes": ["eviltwin", "fearmonger", "goblin", "spy", "scarletwoman", "boomdandy", "baron", "marionette"]
   },
   {
     "id": "shugenja",
@@ -1005,7 +1025,8 @@
     "edition": "",
     "setup": true,
     "firstNightOrder": 3,
-    "otherNightOrder": 50
+    "otherNightOrder": 50,
+    "jinxes": ["goon", "marionette", "huntsman", "choirboy", "soldier"]
   },
   {
     "id": "villageidiot",
@@ -1021,7 +1042,8 @@
     "edition": "",
     "setup": false,
     "firstNightOrder": 12,
-    "otherNightOrder": 49
+    "otherNightOrder": 49,
+    "jinxes": ["exorcist"]
   },
   {
     "id": "summoner",
@@ -1029,7 +1051,8 @@
     "edition": "",
     "setup": true,
     "firstNightOrder": 17,
-    "otherNightOrder": 30
+    "otherNightOrder": 30,
+    "jinxes": ["clockmaker", "alchemist", "poppygrower", "marionette", "pithag", "hatter", "courtier", "engineer", "zombuul", "pukka", "legion", "kazali", "preacher", "lordoftyphon"]
   },
   {
     "id": "banshee",
@@ -1043,7 +1066,8 @@
     "type": "outsider",
     "edition": "",
     "setup": false,
-    "firstNightOrder": 67
+    "firstNightOrder": 67,
+    "jinxes": ["recluse"]
   },
   {
     "id": "alsaahir",
@@ -1070,7 +1094,8 @@
     "type": "minion",
     "edition": "",
     "setup": false,
-    "firstNightOrder": 8
+    "firstNightOrder": 8,
+    "jinxes": ["cultleader", "goon", "ogre", "politician", "drunk", "alchemist", "villageidiot"]
   },
   {
     "id": "gnome",
