@@ -9,6 +9,10 @@
   "home": {
     "title": "Blood on the Clocktower",
     "links": "Official Links",
+    "world_cup": {
+      "title": "Script World Cup",
+      "subtitle": "Check out the upcoming matches, and vote for your favourite"
+    },
     "website": {
       "title": "Website",
       "subtitle": "Official website of the game"

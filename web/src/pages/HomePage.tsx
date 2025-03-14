@@ -9,7 +9,7 @@ import {
   IonToolbar
 } from '@ionic/react'
 import SectionListItem from '../components/SectionListItem'
-import { book, build, home, play } from 'ionicons/icons'
+import { book, build, home, play, trophy } from 'ionicons/icons'
 import React from 'react'
 import { Translation } from 'i18nano'
 
@@ -31,8 +31,19 @@ const HomePage: React.FC = () => (
         </IonToolbar>
       </IonHeader>
       <IonText className="inset-list-title">
+        <Translation path="home.world_cup.title" />
+      </IonText>
+      <IonList inset={true}>
+        <SectionListItem
+          href="https://botc.app/worldcup"
+          icon={trophy}
+          title="home.world_cup.title"
+          subtitle="home.world_cup.subtitle" />
+      </IonList>
+      <IonText className="inset-list-title">
         <Translation path="home.links" />
       </IonText>
+      
       <IonList inset={true}>
         <SectionListItem
           href="https://bloodontheclocktower.com"
