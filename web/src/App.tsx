@@ -96,7 +96,9 @@ const App: React.FC = () => {
             </Route>
             <Route exact path="/wiki/scripts/:id">
               <TranslationProvider translations={locales.scripts}>
-                <Suspense><ScriptPage /></Suspense>
+                <TranslationProvider translations={locales.roles}>
+                  <Suspense><ScriptPage /></Suspense>
+                </TranslationProvider>
               </TranslationProvider>
             </Route>
             <Route exact path="/games">
