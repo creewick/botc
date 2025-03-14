@@ -33,7 +33,17 @@ const RoleList: React.FC<Props> = ({
       </div>
     )
 
+  const renderBootlegger = (role: Role) => 
+    <IonItem key={role.id}>
+      <IonLabel>
+        <p>
+          {getText ? getText(role) : ''}
+        </p>
+      </IonLabel>
+    </IonItem>
+
   const renderRole = (role: Role) =>
+    role.type === RoleType.Bootlegger ? renderBootlegger(role) :
     <IonItem button detail={false} key={role.id} onClick={() => onSelect(role)}>
       <IonImg
         className='ion-margin-end icon'
@@ -44,7 +54,7 @@ const RoleList: React.FC<Props> = ({
           <Translation path={`${role.id}.name`} />
         </h2>
         <p className='ion-hide-sm-down'>
-          <Translation path={getText ? getText(role) : ''} />
+          {getText ? getText(role) : ''}
         </p>
       </IonLabel>
     </IonItem>

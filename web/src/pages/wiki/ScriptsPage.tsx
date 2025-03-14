@@ -60,7 +60,7 @@ const ScriptsPage: React.FC = () => {
     })
   }
 
-  const tags = ['official', 'teen', 'full']
+  const tags = ['world_cup', 'official', 'teen', 'full']
 
   const onTagClick = (tag: string) => {
     setState({ ...state, tag: state.tag === tag ? undefined : tag })

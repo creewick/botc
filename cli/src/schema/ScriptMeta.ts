@@ -6,6 +6,7 @@ interface ScriptMeta {
   background?: string;
   firstNight?: string[];
   otherNight?: string[];
+  bootlegger?: string[];
 }
 
 export default ScriptMeta

@@ -46,6 +46,7 @@
     "title": "Characters",
     "search": "Search",
     "types": {
+      "bootlegger": "Bootlegger",
       "townsfolk": "Townsfolks",
       "outsider": "Outsiders",
       "minion": "Minions",
@@ -81,7 +82,8 @@
     "tags": {
       "teen": "Teensyville",
       "official": "Official",
-      "full": "Full"
+      "full": "Full",
+      "world_cup": "🏆 World Cup"
     }
   },
   "games": {

@@ -1,0 +1,107 @@
+[
+  {
+    "background": "https://release.botc.app/wc25/background.webp",
+    "logo": "https://release.botc.app/wc25/beautifulhouse/logo.webp",
+    "author": "JC",
+    "name": "This Is Not My Beautiful House",
+    "hideTitle": true,
+    "bootlegger": [
+      "The Amnesiac is considered an Outsider character type."
+    ],
+    "isOfficial": false,
+    "id": "_meta",
+    "tags": ["world_cup"]
+  },
+  {
+    "id": "grandmother"
+  },
+  {
+    "id": "shugenja"
+  },
+  {
+    "id": "empath"
+  },
+  {
+    "id": "sailor"
+  },
+  {
+    "id": "balloonist"
+  },
+  {
+    "id": "mathematician"
+  },
+  {
+    "id": "towncrier"
+  },
+  {
+    "id": "monk"
+  },
+  {
+    "id": "gambler"
+  },
+  {
+    "id": "exorcist"
+  },
+  {
+    "id": "gossip"
+  },
+  {
+    "id": "ravenkeeper"
+  },
+  {
+    "id": "pacifist"
+  },
+  {
+    "id": "beautifulhouseamnesiac",
+    "name": "Amnesiac",
+    "image": [
+      "https://release.botc.app/wc25/beautifulhouse/amnesiac_g.webp",
+      "https://release.botc.app/wc25/beautifulhouse/amnesiac_e.webp"
+    ],
+    "ability": "You do not know what your ability is. Each day, privately guess what it is: you learn how accurate you are.",
+    "flavor": "Wait. What. Who? Oh, ok. Wait. What?",
+    "firstNight": 45,
+    "firstNightReminder": "Run the Amnesiac's ability, if applicable.",
+    "otherNight": 63,
+    "otherNightReminder": "Run the Amnesiac's ability, if applicable.",
+    "reminders": [
+      "?",
+      "?",
+      "?"
+    ],
+    "team": "outsider"
+  },
+  {
+    "id": "tinker"
+  },
+  {
+    "id": "recluse"
+  },
+  {
+    "id": "puzzlemaster"
+  },
+  {
+    "id": "godfather"
+  },
+  {
+    "id": "poisoner"
+  },
+  {
+    "id": "devilsadvocate"
+  },
+  {
+    "id": "marionette"
+  },
+  {
+    "id": "yaggababble"
+  },
+  {
+    "id": "pukka"
+  },
+  {
+    "id": "imp"
+  },
+  {
+    "id": "vigormortis"
+  }
+]

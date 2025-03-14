@@ -1,4 +1,5 @@
 enum RoleType {
+  Bootlegger = 'bootlegger',
   Townsfolk = 'townsfolk',
   Outsider = 'outsider',
   Minion = 'minion',

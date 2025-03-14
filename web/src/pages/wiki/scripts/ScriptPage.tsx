@@ -27,6 +27,8 @@ import { RoleListState } from '../../../models/RoleListState'
 import RoleView from '../../../components/roles/RoleView'
 import { RolesContext } from '../../../contexts/RolesProvider'
 import { ScriptsContext } from '../../../contexts/ScriptsContext'
+import ScriptMeta from '../../../../../cli/src/schema/ScriptMeta'
+import RoleType from '../../../../../cli/src/enums/RoleType'
 
 
 const ScriptPage: React.FC = () => {
@@ -76,10 +78,21 @@ const ScriptPage: React.FC = () => {
 
   const specialRoles = roles
     .filter(role => role.edition === 'special') as Role[]
+  
+  const meta = script
+    ?.find(item => (item as ScriptMeta).id === '_meta') as ScriptMeta
+  
+  function getText(role: Role) {
+    if (role.type === RoleType.Bootlegger)
+      return meta.bootlegger![parseInt(role.id)]
+    return t(`${role.id}.ability`)
+  }
 
   const loadScript = async () => {
     if (!id || !scripts[id]) return
     const script = scripts[id]
+    const meta = script
+      ?.find(item => (item as ScriptMeta).id === '_meta') as ScriptMeta
     const roles: Role[] = []
     setScript(script)
 
@@ -94,6 +107,13 @@ const ScriptPage: React.FC = () => {
         if (role) roles.push(role)
       }
     }
+
+    meta?.bootlegger?.map((_, index) => roles.push({
+      id: index.toString(),
+      edition: '',
+      type: RoleType.Bootlegger,
+      setup: false
+    }))
 
     setScriptRoles(roles)
   }
@@ -143,7 +163,7 @@ const ScriptPage: React.FC = () => {
             <IonSegmentContent className='height-100' id='roles'>
               <RoleList 
                 roles={scriptRoles} 
-                getText={role => `${role.id}.ability`}
+                getText={getText}
                 onSelect={openRole} 
                 groupByType 
               />

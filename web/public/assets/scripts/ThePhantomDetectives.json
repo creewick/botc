@@ -1,0 +1,93 @@
+[
+  {
+    "background": "https://release.botc.app/wc25/background.webp",
+    "logo": "https://release.botc.app/wc25/phantomdetectives/logo.webp",
+    "author": "Schnauzer",
+    "name": "The Phantom Detectives",
+    "hideTitle": true,
+    "bootlegger": [
+      "Dead players (not Demons) keep their abilities. Each Townsfolk loses their ability at the start of night 1, then regains it on death."
+    ],
+    "isOfficial": false,
+    "id": "_meta",
+    "tags": ["world_cup"]
+  },
+  {
+    "id": "steward"
+  },
+  {
+    "id": "knight"
+  },
+  {
+    "id": "noble"
+  },
+  {
+    "id": "shugenja"
+  },
+  {
+    "id": "highpriestess"
+  },
+  {
+    "id": "dreamer"
+  },
+  {
+    "id": "cultleader"
+  },
+  {
+    "id": "oracle"
+  },
+  {
+    "id": "engineer"
+  },
+  {
+    "id": "nightwatchman"
+  },
+  {
+    "id": "seamstress"
+  },
+  {
+    "id": "huntsman"
+  },
+  {
+    "id": "banshee"
+  },
+  {
+    "id": "plaguedoctor"
+  },
+  {
+    "id": "klutz"
+  },
+  {
+    "id": "saint"
+  },
+  {
+    "id": "damsel"
+  },
+  {
+    "id": "witch"
+  },
+  {
+    "id": "wizard"
+  },
+  {
+    "id": "organgrinder"
+  },
+  {
+    "id": "boffin"
+  },
+  {
+    "id": "yaggababble"
+  },
+  {
+    "id": "imp"
+  },
+  {
+    "id": "vigormortis"
+  },
+  {
+    "id": "fanggu"
+  },
+  {
+    "id": "fibbin"
+  }
+]
