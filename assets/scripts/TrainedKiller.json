@@ -1,0 +1,90 @@
+[
+  {
+    "background": "https://release.botc.app/wc25/background.webp",
+    "logo": "https://release.botc.app/wc25/trainedkiller/logo.webp",
+    "author": "Ekin",
+    "name": "Trained Killer",
+    "hideTitle": true,
+    "bootlegger": [
+      "Each night*, the Demon attacks the next living in-play character(s) in script order. Characters who survive might get reattacked."
+    ],
+    "isOfficial": false,
+    "id": "_meta",
+    "tags": ["world_cup"]
+  },
+  {
+    "id": "mayor"
+  },
+  {
+    "id": "villageidiot"
+  },
+  {
+    "id": "artist"
+  },
+  {
+    "id": "lycanthrope"
+  },
+  {
+    "id": "ravenkeeper"
+  },
+  {
+    "id": "monk"
+  },
+  {
+    "id": "fortuneteller"
+  },
+  {
+    "id": "seamstress"
+  },
+  {
+    "id": "pixie"
+  },
+  {
+    "id": "steward"
+  },
+  {
+    "id": "king"
+  },
+  {
+    "id": "choirboy"
+  },
+  {
+    "id": "amnesiac"
+  },
+  {
+    "id": "snitch"
+  },
+  {
+    "id": "recluse"
+  },
+  {
+    "id": "ogre"
+  },
+  {
+    "id": "drunk"
+  },
+  {
+    "id": "poisoner"
+  },
+  {
+    "id": "spy"
+  },
+  {
+    "id": "harpy"
+  },
+  {
+    "id": "xaan"
+  },
+  {
+    "id": "boffin"
+  },
+  {
+    "id": "wizard"
+  },
+  {
+    "id": "yaggababble"
+  },
+  {
+    "id": "lilmonsta"
+  }
+]
