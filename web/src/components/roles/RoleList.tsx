@@ -5,7 +5,8 @@ import {
   IonItem,
   IonImg,
   IonLabel,
-  IonItemDivider
+  IonItemDivider,
+  IonCheckbox
 } from '@ionic/react'
 import { Translation } from 'i18nano'
 import RoleType from '../../../../cli/src/enums/RoleType'
@@ -15,10 +16,11 @@ interface Props {
   onSelect: (role: Role) => void
   getText?: (role: Role) => string
   groupByType?: boolean
+  showCheckboxes?: boolean
 }
 
 const RoleList: React.FC<Props> = ({
-  roles, getText, onSelect, groupByType
+  roles, getText, onSelect, groupByType, showCheckboxes
 }: Props) => {
   const filterBy = (type: RoleType) => roles.filter(role => role.type === type)
 
@@ -53,9 +55,12 @@ const RoleList: React.FC<Props> = ({
       />
     )
 
+  const stopPropogation = (event: React.MouseEvent) => event.stopPropagation()
+
   const renderRole = (role: Role) =>
     role.type === RoleType.Bootlegger ? renderBootlegger(role) :
     <IonItem button detail={false} key={role.id} onClick={() => onSelect(role)}>
+      { showCheckboxes && <IonCheckbox slot='start' onClick={stopPropogation} /> }
       <IonImg
         className='ion-margin-end icon'
         src={`/botc/assets/icons/${role.id}.webp`}

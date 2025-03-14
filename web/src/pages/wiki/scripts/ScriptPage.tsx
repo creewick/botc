@@ -179,6 +179,7 @@ const ScriptPage: React.FC = () => {
                 roles={firstNightOrder()}
                 getText={role => t(`${role.id}.firstNightReminder`)} 
                 onSelect={openRole} 
+                showCheckboxes
                 />
             </IonSegmentContent>
             <IonSegmentContent className='height-100' id='otherNights'>
@@ -186,6 +187,7 @@ const ScriptPage: React.FC = () => {
                 roles={otherNightOrder()} 
                 getText={role => t(`${role.id}.otherNightReminder`)}
                 onSelect={openRole} 
+                showCheckboxes
               />
             </IonSegmentContent>
         </IonSegmentView>
