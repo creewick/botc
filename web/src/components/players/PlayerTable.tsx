@@ -2,7 +2,7 @@ import React from 'react'
 import Player from '../../models/games/Player'
 import Token from '../Token'
 import RoleType from '../../../../cli/src/enums/RoleType'
-import { Translation } from 'i18nano'
+import { IonGrid, IonImg, IonRow } from '@ionic/react'
 
 interface Props {
   players: Player[]
@@ -11,8 +11,8 @@ interface Props {
 
 const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
 
-  const getCount = (type: RoleType): number|undefined => {
-    if (type === RoleType.Townsfolk) 
+  const getCount = (type: RoleType): number | undefined => {
+    if (type === RoleType.Townsfolk)
       return Math.max(0, Math.floor((players.length - 1) / 3) * 2 + 1)
     if (type === RoleType.Outsider)
       return Math.max(0, (players.length - 1) % 3 - (players.length < 7 ? 1 : 0))
@@ -20,7 +20,7 @@ const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
       return Math.max(1, Math.floor((players.length - 1) / 3) - 1)
     if (type === RoleType.Demon)
       return 1
-  } 
+  }
 
   const renderPlayer = (player: Player, index: number) => {
     const angle = (index / players.length) * (2 * Math.PI) + Math.PI / 2
@@ -59,19 +59,23 @@ const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
     )
   }
 
+  const renderType = (type: RoleType) =>
+    <>
+      <IonImg className='icon' src={`/botc/assets/icons/${type}.webp`} />
+      {getCount(type)}
+    </>
+
   return (
     <div className='circle-container'>
-      <div>
-        {Object.values(RoleType)
-          .filter(type => ![RoleType.Fabled, RoleType.Traveler].includes(type))
-          .map(type => 
-            <div key={type}>
-              { getCount(type) } {' '}
-              <Translation path={`roles.types.${type.toLowerCase()}`} />
-            </div>
-        )}
-      </div>
       {players.map(renderPlayer)}
+      <IonGrid style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+        <IonRow className='ion-align-items-center'>
+          {[RoleType.Townsfolk, RoleType.Outsider].map(renderType)}
+        </IonRow>
+        <IonRow className='ion-align-items-center'>
+          {[RoleType.Minion, RoleType.Demon].map(renderType)}
+        </IonRow>
+      </IonGrid>
     </div>
   )
 }

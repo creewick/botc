@@ -62,7 +62,8 @@ const RoleList: React.FC<Props> = ({
     <IonItem button detail={false} key={role.id} onClick={() => onSelect(role)}>
       { showCheckboxes && <IonCheckbox slot='start' onClick={stopPropogation} /> }
       <IonImg
-        className='ion-margin-end icon'
+        slot='start'
+        className='icon'
         src={`/botc/assets/icons/${role.id}.webp`}
       />
       <IonLabel className='ion-text-nowrap'>

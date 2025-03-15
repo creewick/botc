@@ -1,4 +1,4 @@
-import Settings from './AppSettings'
+import { Settings } from './AppSettings'
 
 interface AppStorage {
   settings: Settings

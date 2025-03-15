@@ -6,6 +6,7 @@ import {
   IonCol,
   IonContent,
   IonGrid,
+  IonImg,
   IonItem,
   IonLabel,
   IonList,
@@ -60,7 +61,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
 
     return (
       <>
-        <IonListHeader>
+        <IonListHeader className='ion-padding-bottom'>
           <Translation path="roles.reminders" />
         </IonListHeader>
         <IonList>
@@ -72,8 +73,12 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
 
   const renderReminder = (reminder: string, index: number) =>
     <IonItem key={index}>
-      <Token roleId={role.id} size={36} hideTitle />
-      <IonLabel className="ion-margin-start">
+      <IonImg
+        slot='start'
+        className='icon'
+        src={`/botc/assets/icons/${role.id}.webp`}
+      />
+      <IonLabel>
         {reminder}
       </IonLabel>
     </IonItem>
@@ -83,7 +88,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
 
     return (
       <>
-        <IonListHeader>
+        <IonListHeader className='ion-padding-bottom'>
           <Translation path="roles.jinxes" />
         </IonListHeader>
         <IonList>
@@ -95,8 +100,12 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
 
   const renderJinx = (roleId: string) =>
     <IonItem key={roleId}>
-      <Token roleId={roleId} size={36} hideTitle />
-      <IonLabel className="ion-margin-start">
+      <IonImg
+        slot='start'
+        className='icon'
+        src={`/botc/assets/icons/${roleId}.webp`}
+      />
+      <IonLabel>
         <Translation path={`${role.id}.jinxes.${roleId}`} />
       </IonLabel>
     </IonItem>

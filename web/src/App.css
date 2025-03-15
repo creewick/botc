@@ -56,9 +56,6 @@ ion-searchbar.sc-ion-searchbar-ios-h {
   position: relative;
   width: 100vmin;
   height: 100vmin;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .has-value.sc-ion-textarea-ios-h+.input-clear-icon.sc-ion-input-ios,
