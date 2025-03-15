@@ -48,16 +48,11 @@ const ZERO = 0.00001
 const PlayerModal: React.FC<Props> = ({ player, setPlayer, scriptId, close }: Props) => {
   const modalRef = useRef<HTMLIonModalElement>(null)
   const searchRef = useRef<HTMLIonSearchbarElement>(null)
-  const { roles, loadRoles } = useContext(RolesContext)
+  const { roles } = useContext(RolesContext)
   const t = useTranslation()
   const [query, setQuery] = useState('')
   const [scriptRoles, setScriptRoles] = useState<Role[]>([])
-  const { scripts, loadScripts } = useContext(ScriptsContext)
-
-  useEffect(() => {
-    void loadRoles()
-    void loadScripts()
-  }, [])
+  const { scripts } = useContext(ScriptsContext)
 
   useEffect(() => loadScript(), [scripts, scriptId])
 

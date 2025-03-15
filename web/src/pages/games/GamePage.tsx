@@ -29,7 +29,7 @@ import GameModal from '../../components/games/GameModal'
 import ScriptListModal from '../../components/scripts/ScriptListModal'
 
 const GamePage: React.FC = () => {
-  const { games, loadGames, setGame } = useContext(GamesContext)
+  const { games, setGame } = useContext(GamesContext)
   const [state, setState] = useState<GamePageState>({
     tab: GameTab.List,
     editMode: false,
@@ -40,12 +40,8 @@ const GamePage: React.FC = () => {
   const t = useTranslation()
   const game = games[id] ?? {} as Game
 
-  useEffect(() => void load(), [])
-
-  async function load() {
-    await loadGames()
-    setState(prev => ({ ...prev, editMode: !games[id]?.players.length}))
-  }
+  useEffect(() => setState(prev => ({ ...prev, editMode: !games[id]?.players.length}))
+    , [games])
 
   const openPlayer = useCallback((player?: Player) =>
     setState(prev => ({ ...prev, playerModal: player }))

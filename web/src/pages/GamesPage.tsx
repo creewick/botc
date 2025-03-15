@@ -13,16 +13,14 @@ import {
 } from '@ionic/react'
 import { Translation } from 'i18nano'
 import { addCircleOutline } from 'ionicons/icons'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { GamesContext } from '../contexts/GamesProvider'
 import Game from '../models/games/Game'
 import { useHistory } from 'react-router-dom'
 
 const GamesPage: React.FC = () => {
-  const { games, loadGames, addGame } = useContext(GamesContext)
+  const { games, addGame } = useContext(GamesContext)
   const history = useHistory()
-
-  useEffect(() => void loadGames(), [])
 
   async function createGame() {
     const id = await addGame()

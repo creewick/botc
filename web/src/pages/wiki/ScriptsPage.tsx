@@ -29,7 +29,7 @@ import { ScriptsContext } from '../../contexts/ScriptsContext'
 
 const ScriptsPage: React.FC = () => {
   const t = useTranslation()
-  const { scripts, loadScripts } = useContext(ScriptsContext)
+  const { scripts } = useContext(ScriptsContext)
   const [state, setState] = useState<ScriptListState>({})
   const [showToast] = useIonToast()
 
@@ -47,7 +47,6 @@ const ScriptsPage: React.FC = () => {
             meta.tags?.includes(state.tag))
       })
   }
-  useEffect(() => void loadScripts(), [])
 
   const onCopy = async (event: MouseEvent, script: Script) => {
     event.preventDefault()

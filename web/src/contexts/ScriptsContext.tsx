@@ -1,14 +1,12 @@
-import React, { createContext, useCallback, useState } from 'react'
+import React, { createContext, useCallback, useEffect, useState } from 'react'
 import Script from '../../../cli/src/schema/Script'
 
 interface ScriptsContextType {
   scripts: Record<string, Script>
-  loadScripts(): Promise<void>
 }
 
 const ScriptsContext = createContext<ScriptsContextType>({
   scripts: {},
-  loadScripts: () => Promise.resolve()
 })
 
 interface Props {
@@ -17,6 +15,8 @@ interface Props {
 
 const ScriptsProvider: React.FC<Props> = ({ children }) => {
   const [scripts, setScripts] = useState<Record<string, Script>>({})
+
+  useEffect(() => void loadScripts(), [])
 
   const loadScripts = useCallback(async () => {
     if (Object.values(scripts).length) return
@@ -33,7 +33,7 @@ const ScriptsProvider: React.FC<Props> = ({ children }) => {
   }, [])
 
   return (
-    <ScriptsContext.Provider value={{ scripts, loadScripts }}>
+    <ScriptsContext.Provider value={{ scripts }}>
       {children}
     </ScriptsContext.Provider>
   )

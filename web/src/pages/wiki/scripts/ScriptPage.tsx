@@ -36,16 +36,11 @@ const ScriptPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const [script, setScript] = useState<Script>()
   const [scriptRoles, setScriptRoles] = useState<Role[]>([])
-  const { scripts, loadScripts } = useContext(ScriptsContext)
-  const { roles, loadRoles } = useContext(RolesContext)
+  const { scripts } = useContext(ScriptsContext)
+  const { roles } = useContext(RolesContext)
   const t = useTranslation()
   const [showToast] = useIonToast()
   const [state, setState] = React.useState<RoleListState>({})
-
-  useEffect(() => {
-    void loadRoles()
-    void loadScripts()
-  }, [])
 
   useEffect(() => void loadScript(), [scripts, id])
 

@@ -30,9 +30,7 @@ import { RolesContext } from '../../contexts/RolesProvider'
 const RolesPage: React.FC = () => {
   const t = useTranslation()
   const { id } = useParams<{ id?: string }>()
-  const { roles, loadRoles } = useContext(RolesContext)
-
-  useEffect(() => void loadRoles(), [])
+  const { roles } = useContext(RolesContext)
 
   const allRoles: Role[] = roles
     .filter(role => role.edition !== 'special')

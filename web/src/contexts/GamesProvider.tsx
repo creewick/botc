@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useState } from 'react'
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import Game from '../models/games/Game'
 import { StorageContext } from './StorageContext'
 import { useTranslation } from 'i18nano'
@@ -6,7 +6,6 @@ import PlayerStatus from '../models/games/PlayerStatus'
 
 interface GamesContextType {
   games: Record<string, Game>
-  loadGames: () => Promise<void>
   addGame: (gameToCopy?: Game) => Promise<string>
   deleteGame: (id: string) => Promise<void>
   setGame: (id: string, game: Game) => Promise<void>
@@ -14,7 +13,6 @@ interface GamesContextType {
 
 const GamesContext = createContext<GamesContextType>({
   games: {},
-  loadGames: () => Promise.resolve(),
   addGame: () => Promise.resolve(''),
   deleteGame: () => Promise.resolve(),
   setGame: () => Promise.resolve(),
@@ -30,6 +28,8 @@ const GamesProvider: React.FC<Props> = ({ children }) => {
   const [games, setGames] = useState<Record<string, Game>>({})
   const storage = useContext(StorageContext)
   const t = useTranslation()
+
+  useEffect(() => void loadGames(), [])
 
   const loadGames = useCallback(async () => {
     if (Object.values(games).length) return
@@ -66,7 +66,6 @@ const GamesProvider: React.FC<Props> = ({ children }) => {
   }, [])
 
   const setGame = useCallback(async (id: string, game: Game) => {
-    // foreach games and update the one with the same id
     await storage!.set(`${PREFIX}${id}`, game)
     setGames(prev => ({ ...prev, [id]: game }))
   }, [])
@@ -90,7 +89,6 @@ const GamesProvider: React.FC<Props> = ({ children }) => {
   return (
       <GamesContext.Provider value={{
         games,
-        loadGames,
         addGame,
         deleteGame,
         setGame,
