@@ -1,25 +1,15 @@
 import React, { } from 'react'
 import Role from '../../../../cli/src/models/Role'
-import Token from '../Token'
-import {
-  IonBadge,
-  IonCol,
-  IonContent,
-  IonGrid,
-  IonImg,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonListHeader,
-  IonRow
-} from '@ionic/react'
+import { IonContent, IonImg, IonItem, IonLabel, IonList, IonListHeader } from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
+import './RoleView.css'
 
 interface Props {
   role: Role
 }
 
 const RoleView: React.FC<Props> = ({ role }: Props) => {
+  const getIcon = (id: string) => `/botc/assets/icons/${id}.webp`  
   const t = useTranslation()
 
   const getTextList = (key: string): string[] => {
@@ -33,28 +23,6 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
     return result
   }
 
-  const renderHeader = () =>
-    <div style={{
-      boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.23)',
-      borderRadius: 'var(--border-radius) var(--border-radius) 0 0'
-    }}>
-      <IonGrid>
-        <IonRow>
-          <IonCol size="4" />
-          <IonCol size="4">
-            <div style={{ margin: '-55% auto 0' }}>
-              <Token roleId={role.id} />
-            </div>
-          </IonCol>
-          <IonCol size="4" className="ion-text-right">
-            <IonBadge color="light">
-              <Translation path={`roles.types.${role.type}`} />
-            </IonBadge>
-          </IonCol>
-        </IonRow>
-      </IonGrid>
-    </div>
-
   const renderReminders = () => {
     const reminders = getTextList('reminders')
     if (reminders.length === 0) return null
@@ -62,7 +30,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
     return (
       <>
         <IonListHeader className='ion-padding-bottom'>
-          <Translation path="roles.reminders" />
+          <Translation path="characters.reminders" />
         </IonListHeader>
         <IonList>
           {reminders.map(renderReminder)}
@@ -73,11 +41,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
 
   const renderReminder = (reminder: string, index: number) =>
     <IonItem key={index}>
-      <IonImg
-        slot='start'
-        className='icon'
-        src={`/botc/assets/icons/${role.id}.webp`}
-      />
+      <IonImg slot='start' className='role-icon' src={getIcon(role.id)} />
       <IonLabel>
         {reminder}
       </IonLabel>
@@ -89,7 +53,7 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
     return (
       <>
         <IonListHeader className='ion-padding-bottom'>
-          <Translation path="roles.jinxes" />
+          <Translation path="characters.jinxes" />
         </IonListHeader>
         <IonList>
           {role.jinxes.map(renderJinx)}
@@ -100,30 +64,23 @@ const RoleView: React.FC<Props> = ({ role }: Props) => {
 
   const renderJinx = (roleId: string) =>
     <IonItem key={roleId}>
-      <IonImg
-        slot='start'
-        className='icon'
-        src={`/botc/assets/icons/${roleId}.webp`}
-      />
+      <IonImg slot='start' className='role-icon' src={getIcon(roleId)} />
       <IonLabel>
         <Translation path={`${role.id}.jinxes.${roleId}`} />
       </IonLabel>
     </IonItem>
 
   return (
-    <>
-      {renderHeader()}
-      <IonContent>
-        <p className="ion-text-center ion-no-margin ion-padding-horizontal">
-          <Translation path={`${role.id}.ability`} />
-        </p>
-        <p className="ion-text-center role-view-flavor ion-padding-horizontal">
-          <Translation path={`${role.id}.flavor`} />
-        </p>
-        {renderReminders()}
-        {renderJinxes()}
-      </IonContent>
-    </>
+    <IonContent>
+      <p className="ion-text-center ion-padding-horizontal">
+        <Translation path={`${role.id}.ability`} />
+      </p>
+      <p className="ion-text-center flavor ion-padding-horizontal">
+        <Translation path={`${role.id}.flavor`} />
+      </p>
+      {renderReminders()}
+      {renderJinxes()}
+    </IonContent>
   )
 }
 

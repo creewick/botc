@@ -11,8 +11,10 @@ interface Props {
   children: React.ReactNode
 }
 
+const FALLBACK_LANG = 'en'
+
 const ContextComposition: React.FC<Props> = ({ children }: Props) =>
-  <TranslationProvider translations={locales.ui} fallback='en'>
+  <TranslationProvider translations={locales.ui} fallback={FALLBACK_LANG}>
     <StorageProvider>
       <SettingsProvider>
         <RolesProvider>

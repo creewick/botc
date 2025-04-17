@@ -1,0 +1,11 @@
+.modal-overflow::part(content) {
+  overflow: visible;
+}
+
+.token {
+  z-index: 100;
+  margin: 0 auto;
+  transform: scale(3) translateY(-4px);
+  position: absolute;
+  left: calc(50% - 16px);
+}

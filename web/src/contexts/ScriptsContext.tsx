@@ -1,26 +1,23 @@
-import React, { createContext, useCallback, useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import Script from '../../../cli/src/schema/Script'
 
 interface ScriptsContextType {
   scripts: Record<string, Script>
 }
 
-const ScriptsContext = createContext<ScriptsContextType>({
-  scripts: {},
-})
-
 interface Props {
   children: React.ReactNode
 }
+
+const ScriptsContext = createContext<ScriptsContextType|null>(null)
+ScriptsContext.displayName = 'ScriptsContext'
 
 const ScriptsProvider: React.FC<Props> = ({ children }) => {
   const [scripts, setScripts] = useState<Record<string, Script>>({})
 
   useEffect(() => void loadScripts(), [])
 
-  const loadScripts = useCallback(async () => {
-    if (Object.values(scripts).length) return
-
+  async function loadScripts() {
     const files = import.meta.glob('/public/assets/scripts/*.json')
     const result: Record<string, Script> = {}
     
@@ -30,7 +27,7 @@ const ScriptsProvider: React.FC<Props> = ({ children }) => {
       result[id] = module.default
     }
     setScripts(result)
-  }, [])
+  }
 
   return (
     <ScriptsContext.Provider value={{ scripts }}>

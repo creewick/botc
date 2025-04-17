@@ -8,73 +8,66 @@
   },
   "home": {
     "title": "Blood on the Clocktower",
-    "links": "Official Links",
-    "world_cup": {
-      "title": "Script World Cup",
-      "subtitle": "Check out the upcoming matches, and vote for your favourite"
-    },
-    "website": {
-      "title": "Website",
-      "subtitle": "Official website of the game"
-    },
-    "wiki": {
-      "title": "Wiki",
-      "subtitle": "Game rules, character abilities"
-    },
-    "scriptTool": {
-      "title": "Script Tool",
-      "subtitle": "With JSON and PDF export"
-    },
-    "onlineClient": {
-      "title": "Online Client",
-      "subtitle": "Play online with voice chat"
+    "sections": {
+      "worldCup": {
+        "title": "Script World Cup",
+        "subtitle": "Check out the upcoming matches"
+      },
+      "website": {
+        "title": "Website",
+        "subtitle": "Official website of the game"
+      },
+      "wiki": {
+        "title": "Wiki",
+        "subtitle": "Game rules, character abilities"
+      },
+      "scriptTool": {
+        "title": "Script Tool",
+        "subtitle": "With JSON and PDF export"
+      },
+      "client": {
+        "title": "Online Client",
+        "subtitle": "Play online with voice chat"
+      }
     }
   },
   "wiki": {
-    "title": "Wiki",
-    "sections": "Sections",
-    "rules": {
-      "title": "Rules",
-      "subtitle": "Game rules and mechanics"
-    },
-    "characters": {
-      "title": "Characters",
-      "subtitle": "Roles list and ability descriptions"
-    },
-    "scripts": {
-      "title": "Scripts",
-      "subtitle": "Game scenarios list"
+    "sections": {
+      "rules": {
+        "title": "Rules",
+        "subtitle": "Game rules and mechanics"
+      },
+      "characters": {
+        "title": "Characters",
+        "subtitle": "Roles list and ability descriptions"
+      },
+      "scripts": {
+        "title": "Scripts",
+        "subtitle": "Game scenarios list"
+      }
     }
   },
-  "roles": {
-    "title": "Characters",
-    "search": "Search",
-    "types": {
+  "characters": {
+    "search": "Search by name",
+    "reminders": "Reminders",
+    "jinxes": "Jinxes",
+    "type": {
       "bootlegger": "Bootleggers",
       "townsfolk": "Townsfolks",
       "outsider": "Outsiders",
       "minion": "Minions",
       "demon": "Demons",
       "traveller": "Travellers",
-      "fabled": "Fabled",
-      "all": "All"
+      "fabled": "Fabled"
     },
-    "editions": {
-      "bmr": "Bad Moon Rising",
-      "snv": "Sects & Violets",
-      "tb": "Trouble Brewing"
-    },
-    "sortBy": "Sort by",
-    "sortOptions": {
+    "sorting": {
+      "title": "Sort by",
       "name": "Name",
       "firstNight": "First Night",
       "otherNight": "Other Nights"
-    },
-    "reminders": "Reminders",
-    "jinxes": "Jinxes"
+    }
   },
   "scripts": {
-    "title": "Scripts",
     "search": "Search",
     "copied": "Script JSON data is copied to clipboard",
     "tabs": {
@@ -87,37 +80,41 @@
       "teen": "Teensyville",
       "official": "Official",
       "full": "Full",
-      "world_cup": "🏆 World Cup"
+      "world_cup": "World Cup"
     }
   },
   "games": {
-    "title": "Games",
-    "game": "Game",
-    "name": "Name",
-    "player": "Player",
-    "script": "Script",
+    "name": "Game #{{number}}",
     "addPlayer": "Add Player",
-    "gameSettings": "Game Settings",
-    "edit": "Edit",
-    "done": "Done",
-    "players": {
+    "gameSettings": {
+      "title": "Game Settings",
+      "name": "Name",
+      "script": "Script"
+    },
+    "reminders": "Reminders",
+    "player": {
       "name": "Name",
       "note": "Note",
       "roles": "Roles",
-      "status": "Status"
+      "status": "Status",
+      "pings": "Pings"
     },
-    "statuses": {
+    "status": {
       "alive": "Alive",
       "executed": "Executed",
       "killed": "Killed"
     },
-    "tabs": {
+    "alignment": {
+      "good": "Good",
+      "evil": "Evil",
+      "undefined": "Unknown"
+    },
+    "view": {
       "list": "List",
       "circle": "Circle"
     }
   },
   "settings": {
-    "title": "Settings",
     "language": "Language",
     "darkMode": {
       "title": "Dark Mode",
@@ -139,6 +136,8 @@
   "actions": {
     "cancel": "Cancel",
     "delete": "Delete",
+    "close": "Close",
+    "done": "Done",
     "deleteAllData": "Delete All Data",
     "copyGame": "Copy Game",
     "deleteGame": "Delete Game",

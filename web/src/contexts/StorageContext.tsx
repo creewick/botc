@@ -1,14 +1,15 @@
 import { Storage } from '@ionic/storage'
 import React, { createContext } from 'react'
 
-const StorageContext = createContext<Storage | null>(null)
-
-const storage = new Storage()
-storage.create()
-
 interface Props {
   children: React.ReactNode
 }
+
+const StorageContext = createContext<Storage | null>(null)
+StorageContext.displayName = 'StorageContext'
+
+const storage = new Storage()
+storage.create()
 
 const StorageProvider: React.FC<Props> = ({ children }) =>
   <StorageContext.Provider value={storage}>

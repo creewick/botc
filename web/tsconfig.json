@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": ["src", "src/contexts", "_src/states", "_src/states", "_src/components/roles/RoleList.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

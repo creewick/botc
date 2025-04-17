@@ -3,14 +3,15 @@
   src: url('/botc/assets/fonts/dumbledor.woff2') format('woff2');
 }
 
-.modal-overflow::part(content) {
-  overflow: visible;
+.role-icon {
+  width: 36px;
+  height: 36px;
 }
 
-.role-view-flavor {
-  font-family: 'Dumbledore';
-  font-style: italic;
-  color: var(--ion-color-medium);
+.role-type-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
 }
 
 ion-searchbar.sc-ion-searchbar-ios-h {
@@ -19,30 +20,32 @@ ion-searchbar.sc-ion-searchbar-ios-h {
   min-height: auto;
 }
 
-.height-100 {
+
+/* .role-view-flavor {
+  font-family: 'Dumbledore';
+  font-style: italic;
+  color: var(--ion-color-medium);
+} */
+
+/* .height-100 {
   max-height: 100%;
   overflow-y: scroll;
-}
+} */
 
-.title-padding {
+/* .title-padding {
   padding: 0 48px;
-}
+} */
 
-.icon {
-  width: 36px;
-  height: 36px;
-}
-
-.jinx-icon {
+/* .jinx-icon {
   display: inline-block;
   width: 16px;
   height: 16px;
   padding: 0;
   margin: 0 0 -2px 16px;
   transform: scale(1.2);
-}
+} */
 
-.inset-list-title {
+/* .inset-list-title {
   color: var(--ion-color-medium);
   margin-left: 32px;
   text-transform: uppercase;
@@ -50,23 +53,23 @@ ion-searchbar.sc-ion-searchbar-ios-h {
   font-weight: 500;
   position: relative;
   top: 8px;
-}
+} */
 
-.circle-container {
+/* .circle-container {
   position: relative;
   width: 100vmin;
   height: 100vmin;
-}
+} */
 
-.has-value.sc-ion-textarea-ios-h+.input-clear-icon.sc-ion-input-ios,
+/* .has-value.sc-ion-textarea-ios-h+.input-clear-icon.sc-ion-input-ios,
 .has-value.sc-ion-input-ios-h+.input-clear-icon.sc-ion-input-ios {
   visibility: visible;
   color: inherit;
   min-width: 30px;
   min-height: 30px;
-}
+} */
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   ion-tab-button {
     display: flex;
     flex-direction: row;
@@ -75,4 +78,4 @@ ion-searchbar.sc-ion-searchbar-ios-h {
   ion-tab-button > ion-icon {
     padding-right: 8px;
   }
-}
+} */

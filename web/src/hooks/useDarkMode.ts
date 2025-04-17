@@ -1,16 +1,18 @@
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import { SettingsContext } from '../contexts/SettingsContext'
+import useSafeContext from './useSafeContext'
 
 const DARK_MODE_CLASS = 'ion-palette-dark'
 const DARK_MODE_MEDIA = '(prefers-color-scheme: dark)'
 
 function useDarkMode() {
-  const { settings } = useContext(SettingsContext)
+  const { settings } = useSafeContext(SettingsContext)
+
   function setDarkMode(value: boolean) {
     document.documentElement.classList.toggle(DARK_MODE_CLASS, value)
   }
 
-  function darkModeChangesEventHandler(mediaQuery: MediaQueryListEvent) {
+  function handler(mediaQuery: MediaQueryListEvent) {
     setDarkMode(mediaQuery.matches)
   }
 
@@ -23,10 +25,8 @@ function useDarkMode() {
     const mediaQuery = window.matchMedia(DARK_MODE_MEDIA)
     setDarkMode(mediaQuery.matches)
 
-    mediaQuery.addEventListener('change', darkModeChangesEventHandler)
-
-    return () =>
-      mediaQuery.removeEventListener('change', darkModeChangesEventHandler)
+    mediaQuery.addEventListener('change', handler)
+    return () => mediaQuery.removeEventListener('change', handler)
   }, [])
 }
 

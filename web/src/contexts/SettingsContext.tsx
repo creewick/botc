@@ -6,103 +6,84 @@ import React, {
   useMemo,
   useState
 } from 'react'
-import  { Settings, SETTINGS } from '../models/AppSettings'
+import  { Settings, DEFAULT_SETTINGS } from '../models/Settings'
 import { StorageContext } from './StorageContext'
 
 interface SettingsContextType {
   settings: Settings
-  setLanguage(lang: string): Promise<void>
-  setDarkMode(darkMode: boolean | null): Promise<void>
+  updateSettings(value: Partial<Settings>): Promise<void>
   checkForUpdates(): Promise<ServiceWorker | undefined>
   updateApp(serviceWorker: ServiceWorker): void
   clearStorage(): Promise<void>
 }
 
-const SettingsContext = createContext<SettingsContextType>(
-  {
-    settings: SETTINGS,
-    setLanguage: () => Promise.resolve(),
-    setDarkMode: () => Promise.resolve(),
-    checkForUpdates: () => Promise.resolve(undefined),
-    updateApp: () => { },
-    clearStorage: () => Promise.resolve()
-  }
-)
-
 interface Props {
   children: React.ReactNode
 }
 
-const KEY = 'settings'
+const SettingsContext = createContext<SettingsContextType|null>(null)
+SettingsContext.displayName = 'SettingsContext'
+
+const MESSAGE_SKIP_WAITING = { type: 'SKIP_WAITING' }
+const SERVICE_WORKER = 'serviceWorker'
+const STATE_INSTALLED = 'installed'
+const STORAGE_KEY = 'settings'
 
 const SettingsProvider: React.FC<Props> = ({ children }) => {
-  const [settings, setSettings] = useState<Settings>(SETTINGS)
+  const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS)
   const storage = useContext(StorageContext)
 
   useEffect(() => void loadSettings(), [])
-  useEffect(() => void storage?.set(KEY, settings), [settings])
+  useEffect(() => void storage?.set(STORAGE_KEY, settings), [settings])
 
-  const loadSettings = useCallback(async () => {
-    const value = await storage?.get(KEY)
+  const loadSettings = async () => {
+    const value = await storage?.get(STORAGE_KEY)
     if (value) setSettings(value)
-  }, [])
+  }
 
-  const setLanguage = useCallback(async (lang: string) => {
-    setSettings((prev) => ({ ...prev, lang }))
-  }, [])
-
-  const setDarkMode = useCallback(async (darkMode: boolean) => {
-    setSettings((prev) => ({ ...prev, darkMode }))
+  const updateSettings = useCallback(async (newSettings: Partial<Settings>) => {
+    setSettings((prev) => ({ ...prev, ...newSettings }))
   }, [])
 
   const checkForUpdates = useCallback(async () => {
-    if (!('serviceWorker' in navigator))
-      return undefined
+    if (!(SERVICE_WORKER in navigator)) return undefined
 
     const registration = await navigator.serviceWorker.ready
     await registration.update()
 
-    const newWorker = registration.installing
-    if (newWorker)
-      return new Promise<ServiceWorker>((resolve) =>
-        newWorker.onstatechange = () => {
-          if (newWorker.state === 'installed')
-            resolve(newWorker)
+    const installingWorker = registration.installing
+
+    if (installingWorker) {
+      return new Promise<ServiceWorker>((resolve) => {
+        installingWorker.onstatechange = () => {
+          if (installingWorker.state === STATE_INSTALLED) {
+            resolve(installingWorker)
+          }
         }
-      )
+      })
+    }
 
     return registration.waiting ?? undefined
   }, [])
 
   const updateApp = useCallback((serviceWorker: ServiceWorker) => {
-    serviceWorker.postMessage({ type: 'SKIP_WAITING' })
+    serviceWorker.postMessage(MESSAGE_SKIP_WAITING)
     window.location.reload()
   }, [])
 
   const clearStorage = useCallback(async () => {
     await storage?.clear()
-    setSettings(SETTINGS)
+    setSettings(DEFAULT_SETTINGS)
     window.location.reload()
-  }, [])
+  }, [storage])
 
-  const value = useMemo(
-    () => ({
-      settings,
-      setLanguage,
-      setDarkMode,
-      checkForUpdates,
-      updateApp,
-      clearStorage
-    }),
-    [
-      settings,
-      setLanguage,
-      setDarkMode,
-      checkForUpdates,
-      updateApp,
-      clearStorage
-    ]
-  )
+  const value = useMemo(() => ({
+    settings,
+    updateSettings,
+    checkForUpdates,
+    updateApp,
+    clearStorage
+  }), [settings, updateSettings, checkForUpdates, updateApp, clearStorage])
 
   return (
     <SettingsContext.Provider value={value}>

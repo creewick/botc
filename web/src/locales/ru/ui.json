@@ -8,99 +8,66 @@
   },
   "home": {
     "title": "Кровь на Часовой Башне",
-    "links": "Официальные ссылки",
-    "world_cup": {
-      "title": "Чемпионат Сценариев",
-      "subtitle": "Следите за предcтоящими матчами, голосуйте за сценарии"
-    },
-    "website": {
-      "title": "Веб-сайт",
-      "subtitle": "Официальный сайт игры"
-    },
-    "wiki": {
-      "title": "Вики",
-      "subtitle": "Правила игры, описания ролей"
-    },
-    "scriptTool": {
-      "title": "Редактор сценариев",
-      "subtitle": "Экспорт в JSON и PDF"
-    },
-    "onlineClient": {
-      "title": "Онлайн клиент",
-      "subtitle": "Играть онлайн с голосовым чатом"
-    }
-  },
-  "games": {
-    "title": "Игры",
-    "game": "Игра",
-    "name": "Название",
-    "player": "Игрок",
-    "script": "Сценарий",
-    "addPlayer": "Добавить игрока",
-    "gameSettings": "Настройки игры",
-    "edit": "Изм.",
-    "done": "Готово",
-    "players": {
-      "name": "Имя",
-      "note": "Заметка",
-      "roles": "Роли",
-      "status": "Статус"
-    },
-    "statuses": {
-      "alive": "Живой",
-      "executed": "Казнён",
-      "killed": "Убит"
-    },
-    "tabs": {
-      "list": "Список",
-      "circle": "Круг"
+    "sections": {
+      "worldCup": {
+        "title": "Чемпионат Сценариев",
+        "subtitle": "Следите за предcтоящими матчами"
+      },
+      "website": {
+        "title": "Веб-сайт",
+        "subtitle": "Официальный сайт игры"
+      },
+      "wiki": {
+        "title": "Вики",
+        "subtitle": "Правила игры, описания ролей"
+      },
+      "scriptTool": {
+        "title": "Редактор сценариев",
+        "subtitle": "Экспорт в JSON и PDF"
+      },
+      "client": {
+        "title": "Онлайн клиент",
+        "subtitle": "Играть онлайн с голосовым чатом"
+      }
     }
   },
   "wiki": {
-    "title": "Вики",
-    "sections": "Разделы",
-    "rules": {
-      "title": "Правила",
-      "subtitle": "Описание правил и механик игры"
-    },
-    "characters": {
-      "title": "Персонажи",
-      "subtitle": "Список ролей и описания способностей"
-    },
-    "scripts": {
-      "title": "Сценарии",
-      "subtitle": "Список игровых сценариев"
+    "sections": {
+      "rules": {
+        "title": "Правила",
+        "subtitle": "Описание правил и механик игры"
+      },
+      "characters": {
+        "title": "Персонажи",
+        "subtitle": "Список ролей и описания способностей"
+      },
+      "scripts": {
+        "title": "Сценарии",
+        "subtitle": "Список игровых сценариев"
+      }
     }
   },
-  "roles": {
-    "title": "Персонажи",
-    "search": "Поиск",
-    "types": {
+  "characters": {
+    "search": "Поиск по имени",
+    "reminders": "Напоминания",
+    "jinxes": "Проклятия",
+    "type": {
       "bootlegger": "Бутлегеры",
       "townsfolk": "Горожане",
       "outsider": "Изгои",
       "minion": "Миньоны",
       "demon": "Демоны",
       "traveller": "Странники",
-      "fabled": "Легенды",
-      "all": "Все"
+      "fabled": "Легенды"
     },
-    "editions": {
-      "bmr": "Восход Злой Луны",
-      "snv": "Секты и Фиалки",
-      "tb": "Проблемы Назревают"
-    },
-    "sortBy": "Сортировка",
-    "sortOptions": {
+    "sorting": {
+      "title": "Сортировка",
       "name": "Имя",
       "firstNight": "Первая ночь",
       "otherNight": "Другие ночи"
-    },
-    "reminders": "Напоминания",
-    "jinxes": "Проклятия"
+    }
   },
   "scripts": {
-    "title": "Сценарии",
     "search": "Поиск",
     "copied": "Сценарий скопирован в формате JSON",
     "tabs": {
@@ -116,8 +83,38 @@
       "world_cup": "🏆 Чемпионат"
     }
   },
+  "games": {
+    "name": "Игра #{{number}}",
+    "addPlayer": "Добавить игрока",
+    "gameSettings": {
+      "title": "Настройки игры",
+      "name": "Название",
+      "script": "Сценарий"
+    },
+    "reminders": "Напоминания",
+    "player": {
+      "name": "Имя",
+      "note": "Заметка",
+      "roles": "Роли",
+      "status": "Статус",
+      "pings": "Пинги"
+    },
+    "status": {
+      "alive": "Живой",
+      "executed": "Казнён",
+      "killed": "Убит"
+    },
+    "alignment": {
+      "good": "Добрый",
+      "evil": "Злой",
+      "undefined": "Неизвестно"
+    },
+    "view": {
+      "list": "Список",
+      "circle": "Круг"
+    }
+  },
   "settings": {
-    "title": "Настройки",
     "language": "Язык",
     "darkMode": {
       "title": "Темный режим",
@@ -139,6 +136,8 @@
   "actions": {
     "cancel": "Отмена",
     "delete": "Удалить",
+    "done": "Готово",
+    "close": "Закрыть",
     "deleteAllData": "Удалить все данные",
     "deleteGame": "Удалить игру",
     "copyGame": "Дублировать игру",
