@@ -1,0 +1,1 @@
+export const getIcon = (id: string) => `/botc/assets/icons/${id}.webp`

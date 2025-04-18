@@ -3,13 +3,13 @@ import Role from '../../../../cli/src/models/Role'
 import { IonContent, IonImg, IonItem, IonLabel, IonList, IonListHeader } from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
 import './RoleView.css'
+import { getIcon } from '../../helpers/helpers'
 
 interface Props {
   role: Role
 }
 
 const RoleView: React.FC<Props> = ({ role }: Props) => {
-  const getIcon = (id: string) => `/botc/assets/icons/${id}.webp`  
   const t = useTranslation()
 
   const getTextList = (key: string): string[] => {

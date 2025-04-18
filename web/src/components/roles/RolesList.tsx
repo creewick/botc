@@ -1,8 +1,6 @@
 import React, { useState, useMemo, Suspense } from 'react'
 import Role from '../../../../cli/src/models/Role'
 import { 
-  IonBackButton,
-  IonButtons,
   IonChip, 
   IonContent, 
   IonGrid, 
@@ -13,13 +11,13 @@ import {
   IonLabel, 
   IonList, 
   IonTitle, 
-  IonToolbar 
-} from '@ionic/react'
+  IonToolbar} from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
 import RoleType from '../../../../cli/src/enums/RoleType'
 import { RolesListState } from '../../states/RolesListState'
 import './RolesList.css'
 import Searchbar from '../common/suspense/Searchbar'
+import { getIcon } from '../../helpers/helpers'
 
 interface Props {
   roles: Role[]
@@ -31,8 +29,6 @@ interface Props {
 interface PropsInternal extends Props {
   state: RolesListState
 }
-
-const getIcon = (id: string) => `/botc/assets/icons/${id}.webp`
 
 const RoleListInternal: React.FC<PropsInternal> = ({ roles, group, state, onSelect, getText }) => {
   const t = useTranslation()
@@ -99,26 +95,24 @@ const RolesList: React.FC<Props> = (props) => {
   )
 
   return (
-    // <>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">
-              <Translation path='wiki.sections.characters.title' />
-            </IonTitle>
-          </IonToolbar>
-          <Searchbar path='characters.search' onIonInput={onInput} />
-          <IonGrid className='filters-row'>
-            {Object.values(RoleType).map(renderRoleType)}
-          </IonGrid>
-        </IonHeader>
-        <Suspense>
-          <IonList>
-            <RoleListInternal {...{...props, state}} />
-          </IonList>
-        </Suspense>
-      </IonContent>
-    // </>
+    <IonContent fullscreen>
+      <IonHeader collapse="condense">
+        <IonToolbar>
+          <IonTitle size="large">
+            <Translation path='wiki.sections.characters.title' />
+          </IonTitle>
+        </IonToolbar>
+        <Searchbar path='characters.search' onIonInput={onInput} />
+        <IonGrid className='filters-row'>
+          {Object.values(RoleType).map(renderRoleType)}
+        </IonGrid>
+      </IonHeader>
+      <Suspense>
+        <IonList>
+          <RoleListInternal {...{...props, state}} />
+        </IonList>
+      </Suspense>
+    </IonContent>
   )
 }
 

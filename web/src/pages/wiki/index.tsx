@@ -6,18 +6,18 @@ import { Translation } from 'i18nano'
 
 const WikiPage: React.FC = () => (
   <IonPage>
-    <IonHeader>
+    <IonHeader collapse='fade'>
       <IonToolbar>
         <IonTitle>
           <Translation path="tabs.wiki" />
         </IonTitle>
       </IonToolbar>
     </IonHeader>
-    <IonContent>
+    <IonContent fullscreen>
       <IonHeader collapse="condense">
         <IonToolbar>
           <IonTitle size="large">
-            Wiki2
+            <Translation path="tabs.wiki" />
           </IonTitle>
         </IonToolbar>
       </IonHeader>
