@@ -1,13 +1,20 @@
 import { Redirect, Route } from 'react-router-dom'
 import {
   IonApp,
+  IonContent,
+  IonHeader,
   IonIcon,
   IonLabel,
+  IonMenu,
   IonRouterOutlet,
+  IonSplitPane,
   IonTabBar,
   IonTabButton,
   IonTabs,
-  setupIonicReact} from '@ionic/react'
+  IonTitle,
+  IonToolbar,
+  setupIonicReact
+} from '@ionic/react'
 import { IonReactHashRouter } from '@ionic/react-router'
 import { book, dice, home, settings, statsChart } from 'ionicons/icons'
 import HomePage from './pages/home/index'
@@ -36,6 +43,8 @@ import './App.css'
 import { SettingsContext } from './contexts/SettingsContext'
 import useSafeContext from './hooks/useSafeContext'
 import GamePage from './pages/GamePage'
+import ScriptsPage from './pages/wiki/scripts'
+import Sidebar from './components/common/Sidebar'
 
 setupIonicReact({ mode: 'ios' })
 
@@ -57,7 +66,7 @@ const App: React.FC = () => {
   return (
     <IonApp >
       <IonReactHashRouter>
-        {/* <IonSplitPane when="md" contentId="main">
+        <IonSplitPane when="md" contentId="main">
           <IonMenu contentId="main">
             <IonHeader>
               <IonToolbar>
@@ -70,25 +79,26 @@ const App: React.FC = () => {
               <Sidebar />
             </IonContent>
           </IonMenu>
-        </IonSplitPane> */}
-        <IonTabs>
-          <IonRouterOutlet>
-            <Route exact path="/home" render={() => <HomePage />} />
-            <Route exact path="/wiki" render={() => <WikiPage />} />
-            <Route exact path="/wiki/roles/:id?" render={() => <RolesPage />} />
-            <Route exact path="/games" render={() => <GamesPage />} />
-            <Route exact path="/settings" render={() => <SettingsPage />} />
-            <Route exact path="/" render={() => <Redirect to="/home" />} />
-            <Route exact path="/games/:id" render={() => <GamePage />} />
-          </IonRouterOutlet>
-          <IonTabBar slot="bottom">
-            {renderTab('home', home)}
-            {renderTab('wiki', book)}
-            {renderTab('games', dice)}
-            {renderTab('trends', statsChart, true)}
-            {renderTab('settings', settings)}
-          </IonTabBar>
-        </IonTabs>
+          <IonTabs id="main">
+            <IonRouterOutlet>
+              <Route exact path="/home" render={() => <HomePage />} />
+              <Route exact path="/wiki" render={() => <WikiPage />} />
+              <Route exact path="/wiki/roles/:id?" render={() => <RolesPage />} />
+              <Route exact path="/wiki/scripts" render={() => <ScriptsPage />} />
+              <Route exact path="/games" render={() => <GamesPage />} />
+              <Route exact path="/settings" render={() => <SettingsPage />} />
+              <Route exact path="/" render={() => <Redirect to="/home" />} />
+              <Route exact path="/games/:id" render={() => <GamePage />} />
+            </IonRouterOutlet>
+            <IonTabBar slot="bottom" className="ion-hide-md-up">
+              {renderTab('home', home)}
+              {renderTab('wiki', book)}
+              {renderTab('games', dice)}
+              {renderTab('trends', statsChart, true)}
+              {renderTab('settings', settings)}
+            </IonTabBar>
+          </IonTabs>
+        </IonSplitPane>
       </IonReactHashRouter>
     </IonApp>
   )

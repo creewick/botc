@@ -14,12 +14,26 @@
   margin-right: 4px;
 }
 
-ion-searchbar.sc-ion-searchbar-ios-h {
+ion-searchbar.sc-ion-searchbar-ios-h,
+.header-collapse-condense ion-toolbar ion-searchbar {
   padding-top: 0;
   padding-bottom: 0;
   min-height: auto;
 }
 
+.searchbar-input-container.sc-ion-searchbar-ios {
+  min-height: 32px;
+}
+
+ion-chip {
+  min-height: 32px;
+  max-height: 32px;
+}
+
+.filters-row {
+  white-space: nowrap;
+  overflow-x: auto;
+}
 
 /* .role-view-flavor {
   font-family: 'Dumbledore';

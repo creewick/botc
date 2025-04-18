@@ -69,7 +69,6 @@
   },
   "scripts": {
     "search": "Search",
-    "copied": "Script JSON data is copied to clipboard",
     "tabs": {
       "roles": "Roles",
       "firstNight": "First Night",
@@ -79,6 +78,7 @@
     "tags": {
       "teen": "Teensyville",
       "official": "Official",
+      "homebrew": "Homebrew",
       "full": "Full",
       "world_cup": "World Cup"
     }

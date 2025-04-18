@@ -17,14 +17,11 @@ const RolesPage: React.FC = () => {
   const [role, setRole] = useState<Role>()
 
   useEffect(() => setRole(roles.find(role => role.id === id)), [id, roles])
-
-  useIonViewWillLeave(() => {
-    setRole(undefined)
-  })
+  useIonViewWillLeave(() => setRole(undefined))
 
   function onSelect(role?: Role) {
     setRole(role)
-    if (window.location.pathname.includes('/wiki/roles')) {
+    if (window.location.href.includes('/wiki/roles')) {
       window.history.replaceState(null, '', role
         ? `/botc/#/wiki/roles/${role.id}`
         : '/botc/#/wiki/roles')

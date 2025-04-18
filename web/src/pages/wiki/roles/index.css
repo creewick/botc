@@ -2,6 +2,10 @@
   overflow: visible;
 }
 
+.modal-overflow ion-toolbar {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
 .token {
   z-index: 10;
   margin: 0 auto;

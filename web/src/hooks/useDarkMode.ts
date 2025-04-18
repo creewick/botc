@@ -27,7 +27,7 @@ function useDarkMode() {
 
     mediaQuery.addEventListener('change', handler)
     return () => mediaQuery.removeEventListener('change', handler)
-  }, [])
+  }, [settings.darkMode])
 }
 
 export default useDarkMode

@@ -15,7 +15,6 @@ import {
 import { Translation, useTranslation } from 'i18nano'
 import RoleType from '../../../../cli/src/enums/RoleType'
 import { RolesListState } from '../../states/RolesListState'
-import './RolesList.css'
 import Searchbar from '../common/suspense/Searchbar'
 import { getIcon } from '../../helpers/helpers'
 
@@ -85,7 +84,7 @@ const RolesList: React.FC<Props> = (props) => {
     setState(prev => ({ ...prev, type: state.type === type ? undefined : type }))
   }
 
-  const color = (type: RoleType) => state.type === type ? 'primary' : 'medium'
+  const color = (type: RoleType) => state.type === type ? 'primary' : 'dark'
 
   const renderRoleType = (type: RoleType) => (
     <IonChip key={type} color={color(type)} onClick={() => onClick(type)}>
@@ -102,10 +101,12 @@ const RolesList: React.FC<Props> = (props) => {
             <Translation path='wiki.sections.characters.title' />
           </IonTitle>
         </IonToolbar>
-        <Searchbar path='characters.search' onIonInput={onInput} />
-        <IonGrid className='filters-row'>
-          {Object.values(RoleType).map(renderRoleType)}
-        </IonGrid>
+        <IonToolbar>
+          <Searchbar path='characters.search' onIonInput={onInput} />
+          <IonGrid className='filters-row'>
+            {Object.values(RoleType).map(renderRoleType)}
+          </IonGrid>
+        </IonToolbar>
       </IonHeader>
       <Suspense>
         <IonList>

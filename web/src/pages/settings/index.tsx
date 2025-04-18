@@ -3,6 +3,7 @@ import {
   IonHeader,
   IonIcon,
   IonItem,
+  IonLabel,
   IonList,
   IonNote,
   IonPage,
@@ -16,7 +17,6 @@ import packageJson from '../../../package.json'
 import { bugOutline, logInOutline, logoGithub, logOutOutline, refreshOutline } from 'ionicons/icons'
 import { SettingsContext } from '../../contexts/SettingsContext'
 import useSafeContext from '../../hooks/useSafeContext'
-import UpdateAppButton from '../../components/settings/UpdateAppButton'
 import LanguageSelect from '../../components/settings/LanguageSelect'
 import DarkModeSelect from '../../components/settings/DarkModeSelect'
 import ClearStorageButton from '../../components/settings/ClearStorageButton'
@@ -43,7 +43,7 @@ const SettingsPage: React.FC = () => {
             <Translation path='tabs.settings' />
           </IonTitle>
         </IonToolbar>
-        {loading && <IonProgressBar type='indeterminate' />}
+
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse='condense'>
@@ -53,7 +53,22 @@ const SettingsPage: React.FC = () => {
             </IonTitle>
           </IonToolbar>
         </IonHeader>
-        <UpdateAppButton updateApp={updateApp} workerToUpdate={worker} />
+        <IonList inset>
+          {loading && <IonProgressBar type='indeterminate' />}
+          {worker ?
+            <IonItem color='primary' button detail={false} onClick={() => updateApp(worker)}>
+              <IonIcon slot='start' icon={refreshOutline} />
+              <IonLabel>
+                <Translation path='settings.update' />
+              </IonLabel>
+            </IonItem>
+            : 
+            <IonItem button detail={false} color='light' onClick={checkForUpdate} disabled={loading}>
+              <IonIcon slot='start' icon={refreshOutline} />
+              <Translation path='settings.checkForUpdates' />
+            </IonItem>
+          }
+        </IonList>
         <IonList inset>
           <LanguageSelect />
           <DarkModeSelect />
@@ -79,12 +94,6 @@ const SettingsPage: React.FC = () => {
           <IonItem color='light' href='https://github.com/creewick/botc/issues/new'>
             <IonIcon slot='start' icon={bugOutline} />
             <Translation path='settings.bug' />
-          </IonItem>
-        </IonList>
-        <IonList inset>
-          <IonItem button detail={false} color='light' onClick={checkForUpdate} disabled={loading}>
-            <IonIcon slot='start' icon={refreshOutline} />
-            <Translation path='settings.checkForUpdates' />
           </IonItem>
         </IonList>
         <div className='ion-text-center'>
