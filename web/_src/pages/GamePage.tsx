@@ -20,17 +20,17 @@ import {
 import { Translation, useTranslation } from 'i18nano'
 import React, { useCallback, useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Game from '../models/Game'
-import PlayerTable from '../../_src/components/players/PlayerTable'
-import Player from '../models/player/Player'
-import PlayerList from '../../_src/components/players/PlayerList'
-import { GamesContext } from '../contexts/GamesProvider'
-import { GamePageState, GameTab } from '../states/GamePageState'
-import PlayerModal from '../../_src/components/players/PlayerModal'
-import GameModal from '../../_src/components/games/GameModal'
-import ScriptListModal from '../../_src/components/scripts/ScriptListModal'
+import Game from '../../src/models/Game'
+import PlayerTable from '../components/players/PlayerTable'
+import Player from '../../src/models/player/Player'
+import PlayerList from '../components/players/PlayerList'
+import { GamesContext } from '../../src/contexts/GamesProvider'
+import { GamePageState, GameTab } from '../../src/states/GamePageState'
+import PlayerModal from '../components/players/PlayerModal'
+import GameModal from '../components/games/GameModal'
+import ScriptListModal from '../components/scripts/ScriptListModal'
 import RoleType from '../../../cli/src/enums/RoleType'
-import useSafeContext from '../hooks/useSafeContext'
+import useSafeContext from '../../src/hooks/useSafeContext'
 
 const GamePage: React.FC = () => {
   const { games } = useSafeContext(GamesContext)
@@ -51,8 +51,8 @@ const GamePage: React.FC = () => {
     setState(prev => ({ ...prev, tab: e.target.value as GameTab }))
     , [])
   const setPlayers = useCallback(async (players: Player[]) => {}, [])
-    // await setGame(id, { ...game, players })
-    // , [id, game, setGame])
+    await setGame(id, { ...game, players })
+    , [id, game, setGame])
   const setPlayerFromModal = useCallback(async (player?: Player) => {
     if (player !== undefined) await setPlayers(game.players.map(p => p === state.playerModal ? player : p))
     else await setPlayers(game.players.filter(p => p !== state.playerModal))
@@ -109,8 +109,8 @@ const GamePage: React.FC = () => {
       </IonHeader>
 
       <IonContent>
-        {/* {state.tab === GameTab.List && <PlayerList {...props} />}
-        {state.tab === GameTab.Circle && <PlayerTable {...props} />} */}
+        {state.tab === GameTab.List && <PlayerList {...props} />}
+        {state.tab === GameTab.Circle && <PlayerTable {...props} />}
       </IonContent>
 
       <IonFooter>

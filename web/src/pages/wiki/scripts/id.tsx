@@ -11,7 +11,6 @@ import {
   IonSegmentView,
   IonTitle,
   IonToolbar,
-  SegmentValue,
   useIonViewWillLeave
 } from '@ionic/react'
 import React, { ReactNode, useEffect, useMemo, useState } from 'react'
@@ -32,16 +31,15 @@ import { RolesContext } from '../../../contexts/RolesProvider'
 import ScriptCharacter from '../../../../../cli/src/schema/ScriptCharacter'
 import RoleType from '../../../../../cli/src/enums/RoleType'
 import RoleModal from '../../../components/roles/RoleModal'
-import { render } from '@testing-library/react'
 
 const ScriptPage: React.FC = () => {
   const { id, roleId } = useParams<{ id: string, roleId?: string }>()
   const { scripts } = useSafeContext(ScriptsContext)
   const { roles, specialRoles } = useSafeContext(RolesContext)
   const [role, setRole] = useState<Role>()
-  const [script, setScript] = useState<Script>([])
   const [scriptRoles, setScriptRoles] = useState<Role[]>([])
   const [customRoles, setCustomRoles] = useState<TranslationValues>({})
+  const script = scripts[id] ?? {} as Script
 
   useEffect(() => void loadScript(), [scripts, id])
   useIonViewWillLeave(() => setRole(undefined))
@@ -62,7 +60,6 @@ const ScriptPage: React.FC = () => {
   async function loadScript() {
     if (!id || !scripts[id]) return
     const script = scripts[id]
-    setScript(script)
     const meta = getScriptMeta(script)
 
     const scriptRoles = script
@@ -131,7 +128,7 @@ const ScriptPage: React.FC = () => {
 
   const useLocale = (children: ReactNode) => 
     <TranslationProvider translations={locales.roles}>
-      <TranslationProvider translations={customRolesLocale} language="en" key={Object.keys(script).length}>
+      <TranslationProvider translations={customRolesLocale} language="en" key={Object.keys(customRoles).length}>
         {children}
       </TranslationProvider>
     </TranslationProvider>

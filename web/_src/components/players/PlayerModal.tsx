@@ -1,7 +1,7 @@
 import React, {
   MouseEvent,
-  useContext,
   useEffect,
+  useMemo,
   useRef,
   useState
 } from 'react'
@@ -25,16 +25,20 @@ import {
   IonToolbar
 } from '@ionic/react'
 import Player from '../../../src/models/player/Player'
-import { Translation, useTranslation } from 'i18nano'
+import { Translation, TranslationProvider, TranslationValues, useTranslation } from 'i18nano'
 import Role from '../../../../cli/src/models/Role'
 import { closeCircle, close as closeIcon } from 'ionicons/icons'
-import Script from '../../../../cli/src/schema/Script'
 import PlayerStatus from '../../../src/enums/PlayerStatus'
 import { RolesContext } from '../../../src/contexts/RolesProvider'
 import { ScriptsContext } from '../../../src/contexts/ScriptsContext'
-import RoleList from '../roles/RoleList'
-import Token from '../Token'
+import Token from '../../../src/components/roles/Token'
 import PlayerAlignment from '../../../src/enums/PlayerAlignment'
+import useSafeContext from '../../../src/hooks/useSafeContext'
+import RolesList from '../../../src/components/roles/RolesList'
+import { locales } from '../../../src/locales/locales'
+import { getScriptMeta } from '../../../src/helpers/getScriptMeta'
+import RoleType from '../../../../cli/src/enums/RoleType'
+import ScriptCharacter from '../../../../cli/src/schema/ScriptCharacter'
 
 interface Props {
   setPlayer: (player: Player | undefined) => void
@@ -47,11 +51,11 @@ interface Props {
 const ZERO = 0.00001
 
 const PlayerModal: React.FC<Props> = ({ player, setPlayer, players, scriptId, close }: Props) => {
-  const { roles } = useContext(RolesContext)
-  const { scripts } = useContext(ScriptsContext)
+  const { roles } = useSafeContext(RolesContext)
+  const { scripts } = useSafeContext(ScriptsContext)
 
   const rolesModalRef = useRef<HTMLIonModalElement>(null)
-  const rolesSearchRef = useRef<HTMLIonSearchbarElement>(null)
+  // const rolesSearchRef = useRef<HTMLIonSearchbarElement>(null)
   const playersModalRef = useRef<HTMLIonModalElement>(null)
   const playersSearchRef = useRef<HTMLIonSearchbarElement>(null)
 
@@ -59,40 +63,65 @@ const PlayerModal: React.FC<Props> = ({ player, setPlayer, players, scriptId, cl
   const [query, setQuery] = useState('')
   const [alignment, setAlignment] = useState<PlayerAlignment>(PlayerAlignment.Good)
   const [scriptRoles, setScriptRoles] = useState<Role[]>([])
+  const [customRoles, setCustomRoles] = useState<TranslationValues>({})
 
-  useEffect(() => loadScript(), [scripts, scriptId])
+  useEffect(() => void loadScript(), [scripts, scriptId])
 
-  const getRoles = () => (scriptId ? scriptRoles : roles as Role[])
-    .filter(role => role.edition !== 'special' && (!query ||
-      t(`${role.id}.name`).toLowerCase().includes(query.toLowerCase()) ||
-      t(`${role.id}.ability`).toLowerCase().includes(query.toLowerCase())))
-    .sort((a, b) => t(`${a.id}.name`).localeCompare(t(`${b.id}.name`)))
-
-  function loadScript() {
+  async function loadScript() {
     if (!scriptId || !scripts[scriptId]) return
-    const script = scripts[scriptId] as Script
-    const result: Role[] = []
+    const script = scripts[scriptId]
+    const meta = getScriptMeta(script)
 
-    for (const item of script) {
-      if (typeof item === 'string') {
-        const role = roles
-          .find(role => role.id === item.replaceAll('_', '')) as Role
-        if (role) result.push(role)
-      } else if (item.id) {
-        const role = roles
-          .find(role => role.id === item.id.replaceAll('_', '')) as Role
-        if (role) result.push(role)
-      }
-    }
+    const scriptRoles = script
+      .map(item => {
+        if (typeof item === 'string')
+          return loadByCharacterId(item)
+        if ('ability' in item)
+          return loadCustomCharacter(item as ScriptCharacter)
+        return loadByCharacterId(item.id)
+      })
+      .filter(role => !!role)
 
-    setScriptRoles(result)
+    setScriptRoles(scriptRoles)
+
+    const customRoles = script
+      .filter(item => typeof item !== 'string' && 'ability' in item)
+      .map(role => ({
+        id: role.id,
+        name: role.name,
+        ability: role.ability,
+        flavor: role.flavor ?? '',
+        firstNightReminder: role.firstNightReminder ?? '',
+        otherNightReminder: role.otherNightReminder ?? '',
+        reminders: role.reminders ?? [],
+        jinxes: role.jinxes?.reduce((acc, jinx) => ({ ...acc, [jinx.id]: jinx.reason }), {}),
+      }))
+      .reduce((acc, role) => ({ ...acc, [role.id]: role }), {})
+
+    setCustomRoles(customRoles)
   }
 
+  const loadCustomCharacter = (role: ScriptCharacter): Role => ({
+    id: role.id,
+    type: role.team as RoleType,
+    edition: role.edition ?? '',
+    setup: role.setup ?? false,
+    firstNightOrder: role.firstNight,
+    otherNightOrder: role.otherNight,
+    jinxes: role.jinxes?.map(jinx => jinx.id),
+  })
+
+  const loadByCharacterId = (id: string) =>
+    roles.find((role: Role) => role.id === id.replaceAll('_', ''))
+
+  const customRolesLocale = useMemo(() => ({ en: () => Promise.resolve(customRoles) }), [customRoles])
+
+
   function openRolesModal() {
-    setQuery('')
-    rolesSearchRef.current!.value = ''
+    // setQuery('')
+    // rolesSearchRef.current!.value = ''
     rolesModalRef.current?.setCurrentBreakpoint(1)
-    rolesSearchRef.current?.setFocus()
+    // rolesSearchRef.current?.setFocus()
   }
 
   async function closeRolesModal() {
@@ -100,12 +129,12 @@ const PlayerModal: React.FC<Props> = ({ player, setPlayer, players, scriptId, cl
     rolesModalRef.current?.focus()
   }
 
-  function openPlayersModal() {
-    setQuery('')
-    playersSearchRef.current!.value = ''
-    playersModalRef.current?.setCurrentBreakpoint(1)
-    playersSearchRef.current?.setFocus()
-  }
+  // function openPlayersModal() {
+  //   setQuery('')
+  //   playersSearchRef.current!.value = ''
+  //   playersModalRef.current?.setCurrentBreakpoint(1)
+  //   playersSearchRef.current?.setFocus()
+  // }
 
   async function closePlayersModal() {
     playersModalRef.current?.setCurrentBreakpoint(ZERO)
@@ -131,7 +160,7 @@ const PlayerModal: React.FC<Props> = ({ player, setPlayer, players, scriptId, cl
       ...player!,
       pings: [...player!.pings, { to: playerTo.id, alignment: alignment }]
     })
-  } 
+  }
 
   return (
     <IonModal
@@ -170,7 +199,7 @@ const PlayerModal: React.FC<Props> = ({ player, setPlayer, players, scriptId, cl
                 <IonSegmentButton key={status} value={status}>
                   <IonLabel>
                     <Translation
-                      path={`games.statuses.${status.toLowerCase()}`}
+                      path={`games.status.${status.toLowerCase()}`}
                     />
                   </IonLabel>
                 </IonSegmentButton>
@@ -179,25 +208,23 @@ const PlayerModal: React.FC<Props> = ({ player, setPlayer, players, scriptId, cl
           </IonItem>
           <IonItem onClick={openRolesModal}>
             <IonLabel>
-              <Translation path='games.players.roles' />
+              <Translation path='games.player.roles' />
             </IonLabel>
             <IonInput readonly style={{ overflow: 'hidden' }}>
               <span slot='start' style={{ textWrap: 'nowrap', overflow: 'scroll', margin: 0 }}>
                 {player?.roles?.map((role, id) =>
                   <span key={id} onClick={(event) => removeRole(event, role)} style={{ marginRight: 4 }}>
-                    <Token size={32} roleId={role} status={PlayerStatus.Alive}
-                      hideTitle
-                    />
+                    <Token size={32} roleId={role} status={PlayerStatus.Alive} />
                   </span>
                 )}
               </span>
             </IonInput>
           </IonItem>
-          <IonItem>
+          {/* <IonItem>
             <IonLabel>
               <Translation path='games.reminders' />
             </IonLabel>
-          </IonItem>
+          </IonItem> */}
           {/* <IonItem>
           <IonSegment value={player?.alignment} onIonChange={changeAlignment}>
             {[undefined].concat(Object.values(PlayerAlignment)).map(status =>
@@ -222,7 +249,7 @@ const PlayerModal: React.FC<Props> = ({ player, setPlayer, players, scriptId, cl
           <IonItem>
             <IonTextarea
               autocapitalize='on'
-              label={t('games.players.note')}
+              label={t('games.player.note')}
               value={player?.note}
               autoGrow={true}
               onIonChange={e => setPlayer({ ...player!, note: e.detail.value! })}
@@ -252,31 +279,17 @@ const PlayerModal: React.FC<Props> = ({ player, setPlayer, players, scriptId, cl
           focusTrap={false}
           keepContentsMounted
         >
-          <IonHeader>
-            <IonToolbar>
-              <IonSearchbar
-                ref={rolesSearchRef}
-                onIonInput={e => setQuery(e.detail.value!.toLowerCase())}
-              />
-              <IonButtons slot='end' className='ion-align-self-center'>
-                <IonButton onClick={closeRolesModal}>
-                  <IonIcon icon={closeIcon} />
-                </IonButton>
-              </IonButtons>
-            </IonToolbar>
-          </IonHeader>
-          <IonContent>
-            <RoleList
-              roles={getRoles()}
-              onSelect={(role) => {
+          <TranslationProvider translations={locales.roles}>
+            <TranslationProvider translations={customRolesLocale} language="en" key={Object.keys(customRoles).length}>
+              <RolesList header roles={scriptRoles.length > 0 ? scriptRoles : roles} onSelect={(role) => {
                 setPlayer({
                   ...player!,
                   roles: [...player!.roles.filter(r => r !== role.id), role.id]
                 })
                 closeRolesModal()
-              }}
-            />
-          </IonContent>
+              }} getText={() => ''} />
+            </TranslationProvider>
+          </TranslationProvider>
         </IonModal>
 
         <IonModal
@@ -321,8 +334,7 @@ const PlayerModal: React.FC<Props> = ({ player, setPlayer, players, scriptId, cl
               {players?.filter(player => player.name.toLowerCase().includes(query.toLowerCase())).map(player =>
                 <IonItem button detail={false} key={player.id} onClick={() => addPing(player)}>
                   <span slot='start'>
-                    <Token size={48} roleId={player.roles[player.roles.length - 1]} hideTitle />
-
+                    <Token size={48} roleId={player.roles[player.roles.length - 1]} />
                   </span>
                   <IonLabel className='ion-text-nowrap'>
                     <h2>{player.name}</h2>

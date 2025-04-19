@@ -84,6 +84,7 @@
     }
   },
   "games": {
+    "create": "Создать игру",
     "name": "Игра #{{number}}",
     "addPlayer": "Добавить игрока",
     "gameSettings": {
@@ -137,6 +138,7 @@
     "cancel": "Отмена",
     "delete": "Удалить",
     "done": "Готово",
+    "edit": "Изменить",
     "close": "Закрыть",
     "deleteAllData": "Удалить все данные",
     "deleteGame": "Удалить игру",

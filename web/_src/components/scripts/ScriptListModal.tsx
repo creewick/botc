@@ -1,9 +1,11 @@
 import { IonModal, IonContent, IonList, IonItem, IonLabel } from '@ionic/react'
-import { Translation } from 'i18nano'
-import React, { useContext } from 'react'
+import { Translation, TranslationProvider } from 'i18nano'
+import React from 'react'
 import Script from '../../../../cli/src/schema/Script'
-import ScriptMeta from '../../../../cli/src/schema/ScriptMeta'
 import { ScriptsContext } from '../../../src/contexts/ScriptsContext'
+import useSafeContext from '../../../src/hooks/useSafeContext'
+import { locales } from '../../../src/locales/locales'
+import { getScriptMeta } from '../../../src/helpers/getScriptMeta'
 
 interface Props {
   isOpen: boolean
@@ -12,27 +14,21 @@ interface Props {
 }
 
 const ScriptListModal: React.FC<Props> = ({ isOpen, close, setScript }: Props) => {
-  const { scripts } = useContext(ScriptsContext)
+  const { scripts } = useSafeContext(ScriptsContext)
 
-  const renderScript = (entry: [string, Script]) => {
-    const [id, script] = entry
-    const meta = script
-      .find(item => (item as ScriptMeta).id === '_meta') as ScriptMeta
-
-    const setScriptId = () => {
-      setScript(id)
-      close()
-    }
-
-    return (
-      <IonItem onClick={setScriptId} detail={false} key={id} button>
-        <IonLabel>
-          <h2><Translation path={id} /></h2>
-          <p>{meta?.author}</p>
-        </IonLabel>
-      </IonItem>
-    )
+  const onClick = (scriptId: string) => {
+    setScript(scriptId)
+    close()
   }
+
+  const renderScript = ([id, script]: [string, Script]) => (
+    <IonItem onClick={() => onClick(id)} detail={false} key={id} button>
+      <IonLabel>
+        <h2><Translation path={id} /></h2>
+        <p>{getScriptMeta(script).author}</p>
+      </IonLabel>
+    </IonItem>
+  )
   
   return (
     <IonModal
@@ -43,7 +39,9 @@ const ScriptListModal: React.FC<Props> = ({ isOpen, close, setScript }: Props) =
     >
       <IonContent>
         <IonList>
-          {Object.entries(scripts).map(renderScript)}
+          <TranslationProvider translations={locales.scripts}>
+            {Object.entries(scripts).map(renderScript)}
+          </TranslationProvider>
         </IonList>
       </IonContent>
     </IonModal>

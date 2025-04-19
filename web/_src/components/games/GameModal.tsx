@@ -2,7 +2,6 @@ import {
   IonAlert,
   IonButton,
   IonButtons,
-  IonContent,
   IonHeader,
   IonIcon,
   IonInput,
@@ -13,12 +12,13 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react'
-import React, { useContext } from 'react'
+import React from 'react'
 import { GamesContext } from '../../../src/contexts/GamesProvider'
-import Game from '../../../src/models/player/Game'
+import Game from '../../../src/models/Game'
 import { Translation, useTranslation } from 'i18nano'
 import { useHistory } from 'react-router'
 import { closeCircle, close as closeIcon } from 'ionicons/icons'
+import useSafeContext from '../../../src/hooks/useSafeContext'
 
 interface Props {
   isOpen: boolean
@@ -28,7 +28,7 @@ interface Props {
 }
 
 const GameModal: React.FC<Props> = ({ isOpen, close, gameId, openScriptModal }: Props) => {
-  const { games, setGame, deleteGame, addGame } = useContext(GamesContext)
+  const { games, updateGame, addGame, deleteGame } = useSafeContext(GamesContext)
   const game = games[gameId] ?? {} as Game
   const history = useHistory()
   const t = useTranslation()
@@ -49,37 +49,37 @@ const GameModal: React.FC<Props> = ({ isOpen, close, gameId, openScriptModal }: 
       backdropBreakpoint={0.40}
     >
       <div>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>
-            {game.name}
-          </IonTitle>
-          <IonButtons slot='end'>
-                          <IonButton onClick={close}>
-                            <IonIcon icon={closeIcon}/>
-                          </IonButton>
-                        </IonButtons>
-        </IonToolbar>
-      </IonHeader>
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>
+              {game.name}
+            </IonTitle>
+            <IonButtons slot='end'>
+              <IonButton onClick={close}>
+                <IonIcon icon={closeIcon} />
+              </IonButton>
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
         <IonItem>
           <IonInput
             clearInput
             autocapitalize='on'
-            label={t('games.name')}
+            label={t('games.gameSettings.name')}
             value={game.name}
-            onIonChange={e => setGame(gameId, { ...game, name: e.detail.value! })}
+            onIonChange={e => updateGame(gameId, { name: e.detail.value! })}
           />
         </IonItem>
         <IonItem onClick={openScriptModal}>
           <IonInput
-            label={t('games.script')}
+            label={t('games.gameSettings.script')}
             value={t(game.scriptId ?? '')}
             readonly
           />
           <button
             className='input-clear-icon sc-ion-input-ios'
             onClick={(e) => {
-              setGame(gameId, { ...game, scriptId: undefined })
+              updateGame(gameId, { scriptId: undefined })
               e.stopPropagation()
             }}
           >
@@ -89,14 +89,14 @@ const GameModal: React.FC<Props> = ({ isOpen, close, gameId, openScriptModal }: 
         <IonItem>
           <IonTextarea
             autocapitalize='on'
-            label={t('games.players.note')}
+            label={t('games.player.note')}
             value={game.note}
             autoGrow={true}
-            onIonInput={e => setGame(gameId, { ...game, note: e.detail.value! })}
+            onIonInput={e => updateGame(gameId, { note: e.detail.value! })}
           />
           <button
             className='input-clear-icon sc-ion-input-ios'
-            onClick={() => setGame(gameId, { ...game, note: undefined })}
+            onClick={() => updateGame(gameId, { note: undefined })}
           >
             <IonIcon className='sc-ion-input-ios ios' icon={closeCircle} color='medium' />
           </button>

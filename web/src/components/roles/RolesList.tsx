@@ -1,17 +1,18 @@
 import React, { useState, useMemo, Suspense } from 'react'
 import Role from '../../../../cli/src/models/Role'
-import { 
-  IonChip, 
-  IonContent, 
-  IonGrid, 
-  IonHeader, 
-  IonImg, 
-  IonItem, 
-  IonItemDivider, 
-  IonLabel, 
-  IonList, 
-  IonTitle, 
-  IonToolbar} from '@ionic/react'
+import {
+  IonChip,
+  IonContent,
+  IonGrid,
+  IonHeader,
+  IonImg,
+  IonItem,
+  IonItemDivider,
+  IonLabel,
+  IonList,
+  IonTitle,
+  IonToolbar
+} from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
 import RoleType from '../../../../cli/src/enums/RoleType'
 import { RolesListState } from '../../states/RolesListState'
@@ -23,6 +24,7 @@ interface Props {
   onSelect: (role: Role) => void
   getText: (role: Role) => string | JSX.Element
   header?: boolean
+  title?: boolean
   sort?: boolean
   group?: boolean
 }
@@ -40,8 +42,8 @@ const RoleListInternal: React.FC<PropsInternal> = ({ roles, group, state, sort, 
     const type = state.type
 
     return roles
-      .filter(role => 
-        (!search || getName(role).includes(search)) && 
+      .filter(role =>
+        (!search || getName(role).includes(search)) &&
         (!type || role.type === type))
       .sort((a, b) => !sort ? 0 : getName(a).localeCompare(getName(b)))
   }, [roles, state, t])
@@ -57,15 +59,15 @@ const RoleListInternal: React.FC<PropsInternal> = ({ roles, group, state, sort, 
 
   const renderJinxes = (role: Role) =>
     role.jinxes && role.jinxes
-    .filter(roleId => roles.some(role => role.id === roleId))
-    .map(roleId => <IonImg key={roleId} className='ion-margin-end jinx-icon' src={getIcon(roleId)} />)
+      .filter(roleId => roles.some(role => role.id === roleId))
+      .map(roleId => <IonImg key={roleId} className='ion-margin-end jinx-icon' src={getIcon(roleId)} />)
 
   const renderRole = (role: Role) =>
     <IonItem button detail={false} key={role.id} onClick={() => onSelect(role)}>
       <IonImg slot='start' className='role-icon' src={getIcon(role.id)} />
       <IonLabel className='ion-text-nowrap overflow-visible'>
-          <Translation path={`${role.id}.name`} />
-          {renderJinxes(role)}
+        <Translation path={`${role.id}.name`} />
+        {renderJinxes(role)}
         <p className='ion-hide-sm-down'>
           {getText(role)}
         </p>
@@ -78,7 +80,7 @@ const RoleListInternal: React.FC<PropsInternal> = ({ roles, group, state, sort, 
   return visibleRoles.map(renderRole)
 }
 
-const RolesList: React.FC<Props> = (props) => {  
+const RolesList: React.FC<Props> = (props) => {
   const [state, setState] = useState<RolesListState>({})
 
   function onInput(event: Event) {
@@ -102,13 +104,15 @@ const RolesList: React.FC<Props> = (props) => {
 
   return (
     <IonContent fullscreen>
-      {props.header && 
+      {props.header &&
       <IonHeader collapse="condense">
-        <IonToolbar>
-          <IonTitle size="large">
-            <Translation path='wiki.sections.characters.title' />
-          </IonTitle>
-        </IonToolbar>
+        {props.title &&
+          <IonToolbar>
+            <IonTitle size="large">
+              <Translation path='wiki.sections.characters.title' />
+            </IonTitle>
+          </IonToolbar>
+        }
         <IonToolbar>
           <Searchbar path='characters.search' onIonInput={onInput} />
           <IonGrid className='filters-row'>
@@ -119,7 +123,7 @@ const RolesList: React.FC<Props> = (props) => {
       }
       <Suspense>
         <IonList>
-          <RoleListInternal {...{...props, state}} />
+          <RoleListInternal {...{ ...props, state }} />
         </IonList>
       </Suspense>
     </IonContent>

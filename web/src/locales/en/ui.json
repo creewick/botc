@@ -84,6 +84,7 @@
     }
   },
   "games": {
+    "create": "Create Game",
     "name": "Game #{{number}}",
     "addPlayer": "Add Player",
     "gameSettings": {
@@ -138,6 +139,7 @@
     "delete": "Delete",
     "close": "Close",
     "done": "Done",
+    "edit": "Edit",
     "deleteAllData": "Delete All Data",
     "copyGame": "Copy Game",
     "deleteGame": "Delete Game",

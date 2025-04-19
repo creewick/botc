@@ -7,6 +7,10 @@
   overflow: visible !important;
 }
 
+ion-list.list-inset.ion-no-margin {
+  margin: 0;
+}
+
 .role-icon {
   width: 36px;
   height: 36px;
@@ -75,19 +79,19 @@ ion-chip {
   top: 8px;
 } */
 
-/* .circle-container {
+.circle-container {
   position: relative;
   width: 100vmin;
   height: 100vmin;
-} */
+}
 
-/* .has-value.sc-ion-textarea-ios-h+.input-clear-icon.sc-ion-input-ios,
+.has-value.sc-ion-textarea-ios-h+.input-clear-icon.sc-ion-input-ios,
 .has-value.sc-ion-input-ios-h+.input-clear-icon.sc-ion-input-ios {
   visibility: visible;
   color: inherit;
   min-width: 30px;
   min-height: 30px;
-} */
+}
 
 /* @media screen and (min-width: 768px) {
   ion-tab-button {

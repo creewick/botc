@@ -42,10 +42,10 @@ import './theme/variables.css'
 import './App.css'
 import { SettingsContext } from './contexts/SettingsContext'
 import useSafeContext from './hooks/useSafeContext'
-import GamePage from './pages/GamePage'
 import ScriptsPage from './pages/wiki/scripts'
 import Sidebar from './components/common/Sidebar'
 import ScriptPage from './pages/wiki/scripts/id'
+import GamePage from './pages/games/id'
 
 setupIonicReact({ mode: 'ios' })
 

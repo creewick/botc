@@ -1,6 +1,7 @@
 import React from 'react'
 import Player from '../../../src/models/player/Player'
-import Token from '../Token'
+import Token from '../../../src/components/roles/Token'
+import { IonContent } from '@ionic/react'
 
 interface Props {
   players: Player[]
@@ -18,7 +19,7 @@ const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
   }
 
   const renderPlayer = (player: Player, index: number) => {
-    const width = Math.max(15, Math.min(30, (250 / players.length)))
+    const width = Math.max(15, Math.min(28, (250 / players.length)))
     const [x, y] = getPlayerPosition(index, width)
 
     return (
@@ -35,6 +36,7 @@ const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
           transform: 'translate(-50%, -50%)',
         }}>
         <Token
+          title
           roleId={player.roles[player.roles.length - 1]}
           status={player.status}
         />
@@ -54,51 +56,8 @@ const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
     )
   }
 
-  const renderArrow = (
-    fromIndex: number,
-    toIndex: number,
-    sideOffsetPercent = 2
-  ) => {
-    const width = Math.max(15, Math.min(30, (200 / players.length)))
-    const [x1, y1] = getPlayerPosition(fromIndex, width)
-    const [x2, y2] = getPlayerPosition(toIndex, width)
-  
-    const dx = x2 - x1
-    const dy = y2 - y1
-    const len = Math.sqrt(dx * dx + dy * dy)
-  
-    const offsetFromCenter = width / 1.6
-    const ux = dx / len
-    const uy = dy / len
-  
-    // Перпендикулярный нормализованный вектор (вбок)
-    const px = -uy
-    const py = ux
-  
-    // Смещение вбок — параметр
-    const sideOffset = sideOffsetPercent // например, 2..5%
-    const sx = px * sideOffset
-    const sy = py * sideOffset
-  
-    // Смещённые точки (вдоль направления и вбок)
-    const startX = x1 + ux * offsetFromCenter + sx
-    const startY = y1 + uy * offsetFromCenter + sy
-    const endX = x2 - ux * offsetFromCenter + sx
-    const endY = y2 - uy * offsetFromCenter + sy
-  
-    return (
-      <line
-        key={`arrow-${fromIndex}-${toIndex}`}
-        x1={`${startX}%`} y1={`${startY}%`}
-        x2={`${endX}%`} y2={`${endY}%`}
-        stroke='red'
-        strokeWidth={2}
-        markerEnd='url(#arrowhead)'
-      />
-    )
-  }
-
   return (
+    <IonContent fullscreen>
     <div className='circle-container'>
       <svg
         style={{
@@ -123,11 +82,10 @@ const PlayerTable: React.FC<Props> = ({ players, openPlayer }: Props) => {
             <polygon points='0 0, 10 3.5, 0 7' fill='red' />
           </marker>
         </defs>
-        {/* {renderArrow(1, 6)} */}
-        {/* {renderArrow(2, 1)} */}
       </svg>
       {players.map(renderPlayer)}
     </div>
+    </IonContent>
   )
 }
 

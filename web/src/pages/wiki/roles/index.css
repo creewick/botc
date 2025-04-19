@@ -7,7 +7,7 @@
 }
 
 .token {
-  z-index: 10;
+  z-index: 100;
   margin: 0 auto;
   transform: scale(3) translateY(-4px);
   position: absolute;

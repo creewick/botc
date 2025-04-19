@@ -12,7 +12,7 @@ import {
   IonToolbar
 } from '@ionic/react'
 import { Translation } from 'i18nano'
-import { addCircleOutline } from 'ionicons/icons'
+import { add, addCircleOutline } from 'ionicons/icons'
 import React from 'react'
 import { GamesContext } from '../../contexts/GamesProvider'
 import Game from '../../models/Game'
@@ -34,10 +34,12 @@ const GamesPage: React.FC = () => {
     a.created < b.created ? 1 : -1
 
   const renderGame = ([id, game]: [string, Game]) =>
-    <IonItem key={id} routerLink={`/games/${id}`}>
+    <IonItem key={id} routerLink={`/games/${id}`} color='light'>
       <IonLabel>
         <h2>{game.name}</h2>
-        <p>{game.created.toLocaleString(settings.lang)}</p>
+        <p className="ion-hide-sm-down">
+          {game.created?.toLocaleString(settings.lang)}
+        </p>
       </IonLabel>
     </IonItem>
 
@@ -68,7 +70,17 @@ const GamesPage: React.FC = () => {
             </IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonList>
+        <IonList inset>
+          <IonItem onClick={createGame} button detail={false} color='primary'>
+            <IonLabel>
+              <h2>
+                <Translation path='games.create' />
+              </h2>
+            </IonLabel>
+            <IonIcon icon={add} slot='start' />
+          </IonItem>
+        </IonList>
+        <IonList inset>
           {renderGames()}
         </IonList>
       </IonContent>
