@@ -45,6 +45,7 @@ import useSafeContext from './hooks/useSafeContext'
 import GamePage from './pages/GamePage'
 import ScriptsPage from './pages/wiki/scripts'
 import Sidebar from './components/common/Sidebar'
+import ScriptPage from './pages/wiki/scripts/id'
 
 setupIonicReact({ mode: 'ios' })
 
@@ -85,10 +86,11 @@ const App: React.FC = () => {
               <Route exact path="/wiki" render={() => <WikiPage />} />
               <Route exact path="/wiki/roles/:id?" render={() => <RolesPage />} />
               <Route exact path="/wiki/scripts" render={() => <ScriptsPage />} />
+              <Route exact path="/wiki/scripts/:id/:roleId?" render={() => <ScriptPage />} />
               <Route exact path="/games" render={() => <GamesPage />} />
               <Route exact path="/settings" render={() => <SettingsPage />} />
-              <Route exact path="/" render={() => <Redirect to="/home" />} />
               <Route exact path="/games/:id" render={() => <GamePage />} />
+              <Route exact path="/" render={() => <Redirect to="/home" />} />
             </IonRouterOutlet>
             <IonTabBar slot="bottom" className="ion-hide-md-up">
               {renderTab('home', home)}

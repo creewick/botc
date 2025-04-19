@@ -16,12 +16,14 @@ import { Translation, useTranslation } from 'i18nano'
 import RoleType from '../../../../cli/src/enums/RoleType'
 import { RolesListState } from '../../states/RolesListState'
 import Searchbar from '../common/suspense/Searchbar'
-import { getIcon } from '../../helpers/helpers'
+import { getIcon } from '../../helpers/getIcon'
 
 interface Props {
   roles: Role[]
   onSelect: (role: Role) => void
   getText: (role: Role) => string | JSX.Element
+  header?: boolean
+  sort?: boolean
   group?: boolean
 }
 
@@ -29,7 +31,7 @@ interface PropsInternal extends Props {
   state: RolesListState
 }
 
-const RoleListInternal: React.FC<PropsInternal> = ({ roles, group, state, onSelect, getText }) => {
+const RoleListInternal: React.FC<PropsInternal> = ({ roles, group, state, sort, onSelect, getText }) => {
   const t = useTranslation()
 
   const visibleRoles = useMemo(() => {
@@ -41,30 +43,35 @@ const RoleListInternal: React.FC<PropsInternal> = ({ roles, group, state, onSele
       .filter(role => 
         (!search || getName(role).includes(search)) && 
         (!type || role.type === type))
-      .sort((a, b) => getName(a).localeCompare(getName(b)))
+      .sort((a, b) => !sort ? 0 : getName(a).localeCompare(getName(b)))
   }, [roles, state, t])
 
-  const renderGroup = (type: RoleType) => 
-    <>
+  const renderGroup = (type: RoleType) => visibleRoles.filter(role => role.type === type).length > 0 &&
+    <div key={type}>
       <IonItemDivider sticky className='ion-no-padding' color='light'>
-        <IonImg className='role-icon' src={getIcon(type)} />
-        <Translation path={`roles.types.${type}`} />
+        <IonImg className='role-type-icon' src={getIcon(type)} />
+        <Translation path={`characters.type.${type}`} />
       </IonItemDivider>
       {visibleRoles.filter(role => role.type === type).map(renderRole)}
-    </>
+    </div>
+
+  const renderJinxes = (role: Role) =>
+    role.jinxes && role.jinxes
+    .filter(roleId => roles.some(role => role.id === roleId))
+    .map(roleId => <IonImg key={roleId} className='ion-margin-end jinx-icon' src={getIcon(roleId)} />)
 
   const renderRole = (role: Role) =>
     <IonItem button detail={false} key={role.id} onClick={() => onSelect(role)}>
       <IonImg slot='start' className='role-icon' src={getIcon(role.id)} />
-      <IonLabel className='ion-text-nowrap'>
-        <h2>
+      <IonLabel className='ion-text-nowrap overflow-visible'>
           <Translation path={`${role.id}.name`} />
-        </h2>
+          {renderJinxes(role)}
         <p className='ion-hide-sm-down'>
           {getText(role)}
         </p>
       </IonLabel>
     </IonItem>
+
 
   if (group)
     return Object.values(RoleType).map(renderGroup)
@@ -95,6 +102,7 @@ const RolesList: React.FC<Props> = (props) => {
 
   return (
     <IonContent fullscreen>
+      {props.header && 
       <IonHeader collapse="condense">
         <IonToolbar>
           <IonTitle size="large">
@@ -108,6 +116,7 @@ const RolesList: React.FC<Props> = (props) => {
           </IonGrid>
         </IonToolbar>
       </IonHeader>
+      }
       <Suspense>
         <IonList>
           <RoleListInternal {...{...props, state}} />

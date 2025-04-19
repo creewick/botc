@@ -3,7 +3,7 @@ import Role from '../../../../cli/src/models/Role'
 import { IonContent, IonImg, IonItem, IonLabel, IonList, IonListHeader } from '@ionic/react'
 import { Translation, useTranslation } from 'i18nano'
 import './RoleView.css'
-import { getIcon } from '../../helpers/helpers'
+import { getIcon } from '../../helpers/getIcon'
 
 interface Props {
   role: Role

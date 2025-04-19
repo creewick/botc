@@ -23,12 +23,11 @@ import ScriptTagIcon from '../../enums/ScriptTagIcon'
 import useSafeContext from '../../hooks/useSafeContext'
 import { ScriptsContext } from '../../contexts/ScriptsContext'
 import Script from '../../../../cli/src/schema/Script'
-import ScriptMetaExtended from '../../../../cli/src/models/ScriptMetaExtended'
-import ScriptMeta from '../../../../cli/src/schema/ScriptMeta'
 import { copyOutline, downloadOutline } from 'ionicons/icons'
 import './ScriptsList.css'
-
-const getScriptMeta = (script: Script) => script.find(item => (item as ScriptMeta).id === '_meta') as ScriptMetaExtended
+import { copyScript } from '../../helpers/copyScript'
+import { saveScript } from '../../helpers/saveScript'
+import { getScriptMeta } from '../../helpers/getScriptMeta'
 
 const ScriptsListInternal: React.FC<ScriptsListState> = ({ search, tag }) => {
   const { scripts } = useSafeContext(ScriptsContext)
@@ -36,19 +35,12 @@ const ScriptsListInternal: React.FC<ScriptsListState> = ({ search, tag }) => {
   const t = useTranslation()
 
   const onCopy = async (id: string) => {
-    await navigator.clipboard.writeText(JSON.stringify(scripts[id]))
+    await copyScript(scripts[id])
     list.current?.closeSlidingItems()
   }
 
   const onSave = async (id: string) => {
-    const blob = new Blob([JSON.stringify(scripts[id])], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `${t(id)}.json`
-    a.click()
-    URL.revokeObjectURL(url)
-    a.remove()
+    await saveScript(scripts[id])
     list.current?.closeSlidingItems()
   }
 
@@ -61,7 +53,8 @@ const ScriptsListInternal: React.FC<ScriptsListState> = ({ search, tag }) => {
         (!search || getName(id).includes(search.toLowerCase())) &&
         (!tag || getTags(script)?.includes(tag) ||
           (tag === ScriptTag.Full && !getTags(script)?.includes(ScriptTag.Teen)) ||
-          (tag === ScriptTag.Homebrew && !getTags(script)?.includes(ScriptTag.Official))
+          (tag === ScriptTag.Homebrew && !getTags(script)?.includes(ScriptTag.Official)
+             && !getTags(script)?.includes(ScriptTag.WorldCup))
         ))
       .sort(([id1, _], [id2, __]) => getName(id1).localeCompare(getName(id2)))
   }, [scripts, search, tag, t])
@@ -77,9 +70,9 @@ const ScriptsListInternal: React.FC<ScriptsListState> = ({ search, tag }) => {
 
   const renderScript = ([id, script]: [string, Script]) => (
     <IonItemSliding key={id}>
-      <IonItem button detail={false}>
+      <IonItem button detail={false} routerLink={`/wiki/scripts/${id}`}>
         <IonIcon slot='start' icon={getIcon(script)} color='medium' />
-        <IonLabel>
+        <IonLabel className='ion-text-nowrap'>
           <h2>
             <Translation path={id} />
           </h2>

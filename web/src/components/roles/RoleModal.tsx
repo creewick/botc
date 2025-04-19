@@ -4,7 +4,7 @@ import React, { Suspense } from 'react'
 import RoleView from './RoleView'
 import Token from './Token'
 import Role from '../../../../cli/src/models/Role'
-import { getIcon } from '../../helpers/helpers'
+import { getIcon } from '../../helpers/getIcon'
 
 interface Props {
   role?: Role

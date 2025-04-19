@@ -3,6 +3,10 @@
   src: url('/botc/assets/fonts/dumbledor.woff2') format('woff2');
 }
 
+.overflow-visible {
+  overflow: visible !important;
+}
+
 .role-icon {
   width: 36px;
   height: 36px;
@@ -12,6 +16,14 @@
   width: 24px;
   height: 24px;
   margin-right: 4px;
+}
+
+.jinx-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 0 -2px 16px;
+  transform: scale(1.5);
 }
 
 ion-searchbar.sc-ion-searchbar-ios-h,
@@ -35,6 +47,7 @@ ion-chip {
   overflow-x: auto;
 }
 
+
 /* .role-view-flavor {
   font-family: 'Dumbledore';
   font-style: italic;
@@ -50,14 +63,7 @@ ion-chip {
   padding: 0 48px;
 } */
 
-/* .jinx-icon {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  padding: 0;
-  margin: 0 0 -2px 16px;
-  transform: scale(1.2);
-} */
+
 
 /* .inset-list-title {
   color: var(--ion-color-medium);
