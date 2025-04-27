@@ -46,6 +46,7 @@ import ScriptsPage from './pages/wiki/scripts'
 import Sidebar from './components/common/Sidebar'
 import ScriptPage from './pages/wiki/scripts/id'
 import GamePage from './pages/games/id'
+import GameSetup from './pages/games/game/setup'
 
 setupIonicReact({ mode: 'ios' })
 

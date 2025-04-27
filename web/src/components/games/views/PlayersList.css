@@ -1,0 +1,16 @@
+.column-auto {
+  flex: 0 0 auto;
+}
+
+.column-fill {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.token {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  top: -7px;
+  left: -7px;
+}

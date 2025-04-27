@@ -20,7 +20,7 @@ import {
 import { Translation, useTranslation } from 'i18nano'
 import React, { useCallback, useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Game from '../../src/models/Game'
+import Game from '../../src/models/game/Game'
 import PlayerTable from '../components/players/PlayerTable'
 import Player from '../../src/models/player/Player'
 import PlayerList from '../components/players/PlayerList'

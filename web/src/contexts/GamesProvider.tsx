@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useEffect, useState, useMemo } from 'react'
-import Game from '../models/Game'
+import Game from '../models/game/Game'
 import { StorageContext } from './StorageContext'
 import { useTranslation } from 'i18nano'
 import PlayerStatus from '../enums/PlayerStatus'
@@ -78,6 +78,9 @@ const GamesProvider: React.FC<Props> = ({ children }) => {
       roles: [],
     })) || [],
     scriptId: game?.scriptId,
+    fabled: game?.fabled || [],
+    roles: game?.roles || [],
+    bluffs: game?.bluffs || [],
     created: new Date(),
   })
 

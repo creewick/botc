@@ -14,7 +14,7 @@ import {
 } from '@ionic/react'
 import React from 'react'
 import { GamesContext } from '../../../src/contexts/GamesProvider'
-import Game from '../../../src/models/Game'
+import Game from '../../../src/models/game/Game'
 import { Translation, useTranslation } from 'i18nano'
 import { useHistory } from 'react-router'
 import { closeCircle, close as closeIcon } from 'ionicons/icons'

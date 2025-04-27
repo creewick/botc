@@ -6,10 +6,10 @@
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
-.token {
+.modal-overflow .token {
   z-index: 100;
   margin: 0 auto;
-  transform: scale(3) translateY(-4px);
   position: absolute;
-  left: calc(50% - 16px);
+  left: calc(50% - 50px);
+  top: -40px;
 }

@@ -138,12 +138,12 @@
     "cancel": "Отмена",
     "delete": "Удалить",
     "done": "Готово",
-    "edit": "Изменить",
+    "edit": "Изм.",
     "close": "Закрыть",
     "deleteAllData": "Удалить все данные",
     "deleteGame": "Удалить игру",
     "copyGame": "Дублировать игру",
-    "deletePlayer": "Удалить игрока",
+    "deletePlayer": "Удалить {{name}}?",
     "youCantUndoThisAction": "Это действие нельзя отменить"
   }
 }

@@ -1,148 +1,131 @@
 import {
-  IonButton,
   IonButtons,
-  IonCol,
-  IonFooter,
-  IonGrid,
+  IonContent,
   IonHeader,
+  IonIcon,
+  IonInput,
   IonItem,
   IonLabel,
   IonList,
+  IonNote,
   IonPage,
-  IonRow,
-  IonSegment,
-  IonSegmentButton,
   IonTitle,
   IonToolbar,
-  SegmentCustomEvent,
 } from '@ionic/react'
-import React, { Suspense, useState } from 'react'
+import React, { useState } from 'react'
 import BackButton from '../../components/common/suspense/BackButton'
 import { useParams } from 'react-router-dom'
 import { GamesContext } from '../../contexts/GamesProvider'
 import useSafeContext from '../../hooks/useSafeContext'
-import Game from '../../models/Game'
-import PlayersCount from '../../components/games/PlayersCount'
 import { Translation, TranslationProvider } from 'i18nano'
-import { GamePageState, GameTab } from '../../states/GamePageState'
-import PlayersList from '../../components/games/views/PlayersList'
-import GameModal from '../../../_src/components/games/GameModal'
-import ScriptListModal from '../../../_src/components/scripts/ScriptListModal'
+import { ellipse, play } from 'ionicons/icons'
 import { locales } from '../../locales/locales'
-import PlayerModal from '../../../_src/components/players/PlayerModal'
-import Player from '../../models/player/Player'
-import PlayerTable from '../../../_src/components/players/PlayerTable'
+import GameSetupStep from '../../models/game/GameSetupStep'
+import GameSetupModal from '../../components/games/setup/GameSetupModal'
 
 const GamePage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const { games, updateGame } = useSafeContext(GamesContext)
-  const game = games[id] ?? {} as Game
-  const [state, setState] = useState<GamePageState>({
-    tab: GameTab.List,
-    editMode: false,
-    gameModal: false,
-    scriptModal: false,
-  })
+  const [step, setStep] = useState<GameSetupStep>()
+  const game = games[id] ?? undefined
 
-  const setTab = (e: SegmentCustomEvent) =>
-    setState(prev => ({ ...prev, tab: e.target.value as GameTab }))
+  const openModal = (step: GameSetupStep) => {
+    (document.activeElement as HTMLElement)?.blur()
+    setStep(step)
+  }
 
-  const switchEditMode = () =>
-    setState(prev => ({ ...prev, editMode: !prev.editMode }))
+  const setName = (e: Event) => {
+    const name = (e.target as HTMLInputElement).value
+    updateGame(id, { name })
+  }
 
-  const openSettings = () =>
-    setState(prev => ({ ...prev, gameModal: true }))
+  const renderSection = (section: GameSetupStep) =>
+    <IonItem key={section} color='light' button onClick={() => openModal(section)}>
+      <IonIcon slot='start' icon={ellipse} size='small' color={getColor(section)} />
+      <IonLabel>
+        <Translation path={`games.sections.${section}`} />
+      </IonLabel>
+      <IonNote slot='end'>{getValue(section)}</IonNote>
+    </IonItem>
 
-  const renderTab = (tab: GameTab) =>
-    <IonSegmentButton key={tab} value={tab}>
-      <Translation path={`games.view.${tab}`} />
-    </IonSegmentButton>
+  const getColor = (section: GameSetupStep) => {
+    if (section === GameSetupStep.Players)
+      return getPlayersColor(game.players.length)
+    if (section === GameSetupStep.Script)
+      return getScriptColor(game.scriptId)
+    if (section === GameSetupStep.Fabled)
+      return getFabledColor(game.fabled.length)
+    if (section === GameSetupStep.Roles)
+      return getRolesColor(game.roles.length, game.players.length)
+    if (section === GameSetupStep.Bluffs)
+      return getBluffsColor(game.bluffs.length)
+  }
 
-  const setPlayerFromModal = async (player?: Player) => {
-    if (player !== undefined) 
-      await updateGame(id, { players: game.players.map(p => p === state.playerModal ? player : p) })
-    else
-      await updateGame(id, { players: game.players.filter(p => p !== state.playerModal) })
-    setState(prev => ({ ...prev, playerModal: player }))
-}
+  const getPlayersColor = (players: number) =>
+    players < 5 ? 'danger' :
+      players < 7 ? 'warning' :
+        'success'
+
+  const getScriptColor = (scriptId?: string) => !scriptId ? 'warning' : 'success'
+  const getFabledColor = (fabled: number) => !fabled ? 'warning' : 'success'
+
+  const getRolesColor = (roles: number, players: number) =>
+    roles < 1 || roles < players ? 'danger' : 'success'
+
+  const getBluffsColor = (bluffs: number) => bluffs < 3 ? 'danger' : 'success'
+
+  const getValue = (section: GameSetupStep) => {
+    if (section === GameSetupStep.Players)
+      return game.players.length
+    if (section === GameSetupStep.Script)
+      return (
+        <TranslationProvider translations={locales.scripts}>
+          <Translation path={game.scriptId ?? ''} />
+        </TranslationProvider>
+      )
+    if (section === GameSetupStep.Fabled)
+      return game.fabled.length
+    if (section === GameSetupStep.Roles)
+      return game.roles.length
+    if (section === GameSetupStep.Bluffs)
+      return game.bluffs.length
+  }
+
+  if (!game) return
 
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader collapse='fade'>
         <IonToolbar>
           <IonButtons slot="start">
             <BackButton path="tabs.games" />
           </IonButtons>
           <IonTitle>
-            {game.name}
+            <IonInput value={game.name} onIonChange={setName} />
           </IonTitle>
-          <IonButtons slot='end'>
-            <IonButton onClick={switchEditMode}>
-              <Translation path={state.editMode ? 'actions.done' : 'actions.edit'} />
-            </IonButton>
-          </IonButtons>
         </IonToolbar>
       </IonHeader>
-      {state.tab === GameTab.List && 
-        <PlayersList 
-          gameId={id} 
-          editMode={state.editMode} 
-          onSelect={(player) => setState(prev => ({ ...prev, playerModal: player }))} 
-        />
-      }
-      {state.tab === GameTab.Circle && 
-        <PlayerTable 
-          players={game.players} 
-          openPlayer={(player) => setState(prev => ({ ...prev, playerModal: player }))} 
-        />
-      }
-      <IonFooter>
-        <IonToolbar className='ion-no-padding white'>
-          <IonGrid>
-            <PlayersCount players={game.players} />
-            <IonRow>
-              <IonCol>
-                <IonSegment value={state.tab} onIonChange={setTab}>
-                  {Object.values(GameTab).map(renderTab)}
-                </IonSegment>
-              </IonCol>
-            </IonRow>
-            <IonRow>
-              <IonCol>
-                <IonList inset className='ion-no-margin'>
-                  <IonItem color='primary' button detail={false} onClick={openSettings}>
-                    <IonLabel className='ion-text-center'>
-                      <Translation path='games.gameSettings.title' />
-                    </IonLabel>
-                  </IonItem>
-                </IonList>
-              </IonCol>
-            </IonRow>
-          </IonGrid>
-        </IonToolbar>
-      </IonFooter>
-      <Suspense>
-        <TranslationProvider translations={locales.scripts}>
-        <PlayerModal
-          player={state.playerModal}
-          setPlayer={setPlayerFromModal}
-          players={game.players}
-          close={() => setState(prev => ({ ...prev, playerModal: undefined }))}
-          scriptId={game.scriptId}
-        />
-      <ScriptListModal
-          isOpen={state.scriptModal}
-          close={() => setState(prev => ({ ...prev, scriptModal: false }))}
-          setScript={async (scriptId) => await updateGame(id, { scriptId })}
-        />
-      <GameModal
-        isOpen={state.gameModal}
-        close={() => setState(prev => ({ ...prev, gameModal: false }))}
-        openScriptModal={() => setState(prev => ({ ...prev, scriptModal: true }))}
-        gameId={id}
-      />
-      </TranslationProvider>
-      </Suspense>
+      <IonContent fullscreen>
+        <IonHeader collapse='condense'>
+          <IonToolbar>
+            <IonTitle size='large'>
+              <IonInput value={game.name} onIonChange={setName} />
+            </IonTitle>
+            <IonNote className='ion-margin-horizontal'>
+              {game.created.toLocaleString()}
+            </IonNote>
+          </IonToolbar>
+        </IonHeader>
+        <IonList inset>
+          {Object.values(GameSetupStep).map(renderSection)}
+        </IonList>
+        <IonList inset>
+          <IonItem color='primary'>
+            <IonIcon slot='start' icon={play} size='small' />
+          </IonItem>
+        </IonList>
+      </IonContent>
+      <GameSetupModal isOpen={!!step} close={() => setStep(undefined)} step={step ?? GameSetupStep.Players} />
     </IonPage>
   )
 }

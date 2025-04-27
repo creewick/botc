@@ -1,5 +1,3 @@
-import Player from '../../src/models/player/Player'
-
 export enum GameTab {
   List = 'list',
   Circle = 'circle',
@@ -10,5 +8,5 @@ export interface GamePageState {
   editMode: boolean
   gameModal: boolean
   scriptModal: boolean
-  playerModal?: Player
+  playerModal?: string
 }

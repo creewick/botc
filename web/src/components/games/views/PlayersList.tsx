@@ -11,15 +11,16 @@ import {
   IonReorderGroup,
   ItemReorderEventDetail,
 } from '@ionic/react'
-import { addCircleOutline, heart, moon, sunny, trashBin } from 'ionicons/icons'
+import { addCircle, heart, moon, sunny, trashBin } from 'ionicons/icons'
 import React, { useRef } from 'react'
 import Player from '../../../models/player/Player'
 import Token from '../../roles/Token'
 import PlayerStatus from '../../../enums/PlayerStatus'
 import { GamesContext } from '../../../contexts/GamesProvider'
 import useSafeContext from '../../../hooks/useSafeContext'
-import Game from '../../../models/Game'
+import Game from '../../../models/game/Game'
 import Input from '../../common/suspense/Input'
+import './PlayersList.css'
 
 interface Props {
   gameId: string
@@ -66,15 +67,16 @@ const PlayersList: React.FC<Props> = ({ gameId, editMode, onSelect }) => {
   const renderPlayer = (player: Player, index: number) =>
     <IonItemSliding key={index}>
       <IonItem button detail={false} onClick={() => onSelect(player)}>
-        <span slot='start' style={{ marginBottom: 0 }}>
-          <Token size={38} roleId={player.roles[player.roles.length - 1]} status={player.status} />
-        </span>
-        <IonLabel>
-          <h2 className='ion-text-nowrap' style={{ fontWeight: 600 }}>
+        <div slot='start' className='token'>
+          <Token size={40} roleId={player.roles[player.roles.length - 1]} status={player.status} />
+        </div>
+          <IonLabel className='ion-text-nowrap column-auto'>
             {player.name}
-          </h2>
-          <p className='ion-text-nowrap ion-hide-sm-down'>{player.note}</p>
-        </IonLabel>
+            <p className='ion-text-nowrap ion-hide-sm-down'>{player.note ?? ' '}</p>
+          </IonLabel>
+          <IonLabel className='ion-text-nowrap ion-hide-sm-up'>
+            <p>{player.note}</p>
+          </IonLabel>
         <IonReorder className="ion-padding-start" slot="end" />
       </IonItem>
       <IonItemOptions side='start'>
@@ -109,7 +111,7 @@ const PlayersList: React.FC<Props> = ({ gameId, editMode, onSelect }) => {
         </IonReorderGroup>
         {editMode &&
           <IonItem>
-            <IonIcon style={{ width: 48 }} size='large' slot='start' icon={addCircleOutline} color='primary' />
+            <IonIcon slot='start' icon={addCircle} color='primary' />
             <Input autocapitalize='on' path="games.addPlayer" onIonChange={addPlayer} />
           </IonItem>
         }

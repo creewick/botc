@@ -84,14 +84,19 @@
     }
   },
   "games": {
+    "game": "Game",
+    "setup": "Setup",
     "create": "Create Game",
+    "note": "Note",
     "name": "Game #{{number}}",
-    "addPlayer": "Add Player",
-    "gameSettings": {
-      "title": "Game Settings",
-      "name": "Name",
-      "script": "Script"
+    "sections": {
+      "players": "Players",
+      "script": "Script",
+      "fabled": "Fabled",
+      "roles": "Roles",
+      "bluffs": "Bluffs"
     },
+    "addPlayer": "Add Player",
     "reminders": "Reminders",
     "player": {
       "name": "Name",
@@ -143,7 +148,7 @@
     "deleteAllData": "Delete All Data",
     "copyGame": "Copy Game",
     "deleteGame": "Delete Game",
-    "deletePlayer": "Delete Player",
+    "deletePlayer": "Delete {{name}}?",
     "youCantUndoThisAction": "You can't undo this action"
   }
 }

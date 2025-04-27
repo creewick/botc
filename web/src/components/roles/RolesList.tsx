@@ -18,11 +18,15 @@ import RoleType from '../../../../cli/src/enums/RoleType'
 import { RolesListState } from '../../states/RolesListState'
 import Searchbar from '../common/suspense/Searchbar'
 import { getIcon } from '../../helpers/getIcon'
+import useSafeContext from '../../hooks/useSafeContext'
+import { ScriptsContext } from '../../contexts/ScriptsContext'
+import { RolesContext } from '../../contexts/RolesProvider'
 
 interface Props {
   roles: Role[]
   onSelect: (role: Role) => void
   getText: (role: Role) => string | JSX.Element
+  scriptId?: string
   header?: boolean
   title?: boolean
   sort?: boolean
@@ -81,6 +85,13 @@ const RoleListInternal: React.FC<PropsInternal> = ({ roles, group, state, sort, 
 }
 
 const RolesList: React.FC<Props> = (props) => {
+  const { scripts } = useSafeContext(ScriptsContext)
+  const { roles } = useSafeContext(RolesContext)
+
+  const displayRoles = () => {
+
+  }
+
   const [state, setState] = useState<RolesListState>({})
 
   function onInput(event: Event) {

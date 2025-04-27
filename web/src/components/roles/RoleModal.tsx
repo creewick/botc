@@ -22,7 +22,7 @@ const RoleModal: React.FC<Props> = ({ role, close }) => (
     handle={false}
   >
     {role && <>
-      <Token className='token' roleId={role.id} size={32} shadow title />
+      <Token className='token' roleId={role.id} size={100} shadow title />
       <IonHeader>
         <IonToolbar>
           <IonButtons slot='start'>
