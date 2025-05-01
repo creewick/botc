@@ -1,5 +1,5 @@
 import { IonButtons, IonHeader, IonPage, IonTitle, IonToolbar, useIonViewWillLeave } from '@ionic/react'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { RolesContext } from '../../../contexts/RolesProvider'
 import useSafeContext from '../../../hooks/useSafeContext'
@@ -43,7 +43,9 @@ const RolesPage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <TranslationProvider translations={locales.roles}>
-        <RolesList header title roles={roles} getText={getText} onSelect={onSelect} sort />
+        <Suspense>
+          <RolesList items={roles} getText={getText} onClick={onSelect} header searchbar filters sort />
+        </Suspense>
         <RoleModal role={role} close={() => onSelect()} />
       </TranslationProvider>
     </IonPage>

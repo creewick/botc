@@ -2,3 +2,8 @@
   font-size: 1.6em;
   margin-inline-end: -8px;
 }
+
+.back-button {
+  font-size: 1.6em;
+  margin-inline-start: -8px;
+}

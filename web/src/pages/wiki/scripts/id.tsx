@@ -13,7 +13,7 @@ import {
   IonToolbar,
   useIonViewWillLeave
 } from '@ionic/react'
-import React, { ReactNode, useEffect, useMemo, useState } from 'react'
+import React, { ReactNode, Suspense, useEffect, useMemo, useState } from 'react'
 import BackButton from '../../../components/common/suspense/BackButton'
 import { Translation, TranslationProvider, TranslationValues } from 'i18nano'
 import { locales } from '../../../locales/locales'
@@ -44,7 +44,7 @@ const ScriptPage: React.FC = () => {
   useEffect(() => void loadScript(), [scripts, id])
   useIonViewWillLeave(() => setRole(undefined))
 
-  function onSelect(role?: Role) {
+  function openRole(role?: Role) {
     setRole(role)
     if (window.location.href.includes('/wiki/scripts/')) {
       window.history.replaceState(null, '', role
@@ -114,13 +114,13 @@ const ScriptPage: React.FC = () => {
 
   const customRolesLocale = useMemo(() => ({ en: () => Promise.resolve(customRoles) }), [customRoles])
 
-  const firstNight = useMemo(() =>
+  const firstNightRoles = useMemo(() =>
     [...scriptRoles, ...specialRoles]
       .filter(role => role.firstNightOrder)
       .sort((a, b) => a.firstNightOrder! - b.firstNightOrder!)
     , [scriptRoles])
 
-  const otherNights = useMemo(() =>
+  const otherNightRoles = useMemo(() =>
     [...scriptRoles, ...specialRoles]
       .filter(role => role.otherNightOrder)
       .sort((a, b) => a.otherNightOrder! - b.otherNightOrder!)
@@ -175,12 +175,17 @@ const ScriptPage: React.FC = () => {
       </IonHeader>
       <IonContent>
         <IonSegmentView>
-          {renderTab('roles', <RolesList group roles={scriptRoles} onSelect={onSelect} getText={getText} />)}
-          {renderTab('jinxes', null)}
-          {renderTab('firstNight', <RolesList roles={firstNight} onSelect={onSelect} getText={getFirstNightText} />)}
-          {renderTab('otherNight', <RolesList roles={otherNights} onSelect={onSelect} getText={getOtherNightText} />)}
+          <Suspense>
+            {renderTab('roles', 
+              <RolesList items={scriptRoles} onClick={openRole} getText={getText} group searchbar />)}
+            {renderTab('jinxes', null)}
+            {renderTab('firstNight', 
+              <RolesList items={firstNightRoles} onClick={openRole} getText={getFirstNightText} selected={[]} />)}
+            {renderTab('otherNight', 
+              <RolesList items={otherNightRoles} onClick={openRole} getText={getOtherNightText} selected={[]} />)}
+          </Suspense>
         </IonSegmentView>
-        {useLocale(<RoleModal role={role} close={() => onSelect()} />)}
+        {useLocale(<RoleModal role={role} close={() => openRole()} />)}
       </IonContent>
     </IonPage>
   )

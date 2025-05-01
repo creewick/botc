@@ -16,6 +16,16 @@ ion-list.list-inset.ion-no-margin {
   margin: 0;
 }
 
+html.ios ion-modal.modal-sheet ion-header ion-toolbar.ion-no-padding {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+.textarea-label-placement-floating.sc-ion-textarea-ios-h, .textarea-label-placement-stacked.sc-ion-textarea-ios-h {
+  min-height: 10px;
+}
+
 .role-icon {
   width: 24px;
   height: 24px;

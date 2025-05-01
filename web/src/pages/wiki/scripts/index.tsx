@@ -4,8 +4,15 @@ import BackButton from '../../../components/common/suspense/BackButton'
 import { Translation, TranslationProvider } from 'i18nano'
 import { locales } from '../../../locales/locales'
 import ScriptsList from '../../../components/scripts/ScriptsList'
+import { useHistory } from 'react-router-dom'
 
 const ScriptsPage: React.FC = () => {
+  const history = useHistory()
+
+  const onSelect = (id: string) => {
+    history.push(`/wiki/scripts/${id}`)
+  }
+
   return (
     <IonPage>
       <IonHeader collapse='fade'>
@@ -19,7 +26,7 @@ const ScriptsPage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <TranslationProvider translations={locales.scripts}>
-        <ScriptsList />
+        <ScriptsList header title onSelect={onSelect} />
       </TranslationProvider>
     </IonPage>
   )

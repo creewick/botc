@@ -84,15 +84,19 @@
     }
   },
   "games": {
+    "setup": "Опции",
+    "start": "Начать игру",
     "create": "Создать игру",
     "name": "Игра #{{number}}",
     "addPlayer": "Добавить игрока",
-    "gameSettings": {
-      "title": "Настройки игры",
-      "name": "Название",
-      "script": "Сценарий"
-    },
     "reminders": "Напоминания",
+    "sections": {
+      "players": "Игроки",
+      "script": "Сценарий",
+      "fabled": "Легенды",
+      "roles": "Роли",
+      "bluffs": "Блефы"
+    },
     "player": {
       "name": "Имя",
       "note": "Заметка",
@@ -109,10 +113,6 @@
       "good": "Добрый",
       "evil": "Злой",
       "undefined": "Неизвестно"
-    },
-    "view": {
-      "list": "Список",
-      "circle": "Круг"
     }
   },
   "settings": {

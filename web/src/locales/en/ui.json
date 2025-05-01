@@ -84,11 +84,13 @@
     }
   },
   "games": {
-    "game": "Game",
     "setup": "Setup",
+    "start": "Start Game",
     "create": "Create Game",
     "note": "Note",
     "name": "Game #{{number}}",
+    "addPlayer": "Add Player",
+    "reminders": "Reminders",
     "sections": {
       "players": "Players",
       "script": "Script",
@@ -96,8 +98,6 @@
       "roles": "Roles",
       "bluffs": "Bluffs"
     },
-    "addPlayer": "Add Player",
-    "reminders": "Reminders",
     "player": {
       "name": "Name",
       "note": "Note",
@@ -114,10 +114,6 @@
       "good": "Good",
       "evil": "Evil",
       "undefined": "Unknown"
-    },
-    "view": {
-      "list": "List",
-      "circle": "Circle"
     }
   },
   "settings": {

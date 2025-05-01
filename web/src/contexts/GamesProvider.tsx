@@ -1,8 +1,9 @@
 import React, { createContext, useCallback, useContext, useEffect, useState, useMemo } from 'react'
-import Game from '../models/game/Game'
+import Game from '../models/Game'
 import { StorageContext } from './StorageContext'
 import { useTranslation } from 'i18nano'
 import PlayerStatus from '../enums/PlayerStatus'
+import Player from '../models/player/Player'
 
 interface GamesContextType {
   games: Record<string, Game>
@@ -70,7 +71,7 @@ const GamesProvider: React.FC<Props> = ({ children }) => {
 
   const getNewGame = (number: string, game?: Game): Game => ({
     name: t('games.name', { number }),
-    players: game?.players.map(p => ({
+    players: game?.players.map((p: Player) => ({
       id: p.id,
       status: PlayerStatus.Alive,
       name: p.name,

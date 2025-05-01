@@ -9,42 +9,65 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react'
-import React, { ReactNode, useMemo } from 'react'
+import React, { ReactNode, useRef } from 'react'
 import GameSetupStep from '../../../models/game/GameSetupStep'
-import BackButton from '../../common/suspense/BackButton'
 import { Translation } from 'i18nano'
 import { chevronForward } from 'ionicons/icons'
 import './GameSetupModal.css'
-import PlayersStep from './steps/players'
+import PlayersStep from './steps/PlayersStep'
+import ScriptsStep from './steps/ScriptsStep'
+import BackButton from '../../common/suspense/BackButton'
+import FabledStep from './steps/FabledStep'
 
-interface Props {
+interface Props extends PageProps {
   isOpen: boolean
   close: () => void
-  step: GameSetupStep
 }
 
 interface PageProps {
   step: GameSetupStep
 }
 
+
 const Steps: Record<GameSetupStep, ReactNode> = {
   [GameSetupStep.Players]: <PlayersStep />,
-  [GameSetupStep.Script]: undefined,
-  [GameSetupStep.Fabled]: undefined,
+  [GameSetupStep.Script]: <ScriptsStep />,
+  [GameSetupStep.Fabled]: <FabledStep />,
   [GameSetupStep.Roles]: undefined,
   [GameSetupStep.Bluffs]: undefined
 }
 
-const GameSetupModal: React.FC<Props> = ({ isOpen, close, step }) => (
-  <IonModal isOpen={isOpen} onDidDismiss={close} initialBreakpoint={1} breakpoints={[0, 1]} handle={false}>
-    <IonNav root={() => <ModalPage step={step} />} />
-  </IonModal>
-)
+const GameSetupModal: React.FC<Props> = ({ isOpen, close, step }) => {
+  const modal = useRef<HTMLIonNavElement>(null)
+
+  const onDidPresent = () => {
+    const index = Object.values(GameSetupStep).indexOf(step!)
+    const pages = Object.values(GameSetupStep).slice(0, index + 1).map((step) => ({
+      component: ModalPage,
+      componentProps: { step }
+    }))
+
+    modal.current?.setPages(pages)
+  }
+
+  return (
+    <IonModal 
+      isOpen={isOpen} 
+      onWillPresent={onDidPresent} 
+      onDidDismiss={close} 
+      initialBreakpoint={1} 
+      breakpoints={[0, 1]} 
+      handle={false}
+    >
+      <IonNav ref={modal} />
+    </IonModal>
+  )
+}
 
 const ModalPage: React.FC<PageProps> = ({ step }) => {
-  const index = useMemo(() => Object.values(GameSetupStep).indexOf(step), [step])
-  const prev = useMemo(() => Object.values(GameSetupStep)[index - 1], [index])
-  const next = useMemo(() => Object.values(GameSetupStep)[index + 1], [index])
+  const index = Object.values(GameSetupStep).indexOf(step!)
+  const prev = Object.values(GameSetupStep)[index - 1]
+  const next = Object.values(GameSetupStep)[index + 1]
 
   return (
     <>
@@ -59,7 +82,7 @@ const ModalPage: React.FC<PageProps> = ({ step }) => {
           </IonTitle>
           {next &&
           <IonButtons slot='end'>
-            <IonNavLink routerDirection="forward" component={() => <ModalPage step={next} />}>
+            <IonNavLink routerDirection="forward" component={ModalPage} componentProps={{ step: next }}>
               <IonButton>
                 <Translation path={`games.sections.${next}`} />
                 <IonIcon icon={chevronForward} className='forward-button' />
@@ -69,9 +92,7 @@ const ModalPage: React.FC<PageProps> = ({ step }) => {
           }
         </IonToolbar>
       </IonHeader>
-      <div className='modal-content'>
-        {Steps[step]}
-      </div>
+      {Steps[step]}
     </>
   )
 }

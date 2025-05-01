@@ -2,7 +2,16 @@ import React from 'react'
 import { useParams } from 'react-router'
 import { GamesContext } from '../../../../contexts/GamesProvider'
 import useSafeContext from '../../../../hooks/useSafeContext'
-import { IonIcon, IonInput, IonItem, IonList, IonReorder, IonReorderGroup, ItemReorderEventDetail } from '@ionic/react'
+import {
+  IonContent,
+  IonIcon,
+  IonInput,
+  IonItem,
+  IonList,
+  IonReorder,
+  IonReorderGroup,
+  ItemReorderEventDetail,
+} from '@ionic/react'
 import Player from '../../../../models/player/Player'
 import { addCircle, closeCircle } from 'ionicons/icons'
 import Input from '../../../common/suspense/Input'
@@ -40,7 +49,7 @@ const PlayersStep: React.FC = () => {
   }
 
   async function removePlayer(player: Player) {
-    await updateGame(id, { players: game.players.filter(p => p !== player) })
+    await updateGame(id, { players: game.players.filter((p: Player) => p !== player) })
   }
 
   const renderPlayer = (player: Player) =>
@@ -56,15 +65,17 @@ const PlayersStep: React.FC = () => {
     </IonItem>
 
   return (
-    <IonList>
-      <IonReorderGroup disabled={false} onIonItemReorder={handleReorder}>
-        {game.players.map(renderPlayer)}
-      </IonReorderGroup>
-      <IonItem>
-        <IonIcon slot='start' icon={addCircle} color='success' />
-        <Input autocapitalize='on' path="games.addPlayer" onIonChange={addPlayer} />
-      </IonItem>
-    </IonList>
+    <IonContent fullscreen>
+      <IonList>
+        <IonReorderGroup disabled={false} onIonItemReorder={handleReorder}>
+          {game.players.map(renderPlayer)}
+        </IonReorderGroup>
+        <IonItem>
+          <IonIcon slot='start' icon={addCircle} color='success' />
+          <Input autocapitalize='on' path="games.addPlayer" onIonChange={addPlayer} />
+        </IonItem>
+      </IonList>
+    </IonContent>
   )
 }
 
