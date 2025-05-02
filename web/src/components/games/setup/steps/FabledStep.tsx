@@ -31,7 +31,7 @@ const FabledStep: React.FC = () => {
     <IonContent fullscreen>
       <TranslationProvider translations={locales.roles}>
         <Suspense>
-          <RolesList items={fabledRoles} searchbar selectedIds={game?.fabled} select={selectFabled} />
+          <RolesList items={fabledRoles} searchbar selectedIds={game?.fabled} onSelect={selectFabled} />
         </Suspense>
       </TranslationProvider>
     </IonContent>

@@ -19,7 +19,10 @@ ion-list.list-inset.ion-no-margin {
 html.ios ion-modal.modal-sheet ion-header ion-toolbar.ion-no-padding {
   padding-left: 0;
   padding-right: 0;
-  padding-bottom: 0;
+}
+
+ion-toolbar::part(container) {
+  min-height: 0;
 }
 
 .textarea-label-placement-floating.sc-ion-textarea-ios-h, .textarea-label-placement-stacked.sc-ion-textarea-ios-h {
@@ -58,15 +61,14 @@ ion-searchbar.sc-ion-searchbar-ios-h,
 }
 
 ion-chip {
-  min-height: 32px;
-  max-height: 32px;
+  height: 32px;
 }
 
 .filters-row {
   white-space: nowrap;
   overflow-x: auto;
+  padding-bottom: 0;
 }
-
 
 /* .role-view-flavor {
   font-family: 'Dumbledore';

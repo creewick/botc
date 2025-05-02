@@ -11,6 +11,7 @@ import {
   IonItemDivider,
   IonLabel,
   IonList,
+  IonNote,
   IonTitle,
   IonToolbar
 } from '@ionic/react'
@@ -18,15 +19,15 @@ import { Translation, useTranslation } from 'i18nano'
 import RoleType from '../../../../cli/src/enums/RoleType'
 import Searchbar from '../common/suspense/Searchbar'
 import { getIcon } from '../../helpers/getIcon'
+import getRoleTypeCount from '../../helpers/getRoleTypeCount'
 
 interface Props {
   items: Role[]
 
   getText?: (item: Role) => string | ReactNode
-  onClick?: (item: Role) => void
-
+  onSelect?: (item: Role) => void
   selectedIds?: string[]
-  select?: (item: Role) => void
+  playersCount?: number
 
   group?: boolean
   sort?: boolean
@@ -34,15 +35,20 @@ interface Props {
   header?: boolean
   searchbar?: boolean
   filters?: boolean
-  checkboxes?: boolean
 }
 
 const RolesList: React.FC<Props> = (
-  { items, onClick, selectedIds, select, searchbar, filters, header, getText, sort, group, checkboxes }
+  { items, onSelect, playersCount, selectedIds, searchbar, filters, header, getText, sort, group }
 ) => {
   const [type, setType] = useState<RoleType>()
   const [search, setSearch] = useState('')
   const t = useTranslation()
+
+  const getCount = (type: RoleType) =>
+    selectedIds?.filter(id => items.find(role => role.id === id)?.type === type).length
+
+  const getMaxCount = (type: RoleType) => 
+    getRoleTypeCount(type, playersCount ?? 0, getCount(RoleType.Traveler) ?? 0)
 
   const visibleRoles = useMemo(() => {
     const getName = (role: Role) => t(`${role.id}.name`).toLowerCase()
@@ -60,15 +66,10 @@ const RolesList: React.FC<Props> = (
       .filter(id => items.some(role => role.id === id))
       .map(id => <IonImg key={id} className='ion-margin-end jinx-icon' src={getIcon(id)} />)
 
-  const selectRole = (event: React.MouseEvent, role: Role) => {
-    select?.(role)
-    event.stopPropagation()
-  }
-
   const renderRole = (role: Role) =>
-    <IonItem button detail={false} key={role.id} onClick={() => onClick?.(role)}>
+    <IonItem button detail={false} key={role.id} onClick={() => onSelect?.(role)}>
       {selectedIds && 
-        <IonCheckbox slot='start' checked={selectedIds.includes(role.id)} onClick={e => selectRole(e, role)} />
+        <IonCheckbox slot='start' checked={selectedIds.includes(role.id)} />
       }
       <IonImg slot='start' className='role-icon' src={getIcon(role.id)} />
       <IonLabel className='ion-text-nowrap overflow-visible'>
@@ -85,6 +86,11 @@ const RolesList: React.FC<Props> = (
       <IonItemDivider sticky className='ion-no-padding' color='light'>
         <IonImg className='role-type-icon' src={getIcon(type)} />
         <Translation path={`characters.type.${type}`} />
+        {playersCount && 
+          <IonNote className='ion-margin-start'>
+            {getCount(type)}/{getMaxCount(type)}
+          </IonNote>
+        }
       </IonItemDivider>
       {visibleRoles.filter(role => role.type === type).map(renderRole)}
     </div>
@@ -119,10 +125,12 @@ const RolesList: React.FC<Props> = (
               </IonTitle>
             </IonToolbar>
           }
-          <IonToolbar>
+          <IonToolbar className='ion-no-padding'>
             {searchbar &&
               <Searchbar path='characters.search' onIonInput={onInput} />
             }
+          </IonToolbar>
+          <IonToolbar className='ion-no-padding'>
             {filters &&
               <IonGrid className='filters-row'>
                 {Object.values(RoleType).map(renderRoleType)}

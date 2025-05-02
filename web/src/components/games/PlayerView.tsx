@@ -77,7 +77,7 @@ const PlayerView: React.FC<Props> = ({ gameId, playerId }) => {
         >
           <TranslationProvider translations={locales.roles}>
             <TranslationProvider translations={customRolesLocale} language="en" key={Object.keys(customRoles).length}>
-              <RolesList header roles={scriptRoles.length > 0 ? scriptRoles : roles} onClick={(role) => {
+              <RolesList header roles={scriptRoles.length > 0 ? scriptRoles : roles} onSelect={(role) => {
                 setPlayer({
                   ...player!,
                   roles: [...player!.roles.filter(r => r !== role.id), role.id]

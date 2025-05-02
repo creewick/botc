@@ -177,12 +177,12 @@ const ScriptPage: React.FC = () => {
         <IonSegmentView>
           <Suspense>
             {renderTab('roles', 
-              <RolesList items={scriptRoles} onClick={openRole} getText={getText} group searchbar />)}
+              <RolesList items={scriptRoles} onSelect={openRole} getText={getText} group searchbar />)}
             {renderTab('jinxes', null)}
             {renderTab('firstNight', 
-              <RolesList items={firstNightRoles} onClick={openRole} getText={getFirstNightText} selected={[]} />)}
+              <RolesList items={firstNightRoles} onSelect={openRole} getText={getFirstNightText} selectedIds={[]} />)}
             {renderTab('otherNight', 
-              <RolesList items={otherNightRoles} onClick={openRole} getText={getOtherNightText} selected={[]} />)}
+              <RolesList items={otherNightRoles} onSelect={openRole} getText={getOtherNightText} selectedIds={[]} />)}
           </Suspense>
         </IonSegmentView>
         {useLocale(<RoleModal role={role} close={() => openRole()} />)}

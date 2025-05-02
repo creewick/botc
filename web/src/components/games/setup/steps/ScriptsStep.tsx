@@ -17,7 +17,7 @@ const ScriptsStep: React.FC = () => {
 
   return (
     <TranslationProvider translations={locales.scripts}>
-      <ScriptsList header onSelect={onSelect} selectedId={game?.scriptId} />
+      <ScriptsList header onSelect={onSelect} selectedId={game?.scriptId ?? ''} />
     </TranslationProvider>
   )
 }

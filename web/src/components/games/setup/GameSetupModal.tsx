@@ -18,6 +18,7 @@ import PlayersStep from './steps/PlayersStep'
 import ScriptsStep from './steps/ScriptsStep'
 import BackButton from '../../common/suspense/BackButton'
 import FabledStep from './steps/FabledStep'
+import RolesStep from './steps/RolesStep'
 
 interface Props extends PageProps {
   isOpen: boolean
@@ -33,12 +34,12 @@ const Steps: Record<GameSetupStep, ReactNode> = {
   [GameSetupStep.Players]: <PlayersStep />,
   [GameSetupStep.Script]: <ScriptsStep />,
   [GameSetupStep.Fabled]: <FabledStep />,
-  [GameSetupStep.Roles]: undefined,
+  [GameSetupStep.Roles]: <RolesStep />,
   [GameSetupStep.Bluffs]: undefined
 }
 
 const GameSetupModal: React.FC<Props> = ({ isOpen, close, step }) => {
-  const modal = useRef<HTMLIonNavElement>(null)
+  const navigation = useRef<HTMLIonNavElement>(null)
 
   const onDidPresent = () => {
     const index = Object.values(GameSetupStep).indexOf(step!)
@@ -47,11 +48,12 @@ const GameSetupModal: React.FC<Props> = ({ isOpen, close, step }) => {
       componentProps: { step }
     }))
 
-    modal.current?.setPages(pages)
+    navigation.current?.setPages(pages)
   }
 
   return (
     <IonModal 
+      keepContentsMounted
       isOpen={isOpen} 
       onWillPresent={onDidPresent} 
       onDidDismiss={close} 
@@ -59,7 +61,7 @@ const GameSetupModal: React.FC<Props> = ({ isOpen, close, step }) => {
       breakpoints={[0, 1]} 
       handle={false}
     >
-      <IonNav ref={modal} />
+      <IonNav ref={navigation} />
     </IonModal>
   )
 }

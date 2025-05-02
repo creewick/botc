@@ -44,7 +44,7 @@ const RolesPage: React.FC = () => {
       </IonHeader>
       <TranslationProvider translations={locales.roles}>
         <Suspense>
-          <RolesList items={roles} getText={getText} onClick={onSelect} header searchbar filters sort />
+          <RolesList items={roles} getText={getText} onSelect={onSelect} header searchbar filters sort />
         </Suspense>
         <RoleModal role={role} close={() => onSelect()} />
       </TranslationProvider>
