@@ -1,0 +1,22 @@
+{
+  "short_name": "Clocktower",
+  "name": "Blood on the Clocktower",
+  "icons": [
+    {
+      "src": "/botc/assets/images/logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "/botc/assets/images/logo-180.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/botc/",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#583286"
+}

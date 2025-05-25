@@ -1,22 +1,21 @@
 {
-  "short_name": "Clocktower",
-  "name": "Blood on the Clocktower",
+  "short_name": "Ionic App",
+  "name": "My Ionic App",
   "icons": [
     {
-      "src": "/botc/assets/images/logo.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any"
+      "src": "assets/icon/favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
     },
     {
-      "src": "/botc/assets/images/logo-180.png",
+      "src": "assets/icon/icon.png",
       "type": "image/png",
-      "sizes": "180x180",
-      "purpose": "any"
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
-  "start_url": "/botc/",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#ffffff",
-  "background_color": "#583286"
+  "background_color": "#ffffff"
 }

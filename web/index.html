@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Blood on the ClockTower</title>
+    <title>Ionic App</title>
     
     <base href="/" />
     
@@ -19,32 +19,12 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
     
     <!-- add to homescreen for ios -->
-    <link rel="apple-touch-icon" href="/assets/images/logo-180.png">
-    <link rel="apple-touch-startup-image" href="/assets/images/logo.png" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Clocktower" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Ionic App" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <svg width="0" height="0" style="position: absolute;">
-      <defs>
-        <clipPath id="circle-clip"><circle cx="50" cy="50" r="44" /></clipPath>
-        <path id="circle-path" 
-          d='M 90 50 A 1 1 0 0 0 10 50 A 40 40 0 0 0 90 50 A 1 1 0 0 0 10 50' />
-        <filter id="shadow">
-          <feDropShadow dx="0" dy="0" stdDeviation="3" floodOpacity="0.5" />
-        </filter>
-        <filter id="grayscale">
-          <feColorMatrix type="saturate" values="0" />
-          <feComponentTransfer>
-            <feFuncR type="linear" slope="0.5" />
-            <feFuncG type="linear" slope="0.5" />
-            <feFuncB type="linear" slope="0.5" />
-          </feComponentTransfer>
-        </filter>
-      </defs>
-    </svg>
   </body>
 </html>

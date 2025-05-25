@@ -1,13 +1,8 @@
-import React, { useContext } from 'react'
-import { render } from '@testing-library/react'
-import App from './App'
-import { GamesContext } from './contexts/GamesProvider';
+import React from 'react';
+import { render } from '@testing-library/react';
+import App from './App';
 
 test('renders without crashing', () => {
-  const { baseElement } = render(<App />)
-  const gamesContext = useContext(GamesContext)
-
-console.log(gamesContext)
-
-  expect(baseElement).toBeDefined()
-})
+  const { baseElement } = render(<App />);
+  expect(baseElement).toBeDefined();
+});
