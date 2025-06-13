@@ -25,6 +25,14 @@ export default tseslint.config(
       ],
       'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
       'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+      'semi': ['error', 'never'], 
+      'quotes': ['error', 'single'],
+      'max-len': ['error', {code: 120}],
+      '@typescript-eslint/no-unused-vars': [
+        'error', 
+        { 'argsIgnorePattern': '^_', 'varsIgnorePattern': '^_', }
+      ],
+      '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }]
     },
   },
 )

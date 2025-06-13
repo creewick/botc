@@ -1,0 +1,57 @@
+.role-type-grid {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.role-type-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
+
+.role-type-chip {
+  height: 32px;
+}
+
+.role-searchbar .searchbar-input-container.sc-ion-searchbar-ios,
+.role-searchbar {
+  min-height: 32px;
+}
+
+.ios.role-searchbar {
+  padding-bottom: 0;
+}
+
+.role-icon {
+  width: 32px;
+  height: 32px;
+  transform: scale(1.5);
+}
+
+.role-list-divider {
+  height: 28px;
+  min-height: 0;
+  padding: 0;
+  transition: height 200ms ease;
+  overflow: hidden;
+  will-change: height;
+}
+
+.role-list-item {
+  height: 44px;
+  transition: height 200ms ease;
+  overflow: hidden;
+  will-change: height;
+}
+
+.role-list-item-hidden {
+  height: 0;
+  border: none;
+  pointer-events: none;
+}
+
+@media (min-width: 576px) {
+  .role-list-item:not(.role-list-item-hidden) {
+    height: 60px;
+  }
+}

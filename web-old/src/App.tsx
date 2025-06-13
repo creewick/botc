@@ -54,15 +54,19 @@ import '@ionic/react/css/palettes/dark.class.css'
 /* Theme variables */
 import './theme/variables.css'
 import './App.css'
-import { SettingsContext } from './contexts/SettingsContext'
+// import { SettingsContext } from './contexts/SettingsContext'
 
-setupIonicReact({ mode: 'ios' })
+const mode = /Chrome/.test(navigator.userAgent) ? 'md' : 'ios'
+// const mode = 'md'
+
+setupIonicReact({ mode })
+
 
 const App: React.FC = () => {
-  const { settings: appSettings } = useContext(SettingsContext)
-  const { change } = useTranslationChange()
+  // const { settings: appSettings } = useContext(SettingsContext)
+  // const { change } = useTranslationChange()
 
-  useEffect(() => change(appSettings.lang), [appSettings.lang])
+  // useEffect(() => change(appSettings.lang), [appSettings.lang])
   useDarkMode()
 
   const renderTab = (name: string, icon: string, disabled = false) =>
@@ -78,45 +82,6 @@ const App: React.FC = () => {
       <IonReactHashRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Route exact path="/home">
-              <HomePage />
-            </Route>
-            <Route exact path="/wiki">
-              <WikiPage />
-            </Route>
-            <Route exact path="/wiki/roles/:id?">
-              <TranslationProvider translations={locales.roles}>
-                <Suspense><RolesPage /></Suspense>
-              </TranslationProvider>
-            </Route>
-            <Route exact path="/wiki/scripts">
-              <TranslationProvider translations={locales.scripts}>
-                <Suspense><ScriptsPage /></Suspense>
-              </TranslationProvider>
-            </Route>
-            <Route exact path="/wiki/scripts/:id">
-              <TranslationProvider translations={locales.scripts}>
-                <TranslationProvider translations={locales.roles}>
-                  <Suspense><ScriptPage /></Suspense>
-                </TranslationProvider>
-              </TranslationProvider>
-            </Route>
-            <Route exact path="/games">
-              <GamesPage />
-            </Route>
-            <Route exact path="/games/:id">
-              <TranslationProvider translations={locales.roles}>
-                <TranslationProvider translations={locales.scripts}>
-                  <Suspense><GamePage /></Suspense>
-                </TranslationProvider>
-              </TranslationProvider>
-            </Route>
-            <Route exact path="/settings">
-              <Suspense><SettingsPage /></Suspense>
-            </Route>
-            <Route exact path="/">
-              <Redirect to="/home" />
-            </Route>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
             {renderTab('home', home)}

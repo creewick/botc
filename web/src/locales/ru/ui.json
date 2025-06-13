@@ -1,0 +1,29 @@
+{
+  "tab": {
+    "wiki": "Вики",
+    "games": "Игры",
+    "settings": "Настройки"
+  },
+  "wiki": {
+    "roles": {
+      "title": "Персонажи",
+      "description": "Список ролей и описания способностей",
+      "search": "Поиск по имени"
+    },
+    "scripts": {
+      "title": "Сценарии",
+      "description": "Список сценариев игры"
+    }
+  },
+  "roles": {
+    "type": {
+      "bootlegger": "Бутлегеры",
+      "townsfolk": "Горожане",
+      "outsider": "Изгои",
+      "minion": "Миньоны",
+      "demon": "Демоны",
+      "traveller": "Странники",
+      "fabled": "Легенды"
+    }
+  }
+}
