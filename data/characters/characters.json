@@ -1,0 +1,1224 @@
+[
+    {
+      "id": "dusk",
+      "edition": "special",
+      "firstNightOrder": 1,
+      "otherNightOrder": 1
+    },
+    {
+      "id": "dawn",
+      "edition": "special",
+      "firstNightOrder": 72,
+      "otherNightOrder": 90
+    },
+    {
+      "id": "minioninfo",
+      "type": "minion",
+      "edition": "special",
+      "firstNightOrder": 14
+    },
+    {
+      "id": "demoninfo",
+      "type": "demon",
+      "edition": "special",
+      "firstNightOrder": 18
+    },
+    {
+      "id": "washerwoman",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false,
+      "firstNightOrder": 46
+    },
+    {
+      "id": "librarian",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false,
+      "firstNightOrder": 47
+    },
+    {
+      "id": "investigator",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false,
+      "firstNightOrder": 48
+    },
+    {
+      "id": "chef",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false,
+      "firstNightOrder": 49
+    },
+    {
+      "id": "empath",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false,
+      "firstNightOrder": 50,
+      "otherNightOrder": 69
+    },
+    {
+      "id": "fortuneteller",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false,
+      "firstNightOrder": 51,
+      "otherNightOrder": 70
+    },
+    {
+      "id": "undertaker",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false,
+      "otherNightOrder": 71
+    },
+    {
+      "id": "monk",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false,
+      "otherNightOrder": 20
+    },
+    {
+      "id": "ravenkeeper",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false,
+      "otherNightOrder": 68
+    },
+    {
+      "id": "virgin",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false
+    },
+    {
+      "id": "slayer",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false
+    },
+    {
+      "id": "soldier",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false
+    },
+    {
+      "id": "mayor",
+      "type": "townsfolk",
+      "edition": "tb",
+      "setup": false
+    },
+    {
+      "id": "butler",
+      "type": "outsider",
+      "edition": "tb",
+      "setup": false,
+      "firstNightOrder": 52,
+      "otherNightOrder": 84,
+      "jinxes": ["organgrinder"]
+    },
+    {
+      "id": "drunk",
+      "type": "outsider",
+      "edition": "tb",
+      "setup": true
+    },
+    {
+      "id": "recluse",
+      "type": "outsider",
+      "edition": "tb",
+      "setup": false
+    },
+    {
+      "id": "saint",
+      "type": "outsider",
+      "edition": "tb",
+      "setup": false
+    },
+    {
+      "id": "poisoner",
+      "type": "minion",
+      "edition": "tb",
+      "setup": false,
+      "firstNightOrder": 27,
+      "otherNightOrder": 13
+    },
+    {
+      "id": "spy",
+      "type": "minion",
+      "edition": "tb",
+      "setup": false,
+      "firstNightOrder": 66,
+      "otherNightOrder": 85,
+      "jinxes": ["alchemist", "magician", "poppygrower", "damsel", "ogre"]
+    },
+    {
+      "id": "scarletwoman",
+      "type": "minion",
+      "edition": "tb",
+      "setup": false,
+      "otherNightOrder": 29,
+      "jinxes": ["fanggu", "alhadikhia"]
+    },
+    {
+      "id": "baron",
+      "type": "minion",
+      "edition": "tb",
+      "setup": true
+    },
+    {
+      "id": "imp",
+      "type": "demon",
+      "edition": "tb",
+      "setup": false,
+      "otherNightOrder": 35
+    },
+    {
+      "id": "bureaucrat",
+      "type": "traveller",
+      "edition": "tb",
+      "setup": false,
+      "firstNightOrder": 6,
+      "otherNightOrder": 3
+    },
+    {
+      "id": "thief",
+      "type": "traveller",
+      "edition": "tb",
+      "setup": false,
+      "firstNightOrder": 7,
+      "otherNightOrder": 4
+    },
+    {
+      "id": "gunslinger",
+      "type": "traveller",
+      "edition": "tb",
+      "setup": false
+    },
+    {
+      "id": "scapegoat",
+      "type": "traveller",
+      "edition": "tb",
+      "setup": false
+    },
+    {
+      "id": "beggar",
+      "type": "traveller",
+      "edition": "tb",
+      "setup": false
+    },
+    {
+      "id": "grandmother",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false,
+      "firstNightOrder": 53,
+      "otherNightOrder": 67
+    },
+    {
+      "id": "sailor",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false,
+      "firstNightOrder": 20,
+      "otherNightOrder": 9
+    },
+    {
+      "id": "chambermaid",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false,
+      "firstNightOrder": 70,
+      "otherNightOrder": 88
+    },
+    {
+      "id": "exorcist",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false,
+      "otherNightOrder": 32
+    },
+    {
+      "id": "innkeeper",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false,
+      "otherNightOrder": 15
+    },
+    {
+      "id": "gambler",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false,
+      "otherNightOrder": 17
+    },
+    {
+      "id": "gossip",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false,
+      "otherNightOrder": 53
+    },
+    {
+      "id": "courtier",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false,
+      "firstNightOrder": 29,
+      "otherNightOrder": 14
+    },
+    {
+      "id": "professor",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false,
+      "otherNightOrder": 59
+    },
+    {
+      "id": "minstrel",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false
+    },
+    {
+      "id": "tealady",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false
+    },
+    {
+      "id": "pacifist",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false
+    },
+    {
+      "id": "fool",
+      "type": "townsfolk",
+      "edition": "bmr",
+      "setup": false
+    },
+    {
+      "id": "tinker",
+      "type": "outsider",
+      "edition": "bmr",
+      "setup": false,
+      "otherNightOrder": 65
+    },
+    {
+      "id": "moonchild",
+      "type": "outsider",
+      "edition": "bmr",
+      "setup": false,
+      "otherNightOrder": 66
+    },
+    {
+      "id": "goon",
+      "type": "outsider",
+      "edition": "bmr",
+      "setup": false
+    },
+    {
+      "id": "lunatic",
+      "type": "outsider",
+      "edition": "bmr",
+      "setup": false,
+      "firstNightOrder": 16,
+      "otherNightOrder": 31
+    },
+    {
+      "id": "godfather",
+      "type": "minion",
+      "edition": "bmr",
+      "setup": true,
+      "firstNightOrder": 32,
+      "otherNightOrder": 52
+    },
+    {
+      "id": "devilsadvocate",
+      "type": "minion",
+      "edition": "bmr",
+      "setup": false,
+      "firstNightOrder": 34,
+      "otherNightOrder": 22
+    },
+    {
+      "id": "assassin",
+      "type": "minion",
+      "edition": "bmr",
+      "setup": false,
+      "otherNightOrder": 51
+    },
+    {
+      "id": "mastermind",
+      "type": "minion",
+      "edition": "bmr",
+      "setup": false,
+      "jinxes": ["alhadikhia"]
+    },
+    {
+      "id": "zombuul",
+      "type": "demon",
+      "edition": "bmr",
+      "setup": false,
+      "otherNightOrder": 36
+    },
+    {
+      "id": "pukka",
+      "type": "demon",
+      "edition": "bmr",
+      "setup": false,
+      "firstNightOrder": 41,
+      "otherNightOrder": 37
+    },
+    {
+      "id": "shabaloth",
+      "type": "demon",
+      "edition": "bmr",
+      "setup": false,
+      "otherNightOrder": 38
+    },
+    {
+      "id": "po",
+      "type": "demon",
+      "edition": "bmr",
+      "setup": false,
+      "otherNightOrder": 39
+    },
+    {
+      "id": "apprentice",
+      "type": "traveller",
+      "edition": "bmr",
+      "setup": false,
+      "firstNightOrder": 4
+    },
+    {
+      "id": "matron",
+      "type": "traveller",
+      "edition": "bmr",
+      "setup": false
+    },
+    {
+      "id": "judge",
+      "type": "traveller",
+      "edition": "bmr",
+      "setup": false
+    },
+    {
+      "id": "bishop",
+      "type": "traveller",
+      "edition": "bmr",
+      "setup": false
+    },
+    {
+      "id": "voudon",
+      "type": "traveller",
+      "edition": "bmr",
+      "setup": false
+    },
+    {
+      "id": "clockmaker",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false,
+      "firstNightOrder": 54
+    },
+    {
+      "id": "dreamer",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false,
+      "firstNightOrder": 55,
+      "otherNightOrder": 72
+    },
+    {
+      "id": "snakecharmer",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false,
+      "firstNightOrder": 31,
+      "otherNightOrder": 19
+    },
+    {
+      "id": "mathematician",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false,
+      "firstNightOrder": 71,
+      "otherNightOrder": 89,
+      "jinxes": ["chambermaid", "lunatic"]
+    },
+    {
+      "id": "flowergirl",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 73
+    },
+    {
+      "id": "towncrier",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 74
+    },
+    {
+      "id": "oracle",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 75
+    },
+    {
+      "id": "savant",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false
+    },
+    {
+      "id": "seamstress",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false,
+      "firstNightOrder": 56,
+      "otherNightOrder": 76
+    },
+    {
+      "id": "philosopher",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false,
+      "firstNightOrder": 9,
+      "otherNightOrder": 7
+    },
+    {
+      "id": "artist",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false
+    },
+    {
+      "id": "juggler",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 77
+    },
+    {
+      "id": "sage",
+      "type": "townsfolk",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 57
+    },
+    {
+      "id": "mutant",
+      "type": "outsider",
+      "edition": "snv",
+      "setup": false
+    },
+    {
+      "id": "sweetheart",
+      "type": "outsider",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 56
+    },
+    {
+      "id": "barber",
+      "type": "outsider",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 55
+    },
+    {
+      "id": "klutz",
+      "type": "outsider",
+      "edition": "snv",
+      "setup": false
+    },
+    {
+      "id": "eviltwin",
+      "type": "minion",
+      "edition": "snv",
+      "setup": false,
+      "firstNightOrder": 35
+    },
+    {
+      "id": "witch",
+      "type": "minion",
+      "edition": "snv",
+      "setup": false,
+      "firstNightOrder": 36,
+      "otherNightOrder": 23
+    },
+    {
+      "id": "cerenovus",
+      "type": "minion",
+      "edition": "snv",
+      "setup": false,
+      "firstNightOrder": 37,
+      "otherNightOrder": 24,
+      "jinxes": ["goblin"]
+    },
+    {
+      "id": "pithag",
+      "type": "minion",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 25,
+      "pithag": ["damsel", "politician", "villageidiot", "cultleader", "goon", "ogre"]
+    },
+    {
+      "id": "fanggu",
+      "type": "demon",
+      "edition": "snv",
+      "setup": true,
+      "otherNightOrder": 40
+    },
+    {
+      "id": "vigormortis",
+      "type": "demon",
+      "edition": "snv",
+      "setup": true,
+      "otherNightOrder": 44
+    },
+    {
+      "id": "nodashii",
+      "type": "demon",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 41
+    },
+    {
+      "id": "vortox",
+      "type": "demon",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 42,
+      "jinxes": ["banshee"]
+    },
+    {
+      "id": "barista",
+      "type": "traveller",
+      "edition": "snv",
+      "setup": false,
+      "firstNightOrder": 5,
+      "otherNightOrder": 2
+    },
+    {
+      "id": "harlot",
+      "type": "traveller",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 5
+    },
+    {
+      "id": "butcher",
+      "type": "traveller",
+      "edition": "snv",
+      "setup": false
+    },
+    {
+      "id": "bonecollector",
+      "type": "traveller",
+      "edition": "snv",
+      "setup": false,
+      "otherNightOrder": 6
+    },
+    {
+      "id": "deviant",
+      "type": "traveller",
+      "edition": "snv",
+      "setup": false
+    },
+    {
+      "id": "noble",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 59
+    },
+    {
+      "id": "bountyhunter",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 63,
+      "otherNightOrder": 81,
+      "jinxes": ["philosopher", "kazali"]
+    },
+    {
+      "id": "pixie",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 42
+    },
+    {
+      "id": "general",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 69,
+      "otherNightOrder": 87
+    },
+    {
+      "id": "preacher",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 23,
+      "otherNightOrder": 11
+    },
+    {
+      "id": "king",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 19,
+      "otherNightOrder": 80
+    },
+    {
+      "id": "balloonist",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": true,
+      "firstNightOrder": 60,
+      "otherNightOrder": 78
+    },
+    {
+      "id": "cultleader",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 65,
+      "otherNightOrder": 83
+    },
+    {
+      "id": "lycanthrope",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "otherNightOrder": 33
+    },
+    {
+      "id": "amnesiac",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 45,
+      "otherNightOrder": 63
+    },
+    {
+      "id": "nightwatchman",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 64,
+      "otherNightOrder": 82
+    },
+    {
+      "id": "engineer",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 22,
+      "otherNightOrder": 10
+    },
+    {
+      "id": "fisherman",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false
+    },
+    {
+      "id": "huntsman",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": true,
+      "firstNightOrder": 43,
+      "otherNightOrder": 61
+    },
+    {
+      "id": "alchemist",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 10
+    },
+    {
+      "id": "farmer",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "otherNightOrder": 64
+    },
+    {
+      "id": "magician",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 13
+    },
+    {
+      "id": "choirboy",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": true,
+      "otherNightOrder": 60
+    },
+    {
+      "id": "poppygrower",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 11,
+      "otherNightOrder": 8
+    },
+    {
+      "id": "atheist",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": true
+    },
+    {
+      "id": "cannibal",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "jinxes": ["butler", "juggler", "zealot", "poppygrower"]
+    },
+    {
+      "id": "snitch",
+      "type": "outsider",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 15
+    },
+    {
+      "id": "acrobat",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "otherNightOrder": 18
+    },
+    {
+      "id": "puzzlemaster",
+      "type": "outsider",
+      "edition": "",
+      "setup": false
+    },
+    {
+      "id": "heretic",
+      "type": "outsider",
+      "edition": "",
+      "setup": false,
+      "jinxes": ["godfather", "baron", "pithag", "spy", "widow", "lleech", "boffin"]
+    },
+    {
+      "id": "damsel",
+      "type": "outsider",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 44,
+      "otherNightOrder": 62
+    },
+    {
+      "id": "golem",
+      "type": "outsider",
+      "edition": "",
+      "setup": false
+    },
+    {
+      "id": "politician",
+      "type": "outsider",
+      "edition": "",
+      "setup": false
+    },
+    {
+      "id": "widow",
+      "type": "minion",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 28,
+      "jinxes": ["alchemist", "magician", "poppygrower", "damsel"]
+    },
+    {
+      "id": "fearmonger",
+      "type": "minion",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 38,
+      "otherNightOrder": 26
+    },
+    {
+      "id": "psychopath",
+      "type": "minion",
+      "edition": "",
+      "setup": false
+    },
+    {
+      "id": "goblin",
+      "type": "minion",
+      "edition": "",
+      "setup": false
+    },
+    {
+      "id": "mezepheles",
+      "type": "minion",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 40,
+      "otherNightOrder": 28
+    },
+    {
+      "id": "marionette",
+      "type": "minion",
+      "edition": "",
+      "setup": true,
+      "firstNightOrder": 21,
+      "jinxes": ["lilmonsta", "poppygrower", "snitch", "balloonist", "damsel", "huntsman"]
+    },
+    {
+      "id": "boomdandy",
+      "type": "minion",
+      "edition": "",
+      "setup": false
+    },
+    {
+      "id": "lilmonsta",
+      "type": "demon",
+      "edition": "",
+      "setup": true,
+      "firstNightOrder": 24,
+      "otherNightOrder": 48,
+      "jinxes": ["poppygrower", "magician", "scarletwoman", "vizier", "hatter"]
+    },
+    {
+      "id": "lleech",
+      "type": "demon",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 25,
+      "otherNightOrder": 47,
+      "jinxes": ["mastermind", "slayer"]
+    },
+    {
+      "id": "alhadikhia",
+      "type": "demon",
+      "edition": "",
+      "setup": false,
+      "otherNightOrder": 46
+    },
+    {
+      "id": "legion",
+      "type": "demon",
+      "edition": "",
+      "setup": true,
+      "otherNightOrder": 34,
+      "jinxes": ["engineer", "preacher", "minstrel", "hatter", "zealot"]
+    },
+    {
+      "id": "leviathan",
+      "type": "demon",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 73,
+      "otherNightOrder": 91,
+      "jinxes": ["soldier", "monk", "innkeeper", "ravenkeeper", "banshee", "sage", "farmer", "mayor", "exorcist", "grandmother", "king", "hatter", "pithag"]
+    },
+    {
+      "id": "riot",
+      "type": "demon",
+      "edition": "",
+      "setup": false,
+      "jinxes": ["mayor", "monk", "farmer", "innkeeper", "sage", "banshee", "ravenkeeper", "soldier", "grandmother", "king", "exorcist"]
+    },
+    {
+      "id": "gangster",
+      "type": "traveller",
+      "edition": "",
+      "setup": false
+    },
+    {
+      "id": "organgrinder",
+      "type": "minion",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 33,
+      "otherNightOrder": 21
+    },
+    {
+      "id": "vizier",
+      "type": "minion",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 74,
+      "jinxes": ["investigator", "preacher", "courtier", "magician", "fearmonger", "politician", "alsaahir", "zealot"]
+    },
+    {
+      "id": "knight",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 58
+    },
+    {
+      "id": "steward",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 57
+    },
+    {
+      "id": "highpriestess",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 68,
+      "otherNightOrder": 86
+    },
+    {
+      "id": "harpy",
+      "type": "minion",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 39,
+      "otherNightOrder": 27
+    },
+    {
+      "id": "plaguedoctor",
+      "type": "outsider",
+      "edition": "",
+      "setup": false,
+      "jinxes": ["eviltwin", "fearmonger", "goblin", "spy", "scarletwoman", "boomdandy", "baron", "marionette"]
+    },
+    {
+      "id": "shugenja",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 61
+    },
+    {
+      "id": "ojo",
+      "type": "demon",
+      "edition": "",
+      "setup": false,
+      "otherNightOrder": 45
+    },
+    {
+      "id": "hatter",
+      "type": "outsider",
+      "edition": "",
+      "setup": false,
+      "otherNightOrder": 54
+    },
+    {
+      "id": "kazali",
+      "type": "demon",
+      "edition": "",
+      "setup": true,
+      "firstNightOrder": 3,
+      "otherNightOrder": 50,
+      "jinxes": ["goon", "marionette", "huntsman", "choirboy", "soldier"]
+    },
+    {
+      "id": "villageidiot",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": true,
+      "firstNightOrder": 62,
+      "otherNightOrder": 79
+    },
+    {
+      "id": "yaggababble",
+      "type": "demon",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 12,
+      "otherNightOrder": 49,
+      "jinxes": ["exorcist"]
+    },
+    {
+      "id": "summoner",
+      "type": "minion",
+      "edition": "",
+      "setup": true,
+      "firstNightOrder": 17,
+      "otherNightOrder": 30,
+      "jinxes": ["clockmaker", "alchemist", "poppygrower", "marionette", "pithag", "hatter", "courtier", "engineer", "zombuul", "pukka", "legion", "kazali", "preacher", "lordoftyphon"]
+    },
+    {
+      "id": "banshee",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false,
+      "otherNightOrder": 58
+    },
+    {
+      "id": "ogre",
+      "type": "outsider",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 67,
+      "jinxes": ["recluse"]
+    },
+    {
+      "id": "alsaahir",
+      "type": "townsfolk",
+      "edition": "",
+      "setup": false
+    },
+    {
+      "id": "zealot",
+      "type": "outsider",
+      "edition": "",
+      "setup": false
+    },
+    {
+      "id": "lordoftyphon",
+      "type": "demon",
+      "edition": "",
+      "setup": true,
+      "firstNightOrder": 2,
+      "otherNightOrder": 43
+    },
+    {
+      "id": "boffin",
+      "type": "minion",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 8,
+      "jinxes": ["cultleader", "goon", "ogre", "politician", "drunk", "alchemist", "villageidiot"]
+    },
+    {
+      "id": "gnome",
+      "type": "traveller",
+      "edition": "",
+      "setup": false
+    },
+    {
+      "id": "xaan",
+      "type": "minion",
+      "edition": "",
+      "setup": true,
+      "firstNightOrder": 26,
+      "otherNightOrder": 12
+    },
+    {
+      "id": "wizard",
+      "type": "minion",
+      "edition": "",
+      "setup": false,
+      "firstNightOrder": 30,
+      "otherNightOrder": 16
+    },
+    {
+      "id": "doomsayer",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false
+    },
+    {
+      "id": "angel",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false,
+      "firstNightOrder": 1
+    },
+    {
+      "id": "buddhist",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false,
+      "firstNightOrder": 1
+    },
+    {
+      "id": "hellslibrarian",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false
+    },
+    {
+      "id": "revolutionary",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false
+    },
+    {
+      "id": "fiddler",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false
+    },
+    {
+      "id": "toymaker",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false,
+      "firstNightOrder": 1,
+      "otherNightOrder": 1
+    },
+    {
+      "id": "fibbin",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false
+    },
+    {
+      "id": "duchess",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false,
+      "otherNightOrder": 1
+    },
+    {
+      "id": "sentinel",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": true
+    },
+    {
+      "id": "spiritofivory",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false
+    },
+    {
+      "id": "djinn",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false
+    },
+    {
+      "id": "stormcatcher",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false,
+      "firstNightOrder": 1
+    },
+    {
+      "id": "gardener",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false
+    },
+    {
+      "id": "bootlegger",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false
+    },
+    {
+      "id": "ferryman",
+      "type": "fabled",
+      "edition": "fabled",
+      "setup": false
+    }
+  ]
