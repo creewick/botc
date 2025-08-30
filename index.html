@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Blood on the ClockTower</title>
+    <title>Blood on the Clocktower</title>
     
     <base href="/" />
     
@@ -16,35 +16,19 @@
     
     <link rel="manifest" href="/botc/manifest.json" />
     
-    <link rel="shortcut icon" type="image/png" href="/botc/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="/botc/images/favicon.png" />
     
-    <link rel="apple-touch-icon" href="/botc/assets/images/logo-180.png">
-    <link rel="apple-touch-startup-image" href="/botc/assets/images/logo.png" />
+    <!-- add to homescreen for ios -->
+    <link rel="apple-touch-icon" href="/botc/images/logo-180.png">
+    <link rel="apple-touch-startup-image" href="/botc/images/logo.png" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Clocktower" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <script type="module" crossorigin src="/botc/assets/index-0TnNr1jV.js"></script>
-    <link rel="stylesheet" crossorigin href="/botc/assets/index-KMiGuTOI.css">
+    <script type="module" crossorigin src="/botc/assets/index-DdA76pO3.js"></script>
+    <link rel="stylesheet" crossorigin href="/botc/assets/index-C9XtIWqQ.css">
   <link rel="manifest" href="/botc/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/botc/registerSW.js"></script></head>
   <body>
     <div id="root"></div>
-    <svg width="0" height="0" style="position: absolute;">
-      <defs>
-        <clipPath id="circle-clip"><circle cx="50" cy="50" r="44" /></clipPath>
-        <path id="circle-path" 
-          d='M 90 50 A 1 1 0 0 0 10 50 A 40 40 0 0 0 90 50 A 1 1 0 0 0 10 50' />
-        <filter id="shadow">
-          <feDropShadow dx="0" dy="0" stdDeviation="3" floodOpacity="0.5" />
-        </filter>
-        <filter id="grayscale">
-          <feColorMatrix type="saturate" values="0" />
-          <feComponentTransfer>
-            <feFuncR type="linear" slope="0.5" />
-            <feFuncG type="linear" slope="0.5" />
-            <feFuncB type="linear" slope="0.5" />
-          </feComponentTransfer>
-        </filter>
-      </defs>
-    </svg>
+    <div id="drag-root"></div>
   </body>
 </html>

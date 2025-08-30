@@ -3,13 +3,13 @@
   "name": "Blood on the Clocktower",
   "icons": [
     {
-      "src": "/botc/assets/images/logo.png",
+      "src": "/botc/images/logo.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"
     },
     {
-      "src": "/botc/assets/images/logo-180.png",
+      "src": "/botc/images/logo-180.png",
       "type": "image/png",
       "sizes": "180x180",
       "purpose": "any"
