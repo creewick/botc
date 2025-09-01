@@ -1,0 +1,1 @@
+const e=[{id:"_meta",name:"Over the River",author:"Andrew Nathenson",tags:["teen"],difficulty:{storyteller:2,player:3}},"grandmother","clockmaker","innkeeper","snake_charmer","professor","slayer","lunatic","recluse","godfather","spy","imp"];export{e as default};

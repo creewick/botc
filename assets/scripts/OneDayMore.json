@@ -1,0 +1,99 @@
+[
+  {
+    "background": "https://release.botc.app/wc25/background.webp",
+    "logo": "https://release.botc.app/wc25/1daymore/logo.webp",
+    "author": "Robe",
+    "name": "One Day More",
+    "hideTitle": true,
+    "bootlegger": [
+      "Signal Failure: There is a 24 hour delay impacting all characters with abilities that know or learn information."
+    ],
+    "isOfficial": false,
+    "id": "_meta",
+    "tags": ["world_cup"]
+  },
+  {
+    "id": "harlot"
+  },
+  {
+    "id": "beggar"
+  },
+  {
+    "id": "gnome"
+  },
+  {
+    "id": "chef"
+  },
+  {
+    "id": "librarian"
+  },
+  {
+    "id": "highpriestess"
+  },
+  {
+    "id": "general"
+  },
+  {
+    "id": "villageidiot"
+  },
+  {
+    "id": "fortuneteller"
+  },
+  {
+    "id": "dreamer"
+  },
+  {
+    "id": "towncrier"
+  },
+  {
+    "id": "savant"
+  },
+  {
+    "id": "nightwatchman"
+  },
+  {
+    "id": "philosopher"
+  },
+  {
+    "id": "artist"
+  },
+  {
+    "id": "sage"
+  },
+  {
+    "id": "recluse"
+  },
+  {
+    "id": "mutant"
+  },
+  {
+    "id": "damsel"
+  },
+  {
+    "id": "puzzlemaster"
+  },
+  {
+    "id": "poisoner"
+  },
+  {
+    "id": "witch"
+  },
+  {
+    "id": "cerenovus"
+  },
+  {
+    "id": "widow"
+  },
+  {
+    "id": "xaan"
+  },
+  {
+    "id": "lilmonsta"
+  },
+  {
+    "id": "imp"
+  },
+  {
+    "id": "fanggu"
+  }
+]

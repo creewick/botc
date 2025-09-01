@@ -1,0 +1,87 @@
+[
+  {
+    "background": "https://release.botc.app/wc25/background.webp",
+    "logo": "https://release.botc.app/wc25/binarysupernovae/logo.webp",
+    "author": "Hystrex",
+    "name": "Binary Supernovae",
+    "hideTitle": true,
+    "bootlegger": [
+      "If a Demon dies by execution, good wins. Summoner only removes 1 Demon. [+1 Demon]"
+    ],
+    "isOfficial": false,
+    "id": "_meta",
+    "tags": ["world_cup"]
+  },
+  {
+    "id": "chef"
+  },
+  {
+    "id": "grandmother"
+  },
+  {
+    "id": "shugenja"
+  },
+  {
+    "id": "empath"
+  },
+  {
+    "id": "fortuneteller"
+  },
+  {
+    "id": "oracle"
+  },
+  {
+    "id": "innkeeper"
+  },
+  {
+    "id": "gambler"
+  },
+  {
+    "id": "exorcist"
+  },
+  {
+    "id": "seamstress"
+  },
+  {
+    "id": "philosopher"
+  },
+  {
+    "id": "soldier"
+  },
+  {
+    "id": "magician"
+  },
+  {
+    "id": "butler"
+  },
+  {
+    "id": "tinker"
+  },
+  {
+    "id": "sweetheart"
+  },
+  {
+    "id": "moonchild"
+  },
+  {
+    "id": "assassin"
+  },
+  {
+    "id": "xaan"
+  },
+  {
+    "id": "summoner"
+  },
+  {
+    "id": "mastermind"
+  },
+  {
+    "id": "pukka"
+  },
+  {
+    "id": "imp"
+  },
+  {
+    "id": "ojo"
+  }
+]

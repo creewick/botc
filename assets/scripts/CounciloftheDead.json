@@ -1,0 +1,87 @@
+[
+  {
+    "background": "https://release.botc.app/wc25/background.webp",
+    "logo": "https://release.botc.app/wc25/deadcouncil/logo.webp",
+    "author": "Ember",
+    "name": "Council of the Dead",
+    "hideTitle": true,
+    "bootlegger": [
+      "At the start of N4, dead wake together for 2 min, then secretly vote on a living player (if there's no majority, the ST chooses). The chosen player gets a boon."
+    ],
+    "isOfficial": false,
+    "id": "_meta",
+    "tags": ["world_cup"]
+  },
+  {
+    "id": "librarian"
+  },
+  {
+    "id": "shugenja"
+  },
+  {
+    "id": "fortuneteller"
+  },
+  {
+    "id": "towncrier"
+  },
+  {
+    "id": "oracle"
+  },
+  {
+    "id": "monk"
+  },
+  {
+    "id": "savant"
+  },
+  {
+    "id": "alsaahir"
+  },
+  {
+    "id": "philosopher"
+  },
+  {
+    "id": "huntsman"
+  },
+  {
+    "id": "fisherman"
+  },
+  {
+    "id": "soldier"
+  },
+  {
+    "id": "mayor"
+  },
+  {
+    "id": "drunk"
+  },
+  {
+    "id": "recluse"
+  },
+  {
+    "id": "mutant"
+  },
+  {
+    "id": "damsel"
+  },
+  {
+    "id": "mezepheles"
+  },
+  {
+    "id": "cerenovus"
+  },
+  {
+    "id": "summoner"
+  },
+  {
+    "id": "baron"
+  },
+  {
+    "id": "imp"
+  },
+  {
+    "id": "vigormortis"
+  },
+  {
+    "id": "vortox"
+  }
+]

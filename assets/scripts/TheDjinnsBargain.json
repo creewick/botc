@@ -1,0 +1,137 @@
+[
+  {
+    "background": "https://release.botc.app/wc25/background.webp",
+    "logo": "https://release.botc.app/wc25/djinnsbargain/logo.webp",
+    "author": "phillyCHEEEEEZ",
+    "name": "The Djinn's Bargain",
+    "hideTitle": true,
+    "bootlegger": [
+      "Nominators may choose to die after making a nomination. If they do, their nominee's ability works twice until dusk tomorrow."
+    ],
+    "isOfficial": false,
+    "id": "_meta",
+    "tags": ["world_cup"]
+  },
+  {
+    "id": "butcher"
+  },
+  {
+    "id": "bonecollector"
+  },
+  {
+    "id": "judge"
+  },
+  {
+    "id": "apprentice"
+  },
+  {
+    "id": "scapegoat"
+  },
+  {
+    "id": "chef"
+  },
+  {
+    "id": "investigator"
+  },
+  {
+    "id": "clockmaker"
+  },
+  {
+    "id": "librarian"
+  },
+  {
+    "id": "balloonist"
+  },
+  {
+    "id": "preacher"
+  },
+  {
+    "id": "fortuneteller"
+  },
+  {
+    "id": "dreamer"
+  },
+  {
+    "id": "innkeeper"
+  },
+  {
+    "id": "exorcist"
+  },
+  {
+    "id": "fisherman"
+  },
+  {
+    "id": "alchemist"
+  },
+  {
+    "id": "ravenkeeper"
+  },
+  {
+    "id": "goon"
+  },
+  {
+    "id": "drunk"
+  },
+  {
+    "id": "barber"
+  },
+  {
+    "id": "snitch"
+  },
+  {
+    "id": "witch"
+  },
+  {
+    "id": "assassin"
+  },
+  {
+    "id": "xaan"
+  },
+  {
+    "id": "marionette"
+  },
+  {
+    "id": "djinnsbargaindjinnsbargain",
+    "name": "Djinn's Bargain",
+    "ability": "Nominators may choose to die after making a nomination. If they do, their nominee's ability works twice until dusk tomorrow.",
+    "reminders": [
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice"
+    ],
+    "team": "fabled"
+  },
+  {
+    "id": "pukka"
+  },
+  {
+    "id": "nodashii"
+  },
+  {
+    "id": "ojo"
+  },
+  {
+    "id": "po"
+  },
+  {
+    "id": "djinnsbargaindjinnsbargain",
+    "name": "Djinn's Bargain",
+    "ability": "Nominators may choose to die after making a nomination. If they do, their nominee's ability works twice until dusk tomorrow.",
+    "reminders": [
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice",
+      "Acts Twice"
+    ],
+    "team": "fabled"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "_meta",
+    "name": "Laissez Un Faire",
+    "author": "Steven Medway",
+    "tags": ["teen"],
+    "difficulty": {
+      "storyteller": 4,
+      "player": 4.5
+    }
+  },
+  "balloonist",
+  "savant",
+  "amnesiac",
+  "fisherman",
+  "artist",
+  "cannibal",
+  "mutant",
+  "lunatic",
+  "widow",
+  "goblin",
+  "leviathan"
+]

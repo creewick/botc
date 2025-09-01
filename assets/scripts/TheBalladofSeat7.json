@@ -1,0 +1,90 @@
+[
+  {
+    "background": "https://release.botc.app/wc25/background.webp",
+    "logo": "https://release.botc.app/wc25/seat7/logo.webp",
+    "author": "TrashWarlock",
+    "name": "The Ballad of Seat 7",
+    "hideTitle": true,
+    "bootlegger": [
+      "Seat 7 remains empty. Its choices are arbitrary. Once per game, the storyteller may speak on it's behalf."
+    ],
+    "isOfficial": false,
+    "id": "_meta",
+    "tags": ["world_cup"]
+  },
+  {
+    "id": "noble"
+  },
+  {
+    "id": "washerwoman"
+  },
+  {
+    "id": "librarian"
+  },
+  {
+    "id": "balloonist"
+  },
+  {
+    "id": "fortuneteller"
+  },
+  {
+    "id": "dreamer"
+  },
+  {
+    "id": "seamstress"
+  },
+  {
+    "id": "fisherman"
+  },
+  {
+    "id": "soldier"
+  },
+  {
+    "id": "farmer"
+  },
+  {
+    "id": "mayor"
+  },
+  {
+    "id": "virgin"
+  },
+  {
+    "id": "magician"
+  },
+  {
+    "id": "drunk"
+  },
+  {
+    "id": "recluse"
+  },
+  {
+    "id": "saint"
+  },
+  {
+    "id": "barber"
+  },
+  {
+    "id": "damsel"
+  },
+  {
+    "id": "pithag"
+  },
+  {
+    "id": "boomdandy"
+  },
+  {
+    "id": "scarletwoman"
+  },
+  {
+    "id": "boffin"
+  },
+  {
+    "id": "nodashii"
+  },
+  {
+    "id": "vigormortis"
+  },
+  {
+    "id": "fanggu"
+  }
+]

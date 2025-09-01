@@ -1,0 +1,105 @@
+[
+  {
+    "background": "https://release.botc.app/wc25/background.webp",
+    "logo": "https://release.botc.app/wc25/offwizard/logo.webp",
+    "author": "Crispy Duck",
+    "name": "Off to see the Wizard",
+    "hideTitle": true,
+    "bootlegger": [
+      "If a Wizard is in play 1 good player knows & each day, while alive, may privately guess the wizard wish & learn how accurate they are if a wish has been made."
+    ],
+    "isOfficial": false,
+    "id": "_meta",
+    "tags": ["world_cup"]
+  },
+  {
+    "id": "chef"
+  },
+  {
+    "id": "noble"
+  },
+  {
+    "id": "clockmaker"
+  },
+  {
+    "id": "librarian"
+  },
+  {
+    "id": "highpriestess"
+  },
+  {
+    "id": "acrobat"
+  },
+  {
+    "id": "savant"
+  },
+  {
+    "id": "nightwatchman"
+  },
+  {
+    "id": "artist"
+  },
+  {
+    "id": "cannibal"
+  },
+  {
+    "id": "amnesiac"
+  },
+  {
+    "id": "farmer"
+  },
+  {
+    "id": "ravenkeeper"
+  },
+  {
+    "id": "sweetheart"
+  },
+  {
+    "id": "hatter"
+  },
+  {
+    "id": "mutant"
+  },
+  {
+    "id": "politician"
+  },
+  {
+    "id": "wizard"
+  },
+  {
+    "id": "xaan"
+  },
+  {
+    "id": "boomdandy"
+  },
+  {
+    "id": "scarletwoman"
+  },
+  {
+    "id": "offwizardoffwizard",
+    "name": "Off to see the Wizard",
+    "ability": "If a Wizard is in play 1 good player knows & each day, while alive, may privately guess the wizard wish & learn how accurate they are if a wish has been made.",
+    "reminders": [
+      "Knows"
+    ],
+    "team": "fabled"
+  },
+  {
+    "id": "pukka"
+  },
+  {
+    "id": "imp"
+  },
+  {
+    "id": "kazali"
+  },
+  {
+    "id": "offwizardoffwizard",
+    "name": "Off to see the Wizard",
+    "ability": "If a Wizard is in play 1 good player knows & each day, while alive, may privately guess the wizard wish & learn how accurate they are if a wish has been made.",
+    "reminders": [
+      "Knows"
+    ],
+    "team": "fabled"
+  }
+]
